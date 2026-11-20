@@ -1,0 +1,159 @@
+
+---
+import "../styles/program/KontakDiaspora.css";
+
+const whatsappUrl = "https://wa.me/6285319485269";
+const formulirUrl =
+  "/pendaftaran";
+
+const alamat =
+  "PKBM Alfatihah Semarang, Jl. Ngablak Indah II No. 24A, Bangetayu Kulon, Kec. Genuk, Kota Semarang, Jawa Tengah 50115";
+
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent(alamat);
+
+const mapsEmbedUrl =
+  "https://www.google.com/maps?q=" +
+  encodeURIComponent(alamat) +
+  "&output=embed";
+---
+
+<section
+  class="kontak-diaspora"
+  id="kontak-diaspora"
+  aria-labelledby="kontak-diaspora-title"
+>
+  <div class="kontak-diaspora-container">
+
+    <!-- AJAKAN -->
+    <header class="kontak-diaspora-heading">
+      <p class="kontak-diaspora-label">
+        Solusi Pendidikan Fleksibel, Kredibel & Islami.
+      </p>
+
+      <h2 id="kontak-diaspora-title">
+        Raih masa depan cerah bersama PKBM Al-Fatihah.
+      </h2>
+
+      <p class="kontak-diaspora-description">
+        Konsultasikan kebutuhan pendidikan Anda dan keluarga sekarang.
+      </p>
+    </header>
+
+    <div class="kontak-diaspora-separator"></div>
+
+    <!-- INFORMASI KONTAK -->
+    <div class="kontak-diaspora-info-heading">
+      <h3>Informasi Kontak</h3>
+      <p>
+        Hubungi nomor di bawah ini untuk informasi dan konsultasi lebih lanjut.
+      </p>
+    </div>
+
+    <div class="kontak-diaspora-grid">
+
+      <!-- KOLOM KIRI -->
+      <div class="kontak-diaspora-details">
+
+        <div class="kontak-diaspora-item">
+          <h4>WhatsApp CS</h4>
+          <p>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              0853-1948-5269
+            </a>
+            <span class="kontak-diaspora-secondary">
+              (dari luar negeri: +62 853 1948 5269)
+            </span>
+          </p>
+          <a
+            class="kontak-diaspora-action"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Chat WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="kontak-diaspora-item">
+          <h4>Email</h4>
+          <p>
+            <a href="mailto:alfatihahhomeschooling@gmail.com">
+              alfatihahhomeschooling@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div class="kontak-diaspora-item">
+          <h4>Website</h4>
+          <p>
+            <a
+              href="https://alfatihah.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              alfatihah.com
+            </a>
+          </p>
+        </div>
+
+        <div class="kontak-diaspora-item">
+          <h4>Formulir pendaftaran</h4>
+          <p>
+            <a
+              href={formulirUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {formulirUrl}
+            </a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- KOLOM KANAN -->
+      <div class="kontak-diaspora-location">
+        <h4>Alamat</h4>
+
+        <p>{alamat}</p>
+
+        <div class="kontak-diaspora-map">
+          <iframe
+            src={mapsEmbedUrl}
+            title="Google Maps PKBM Alfatihah Semarang"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <a
+          href={mapsUrl}
+          class="kontak-diaspora-action"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buka di Google Maps <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="kontak-diaspora-separator kontak-diaspora-separator-bottom"></div>
+
+    <!-- PEMBAYARAN -->
+    <div class="kontak-diaspora-payment">
+      <h4>Pembayaran</h4>
+      <p>
+        Transfer Bank BSI No. Rek. 7266356026 a.n. PKBM Alfatihah,
+        atau tunai langsung di PKBM. Dari luar negeri: transfer
+        internasional (SWIFT) atau layanan transfer lintas negara
+        ke rekening yang sama, biaya transfer ditanggung pengirim.
+        Mohon konfirmasi ke CS sebelum transfer.
+      </p>
+    </div>
+
+  </div>
+</section>

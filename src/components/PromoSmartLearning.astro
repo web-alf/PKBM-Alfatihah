@@ -1,0 +1,122 @@
+
+---
+import "../styles/program/PromoSmartLearning.css";
+
+const whatsappUrl = "https://wa.me/6285319485269";
+---
+
+<section
+  class="promo-smart"
+  id="promo-smart-learning"
+  aria-labelledby="promo-smart-title"
+>
+  <div class="promo-smart-container">
+
+    <!-- JUDUL SECTION -->
+    <header class="promo-smart-heading">
+      <h2 id="promo-smart-title">Promo & Diskon</h2>
+      <span class="promo-smart-divider" aria-hidden="true"></span>
+    </header>
+
+    <!-- PROMO UTAMA -->
+    <div class="promo-smart-main">
+      <span class="promo-smart-main-label">
+        BIAYA PENDAFTARAN · DISKON 50%
+      </span>
+
+      <div class="promo-smart-prices">
+        <span class="promo-smart-old-price">
+          Rp300.000
+        </span>
+
+        <strong class="promo-smart-new-price">
+          Rp150.000
+        </strong>
+      </div>
+
+      <p class="promo-smart-main-description">
+        Diskon 50% semua kelas & pilar.
+      </p>
+    </div>
+
+    <!-- DUA PROMO PENDAMPING -->
+    <div class="promo-smart-grid">
+
+      <!-- PAKET 2 PILAR -->
+      <article class="promo-smart-card">
+        <div class="promo-smart-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M24 12c-6-4-12-4-18-2v26c6-2 12-2 18 2V12Z" />
+            <path d="M24 12c6-4 12-4 18-2v26c-6-2-12-2-18 2V12Z" />
+            <path d="M24 12v26" />
+            <path d="M11 18c3-.5 6 0 9 1.5" stroke="#D9A035" />
+            <path d="M28 19.5c3-1.5 6-2 9-1.5" stroke="#D9A035" />
+            <path d="M11 25c3-.5 6 0 9 1.5" stroke="#D9A035" />
+            <path d="M28 26.5c3-1.5 6-2 9-1.5" stroke="#D9A035" />
+          </svg>
+        </div>
+
+        <div class="promo-smart-card-content">
+          <h3>Paket 2 Pilar</h3>
+
+          <p>
+            Diskon untuk pendaftaran dua pilar sekaligus,
+            misalnya Tahfidz + Academic atau English + AI.
+            Besaran diskon dapat ditanyakan melalui
+            CS WhatsApp.
+          </p>
+        </div>
+      </article>
+
+      <!-- DISKON SANTRI INTERNAL -->
+      <article class="promo-smart-card">
+        <div class="promo-smart-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 17 24 8l19 9-19 9-19-9Z" />
+            <path d="M13 22v10c7 6 15 6 22 0V22" />
+            <path d="M43 17v14" />
+            <path d="M40 34h6l-3-5-3 5Z" stroke="#D9A035" />
+            <path d="M17 37h14" stroke="#D9A035" />
+          </svg>
+        </div>
+
+        <div class="promo-smart-card-content">
+          <h3>Diskon Santri Internal</h3>
+
+          <p>
+            Potongan harga bagi santri aktif Paket A/B/C
+            dan Homeschooling PKBM Al-Fatihah.
+            Besaran potongan dapat ditanyakan melalui
+            CS WhatsApp.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- KETERANGAN PROMO -->
+    <div class="promo-smart-notes">
+      <p>
+        <strong>Semua promo, diskon, dan potongan berlaku sampai kuota terpenuhi.</strong>{" "}
+        <span class="promo-smart-notes-text">Syarat dan ketentuan berlaku.</span>{" "}
+        <span class="promo-smart-notes-text">Informasi lengkap hubungi</span>{" "}
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">CS WhatsApp</a><span class="promo-smart-notes-text">.</span>
+      </p>
+    </div>
+
+  </div>
+</section>

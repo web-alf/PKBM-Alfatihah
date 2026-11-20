@@ -1,0 +1,92 @@
+
+---
+import "../styles/program/DetailKesetaraan.css";
+
+const keunggulan = [
+  {
+    title: "Terakreditasi A",
+    description: "Pendidikan resmi yang terakreditasi A.",
+  },
+  {
+    title: "Ijazah Resmi",
+    description:
+      "Ijazah diakui pemerintah dan setara dengan ijazah sekolah formal.",
+  },
+  {
+    title: "Modul Lengkap",
+    description:
+      "Materi pembelajaran tersedia lengkap untuk setiap jenjang.",
+  },
+  {
+    title: "Pendampingan Akademik & Karakter",
+    description:
+      "Warga belajar didampingi tutor dalam belajar dan pembentukan karakter.",
+  },
+];
+
+const peserta = [
+  "Siswa putus sekolah",
+  "Pekerja/karyawan",
+  "Ibu rumah tangga",
+  "Masyarakat umum dengan keterbatasan waktu",
+];
+---
+
+<section class="detail-kesetaraan">
+  <div class="detail-kesetaraan-container">
+    <div class="detail-kesetaraan-grid">
+
+      <!-- CARD KEUNGGULAN -->
+      <article class="detail-card detail-card-benefits">
+        <div class="detail-card-header">
+          <h3>Kenapa memilih Kejar Paket di PKBM Alfatihah?</h3>
+          <div class="detail-card-heading-line"></div>
+        </div>
+
+        <div class="detail-card-body">
+          <div class="detail-feature-list">
+            {keunggulan.map((item) => (
+              <div class="detail-feature">
+                <div class="detail-feature-icon" aria-hidden="true">
+                  ✓
+                </div>
+
+                <div class="detail-feature-text">
+                  <h4>{item.title}</h4>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD UNTUK SIAPA -->
+      <article class="detail-card detail-card-audience">
+        <div class="detail-card-header">
+          <h3>Kejar Paket cocok untuk siapa saja?</h3>
+          <div class="detail-card-heading-line"></div>
+        </div>
+
+        <div class="detail-card-body">
+          <ul class="detail-audience-list">
+            {peserta.map((item) => (
+              <li class="detail-audience-item">
+                <span class="detail-check-icon" aria-hidden="true">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="detail-audience-note">
+            <p>
+              Program ini terbuka untuk semua kalangan,
+              baik anak-anak, remaja, maupun orang dewasa.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

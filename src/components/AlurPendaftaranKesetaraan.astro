@@ -1,0 +1,136 @@
+
+---
+import "../styles/program/AlurPendaftaranKesetaraan.css";
+
+const linkFormulir =
+  "/pendaftaran";
+
+const linkWhatsApp = "https://wa.me/6285319485269";
+
+const langkahPendaftaran = [
+  {
+    nomor: "1",
+    judul: "Hubungi kami",
+  },
+  {
+    nomor: "2",
+    judul: "Bayar & konfirmasi",
+    deskripsi: "biaya pendaftaran.",
+  },
+  {
+    nomor: "3",
+    judul: "Lampirkan dokumen",
+    deskripsi: "yang dibutuhkan.",
+  },
+  {
+    nomor: "4",
+    judul: "Persiapan tutor",
+    deskripsi:
+      "Tim Alfatihah menyiapkan tutor profesional dan sistem KBM (estimasi 5 jam – 3 hari kerja).",
+  },
+  {
+    nomor: "5",
+    judul: "Sesi perdana",
+    deskripsi:
+      "Tutor menghubungi warga belajar, menyepakati jadwal, dan belajar dimulai.",
+  },
+];
+
+const dokumenPersyaratan = [
+  "Akta Lahir",
+  "KTP orang tua",
+  "Kartu Keluarga",
+  "Ijazah",
+  "NISN",
+  "Dokumen pendidikan terakhir",
+  "Surat keterangan lainnya",
+];
+---
+
+<section
+  class="alur-pendaftaran-kesetaraan"
+  aria-labelledby="alur-pendaftaran-title"
+>
+  <div class="alur-pendaftaran-container">
+
+    <!-- JUDUL -->
+    <header class="alur-pendaftaran-heading">
+      <h2 id="alur-pendaftaran-title">
+        Bagaimana cara mendaftar?
+      </h2>
+
+      <div
+        class="alur-pendaftaran-line"
+        aria-hidden="true"
+      ></div>
+
+      <p>
+        Pendaftaran dapat dilakukan langsung di PKBM Alfatihah
+        atau secara online, dengan langkah berikut.
+      </p>
+    </header>
+
+    <!-- TIMELINE PENDAFTARAN -->
+    <ol class="alur-pendaftaran-timeline">
+      {langkahPendaftaran.map((langkah) => (
+        <li class="alur-pendaftaran-step">
+
+          <div
+            class="alur-pendaftaran-marker"
+            aria-hidden="true"
+          >
+            <span>{langkah.nomor}</span>
+          </div>
+
+          <article class="alur-pendaftaran-card">
+            <h3>{langkah.judul}</h3>
+
+            {langkah.nomor === "1" ? (
+              <p>
+                Isi formulir di website (
+                <a
+                  href={linkFormulir}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {linkFormulir}
+                </a>
+                ) atau hubungi{" "}
+                <a
+                  class="alur-pendaftaran-wa-link"
+                  href={linkWhatsApp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >WhatsApp pendaftaran</a>.
+              </p>
+            ) : (
+              <p>{langkah.deskripsi}</p>
+            )}
+          </article>
+
+        </li>
+      ))}
+    </ol>
+
+    <!-- DOKUMEN PERSYARATAN -->
+    <div class="alur-pendaftaran-dokumen">
+      <h3>Dokumen yang perlu disiapkan</h3>
+
+      <ul class="alur-pendaftaran-dokumen-grid">
+        {dokumenPersyaratan.map((dokumen) => (
+          <li>
+            <span
+              class="alur-pendaftaran-check"
+              aria-hidden="true"
+            >
+              ✓
+            </span>
+
+            <span>{dokumen}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>

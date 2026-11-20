@@ -1,0 +1,565 @@
+
+---
+import "../styles/program/FormPendaftaran.css";
+
+// Web App Google Apps Script. Bisa ditimpa lewat PUBLIC_PENDAFTARAN_ENDPOINT.
+// Deployment harus "Who has access: Anyone" agar bisa dipakai pengunjung.
+const endpoint =
+  import.meta.env.PUBLIC_PENDAFTARAN_ENDPOINT ??
+  "https://script.google.com/macros/s/AKfycbwSvSF69ccbWbe-4uJ2tRTWZ6B984pSl94qC42xG7JwIQ8c_-QOXW88pPBp4EDJUmqZ/exec";
+
+const programOptions = [
+  "Kejar Paket A",
+  "Kejar Paket B",
+  "Kejar Paket C",
+  "Homeschooling",
+  "Kelas Online",
+];
+
+const metodeOptions = [
+  "Tatap Muka",
+  "Virtual",
+  "Hybrid (Tatap Muka dan Virtual)",
+];
+---
+
+<section class="pendaftaran-section" aria-labelledby="pendaftaran-title">
+  <div class="pendaftaran-container">
+    <div class="pendaftaran-card">
+      <header class="pendaftaran-header">
+        <span class="pendaftaran-eyebrow">
+          PENDAFTARAN PESERTA DIDIK
+        </span>
+
+        <h1 id="pendaftaran-title">
+          Formulir Pendaftaran PKBM Alfatihah
+        </h1>
+
+        <p>Assalamualaikum…</p>
+        <p>
+          Silahkan isi form dibawah ini ya.
+          Estimasi pengisian 1 menit saja.
+        </p>
+
+        <span class="pendaftaran-accent" aria-hidden="true"></span>
+      </header>
+
+      <form
+        id="form-pendaftaran"
+        class="pendaftaran-form"
+        data-endpoint={endpoint}
+        novalidate
+      >
+        <div class="pendaftaran-field">
+          <label for="nama-lengkap">
+            Nama Lengkap <span>*</span>
+          </label>
+          <input
+            type="text"
+            id="nama-lengkap"
+            name="nama_lengkap"
+            placeholder="Masukkan nama lengkap"
+            autocomplete="name"
+            required
+          />
+        </div>
+
+        <div class="pendaftaran-row">
+          <div class="pendaftaran-field">
+            <label for="tempat-lahir">
+              Tempat Lahir <span>*</span>
+            </label>
+            <input
+              type="text"
+              id="tempat-lahir"
+              name="tempat_lahir"
+              placeholder="Kota kelahiran"
+              required
+            />
+          </div>
+
+          <div class="pendaftaran-field">
+            <label for="tanggal-lahir">
+              Tanggal Lahir <span>*</span>
+            </label>
+            <input
+              type="date"
+              id="tanggal-lahir"
+              name="tanggal_lahir"
+              required
+            />
+          </div>
+        </div>
+
+        <fieldset class="pendaftaran-gender">
+          <legend>
+            Jenis Kelamin <span>*</span>
+          </legend>
+
+          <div class="pendaftaran-radio-group">
+            <label class="pendaftaran-radio">
+              <input
+                type="radio"
+                name="jenis_kelamin"
+                value="Laki-Laki"
+                required
+              />
+              <span>Laki-Laki</span>
+            </label>
+
+            <label class="pendaftaran-radio">
+              <input
+                type="radio"
+                name="jenis_kelamin"
+                value="Perempuan"
+                required
+              />
+              <span>Perempuan</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="pendaftaran-field">
+          <label for="alamat-domisili">
+            Alamat Domisili <span>*</span>
+          </label>
+          <textarea
+            id="alamat-domisili"
+            name="alamat_domisili"
+            rows="3"
+            placeholder="Masukkan alamat lengkap"
+            autocomplete="street-address"
+            required
+          ></textarea>
+        </div>
+
+        <div class="pendaftaran-field">
+          <label for="nomor-whatsapp">
+            Nomor WhatsApp <span>*</span>
+          </label>
+          <input
+            type="tel"
+            id="nomor-whatsapp"
+            name="nomor_whatsapp"
+            placeholder="Contoh: 081234567890"
+            autocomplete="tel"
+            inputmode="tel"
+            pattern="\+?[0-9\s-]{9,18}"
+            title="Masukkan nomor WhatsApp yang valid"
+            required
+          />
+        </div>
+
+        <div class="pendaftaran-field">
+          <label for="pilihan-program">
+            Pilihan Program <span>*</span>
+          </label>
+          <div class="pendaftaran-select">
+            <select
+              id="pilihan-program"
+              name="pilihan_program"
+              required
+            >
+              <option value="" disabled selected>
+                Silahkan Pilih
+              </option>
+              {programOptions.map((program) => (
+                <option value={program}>{program}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div class="pendaftaran-field">
+          <label for="metode-belajar">
+            Pilihan Metode Belajar <span>*</span>
+          </label>
+          <div class="pendaftaran-select">
+            <select
+              id="metode-belajar"
+              name="metode_belajar"
+              required
+            >
+              <option value="" disabled selected>
+                Silahkan Pilih
+              </option>
+              {metodeOptions.map((metode) => (
+                <option value={metode}>{metode}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div
+          aria-hidden="true"
+          style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"
+        >
+          <label for="pendaftaran-website">Website</label>
+          <input
+            type="text"
+            id="pendaftaran-website"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <p class="pendaftaran-required">
+          <span>*</span> Wajib diisi
+        </p>
+
+        <div
+          id="pendaftaran-message"
+          class="pendaftaran-message"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></div>
+
+        <div class="pendaftaran-actions">
+          <a href="/" class="pendaftaran-back">
+            <span aria-hidden="true">←</span> Kembali
+          </a>
+
+          <button
+            type="submit"
+            class="pendaftaran-submit"
+            id="pendaftaran-submit"
+          >
+            Kirim Pendaftaran
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(
+    "#form-pendaftaran"
+  );
+
+  const message = document.querySelector<HTMLDivElement>(
+    "#pendaftaran-message"
+  );
+
+  const submitButton = document.querySelector<HTMLButtonElement>(
+    "#pendaftaran-submit"
+  );
+
+  const tanggalLahir = document.querySelector<HTMLInputElement>(
+    "#tanggal-lahir"
+  );
+
+  if (tanggalLahir) {
+    const today = new Date();
+    const localDate = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000
+    );
+    tanggalLahir.max = localDate.toISOString().split("T")[0];
+  }
+
+  // Dropdown kustom: <select> asli tetap dipakai untuk nilai, validasi, dan FormData.
+  function enhanceSelect(wrapper: HTMLElement) {
+    const select = wrapper.querySelector<HTMLSelectElement>("select");
+    if (!select) return;
+
+    const label = document.querySelector<HTMLElement>(
+      `label[for="${select.id}"]`
+    );
+    if (label && !label.id) label.id = `${select.id}-label`;
+
+    const placeholder = select.options[0]?.textContent?.trim() ?? "";
+    const choices = Array.from(select.options).filter((o) => !o.disabled);
+
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "pendaftaran-select-trigger";
+    trigger.setAttribute("role", "combobox");
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", `${select.id}-list`);
+    if (label) trigger.setAttribute("aria-labelledby", label.id);
+
+    const list = document.createElement("ul");
+    list.id = `${select.id}-list`;
+    list.className = "pendaftaran-select-list";
+    list.setAttribute("role", "listbox");
+    if (label) list.setAttribute("aria-labelledby", label.id);
+    list.hidden = true;
+
+    const items = choices.map((choice, i) => {
+      const li = document.createElement("li");
+      li.id = `${select.id}-opt-${i}`;
+      li.className = "pendaftaran-select-option";
+      li.setAttribute("role", "option");
+      li.dataset.value = choice.value;
+      li.textContent = choice.textContent?.trim() ?? choice.value;
+      list.appendChild(li);
+      return li;
+    });
+
+    let active = -1;
+    let typed = "";
+    let typedTimer = 0;
+
+    function selectedIndex() {
+      return choices.findIndex((c) => c.value === select!.value);
+    }
+
+    function sync() {
+      const idx = selectedIndex();
+      trigger.textContent = idx >= 0 ? items[idx].textContent : placeholder;
+      items.forEach((li, i) =>
+        li.setAttribute("aria-selected", String(i === idx))
+      );
+    }
+
+    function setActive(index: number) {
+      active = index;
+      items.forEach((li, i) => li.classList.toggle("is-active", i === index));
+      if (index >= 0) {
+        trigger.setAttribute("aria-activedescendant", items[index].id);
+        items[index].scrollIntoView({ block: "nearest" });
+      } else {
+        trigger.removeAttribute("aria-activedescendant");
+      }
+    }
+
+    function open() {
+      list.hidden = false;
+      trigger.setAttribute("aria-expanded", "true");
+      setActive(Math.max(selectedIndex(), 0));
+    }
+
+    function close() {
+      list.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+      setActive(-1);
+    }
+
+    function choose(index: number) {
+      select!.value = choices[index].value;
+      select!.dispatchEvent(new Event("change", { bubbles: true }));
+      sync();
+      close();
+      trigger.focus();
+    }
+
+    trigger.addEventListener("click", () => (list.hidden ? open() : close()));
+
+    list.addEventListener("mousedown", (e) => e.preventDefault());
+    list.addEventListener("click", (e) => {
+      const li = (e.target as HTMLElement).closest("li");
+      if (li) choose(items.indexOf(li as HTMLLIElement));
+    });
+    list.addEventListener("mousemove", (e) => {
+      const li = (e.target as HTMLElement).closest("li");
+      if (li) setActive(items.indexOf(li as HTMLLIElement));
+    });
+
+    trigger.addEventListener("keydown", (e) => {
+      const isOpen = !list.hidden;
+      const last = items.length - 1;
+
+      switch (e.key) {
+        case "ArrowDown":
+        case "ArrowUp": {
+          e.preventDefault();
+          if (!isOpen) return open();
+          const step = e.key === "ArrowDown" ? 1 : -1;
+          setActive(Math.min(last, Math.max(0, active + step)));
+          break;
+        }
+        case "Home":
+        case "End":
+          if (!isOpen) return;
+          e.preventDefault();
+          setActive(e.key === "Home" ? 0 : last);
+          break;
+        case "Enter":
+        case " ":
+          e.preventDefault();
+          if (!isOpen) return open();
+          if (active >= 0) choose(active);
+          break;
+        case "Escape":
+          if (isOpen) {
+            e.preventDefault();
+            close();
+          }
+          break;
+        case "Tab":
+          if (isOpen) close();
+          break;
+        default:
+          if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+            typed += e.key.toLowerCase();
+            window.clearTimeout(typedTimer);
+            typedTimer = window.setTimeout(() => (typed = ""), 600);
+            const match = items.findIndex((li) =>
+              li.textContent!.toLowerCase().startsWith(typed)
+            );
+            if (match >= 0) {
+              if (isOpen) setActive(match);
+              else {
+                select!.value = choices[match].value;
+                select!.dispatchEvent(new Event("change", { bubbles: true }));
+                sync();
+              }
+            }
+          }
+      }
+    });
+
+    trigger.addEventListener("blur", close);
+    document.addEventListener("click", (e) => {
+      if (!wrapper.contains(e.target as Node)) close();
+    });
+
+    // Label/validasi bawaan memfokuskan <select>; arahkan ke tombol kustom.
+    select.addEventListener("focus", () => trigger.focus());
+    select.addEventListener("change", sync);
+    select.form?.addEventListener("reset", () => window.setTimeout(sync));
+
+    select.tabIndex = -1;
+    select.setAttribute("aria-hidden", "true");
+    wrapper.classList.add("is-enhanced");
+    wrapper.append(trigger, list);
+    sync();
+  }
+
+  document
+    .querySelectorAll<HTMLElement>(".pendaftaran-select")
+    .forEach(enhanceSelect);
+
+  class SubmitError extends Error {
+    kind: "config" | "server";
+    constructor(kind: "config" | "server", message: string) {
+      super(message);
+      this.kind = kind;
+    }
+  }
+
+  const SUBMIT_TIMEOUT_MS = 20000;
+  const startedAt = Date.now();
+  let isSubmitting = false;
+
+  const fields = [
+    "nama_lengkap",
+    "tempat_lahir",
+    "tanggal_lahir",
+    "jenis_kelamin",
+    "alamat_domisili",
+    "nomor_whatsapp",
+    "pilihan_program",
+    "metode_belajar",
+  ] as const;
+
+  function showMessage(type: "info" | "error" | "success", text: string) {
+    if (!message) return;
+    message.hidden = false;
+    message.className = `pendaftaran-message is-${type}`;
+    message.textContent = text;
+  }
+
+  function setLoading(loading: boolean) {
+    isSubmitting = loading;
+    if (!submitButton) return;
+    submitButton.disabled = loading;
+    submitButton.setAttribute("aria-busy", String(loading));
+    if (loading) {
+      submitButton.dataset.label = submitButton.innerHTML;
+      submitButton.textContent = "Mengirim...";
+    } else if (submitButton.dataset.label) {
+      submitButton.innerHTML = submitButton.dataset.label;
+    }
+  }
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+    if (!form.reportValidity()) return;
+    if (!message || !submitButton) return;
+
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) {
+      showMessage(
+        "error",
+        "Pengiriman belum dikonfigurasi. Silakan hubungi admin."
+      );
+      return;
+    }
+
+    const formData = new FormData(form);
+    const payload = new URLSearchParams();
+
+    for (const name of fields) {
+      payload.set(name, String(formData.get(name) ?? "").trim());
+    }
+    // Honeypot dan waktu pengisian dipakai server untuk menyaring bot.
+    payload.set("website", String(formData.get("website") ?? ""));
+    payload.set("elapsed_ms", String(Date.now() - startedAt));
+
+    setLoading(true);
+    showMessage("info", "Mengirim data pendaftaran, mohon tunggu...");
+
+    const controller = new AbortController();
+    const timer = window.setTimeout(
+      () => controller.abort(),
+      SUBMIT_TIMEOUT_MS
+    );
+
+    try {
+      // Body form-urlencoded = "simple request", tanpa preflight CORS.
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: payload,
+        signal: controller.signal,
+      });
+
+      let result: { ok?: boolean; success?: boolean; message?: string } | null = null;
+      try {
+        result = await response.json();
+      } catch {
+        throw new SubmitError(
+          "config",
+          `Respons server bukan JSON (HTTP ${response.status})`
+        );
+      }
+
+      if (result?.ok !== true && result?.success !== true) {
+        throw new SubmitError(
+          "server",
+          result?.message || `Server menolak data (HTTP ${response.status})`
+        );
+      }
+
+      showMessage(
+        "success",
+        "Alhamdulillah, pendaftaran Anda berhasil dikirim. Tim kami akan menghubungi melalui WhatsApp."
+      );
+      form.reset();
+    } catch (error) {
+      console.error("Pendaftaran gagal dikirim:", error);
+      const fallback =
+        "Pendaftaran belum terkirim. Data Anda masih tersimpan di formulir, silakan coba lagi atau hubungi admin via WhatsApp.";
+
+      if (error instanceof SubmitError && error.kind === "server") {
+        showMessage("error", `${error.message} Data Anda masih tersimpan di formulir.`);
+      } else if (error instanceof DOMException && error.name === "AbortError") {
+        showMessage("error", "Server terlalu lama merespons. Data Anda masih tersimpan di formulir, silakan coba lagi.");
+      } else {
+        // Jaringan/CORS/akses ditolak: browser tidak memberi detail, jadi cek console.
+        console.error(
+          "Kemungkinan penyebab: deployment Apps Script belum 'Anyone', URL salah, atau skrip belum di-deploy ulang."
+        );
+        showMessage("error", fallback);
+      }
+    } finally {
+      window.clearTimeout(timer);
+      setLoading(false);
+    }
+  });</script>

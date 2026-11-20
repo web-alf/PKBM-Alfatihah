@@ -1,0 +1,401 @@
+
+/* =========================================
+   RINCIAN BIAYA HOMESCHOOLING
+   Editorial Pricing Breakdown
+========================================= */
+
+.rincian-hs {
+  width: 100%;
+  padding: 85px 20px;
+  background: #fff9f5;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.rincian-hs * {
+  box-sizing: border-box;
+}
+
+.rincian-hs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* JUDUL SECTION */
+
+.rincian-hs-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rincian-hs-heading h2 {
+  margin: 0;
+  color: #92197b;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.rincian-hs-heading-line {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #d9a035;
+  border-radius: 20px;
+  margin: 17px auto 0;
+}
+
+.rincian-hs-heading p {
+  margin: 18px 0 0;
+  color: #76596b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* LIST KELAS */
+
+.rincian-hs-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.rincian-hs-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #F0CFE0;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(146, 25, 123, 0.035);
+}
+
+/* NAMA KELAS */
+
+.rincian-hs-class-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.rincian-hs-number {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #92197B;
+  border-radius: 11px;
+  color: #FFFFFF;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.rincian-hs-class-title h3 {
+  margin: 0;
+  color: #92197B;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.rincian-hs-class-title p {
+  margin: 5px 0 0;
+  color: #8b7180;
+  font-size: 13px;
+}
+
+/* PANEL PENDAFTARAN DAN SPP */
+
+.rincian-hs-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.rincian-hs-column {
+  min-width: 0;
+  padding: 14px;
+  background: #FFFFFF;
+  border: 1px solid #F0CFE0;
+  border-radius: 12px;
+}
+
+.rincian-hs-column-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E8C7D7;
+  margin-bottom: 12px;
+}
+
+.rincian-hs-label {
+  display: block;
+  color: #805D70;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.rincian-hs-column-heading h4 {
+  margin: 0;
+  color: #92197B;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.rincian-hs-column-heading .rincian-hs-total-registration {
+  padding: 5px 9px;
+  background: #D9A035;
+  border-radius: 7px;
+  color: #92197B;
+  white-space: nowrap;
+}
+
+/* RINCIAN NOMINAL */
+
+.rincian-hs-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rincian-hs-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rincian-hs-row span {
+  color: #76596B;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.rincian-hs-row strong {
+  color: #584452;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.rincian-hs-note {
+  margin: 12px 0 0;
+  padding: 9px 11px;
+  background: #FFF0D4;
+  border-left: 3px solid #D9A035;
+  border-radius: 6px;
+  color: #805020;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* UJIAN & IJAZAH */
+
+.rincian-hs-extra {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #F0DCE8;
+}
+
+.rincian-hs-extra-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 9px;
+  background: #FFF9F5;
+  border-radius: 8px;
+}
+
+.rincian-hs-extra-item svg {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  color: #92197B;
+}
+
+.rincian-hs-extra-item span {
+  color: #76596B;
+  font-size: 11px;
+}
+
+.rincian-hs-extra-item strong {
+  flex-shrink: 0;
+  padding: 4px 7px;
+  background: #92197B;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .rincian-hs {
+    padding: 65px 20px;
+  }
+
+  .rincian-hs-heading {
+    margin-bottom: 24px;
+  }
+
+  .rincian-hs-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .rincian-hs-item {
+    padding: 18px;
+  }
+
+  .rincian-hs-columns {
+    gap: 10px;
+  }
+
+  .rincian-hs-class-title h3 {
+    font-size: 17px;
+  }
+
+  .rincian-hs-column-heading h4 {
+    font-size: 16px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .rincian-hs {
+    padding: 55px 20px;
+  }
+
+  .rincian-hs-heading {
+    margin-bottom: 35px;
+  }
+
+  .rincian-hs-heading h2 {
+    font-size: 25px;
+  }
+
+  .rincian-hs-heading p {
+    font-size: 12px;
+  }
+
+  .rincian-hs-item {
+    padding: 14px;
+  }
+
+  .rincian-hs-class-heading {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .rincian-hs-number {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .rincian-hs-class-title h3 {
+    font-size: 17px;
+  }
+
+  .rincian-hs-class-title p {
+    font-size: 12px;
+  }
+
+  .rincian-hs-columns {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .rincian-hs-column-heading {
+    padding-bottom: 9px;
+    margin-bottom: 10px;
+  }
+
+  .rincian-hs-column-heading h4 {
+    font-size: 15px;
+  }
+
+  .rincian-hs-rows {
+    gap: 7px;
+  }
+
+  .rincian-hs-row span {
+    font-size: 11px;
+  }
+
+  .rincian-hs-row strong {
+    font-size: 11px;
+  }
+
+  .rincian-hs-extra {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding-top: 10px;
+  }
+
+  .rincian-hs-extra-item span,
+  .rincian-hs-extra-item strong {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 640px) {
+  .rincian-hs {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.rincian-hs {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .rincian-hs {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rincian-hs {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rincian-hs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.rincian-hs {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

@@ -1,0 +1,450 @@
+
+/* =========================================
+   ALUR PENDAFTARAN KESETARAAN
+========================================= */
+
+.alur-pendaftaran-kesetaraan {
+  width: 100%;
+  padding: 65px 24px 85px;
+  background: #FFF9F5;
+  font-family: "Poppins", sans-serif;
+}
+
+.alur-pendaftaran-kesetaraan *,
+.alur-pendaftaran-kesetaraan *::before,
+.alur-pendaftaran-kesetaraan *::after {
+  box-sizing: border-box;
+}
+
+.alur-pendaftaran-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.alur-pendaftaran-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.alur-pendaftaran-heading h2 {
+  margin: 0;
+  color: #82165F;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.alur-pendaftaran-line {
+  width: 65px;
+  height: 4px;
+  margin: 17px auto;
+  background: #D9A035;
+  border-radius: 10px;
+}
+
+.alur-pendaftaran-heading p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #42323C;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.alur-pendaftaran-timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* GARIS PENGHUBUNG EMAS */
+
+.alur-pendaftaran-timeline::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  bottom: 25px;
+  left: 24px;
+  width: 2px;
+  background: #D9A035;
+  z-index: 0;
+}
+
+/* SETIAP LANGKAH */
+
+.alur-pendaftaran-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  align-items: start;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.alur-pendaftaran-step:last-child {
+  margin-bottom: 0;
+}
+
+/* NOMOR TIMELINE */
+
+.alur-pendaftaran-marker {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+
+  background: #75194F;
+  border: 3px solid #FFF9F5;
+  border-radius: 50%;
+
+  color: #FFE0A3;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+/* =========================================
+   CARD TIMELINE
+========================================= */
+
+.alur-pendaftaran-card {
+  min-width: 0;
+  padding: 24px 28px;
+  background: #FFFFFF;
+  border: 1px solid #EBD5E2;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(75, 22, 60, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* CARD BERGANTIAN */
+
+.alur-pendaftaran-step:nth-child(even)
+  .alur-pendaftaran-card {
+  background: #F9EAF2;
+}
+
+/* HOVER */
+
+.alur-pendaftaran-card:hover {
+  transform: translateY(-3px);
+  border-color: #A74E92;
+  box-shadow: 0 12px 28px rgba(75, 22, 60, 0.1);
+}
+
+/* JUDUL LANGKAH */
+
+.alur-pendaftaran-card h3 {
+  margin: 0 0 8px;
+  color: #82165F;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* DESKRIPSI */
+
+.alur-pendaftaran-card p {
+  margin: 0;
+  color: #42323C;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* LINK FORMULIR */
+
+.alur-pendaftaran-card a {
+  color: #92197B;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.alur-pendaftaran-card a:hover {
+  color: #75194F;
+}
+
+.alur-pendaftaran-card a.alur-pendaftaran-wa-link {
+  color: #B51A7A;
+  transition: color 0.2s ease;
+}
+
+.alur-pendaftaran-card a.alur-pendaftaran-wa-link:hover {
+  color: #75194F;
+}
+
+.alur-pendaftaran-card a:focus-visible {
+  outline: 2px solid #D9A035;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* =========================================
+   PANEL DOKUMEN
+========================================= */
+
+.alur-pendaftaran-dokumen {
+  width: 100%;
+  max-width: 1200px;
+  margin: 32px auto 0;
+  padding: 32px;
+
+  background: #92197B;
+  border-radius: 18px;
+  color: #FFFFFF;
+}
+
+.alur-pendaftaran-dokumen h3 {
+  margin: 0 0 24px;
+  color: #FFE0A3;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* GRID DOKUMEN */
+
+.alur-pendaftaran-dokumen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.alur-pendaftaran-dokumen-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  min-width: 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* IKON CHECK */
+
+.alur-pendaftaran-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+
+  background: #FFE0A3;
+  color: #75194F;
+
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .alur-pendaftaran-kesetaraan {
+    padding: 55px 20px 70px;
+  }
+
+  .alur-pendaftaran-card {
+    padding: 22px 24px;
+  }
+
+  .alur-pendaftaran-dokumen {
+    padding: 28px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .alur-pendaftaran-kesetaraan {
+    padding: 50px 18px 65px;
+  }
+
+  .alur-pendaftaran-heading {
+    margin-bottom: 30px;
+  }
+
+  .alur-pendaftaran-heading p {
+    font-size: 14px;
+  }
+
+  .alur-pendaftaran-step {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .alur-pendaftaran-timeline::before {
+    left: 20px;
+    top: 21px;
+    bottom: 21px;
+  }
+
+  .alur-pendaftaran-marker {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .alur-pendaftaran-card {
+    padding: 19px 17px;
+    border-radius: 13px;
+  }
+
+  .alur-pendaftaran-card h3 {
+    font-size: 17px;
+  }
+
+  .alur-pendaftaran-card p {
+    font-size: 13px;
+  }
+
+  .alur-pendaftaran-dokumen {
+    margin-top: 26px;
+    padding: 24px 20px;
+  }
+
+  .alur-pendaftaran-dokumen h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .alur-pendaftaran-dokumen-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .alur-pendaftaran-dokumen-grid li {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 480px) {
+  .alur-pendaftaran-kesetaraan {
+    padding: 45px 15px 55px;
+  }
+
+  .alur-pendaftaran-heading h2 {
+    font-size: 27px;
+  }
+
+  .alur-pendaftaran-card {
+    padding: 17px 14px;
+  }
+
+  .alur-pendaftaran-card h3 {
+    font-size: 16px;
+  }
+
+  .alur-pendaftaran-dokumen {
+    padding: 22px 17px;
+  }
+
+  .alur-pendaftaran-dokumen h3 {
+    font-size: 19px;
+  }
+}
+
+/* =========================================
+   DESKTOP - TIMELINE HORIZONTAL (>= 1024px)
+========================================= */
+
+@media (min-width: 1024px) {
+  .alur-pendaftaran-timeline {
+    --step-gap: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--step-gap);
+  }
+
+  /* Satu garis kontinu: dari tengah lingkaran 1 sampai tengah lingkaran 5 */
+  .alur-pendaftaran-timeline::before {
+    top: 24px;
+    bottom: auto;
+    left: calc((100% - 4 * var(--step-gap)) / 10);
+    right: calc((100% - 4 * var(--step-gap)) / 10);
+    width: auto;
+    height: 2px;
+  }
+
+  .alur-pendaftaran-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 0;
+  }
+
+  .alur-pendaftaran-card {
+    flex: 1;
+    width: 100%;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .alur-pendaftaran-card h3 {
+    font-size: 17px;
+  }
+
+  .alur-pendaftaran-card p {
+    font-size: 13px;
+  }
+}
+/* =========================================
+   AKSESIBILITAS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .alur-pendaftaran-card {
+    transition: none;
+  }
+
+  .alur-pendaftaran-card:hover {
+    transform: none;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.alur-pendaftaran-kesetaraan {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

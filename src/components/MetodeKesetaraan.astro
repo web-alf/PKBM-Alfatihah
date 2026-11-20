@@ -1,0 +1,52 @@
+
+---
+import "../styles/program/MetodeKesetaraan.css";
+
+const metode = [
+  {
+    nomor: "1",
+    nama: "Online (Daring)",
+    deskripsi:
+      "Belajar via Zoom/Google Meet, interaksi langsung, jadwal fleksibel, tersedia rekaman materi.",
+  },
+  {
+    nomor: "2",
+    nama: "Offline (Luring)",
+    deskripsi:
+      "Siswa datang ke lembaga, interaksi tatap muka intensif, suasana belajar terarah.",
+  },
+  {
+    nomor: "3",
+    nama: "Mandiri",
+    deskripsi:
+      "Sistem modul pembelajaran mandiri, evaluasi berkala, pendampingan bimbingan ujian.",
+  },
+];
+---
+
+<section class="metode-kesetaraan" aria-labelledby="metode-title">
+  <div class="metode-kesetaraan-container">
+
+    <header class="metode-kesetaraan-heading">
+      <h2 id="metode-title">
+        Pilih cara belajar yang paling pas
+      </h2>
+      <div class="metode-kesetaraan-line" aria-hidden="true"></div>
+    </header>
+
+    <div class="metode-kesetaraan-grid">
+      {metode.map((item) => (
+        <article class="metode-kesetaraan-card">
+          <span class="metode-kesetaraan-number" aria-hidden="true">
+            {item.nomor}
+          </span>
+
+          <h3>{item.nama}</h3>
+
+          <p>{item.deskripsi}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,286 @@
+
+/* ======================================
+   HOMESCHOOLING - RINGKASAN BIAYA
+====================================== */
+
+.biaya-hs {
+  width: 100%;
+  padding: 85px 24px;
+  background: #fff9f5;
+  font-family: "Poppins", sans-serif;
+}
+
+.biaya-hs * {
+  box-sizing: border-box;
+}
+
+.biaya-hs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.biaya-hs-heading {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.biaya-hs-heading h2 {
+  margin: 0;
+  color: #92197b;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.biaya-hs-line {
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 16px auto 0;
+  background: #d9a035;
+  border-radius: 20px;
+}
+
+/* MAIN CARD */
+
+.biaya-hs-card {
+  background: #ffffff;
+  border: 1px solid #f0cfe0;
+  border-radius: 20px;
+  padding: 12px 32px;
+  box-shadow: 0 8px 30px rgba(117, 25, 79, 0.04);
+}
+
+/* EACH CLASS */
+
+.biaya-hs-item {
+  padding: 26px 0;
+}
+
+.biaya-hs-item:not(:last-child) {
+  border-bottom: 1px solid #f0dce8;
+}
+
+.biaya-hs-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.biaya-hs-class {
+  flex: 1;
+  min-width: 0;
+}
+
+.biaya-hs-class h3 {
+  margin: 0;
+  color: #92197b;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* MONTHLY PRICE */
+
+.biaya-hs-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  text-align: right;
+}
+
+.biaya-hs-price-label {
+  color: #8b7180;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.biaya-hs-price strong {
+  color: #92197b;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* OTHER FEES */
+
+.biaya-hs-details {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 20px;
+}
+
+.biaya-hs-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.biaya-hs-detail span {
+  color: #927c8a;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.biaya-hs-detail strong {
+  color: #584452;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* FOOTNOTES */
+
+.biaya-hs-notes {
+  margin-top: 22px;
+  padding: 0 5px;
+}
+
+.biaya-hs-notes p {
+  margin: 0 0 9px;
+  color: #805d70;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .biaya-hs {
+    padding: 65px 20px;
+  }
+
+  .biaya-hs-card {
+    padding: 8px 22px;
+    border-radius: 16px;
+  }
+
+  .biaya-hs-item {
+    padding: 23px 0;
+  }
+
+  .biaya-hs-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .biaya-hs-class h3 {
+    font-size: 16px;
+  }
+
+  .biaya-hs-price strong {
+    font-size: 17px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .biaya-hs {
+    padding: 55px 16px;
+  }
+
+  .biaya-hs-heading {
+    margin-bottom: 28px;
+  }
+
+  .biaya-hs-heading h2 {
+    font-size: 25px;
+  }
+
+  .biaya-hs-card {
+    padding: 5px 18px;
+    border-radius: 15px;
+  }
+
+  .biaya-hs-item {
+    padding: 22px 0;
+  }
+
+  .biaya-hs-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .biaya-hs-class h3 {
+    font-size: 16px;
+  }
+
+  .biaya-hs-price {
+    align-items: flex-start;
+    text-align: left;
+    gap: 3px;
+  }
+
+  .biaya-hs-price strong {
+    font-size: 18px;
+  }
+
+  .biaya-hs-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .biaya-hs-detail span {
+    font-size: 11px;
+  }
+
+  .biaya-hs-detail strong {
+    font-size: 12px;
+  }
+
+  .biaya-hs-notes {
+    margin-top: 18px;
+  }
+
+  .biaya-hs-notes p {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.biaya-hs {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .biaya-hs {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .biaya-hs {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .biaya-hs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.biaya-hs {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}
+
+/* JARAK-ANTARSECTION: margin bawah paragraf terakhir tidak menambah jarak */
+.biaya-hs-notes p:last-child {
+  margin-bottom: 0;
+}

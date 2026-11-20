@@ -1,0 +1,376 @@
+/* ==========================================
+   FAQ DIASPORA QUR'AN CENTER
+   ACCORDION 2 KOLOM INDEPENDEN
+   Navy  : #001C49
+   Gold  : #D9A035
+   Cream : #FFF9F5
+========================================== */
+
+.faq-diaspora {
+  --diaspora-navy: #001c49;
+  --diaspora-gold: #d9a035;
+  --diaspora-cream: #fff9f5;
+  --diaspora-white: #ffffff;
+  --diaspora-text: #344766;
+  --diaspora-muted: #64748b;
+  --diaspora-border: #e5e7eb;
+
+  width: 100%;
+  padding: 65px 20px 75px;
+  background: var(--diaspora-cream);
+  font-family: "Poppins", sans-serif;
+}
+
+.faq-diaspora,
+.faq-diaspora * {
+  box-sizing: border-box;
+}
+
+.faq-diaspora-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   JUDUL
+========================================== */
+
+.faq-diaspora-heading {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.faq-diaspora-heading h2 {
+  margin: 0;
+  color: var(--diaspora-navy);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.faq-diaspora-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 15px auto 0;
+  background: var(--diaspora-gold);
+  border-radius: 999px;
+}
+
+/* ==========================================
+   2 KOLOM INDEPENDEN
+========================================== */
+
+.faq-diaspora-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.faq-diaspora-column {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==========================================
+   CARD ACCORDION
+========================================== */
+
+.faq-diaspora-item {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+
+  background: var(--diaspora-white);
+  border: 1px solid var(--diaspora-border);
+  border-radius: 12px;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.faq-diaspora-item:hover {
+  background: rgba(0, 28, 73, 0.03);
+  border-color: rgba(0, 28, 73, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 28, 73, 0.06);
+}
+
+.faq-diaspora-item[open],
+.faq-diaspora-item[open]:hover {
+  background: var(--diaspora-cream);
+  border-color: var(--diaspora-navy);
+}
+
+/* ==========================================
+   PERTANYAAN
+========================================== */
+
+.faq-diaspora-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-height: 60px;
+  padding: 15px 18px;
+
+  color: var(--diaspora-navy);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-diaspora-question > span:first-child {
+  min-width: 0;
+}
+
+.faq-diaspora-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-diaspora-question::marker {
+  content: "";
+}
+
+.faq-diaspora-question:focus-visible {
+  outline: 2px solid var(--diaspora-gold);
+  outline-offset: -3px;
+  border-radius: 12px;
+}
+
+/* ==========================================
+   IKON + / −
+========================================== */
+
+.faq-diaspora-icon {
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fbf1dc;
+  border-radius: 50%;
+
+  transition: background-color 0.25s ease;
+}
+
+.faq-diaspora-icon::before,
+.faq-diaspora-icon::after {
+  content: "";
+  position: absolute;
+
+  background: var(--diaspora-navy);
+  border-radius: 2px;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.faq-diaspora-icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+.faq-diaspora-icon::after {
+  width: 2px;
+  height: 12px;
+}
+
+/* Terbuka = minus */
+
+.faq-diaspora-item[open] .faq-diaspora-icon {
+  background: var(--diaspora-gold);
+}
+
+.faq-diaspora-item[open] .faq-diaspora-icon::before {
+  background: var(--diaspora-navy);
+}
+
+.faq-diaspora-item[open] .faq-diaspora-icon::after {
+  background: var(--diaspora-navy);
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+/* ==========================================
+   JAWABAN
+========================================== */
+
+.faq-diaspora-answer {
+  padding: 15px 18px 18px;
+  border-top: 1px solid rgba(0, 28, 73, 0.15);
+}
+
+.faq-diaspora-answer p {
+  margin: 0;
+
+  color: var(--diaspora-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+  .faq-diaspora {
+    padding: 60px 20px 70px;
+  }
+
+  .faq-diaspora-columns {
+    gap: 16px;
+  }
+
+  .faq-diaspora-column {
+    gap: 10px;
+  }
+
+  .faq-diaspora-question {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .faq-diaspora-answer {
+    padding: 14px 16px 17px;
+  }
+}
+
+/* ==========================================
+   MOBILE - 1 KOLOM, URUTAN 1-9
+========================================== */
+
+@media (max-width: 768px) {
+  .faq-diaspora-columns {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-diaspora {
+    padding: 50px 16px 60px;
+  }
+
+  .faq-diaspora-heading {
+    margin-bottom: 25px;
+  }
+
+  .faq-diaspora-heading h2 {
+    font-size: 24px;
+  }
+
+  .faq-diaspora-divider {
+    margin-top: 13px;
+  }
+
+  .faq-diaspora-columns,
+  .faq-diaspora-column {
+    gap: 9px;
+  }
+
+  .faq-diaspora-item {
+    border-radius: 10px;
+  }
+
+  .faq-diaspora-question {
+    min-height: 58px;
+    padding: 13px 14px;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .faq-diaspora-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .faq-diaspora-answer {
+    padding: 13px 14px 16px;
+  }
+
+  .faq-diaspora-answer p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 380px) {
+  .faq-diaspora {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .faq-diaspora-question {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .faq-diaspora-answer {
+    padding: 12px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-diaspora-item,
+  .faq-diaspora-icon,
+  .faq-diaspora-icon::before,
+  .faq-diaspora-icon::after {
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.faq-diaspora {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .faq-diaspora {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-diaspora {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-diaspora {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.faq-diaspora {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

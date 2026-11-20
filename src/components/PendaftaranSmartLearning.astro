@@ -1,0 +1,116 @@
+
+---
+import "../styles/program/PendaftaranSmartLearning.css";
+
+const whatsappUrl = "https://wa.me/6285319485269";
+
+const formulirUrl =
+  "/pendaftaran";
+
+const langkahPendaftaran = [
+  {
+    nomor: "1",
+    judul: "Konsultasi WhatsApp",
+    deskripsi: "Hubungi 0853 1948 5269",
+    link: whatsappUrl,
+    linkText: "Chat WhatsApp",
+  },
+  {
+    nomor: "2",
+    judul: "Pilih Program",
+    deskripsi: "Pilih pilar, cara belajar, dan kelas",
+  },
+  {
+    nomor: "3",
+    judul: "Biaya Pendaftaran",
+    deskripsi: "Bayar biaya pendaftaran Rp150.000",
+  },
+  {
+    nomor: "4",
+    judul: "Mulai Belajar",
+    deskripsi: "Sesuai jadwal yang disepakati",
+  },
+  {
+    nomor: "5",
+    judul: "Isi Formulir",
+    deskripsi: "Mengisi link pendaftaran PKBM Al-Fatihah",
+    link: formulirUrl,
+    linkText: "Buka Formulir",
+  },
+];
+---
+
+<section
+  class="pendaftaran-smart"
+  id="pendaftaran-smart-learning"
+  aria-labelledby="pendaftaran-smart-title"
+>
+  <div class="pendaftaran-smart-container">
+
+    <!-- JUDUL -->
+    <header class="pendaftaran-smart-heading">
+      <h2 id="pendaftaran-smart-title">
+        Bagaimana Cara Mendaftar?
+      </h2>
+
+      <span
+        class="pendaftaran-smart-divider"
+        aria-hidden="true"
+      ></span>
+
+      <p>
+        Mudah, cukup ikuti langkah berikut.
+      </p>
+    </header>
+
+    <!-- TIMELINE PENDAFTARAN -->
+    <ol class="pendaftaran-smart-steps">
+
+      {langkahPendaftaran.map((langkah) => (
+        <li class="pendaftaran-smart-step">
+
+          <!-- NOMOR TIMELINE -->
+          <div class="pendaftaran-smart-number-wrap">
+            <span class="pendaftaran-smart-number">
+              {langkah.nomor}
+            </span>
+          </div>
+
+          <!-- CARD LANGKAH -->
+          <article class="pendaftaran-smart-card">
+            <h3>{langkah.judul}</h3>
+
+            <p>{langkah.deskripsi}</p>
+
+            {langkah.link && (
+              <a
+                class="pendaftaran-smart-link"
+                href={langkah.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {langkah.linkText}
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </a>
+            )}
+          </article>
+
+        </li>
+      ))}
+
+    </ol>
+
+  </div>
+</section>

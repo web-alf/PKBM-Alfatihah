@@ -1,0 +1,111 @@
+---
+import logoPKBM from "../assets/image/PKBM_icon.webp";
+import "../styles/FooterPKBM.css";
+
+const whatsappUrl = "https://wa.me/6285319485269";
+const email = "alfatihahhomeschooling@gmail.com";
+const alamat = "PKBM Alfatihah Semarang, Jawa Tengah";
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const navigasi = [
+  { name: "Beranda", href: "/" },
+  { name: "Tentang Kami", href: "/tentang-kami" },
+  { name: "Program", href: "/#program-kami" },
+  { name: "Kontak", href: "/kontak" },
+];
+
+const programs = [
+  { name: "Kejar Paket A, B & C", href: "/program-kesetaraan" },
+  { name: "Alfatihah Homeschooling", href: "/homeschooling" },
+  { name: "Alfatihah Smart Learning", href: "/smart-learning" },
+  { name: "Diaspora Qur’an Center", href: "/diaspora" },
+];
+---
+
+<footer class="footer-pkbm">
+  <div class="footer-pkbm-container">
+    <div class="footer-pkbm-grid">
+      <div class="footer-pkbm-col footer-pkbm-brand">
+        <a href="/" class="footer-pkbm-logo" aria-label="PKBM Alfatihah - Beranda">
+          <img
+            src={logoPKBM.src}
+            alt="PKBM Alfatihah"
+            width="200"
+            height="65"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <p>
+          Solusi Pendidikan Fleksibel, Kredibel &amp; Islami. PKBM Alfatihah
+          adalah tempat belajar untuk semua orang, tanpa memandang usia atau
+          latar belakang.
+        </p>
+      </div>
+
+      <nav class="footer-pkbm-col" aria-labelledby="footer-nav-title">
+        <h2 id="footer-nav-title">Navigasi</h2>
+        <ul>
+          {navigasi.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={item.href === currentPath ? "page" : undefined}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="footer-pkbm-col footer-pkbm-program" aria-labelledby="footer-program-title">
+        <h2 id="footer-program-title">Program</h2>
+        <ul>
+          {programs.map((program) => (
+            <li>
+              <a href={program.href}>{program.name}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="footer-pkbm-col footer-pkbm-contact">
+        <h2>Kontak</h2>
+        <dl>
+          <div>
+            <dt>WhatsApp CS</dt>
+            <dd>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                +62 853-1948-5269
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd>
+              <a href={`mailto:${email}`}>{email}</a>
+            </dd>
+          </div>
+          <div>
+            <dt>Alamat</dt>
+            <dd>{alamat}</dd>
+          </div>
+        </dl>
+        <a href="/kontak" class="footer-pkbm-more">
+          Lihat Informasi Selengkapnya
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="footer-pkbm-text">
+      <span class="footer-pkbm-item">© 2026 PKBM Alfatihah Semarang</span>
+      <span class="footer-pkbm-separator" aria-hidden="true">·</span>
+      <span class="footer-pkbm-item">Yayasan Pendidikan Modern Alfatihah</span>
+      <span class="footer-pkbm-separator" aria-hidden="true">·</span>
+      <span class="footer-pkbm-item">Jazakumullahu Khayran Katsiran</span>
+    </p>
+  </div>
+</footer>

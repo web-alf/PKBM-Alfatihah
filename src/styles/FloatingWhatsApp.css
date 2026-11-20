@@ -1,0 +1,94 @@
+/* =========================================
+   FLOATING WHATSAPP
+========================================= */
+
+.floating-wa {
+  position: fixed;
+  right: calc(24px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.floating-wa-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.floating-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.floating-wa:focus-visible {
+  outline: 3px solid #d9a035;
+  outline-offset: 3px;
+}
+
+.floating-wa-tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #292333;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.floating-wa:hover .floating-wa-tooltip,
+.floating-wa:focus-visible .floating-wa-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .floating-wa {
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    width: 48px;
+    height: 48px;
+  }
+
+  .floating-wa-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .floating-wa-tooltip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-wa,
+  .floating-wa-tooltip {
+    transition: none;
+  }
+
+  .floating-wa:hover {
+    transform: none;
+  }
+}

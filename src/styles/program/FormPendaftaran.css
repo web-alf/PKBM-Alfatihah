@@ -1,0 +1,445 @@
+
+/* =========================================
+   FORM PENDAFTARAN PKBM ALFATIHAH
+   THEME: PLUM & SOFT PINK
+========================================= */
+
+.pendaftaran-section {
+  --plum: #75194f;
+  --magenta: #b51a7a;
+  --pink-soft: #fff7fb;
+  --gold: #d9a035;
+  --border: #e3d5de;
+  --text: #403747;
+  --muted: #695d69;
+
+  width: 100%;
+  min-height: 75vh;
+  padding: 65px 20px 85px;
+  background: var(--pink-soft);
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+}
+
+.pendaftaran-section,
+.pendaftaran-section * {
+  box-sizing: border-box;
+}
+
+.pendaftaran-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pendaftaran-card {
+  width: 100%;
+  padding: 45px 48px;
+  background: #ffffff;
+  border: 1px solid #ebdce5;
+  border-radius: 16px;
+  box-shadow: 0 8px 35px rgba(117, 25, 79, 0.045);
+}
+
+/* HEADER */
+
+.pendaftaran-header {
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+.pendaftaran-eyebrow {
+  display: block;
+  margin-bottom: 13px;
+  color: var(--magenta);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.pendaftaran-header h1 {
+  max-width: 590px;
+  margin: 0 auto 16px;
+  color: var(--plum);
+  font-size: clamp(25px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.pendaftaran-header p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.pendaftaran-accent {
+  display: block;
+  width: 46px;
+  height: 3px;
+  margin: 22px auto 0;
+  border-radius: 10px;
+  background: var(--gold);
+}
+
+/* FORM */
+
+.pendaftaran-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.pendaftaran-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+}
+
+.pendaftaran-field label,
+.pendaftaran-gender legend {
+  color: var(--plum);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.pendaftaran-field label span,
+.pendaftaran-gender legend span,
+.pendaftaran-required span {
+  color: #dc3545;
+}
+
+.pendaftaran-field input,
+.pendaftaran-field select,
+.pendaftaran-field .pendaftaran-select-trigger,
+.pendaftaran-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pendaftaran-field input::placeholder,
+.pendaftaran-field textarea::placeholder {
+  color: #9b8d99;
+}
+
+.pendaftaran-field input:focus,
+.pendaftaran-field select:focus,
+.pendaftaran-field .pendaftaran-select-trigger:focus,
+.pendaftaran-field .pendaftaran-select-trigger[aria-expanded="true"],
+.pendaftaran-field textarea:focus {
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 3px rgba(181, 26, 122, 0.1);
+}
+
+.pendaftaran-field textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.pendaftaran-field select {
+  cursor: pointer;
+}
+
+/* DROPDOWN KUSTOM (select asli tetap menyimpan nilai & validasi) */
+
+.pendaftaran-select {
+  position: relative;
+  min-width: 0;
+}
+
+.pendaftaran-select.is-enhanced select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pendaftaran-select-trigger {
+  display: block;
+  overflow: hidden;
+  padding-right: 40px !important;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pendaftaran-select-trigger::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--plum);
+  border-bottom: 2px solid var(--plum);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.pendaftaran-select-trigger[aria-expanded="true"]::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.pendaftaran-select-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  z-index: 20;
+  max-height: 240px;
+  margin: 0;
+  padding: 4px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(117, 25, 79, 0.14);
+  list-style: none;
+}
+
+.pendaftaran-select-list[hidden] {
+  display: none;
+}
+
+.pendaftaran-select-option {
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.pendaftaran-select-option.is-active {
+  background: var(--pink-soft);
+  color: var(--plum);
+}
+
+.pendaftaran-select-option[aria-selected="true"],
+.pendaftaran-select-option[aria-selected="true"].is-active {
+  background: var(--magenta);
+  color: #ffffff;
+}
+.pendaftaran-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* RADIO */
+
+.pendaftaran-gender {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.pendaftaran-gender legend {
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.pendaftaran-radio-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.pendaftaran-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.pendaftaran-radio input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--magenta);
+  cursor: pointer;
+}
+
+/* REQUIRED NOTE */
+
+.pendaftaran-required {
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* ACTIONS */
+
+.pendaftaran-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.pendaftaran-back,
+.pendaftaran-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pendaftaran-back {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--plum);
+}
+
+.pendaftaran-back:hover {
+  border-color: var(--magenta);
+  background: var(--pink-soft);
+}
+
+.pendaftaran-submit {
+  flex: 2;
+  border: 1px solid var(--magenta);
+  background: var(--magenta);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.pendaftaran-submit:hover:not(:disabled) {
+  background: var(--plum);
+  border-color: var(--plum);
+  transform: translateY(-1px);
+}
+
+.pendaftaran-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.pendaftaran-back:focus-visible,
+.pendaftaran-submit:focus-visible {
+  outline: 3px solid rgba(181, 26, 122, 0.25);
+  outline-offset: 3px;
+}
+
+/* STATUS MESSAGE */
+
+.pendaftaran-message {
+  padding: 13px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.pendaftaran-message[hidden] {
+  display: none;
+}
+
+.pendaftaran-message.is-info {
+  border: 1px solid #ead7b1;
+  background: #fff9e9;
+  color: #72521e;
+}
+
+.pendaftaran-message.is-error {
+  border: 1px solid #efb5bd;
+  background: #fff1f3;
+  color: #9b2434;
+}
+
+.pendaftaran-message.is-success {
+  border: 1px solid #b7dfc7;
+  background: #f0fff5;
+  color: #23683c;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .pendaftaran-section {
+    padding: 45px 18px 65px;
+  }
+
+  .pendaftaran-card {
+    padding: 35px 28px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 560px) {
+  .pendaftaran-section {
+    padding: 30px 15px 50px;
+  }
+
+  .pendaftaran-card {
+    padding: 28px 19px;
+    border-radius: 12px;
+  }
+
+  .pendaftaran-header {
+    margin-bottom: 28px;
+  }
+
+  .pendaftaran-header h1 {
+    font-size: 24px;
+  }
+
+  .pendaftaran-header p {
+    font-size: 12px;
+  }
+
+  .pendaftaran-form {
+    gap: 17px;
+  }
+
+  .pendaftaran-row {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .pendaftaran-radio-group {
+    gap: 18px;
+  }
+
+  .pendaftaran-actions {
+    flex-direction: column-reverse;
+  }
+
+  .pendaftaran-back,
+  .pendaftaran-submit {
+    width: 100%;
+    flex: none;
+  }
+}

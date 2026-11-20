@@ -1,0 +1,75 @@
+
+---
+import "../styles/program/JenjangKesetaraan.css";
+
+const jenjang = [
+  {
+    nama: "Paket A",
+    setara: "Setara SD",
+    deskripsi:
+      "Untuk warga belajar yang ingin menuntaskan pendidikan dasar setara SD.",
+  },
+  {
+    nama: "Paket B",
+    setara: "Setara SMP",
+    deskripsi:
+      "Untuk warga belajar yang ingin menuntaskan pendidikan setara SMP.",
+  },
+  {
+    nama: "Paket C",
+    setara: "Setara SMA",
+    deskripsi:
+      "Untuk warga belajar yang ingin menuntaskan pendidikan setara SMA.",
+  },
+];
+
+const mataPelajaran = [
+  "Tahfidz Qur'an",
+  "Bahasa Arab",
+  "Bahasa Inggris",
+];
+---
+
+<section class="jenjang-kesetaraan" aria-labelledby="jenjang-title">
+  <div class="jenjang-kesetaraan-container">
+
+    <!-- JUDUL SECTION -->
+    <header class="jenjang-kesetaraan-heading">
+      <h2 id="jenjang-title">Pilih jenjangmu</h2>
+      <div class="jenjang-kesetaraan-line" aria-hidden="true"></div>
+    </header>
+
+    <!-- CARD PAKET A, B, C -->
+    <div class="jenjang-kesetaraan-grid">
+      {jenjang.map((item) => (
+        <article class="jenjang-kesetaraan-card">
+          <h3>{item.nama}</h3>
+          <p class="jenjang-kesetaraan-level">
+            {item.setara}
+          </p>
+          <p class="jenjang-kesetaraan-description">
+            {item.deskripsi}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <!-- KURIKULUM NASIONAL -->
+    <div class="jenjang-kurikulum">
+      <h3>Kurikulum Nasional &amp; Nilai Islami</h3>
+
+      <p class="jenjang-kurikulum-description">
+        Seluruh jenjang menggunakan Kurikulum Nasional, dilengkapi dengan:
+      </p>
+
+      <div class="jenjang-kurikulum-grid">
+        {mataPelajaran.map((item) => (
+          <div class="jenjang-kurikulum-item">
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,111 @@
+
+---
+import paketLogo from "../assets/image/PKBM_icon.webp";
+import homeschoolingLogo from "../assets/image/homechooling.webp";
+import smartLearningLogo from "../assets/image/smartlearning.webp";
+import diasporaLogo from "../assets/image/diaspora.webp";
+import "../styles/home/ProgramKami.css";
+
+const programs = [
+  {
+    id: "paket",
+    logo: paketLogo,
+    title: "Kejar Paket A, B & C",
+    description:
+      "Pendidikan kesetaraan resmi setara SD, SMP, dan SMA.",
+    priceLabel: "SPP",
+    price: "Rp70.000",
+    period: "/bulan",
+    href: "/program-kesetaraan",
+  },
+  {
+    id: "homeschooling",
+    logo: homeschoolingLogo,
+    title: "Alfatihah Homeschooling",
+    description:
+      "Pendidikan alternatif resmi dengan pendekatan personal dan metode Project Based Learning.",
+    priceLabel: "SPP mulai",
+    price: "Rp325.000",
+    period: "/bulan",
+    href: "/homeschooling",
+  },
+  {
+    id: "smart",
+    logo: smartLearningLogo,
+    title: "Alfatihah Smart Learning",
+    description:
+      "Les privat Academic, Tahfidz, Tahsin, English, dan AI dengan tutor pilihan.",
+    priceLabel: "Mulai",
+    price: "Rp25.000",
+    period: "/pertemuan",
+    href: "/smart-learning",
+  },
+  {
+    id: "diaspora",
+    logo: diasporaLogo,
+    title: "Diaspora Qur'an Center",
+    description:
+      "Les Tahsin dan Tahfidz online untuk keluarga Indonesia di luar negeri.",
+    priceLabel: "Mulai",
+    price: "Rp40.000",
+    period: "/pertemuan",
+    href: "/diaspora",
+  },
+];
+---
+
+<section
+  class="program-kami"
+  id="program-kami"
+  aria-labelledby="program-kami-title"
+>
+  <div class="program-kami-container">
+
+    <div class="program-kami-heading">
+      <h2 id="program-kami-title">
+        Program apa saja yang ada di PKBM Alfatihah?
+      </h2>
+
+      <div class="program-kami-heading-line"></div>
+    </div>
+
+    <div class="program-kami-grid">
+      {programs.map((program) => (
+        <article class="program-kami-card">
+
+          <div class="program-kami-card-header">
+            <img class="program-kami-logo" src={program.logo.src} alt="" />
+            <h3>{program.title}</h3>
+          </div>
+
+          <p class="program-kami-description">
+            {program.description}
+          </p>
+
+          <a
+            href={program.href}
+            class="program-kami-price-box"
+            aria-label={`Lihat program ${program.title}, ${program.priceLabel} ${program.price} ${program.period}`}
+          >
+            <div class="program-kami-price-info">
+              <span class="program-kami-price-label">
+                {program.priceLabel}
+              </span>
+
+              <div class="program-kami-price-value">
+                <strong>{program.price}</strong>
+                <span>{program.period}</span>
+              </div>
+            </div>
+
+            <span class="program-kami-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,199 @@
+
+/* =========================================
+   KEUNGGULAN PKBM ALFATIHAH
+========================================= */
+
+.keunggulan-section {
+  width: 100%;
+  padding: 65px 24px 100px;
+  background: var(--pkbm-cream);
+}
+
+.keunggulan-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.keunggulan-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.keunggulan-heading h2 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--pkbm-magenta);
+}
+
+.keunggulan-line {
+  width: 65px;
+  height: 4px;
+  margin: 22px auto 0;
+  border-radius: 10px;
+  background: var(--pkbm-gold);
+}
+
+/* GRID */
+
+.keunggulan-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* CARD */
+
+.keunggulan-card {
+  min-width: 0;
+  min-height: 185px;
+  padding: 26px 15px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  text-align: center;
+
+  background: var(--pkbm-white);
+  border: 1px solid var(--pkbm-border);
+  border-radius: 18px;
+
+  box-shadow: 0 5px 18px rgba(var(--pkbm-plum-rgb), 0.045);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.keunggulan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(var(--pkbm-plum-rgb), 0.12);
+  border-color: var(--pkbm-gold);
+}
+
+/* ICON */
+
+.keunggulan-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keunggulan-icon svg {
+  width: 38px;
+  height: 38px;
+}
+
+.keunggulan-icon.gold {
+  color: #A74E92;
+}
+
+/* TEXT */
+
+.keunggulan-card h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--pkbm-magenta);
+  overflow-wrap: break-word;
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+  .keunggulan-section {
+    padding: 50px 24px 80px;
+  }
+
+  .keunggulan-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .keunggulan-card {
+    min-height: 175px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .keunggulan-section {
+    padding: 40px 16px 70px;
+  }
+
+  .keunggulan-heading {
+    margin-bottom: 30px;
+  }
+
+  .keunggulan-heading h2 {
+    font-size: 27px;
+  }
+
+  .keunggulan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .keunggulan-card {
+    min-height: 175px;
+    padding: 20px 12px;
+    gap: 14px;
+    border-radius: 15px;
+  }
+
+  .keunggulan-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .keunggulan-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .keunggulan-card h3 {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+}
+
+/* VERY SMALL MOBILE */
+
+@media (max-width: 360px) {
+  .keunggulan-grid {
+    gap: 10px;
+  }
+
+  .keunggulan-card {
+    padding: 16px 9px;
+  }
+
+  .keunggulan-card h3 {
+    font-size: 12px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .keunggulan-card {
+    transition: none;
+  }
+
+  .keunggulan-card:hover {
+    transform: none;
+  }
+}

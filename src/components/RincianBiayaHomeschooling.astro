@@ -1,0 +1,270 @@
+
+---
+import "../styles/program/RincianBiayaHomeschooling.css";
+
+const rincianBiaya = [
+  {
+    nama: "Kelas Online / Daring",
+    lokasi: "",
+    pendaftaran: "Rp1.700.000",
+    spp: "Rp450.000",
+    biayaPendaftaran: [
+      { label: "Administrasi", harga: "Rp150.000" },
+      { label: "Rapor", harga: "Rp100.000" },
+      {
+        label: "Infaq Pengembangan PKBM",
+        harga: "Rp1.000.000",
+      },
+      {
+        label: "SPP bulan pertama",
+        harga: "Rp450.000",
+      },
+    ],
+    biayaSPP: [
+      {
+        label: "KBM 3x per minggu",
+        harga: "Rp360.000",
+      },
+      {
+        label: "Media Pembelajaran",
+        harga: "Rp90.000",
+      },
+    ],
+    catatan: "",
+    ujian: "Rp100.000",
+    ijazah: "Rp150.000",
+  },
+  {
+    nama: "Kelas Offline: Siswa ke Lembaga",
+    lokasi: "Wilayah Semarang Timur",
+    pendaftaran: "Rp1.750.000",
+    spp: "Rp500.000",
+    biayaPendaftaran: [
+      { label: "Administrasi", harga: "Rp150.000" },
+      { label: "Rapor", harga: "Rp100.000" },
+      {
+        label: "Infaq Pengembangan PKBM",
+        harga: "Rp1.000.000",
+      },
+      {
+        label: "SPP bulan pertama",
+        harga: "Rp500.000",
+      },
+    ],
+    biayaSPP: [
+      {
+        label: "KBM 3x per minggu",
+        harga: "Rp480.000",
+      },
+      {
+        label: "Operasional Jarak",
+        harga: "Rp20.000",
+      },
+    ],
+    catatan: "",
+    ujian: "Rp100.000",
+    ijazah: "Rp150.000",
+  },
+  {
+    nama: "Kelas Offline: Tutor ke Rumah",
+    lokasi: "Wilayah Semarang Timur",
+    pendaftaran: "Rp1.850.000",
+    spp: "Rp500.000 / Rp600.000",
+    biayaPendaftaran: [
+      { label: "Administrasi", harga: "Rp150.000" },
+      { label: "Rapor", harga: "Rp100.000" },
+      {
+        label: "Infaq Pengembangan PKBM",
+        harga: "Rp1.000.000",
+      },
+      {
+        label: "SPP bulan pertama",
+        harga: "Rp600.000",
+      },
+    ],
+    biayaSPP: [
+      {
+        label: "KBM 3x per minggu",
+        harga: "Rp500.000",
+      },
+      {
+        label: "Tambahan jarak lebih dari 6 km",
+        harga: "Rp100.000",
+      },
+    ],
+    catatan:
+      "Total Rp500.000 untuk jarak ≤ 6 km / Rp600.000 untuk jarak > 6 km.",
+    ujian: "Rp100.000",
+    ijazah: "Rp150.000",
+  },
+  {
+    nama: "Kelas Mandiri / Self-Paced",
+    lokasi: "",
+    pendaftaran: "Rp1.575.000",
+    spp: "Rp325.000",
+    biayaPendaftaran: [
+      { label: "Administrasi", harga: "Rp150.000" },
+      { label: "Rapor", harga: "Rp100.000" },
+      {
+        label: "Infaq Pengembangan PKBM",
+        harga: "Rp1.000.000",
+      },
+      {
+        label: "SPP bulan pertama",
+        harga: "Rp325.000",
+      },
+    ],
+    biayaSPP: [
+      { label: "Silabus", harga: "Rp175.000" },
+      { label: "Lembar Kerja", harga: "Rp150.000" },
+    ],
+    catatan: "",
+    ujian: "Rp100.000",
+    ijazah: "Rp200.000",
+  },
+];
+---
+
+<section
+  class="rincian-hs"
+  id="rincian-biaya-homeschooling"
+>
+  <div class="rincian-hs-container">
+
+    <!-- JUDUL SECTION -->
+    <div class="rincian-hs-heading">
+      <h2>Rincian Biaya Homeschooling</h2>
+      <span class="rincian-hs-heading-line"></span>
+      <p>
+        Informasi lengkap biaya pendaftaran dan
+        pembelajaran untuk setiap pilihan kelas.
+      </p>
+    </div>
+
+    <!-- DAFTAR KELAS -->
+    <div class="rincian-hs-list">
+      {
+        rincianBiaya.map((kelas, index) => (
+          <article class="rincian-hs-item">
+
+            <!-- NAMA KELAS -->
+            <div class="rincian-hs-class-heading">
+              <div class="rincian-hs-number">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+
+              <div class="rincian-hs-class-title">
+                <h3>{kelas.nama}</h3>
+
+                {kelas.lokasi && (
+                  <p>{kelas.lokasi}</p>
+                )}
+              </div>
+            </div>
+
+            <!-- DUA KOLOM RINCIAN -->
+            <div class="rincian-hs-columns">
+
+              <!-- PENDAFTARAN -->
+              <div class="rincian-hs-column">
+                <div class="rincian-hs-column-heading">
+                  <span class="rincian-hs-label">
+                    PENDAFTARAN (SEKALI)
+                  </span>
+
+                  <h4 class="rincian-hs-total-registration">
+                    {kelas.pendaftaran}
+                  </h4>
+                </div>
+
+                <div class="rincian-hs-rows">
+                  {kelas.biayaPendaftaran.map((biaya) => (
+                    <div class="rincian-hs-row">
+                      <span>{biaya.label}</span>
+                      <strong>{biaya.harga}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- SPP BULANAN -->
+              <div class="rincian-hs-column">
+                <div class="rincian-hs-column-heading">
+                  <span class="rincian-hs-label">
+                    SPP / BULAN
+                  </span>
+
+                  <h4>{kelas.spp}</h4>
+                </div>
+
+                <div class="rincian-hs-rows">
+                  {kelas.biayaSPP.map((biaya) => (
+                    <div class="rincian-hs-row">
+                      <span>{biaya.label}</span>
+                      <strong>{biaya.harga}</strong>
+                    </div>
+                  ))}
+                </div>
+
+                {kelas.catatan && (
+                  <p class="rincian-hs-note">
+                    {kelas.catatan}
+                  </p>
+                )}
+              </div>
+
+            </div>
+
+            <!-- UJIAN DAN IJAZAH -->
+            <div class="rincian-hs-extra">
+              <div class="rincian-hs-extra-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="3" width="16" height="18" rx="2" />
+                  <path d="M8 8h8M8 12h8M8 16h4" />
+                </svg>
+
+                <span>Ujian / semester</span>
+                <strong>{kelas.ujian}</strong>
+              </div>
+
+              <div class="rincian-hs-extra-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m2 10 10-5 10 5-10 5-10-5Z" />
+                  <path d="M6 12v5c3 2 9 2 12 0v-5" />
+                  <path d="M22 10v6" />
+                </svg>
+
+                <span>Ijazah</span>
+                <strong>{kelas.ijazah}</strong>
+              </div>
+            </div>
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

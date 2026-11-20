@@ -1,0 +1,261 @@
+
+/* =========================================
+   PENDAFTARAN DIASPORA
+   HORIZONTAL TIMELINE - CONCEPT B
+========================================= */
+
+.pendaftaran-diaspora {
+  width: 100%;
+  padding: 75px 20px 85px;
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.pendaftaran-diaspora,
+.pendaftaran-diaspora * {
+  box-sizing: border-box;
+}
+
+.pendaftaran-diaspora-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.pendaftaran-diaspora-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.pendaftaran-diaspora-heading h2 {
+  margin: 0;
+  color: #001c49;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pendaftaran-diaspora-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 15px auto 18px;
+  background: #d9a035;
+  border-radius: 99px;
+}
+
+.pendaftaran-diaspora-heading p {
+  margin: 0;
+  color: #344766;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* TIMELINE */
+
+.pendaftaran-diaspora-timeline {
+  position: relative;
+
+  --step-gap: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--step-gap);
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* CONNECTOR LINE */
+
+.pendaftaran-diaspora-timeline::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  top: 23px;
+  left: calc((100% - 4 * var(--step-gap)) / 10);
+  right: calc((100% - 4 * var(--step-gap)) / 10);
+
+  border-top: 2px dashed #d9a035;
+}
+
+.pendaftaran-diaspora-step {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  text-align: center;
+}
+
+/* NUMBER CIRCLE */
+
+.pendaftaran-diaspora-number {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #001c49;
+  border: 2px solid #d9a035;
+  border-radius: 50%;
+
+  color: #f3cb7c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* STEP TEXT */
+
+.pendaftaran-diaspora-step-content {
+  width: 100%;
+  max-width: 190px;
+  min-width: 0;
+}
+
+.pendaftaran-diaspora-step-content p {
+  margin: 0;
+  color: #344766;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+.pendaftaran-diaspora-step-content a {
+  color: #001c49;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #d9a035;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.pendaftaran-diaspora-step-content a:hover {
+  color: #b78322;
+}
+
+.pendaftaran-diaspora-step-content a:focus-visible {
+  outline: 2px solid #d9a035;
+  outline-offset: 3px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .pendaftaran-diaspora {
+    padding: 60px 20px 70px;
+  }
+
+  .pendaftaran-diaspora-timeline {
+    --step-gap: 10px;
+  }
+
+  .pendaftaran-diaspora-step-content p {
+    font-size: 12px;
+  }
+}
+
+/* MOBILE - VERTICAL TIMELINE */
+
+@media (max-width: 640px) {
+  .pendaftaran-diaspora {
+    padding: 55px 16px 65px;
+  }
+
+  .pendaftaran-diaspora-heading {
+    margin-bottom: 35px;
+  }
+
+  .pendaftaran-diaspora-heading h2 {
+    font-size: 24px;
+  }
+
+  .pendaftaran-diaspora-heading p {
+    font-size: 13px;
+  }
+
+  .pendaftaran-diaspora-timeline {
+    grid-template-columns: 1fr;
+    --step-gap: 0px;
+    gap: 0;
+  }
+
+  .pendaftaran-diaspora-timeline::before {
+    top: 20px;
+    bottom: 20px;
+    left: 23px;
+    right: auto;
+    border-top: none;
+    border-left: 2px dashed #d9a035;
+  }
+
+  .pendaftaran-diaspora-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 17px;
+
+    padding-bottom: 28px;
+    text-align: left;
+  }
+
+  .pendaftaran-diaspora-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .pendaftaran-diaspora-number {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pendaftaran-diaspora-step-content {
+    max-width: none;
+    padding-top: 10px;
+  }
+
+  .pendaftaran-diaspora-step-content p {
+    font-size: 13px;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.pendaftaran-diaspora {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .pendaftaran-diaspora {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pendaftaran-diaspora {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pendaftaran-diaspora {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.pendaftaran-diaspora {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

@@ -1,0 +1,479 @@
+/* ==========================================
+   HERO DIASPORA QUR'AN CENTER
+   LAYOUT & PROPORSI MENGIKUTI HERO SMART LEARNING
+   Navy  : #001C49
+   Gold  : #D9A035
+   Cream : #FFF9F5
+========================================== */
+
+.hero-diaspora {
+  --diaspora-navy: #001c49;
+  --diaspora-gold: #d9a035;
+  --diaspora-gold-light: #f5d177;
+  --diaspora-cream: #fff9f5;
+  --diaspora-muted: #786984;
+
+  width: 100%;
+  padding: 52px 24px 58px;
+  scroll-margin-top: 88px;
+  overflow: hidden;
+
+  background: var(--diaspora-navy);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.hero-diaspora,
+.hero-diaspora * {
+  box-sizing: border-box;
+}
+
+.hero-diaspora-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.hero-diaspora-logo {
+  width: fit-content;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  border: 1px solid #e6ebf5;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.hero-diaspora-logo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 84px;
+  aspect-ratio: 1.52 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.hero-diaspora-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+  padding: 6px 12px;
+
+  border: 1.5px solid var(--diaspora-gold);
+  border-radius: 999px;
+
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/* ==========================================
+   JUDUL
+========================================== */
+
+.hero-diaspora h1 {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0;
+
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.hero-diaspora-title-white {
+  color: #ffffff;
+}
+
+.hero-diaspora-title-gold {
+  display: inline-block;
+  color: #D9A035;
+}
+
+/* ==========================================
+   GARIS EMAS
+========================================== */
+
+.hero-diaspora-divider {
+  display: block;
+  width: 65px;
+  height: 4px;
+  margin: 20px auto;
+
+  background: var(--diaspora-gold);
+  border-radius: 10px;
+}
+
+/* ==========================================
+   DESKRIPSI
+========================================== */
+
+.hero-diaspora-description {
+  max-width: 850px;
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+/* ==========================================
+   TAGLINE
+========================================== */
+
+.hero-diaspora-tagline {
+  max-width: 850px;
+  margin: 16px 0 0;
+
+  color: var(--diaspora-gold-light);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.hero-diaspora-tagline span {
+  margin: 0 6px;
+  color: var(--diaspora-gold);
+}
+
+/* ==========================================
+   BADGE PROMO
+========================================== */
+
+.hero-diaspora-promo {
+  width: fit-content;
+  max-width: 640px;
+  margin-top: 16px;
+  padding: 16px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  background: var(--diaspora-cream);
+  border: 2px solid var(--diaspora-gold);
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+
+  text-align: left;
+}
+
+.hero-diaspora-promo-icon {
+  width: 56px;
+  height: 60px;
+  padding-right: 12px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid #e7c78f;
+  color: #c88a24;
+}
+
+.hero-diaspora-promo-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.hero-diaspora-promo-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  text-align: left;
+}
+
+.hero-diaspora-promo-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 10px;
+
+  background: var(--diaspora-gold);
+  border-radius: 999px;
+
+  color: var(--diaspora-navy);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.hero-diaspora-promo-prices {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-diaspora-promo-prices strong {
+  color: var(--diaspora-navy);
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.hero-diaspora-promo-prices span {
+  color: var(--diaspora-muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.hero-diaspora-promo-prices s {
+  text-decoration-color: #b83d54;
+  text-decoration-thickness: 2px;
+}
+
+/* ==========================================
+   TOMBOL CTA
+========================================== */
+
+.hero-diaspora-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 22px;
+}
+
+.hero-diaspora-btn {
+  min-height: 50px;
+  padding: 13px 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-diaspora-btn svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.hero-diaspora-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hero-diaspora-btn-primary {
+  background: var(--diaspora-gold-light);
+  border-color: var(--diaspora-gold-light);
+  color: var(--diaspora-navy);
+}
+
+.hero-diaspora-btn-primary:hover {
+  background: var(--diaspora-gold);
+  border-color: var(--diaspora-gold);
+}
+
+.hero-diaspora-btn-secondary {
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.hero-diaspora-btn-secondary:hover {
+  background: #ffffff;
+  color: var(--diaspora-navy);
+}
+
+.hero-diaspora-btn:focus-visible {
+  outline: 3px solid var(--diaspora-gold-light);
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .hero-diaspora {
+    scroll-margin-top: 76px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-diaspora {
+    padding: 48px 24px 54px;
+  }
+
+  .hero-diaspora h1 {
+    font-size: clamp(32px, 4.5vw, 40px);
+  }
+
+  .hero-diaspora-description {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .hero-diaspora {
+    padding: 46px 20px 54px;
+  }
+
+  .hero-diaspora-logo img {
+    height: 68px;
+  }
+
+  .hero-diaspora-label {
+    margin-bottom: 16px;
+  }
+
+  .hero-diaspora h1 {
+    font-size: clamp(30px, 6vw, 40px);
+    letter-spacing: -0.6px;
+  }
+
+  .hero-diaspora-divider {
+    margin: 22px auto;
+  }
+
+  .hero-diaspora-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-diaspora-tagline {
+    font-size: 15px;
+  }
+
+  .hero-diaspora-promo {
+    max-width: 100%;
+  }
+
+  .hero-diaspora-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .hero-diaspora-btn {
+    width: 100%;
+    max-width: 350px;
+    min-height: 49px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-diaspora {
+    padding: 42px 18px 50px;
+    scroll-margin-top: 68px;
+  }
+
+  .hero-diaspora-label {
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.35px;
+  }
+
+  .hero-diaspora h1 {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
+  .hero-diaspora-description {
+    font-size: 13px;
+  }
+
+  .hero-diaspora-tagline {
+    font-size: 14px;
+  }
+
+  .hero-diaspora-tagline span {
+    margin: 0 3px;
+  }
+
+  .hero-diaspora-promo {
+    padding: 14px 12px;
+    gap: 8px;
+    border-radius: 15px;
+  }
+
+  .hero-diaspora-promo-icon {
+    width: 36px;
+    height: 44px;
+    padding-right: 6px;
+  }
+
+  .hero-diaspora-promo-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero-diaspora-promo-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .hero-diaspora-promo-prices strong {
+    font-size: 26px;
+  }
+
+  .hero-diaspora-promo-prices span {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-diaspora-btn {
+    transition: none;
+  }
+}

@@ -1,0 +1,435 @@
+
+/* ==========================================
+   CARA BELAJAR SMART LEARNING
+   PREVIEW 1 - SIMPLE & CLEAN
+========================================== */
+
+.cara-smart {
+  --smart-purple: #3c1e66;
+  --smart-gold: #d9a035;
+  --smart-cream: #fff9f5;
+
+  background: var(--smart-cream);
+  padding: 75px 20px 85px;
+  font-family: "Poppins", sans-serif;
+}
+
+.cara-smart,
+.cara-smart * {
+  box-sizing: border-box;
+}
+
+.cara-smart-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   JUDUL SECTION
+========================================== */
+
+.cara-smart-heading {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.cara-smart-heading h2 {
+  margin: 0;
+  color: var(--smart-purple);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cara-smart-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 18px auto 0;
+  background: var(--smart-gold);
+  border-radius: 999px;
+}
+
+/* ==========================================
+   LAYOUT UTAMA
+========================================== */
+
+.cara-smart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(290px, 0.9fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* ==========================================
+   GRID EMPAT CARD
+========================================== */
+
+.cara-smart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cara-smart-card {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e9dfe8;
+  border-radius: 16px;
+  padding: 24px 20px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+
+  box-shadow: 0 4px 12px rgba(60, 30, 102, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cara-smart-card:nth-child(even) {
+  background: #fdf5fb;
+}
+
+.cara-smart-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(60, 30, 102, 0.09);
+}
+
+/* ==========================================
+   ICON CARD
+========================================== */
+
+.cara-smart-card-icon {
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f7edf5;
+  color: var(--smart-purple);
+  border-radius: 50%;
+}
+
+.cara-smart-card-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+/* ==========================================
+   KONTEN CARD
+========================================== */
+
+.cara-smart-card-content {
+  min-width: 0;
+  flex: 1;
+
+  border-left: 1px solid #e5d6e5;
+  padding-left: 17px;
+}
+
+.cara-smart-card h3 {
+  margin: 0 0 10px;
+  color: var(--smart-purple);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cara-smart-card p {
+  margin: 0;
+  color: #30283a;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.cara-smart-card .cara-smart-extra {
+  margin-top: 14px;
+  color: var(--smart-purple);
+  font-weight: 700;
+}
+
+.cara-smart-card .cara-smart-address {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.65;
+  color: #4b4052;
+}
+
+.cara-smart-address strong {
+  color: var(--smart-purple);
+  font-weight: 700;
+}
+
+/* ==========================================
+   PANEL PILIHAN KELAS
+========================================== */
+
+.cara-smart-classes {
+  min-width: 0;
+  background: var(--smart-purple);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 28px 27px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cara-smart-classes h3 {
+  margin: 0;
+  color: #f5c66d;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cara-smart-classes-line {
+  display: block;
+  width: 65px;
+  height: 3px;
+  margin: 16px 0 18px;
+  background: var(--smart-gold);
+  border-radius: 999px;
+}
+
+.cara-smart-class-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.cara-smart-class-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 0;
+}
+
+.cara-smart-class-item + .cara-smart-class-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cara-smart-class-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f5c66d;
+}
+
+.cara-smart-class-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.cara-smart-class-item p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cara-smart-class-item strong {
+  font-weight: 700;
+}
+
+/* ==========================================
+   BAR DURASI
+========================================== */
+
+.cara-smart-duration {
+  margin-top: 24px;
+  min-height: 70px;
+  padding: 16px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  background: var(--smart-gold);
+  border-radius: 14px;
+  color: var(--smart-purple);
+}
+
+.cara-smart-duration svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.cara-smart-duration p {
+  margin: 0;
+  color: var(--smart-purple);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1100px) {
+  .cara-smart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cara-smart-classes {
+    padding: 25px;
+  }
+
+  .cara-smart-class-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .cara-smart-class-item {
+    padding: 12px 0;
+  }
+
+  .cara-smart-class-item + .cara-smart-class-item {
+    border-top: none;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 640px) {
+  .cara-smart {
+    padding: 50px 16px 60px;
+  }
+
+  .cara-smart-heading {
+    margin-bottom: 28px;
+  }
+
+  .cara-smart-heading h2 {
+    font-size: 24px;
+  }
+
+  .cara-smart-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .cara-smart-card {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .cara-smart-card-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .cara-smart-card-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cara-smart-card-content {
+    padding-left: 13px;
+  }
+
+  .cara-smart-card h3 {
+    font-size: 17px;
+  }
+
+  .cara-smart-card p {
+    font-size: 13px;
+  }
+
+  .cara-smart-classes {
+    padding: 23px 20px;
+  }
+
+  .cara-smart-classes h3 {
+    font-size: 21px;
+  }
+
+  .cara-smart-class-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cara-smart-class-item {
+    padding: 15px 0;
+  }
+
+  .cara-smart-class-item + .cara-smart-class-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .cara-smart-duration {
+    min-height: 60px;
+    padding: 14px 18px;
+    gap: 10px;
+  }
+
+  .cara-smart-duration svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .cara-smart-duration p {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cara-smart-card {
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.cara-smart {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .cara-smart {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cara-smart {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cara-smart {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.cara-smart {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

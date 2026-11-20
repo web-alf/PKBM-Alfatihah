@@ -1,0 +1,343 @@
+/* =========================================
+   DETAIL PROGRAM KESETARAAN
+========================================= */
+
+.detail-kesetaraan {
+  padding: 80px 24px 28px;
+  background: #FFF9F5;
+  font-family: "Poppins", sans-serif;
+}
+
+.detail-kesetaraan *,
+.detail-kesetaraan *::before,
+.detail-kesetaraan *::after {
+  box-sizing: border-box;
+}
+
+.detail-kesetaraan-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CARD GRID */
+
+.detail-kesetaraan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.detail-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid #F2E7EB;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 26px rgba(75, 22, 60, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(75, 22, 60, 0.12);
+}
+
+.detail-card-benefits {
+  border-color: #92197B;
+  background: #92197B;
+  color: #FFFFFF;
+}
+
+.detail-card-header {
+  display: flex;
+  flex-direction: column;
+  min-height: 76px;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.detail-card-header h3 {
+  min-height: 2.8em;
+  margin: 0;
+  color: #82165F;
+  font-size: clamp(18px, 1.7vw, 22px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.detail-card-benefits .detail-card-header h3 {
+  color: #FFFFFF;
+}
+
+.detail-card-heading-line {
+  width: 48px;
+  height: 3px;
+  margin-top: auto;
+  border-radius: 10px;
+  background: #D9A035;
+}
+
+.detail-card-benefits .detail-card-heading-line {
+  background: #FFE0A3;
+}
+
+.detail-card-body {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* KEUNGGULAN */
+
+.detail-feature-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.detail-feature {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-feature:first-child {
+  padding-top: 0;
+}
+
+.detail-feature:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.detail-feature-icon,
+.detail-check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.detail-feature-icon {
+  background: #FFE0A3;
+  color: #75194F;
+}
+
+.detail-feature-text {
+  min-width: 0;
+}
+
+.detail-feature-text h4 {
+  margin: 0 0 4px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.detail-feature-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* UNTUK SIAPA */
+
+.detail-audience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-audience-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  color: #33313A;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.detail-check-icon {
+  flex-shrink: 0;
+  background: #A74E92;
+  color: #FFFFFF;
+}
+
+.detail-audience-note {
+  margin-top: auto;
+  padding: 18px;
+  border-radius: 12px;
+  background: #FFF1D8;
+}
+
+.detail-audience-note p {
+  margin: 0;
+  color: #463B45;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+  .detail-kesetaraan {
+    padding: 64px 24px 24px;
+  }
+
+  .detail-kesetaraan-grid {
+    gap: 18px;
+  }
+
+  .detail-card {
+    padding: 24px;
+  }
+
+  .detail-card-header {
+    min-height: 72px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .detail-kesetaraan {
+    padding: 52px 24px 22px;
+  }
+
+  .detail-kesetaraan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .detail-card {
+    padding: 24px;
+  }
+
+  .detail-card-header {
+    min-height: 0;
+    margin-bottom: 20px;
+  }
+
+  .detail-card-header h3 {
+    font-size: 19px;
+  }
+
+  .detail-feature {
+    flex: initial;
+    padding: 14px 0;
+  }
+
+  .detail-audience-list {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .detail-kesetaraan {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+/* MOBILE KECIL */
+
+@media (max-width: 480px) {
+  .detail-kesetaraan {
+    padding: 46px 16px 20px;
+  }
+
+  .detail-card {
+    padding: 20px 18px;
+  }
+
+  .detail-card-header h3 {
+    font-size: 17px;
+  }
+
+  .detail-feature {
+    gap: 12px;
+  }
+
+  .detail-feature-text h4 {
+    font-size: 15px;
+  }
+
+  .detail-feature-text p {
+    font-size: 13px;
+  }
+
+  .detail-audience-item {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .detail-audience-note {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-card {
+    transition: none;
+  }
+
+  .detail-card:hover {
+    transform: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.detail-kesetaraan {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .detail-kesetaraan {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-kesetaraan {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-kesetaraan {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.detail-kesetaraan {
+  padding-bottom: var(--pkbm-section-pad);
+}

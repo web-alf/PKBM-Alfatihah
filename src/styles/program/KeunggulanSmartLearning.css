@@ -1,0 +1,228 @@
+
+/* ======================================
+   KEUNGGULAN SMART LEARNING
+   DESAIN 4 - OUTLINE SIMPLE
+====================================== */
+
+.keunggulan-smart {
+  background: #fff9f5;
+  padding: 75px 20px 85px;
+  font-family: "Poppins", sans-serif;
+}
+
+.keunggulan-smart,
+.keunggulan-smart * {
+  box-sizing: border-box;
+}
+
+.keunggulan-smart-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* JUDUL */
+
+.keunggulan-smart-heading {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.keunggulan-smart-heading h2 {
+  margin: 0;
+  color: #3c1e66;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.keunggulan-smart-line {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 10px;
+  background: #d9a035;
+}
+
+/* GRID */
+
+.keunggulan-smart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* CARD */
+
+.keunggulan-smart-card {
+  min-width: 0;
+  min-height: 265px;
+  padding: 32px 25px;
+
+  background: #ffffff;
+  border: 1px solid #3c1e66;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.keunggulan-smart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(60, 30, 102, 0.08);
+}
+
+/* ICON */
+
+.keunggulan-smart-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #3c1e66;
+}
+
+.keunggulan-smart-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: #3c1e66;
+}
+
+/* TEKS */
+
+.keunggulan-smart-card h3 {
+  margin: 0 0 13px;
+  color: #3c1e66;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.keunggulan-smart-card p {
+  margin: 0;
+  color: #382c35;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .keunggulan-smart {
+    padding: 60px 20px;
+  }
+
+  .keunggulan-smart-grid {
+    gap: 15px;
+  }
+
+  .keunggulan-smart-card {
+    padding: 26px 18px;
+    min-height: 285px;
+  }
+
+  .keunggulan-smart-card h3 {
+    font-size: 17px;
+  }
+
+  .keunggulan-smart-card p {
+    font-size: 13px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .keunggulan-smart {
+    padding: 50px 16px 60px;
+  }
+
+  .keunggulan-smart-heading {
+    margin-bottom: 28px;
+  }
+
+  .keunggulan-smart-heading h2 {
+    font-size: 24px;
+  }
+
+  .keunggulan-smart-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .keunggulan-smart-card {
+    min-height: 0;
+    padding: 25px 22px;
+    border-radius: 14px;
+  }
+
+  .keunggulan-smart-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+
+  .keunggulan-smart-icon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .keunggulan-smart-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .keunggulan-smart-card p {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keunggulan-smart-card {
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.keunggulan-smart {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .keunggulan-smart {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .keunggulan-smart {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .keunggulan-smart {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.keunggulan-smart {
+  padding-bottom: var(--pkbm-section-pad);
+}

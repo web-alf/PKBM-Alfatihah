@@ -1,0 +1,102 @@
+
+---
+import "../styles/program/BiayaHomeschooling.css";
+
+const daftarBiaya = [
+  {
+    kelas: "Online (Zoom/Meet)",
+    pendaftaran: "Rp1.700.000",
+    spp: "Rp450.000",
+    ujian: "Rp100.000",
+    ijazah: "Rp150.000",
+  },
+  {
+    kelas: "Offline: Siswa ke Lembaga",
+    pendaftaran: "Rp1.750.000",
+    spp: "Rp500.000",
+    ujian: "Rp100.000",
+    ijazah: "Rp150.000",
+  },
+  {
+    kelas: "Offline: Tutor ke Rumah",
+    pendaftaran: "Rp1.850.000",
+    spp: "Rp500.000 / Rp600.000",
+    ujian: "Rp100.000",
+    ijazah: "Rp150.000",
+  },
+  {
+    kelas: "Mandiri (Self-paced)",
+    pendaftaran: "Rp1.575.000",
+    spp: "Rp325.000",
+    ujian: "Rp100.000",
+    ijazah: "Rp200.000",
+  },
+  {
+    kelas: "Study Group",
+    pendaftaran: "Rp1.250.000 + SPP bulan pertama²",
+    spp: "% dari biaya individu",
+    ujian: "Rp100.000",
+    ijazah: "Rp200.000",
+  },
+];
+---
+
+<section class="biaya-hs" id="biaya-homeschooling">
+  <div class="biaya-hs-container">
+    <div class="biaya-hs-heading">
+      <h2>Ringkasan Biaya per Kelas</h2>
+      <span class="biaya-hs-line"></span>
+    </div>
+
+    <div class="biaya-hs-card">
+      {
+        daftarBiaya.map((item) => (
+          <article class="biaya-hs-item">
+            <div class="biaya-hs-top">
+              <div class="biaya-hs-class">
+                <h3>{item.kelas}</h3>
+              </div>
+
+              <div class="biaya-hs-price">
+                <span class="biaya-hs-price-label">
+                  SPP / bulan
+                </span>
+                <strong>{item.spp}</strong>
+              </div>
+            </div>
+
+            <div class="biaya-hs-details">
+              <div class="biaya-hs-detail">
+                <span>Pendaftaran (sekali)</span>
+                <strong>{item.pendaftaran}</strong>
+              </div>
+
+              <div class="biaya-hs-detail">
+                <span>Ujian / semester</span>
+                <strong>{item.ujian}</strong>
+              </div>
+
+              <div class="biaya-hs-detail">
+                <span>Ijazah</span>
+                <strong>{item.ijazah}</strong>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="biaya-hs-notes">
+      <p>
+        ¹ Rp500.000 untuk jarak maks. 6 km, Rp600.000
+        untuk jarak lebih dari 6 km.
+      </p>
+
+      <p>
+        ² Administrasi Rp150.000 + Rapor Rp100.000 +
+        Infaq Pengembangan Rp1.000.000; SPP bulan
+        pertama menyesuaikan jumlah peserta.
+      </p>
+    </div>
+  </div>
+</section>

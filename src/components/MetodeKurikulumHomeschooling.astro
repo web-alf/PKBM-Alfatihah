@@ -1,0 +1,94 @@
+
+---
+import "../styles/program/MetodeKurikulumHomeschooling.css";
+
+const manfaatPBL = [
+  "Berpikir Kritis",
+  "Kreatif",
+  "Memecahkan Masalah",
+  "Mempraktikkan Ilmu dalam Kehidupan Sehari-hari",
+];
+
+const kurikulum = [
+  "Tahfidz Qur'an",
+  "Bahasa Arab",
+  "Bahasa Inggris",
+];
+---
+
+<section
+  class="hk-section"
+  aria-labelledby="hk-pbl-title"
+>
+  <div class="hk-container">
+
+    <!-- METODE PROJECT BASED LEARNING -->
+    <div class="hk-pbl">
+
+      <div class="hk-heading">
+        <h2 id="hk-pbl-title">
+          Metode Project Based Learning (PBL)
+        </h2>
+
+        <div class="hk-heading-line" aria-hidden="true"></div>
+
+        <p>
+          Pembelajaran berbasis proyek melatih Ananda untuk:
+        </p>
+      </div>
+
+      <!-- SATU CARD PUTIH UNTUK SEMUA MANFAAT -->
+      <div class="hk-pbl-card">
+        <ul class="hk-pbl-list">
+          {manfaatPBL.map((manfaat) => (
+            <li class="hk-pbl-item">
+
+              <span class="hk-check" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.5 10 17l9-10" />
+                </svg>
+              </span>
+
+              <span>{manfaat}</span>
+
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- KURIKULUM NASIONAL & NILAI ISLAMI -->
+    <div
+      class="hk-kurikulum"
+      aria-labelledby="hk-kurikulum-title"
+    >
+      <div class="hk-kurikulum-heading">
+        <h2 id="hk-kurikulum-title">
+          Kurikulum Nasional &amp; Nilai Islami
+        </h2>
+
+        <p>
+          Kurikulum Nasional dilengkapi dengan:
+        </p>
+      </div>
+
+      <ul class="hk-kurikulum-grid">
+        {kurikulum.map((item) => (
+          <li class="hk-kurikulum-item">
+            {item}
+          </li>
+        ))}
+      </ul>
+
+    </div>
+
+  </div>
+</section>

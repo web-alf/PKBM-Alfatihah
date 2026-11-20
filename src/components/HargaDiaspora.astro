@@ -1,0 +1,73 @@
+
+---
+import "../styles/program/HargaDiaspora.css";
+
+const daftarHarga = [
+  {
+    kelas: "Private",
+    peserta: "1 murid",
+    harga: "Rp150.000",
+    keterangan: "",
+  },
+  {
+    kelas: "Semi Private",
+    peserta: "4–6 murid",
+    harga: "Rp75.000",
+    keterangan: "per orang",
+  },
+  {
+    kelas: "Reguler",
+    peserta: "Lebih dari 15 murid",
+    harga: "Rp40.000",
+    keterangan: "per orang",
+  },
+];
+---
+
+<section
+  class="harga-diaspora"
+  id="harga-diaspora"
+  aria-labelledby="harga-diaspora-title"
+>
+  <div class="harga-diaspora-container">
+
+    <header class="harga-diaspora-heading">
+      <h2 id="harga-diaspora-title">
+        Harga per Pertemuan
+      </h2>
+
+      <span class="harga-diaspora-divider" aria-hidden="true"></span>
+
+      <p>
+        Per peserta, durasi 60 menit. Berlaku sama untuk Tahsin dan Tahfidz.
+      </p>
+    </header>
+
+    <div class="harga-diaspora-grid">
+      {daftarHarga.map((item) => (
+        <article class="harga-diaspora-card">
+          <h3>{item.kelas}</h3>
+
+          <p class="harga-diaspora-peserta">
+            {item.peserta}
+          </p>
+
+          <span class="harga-diaspora-line" aria-hidden="true"></span>
+
+          <div class="harga-diaspora-price">
+            <strong>{item.harga}</strong>
+
+            {item.keterangan && (
+              <span>{item.keterangan}</span>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="harga-diaspora-note">
+      Pembayaran dalam mata uang asing (mis. USD, EUR, SAR) dapat disediakan mengikuti kurs saat transaksi.
+    </p>
+
+  </div>
+</section>

@@ -1,0 +1,96 @@
+
+---
+import "../styles/program/PilarDiaspora.css";
+
+const daftarPilar = [
+  {
+    nomor: "01",
+    judul: "Tahsin Private",
+    deskripsi:
+      "Perbaikan bacaan Al-Qur'an sesuai tajwid dan makharijul huruf.",
+    capaian:
+      "Capaian: bacaan sesuai tajwid, siap melanjutkan ke Tahfidz.",
+  },
+  {
+    nomor: "02",
+    judul: "Tahfidz Private",
+    deskripsi:
+      "Bimbingan menghafal Al-Qur'an dengan metode talaqqi dan muraja'ah terjadwal.",
+    capaian:
+      "Capaian: target hafalan (per juz/halaman) tercapai bertahap.",
+  },
+];
+---
+
+<section
+  class="pilar-diaspora"
+  id="pilar-diaspora"
+  aria-labelledby="pilar-diaspora-title"
+>
+  <div class="pilar-diaspora-container">
+
+    <!-- JUDUL SECTION -->
+    <header class="pilar-diaspora-heading">
+      <h2 id="pilar-diaspora-title">
+        Apa saja yang bisa dipelajari?
+      </h2>
+      <span
+        class="pilar-diaspora-divider"
+        aria-hidden="true"
+      ></span>
+    </header>
+
+    <!-- DUA PILAR PEMBELAJARAN -->
+    <div class="pilar-diaspora-grid">
+      {daftarPilar.map((pilar) => (
+        <article class="pilar-diaspora-item">
+
+          <div class="pilar-diaspora-item-heading">
+            <span
+              class="pilar-diaspora-number"
+              aria-hidden="true"
+            >
+              {pilar.nomor}
+            </span>
+
+            <h3>{pilar.judul}</h3>
+          </div>
+
+          <span
+            class="pilar-diaspora-item-line"
+            aria-hidden="true"
+          ></span>
+
+          <p class="pilar-diaspora-description">
+            {pilar.deskripsi}
+          </p>
+
+          <p class="pilar-diaspora-capaian">
+            {pilar.capaian}
+          </p>
+
+        </article>
+      ))}
+    </div>
+
+    <!-- INFORMASI TAMBAHAN -->
+    <div class="pilar-diaspora-info">
+      <div class="pilar-diaspora-info-item">
+        <h3>Sasaran peserta</h3>
+        <p>
+          Anak-anak hingga dewasa, seluruh jenjang,
+          termasuk pemula yang belum memulai Tahsin.
+        </p>
+      </div>
+
+      <div class="pilar-diaspora-info-item">
+        <h3>Jalur belajar</h3>
+        <p>
+          <strong>Tahsin → Tahfidz.</strong>
+          Kedua pilar dapat diambil terpisah maupun berurutan
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

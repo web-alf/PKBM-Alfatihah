@@ -1,0 +1,87 @@
+
+---
+import "../styles/program/KeunggulanSmartLearning.css";
+
+const keunggulan = [
+  {
+    judul: "Personalized Learning",
+    deskripsi:
+      "Belajar sesuai kebutuhan dan ritme setiap peserta. Pilih tutor, cara belajar, dan ukuran kelas yang paling pas.",
+    icon: "graduation",
+  },
+  {
+    judul: "Islamic Values",
+    deskripsi:
+      "Diselenggarakan oleh PKBM Alfatihah dalam lingkungan pendidikan Islami, lengkap dengan pilar Tahfidz dan Tahsin.",
+    icon: "islamic",
+  },
+  {
+    judul: "Future Skills",
+    deskripsi:
+      "Bekal masa depan lewat English dan pemanfaatan AI secara etis.",
+    icon: "laptop",
+  },
+];
+---
+
+<section
+  class="keunggulan-smart"
+  id="keunggulan-smart-learning"
+  aria-labelledby="keunggulan-smart-title"
+>
+  <div class="keunggulan-smart-container">
+
+    <div class="keunggulan-smart-heading">
+      <h2 id="keunggulan-smart-title">
+        Kenapa memilih Alfatihah Smart Learning?
+      </h2>
+      <span class="keunggulan-smart-line" aria-hidden="true"></span>
+    </div>
+
+    <div class="keunggulan-smart-grid">
+      {keunggulan.map((item) => (
+        <article class="keunggulan-smart-card">
+
+          <div class="keunggulan-smart-icon" aria-hidden="true">
+            {item.icon === "graduation" && (
+              <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m2 9 10-5 10 5-10 5L2 9Z" />
+                <path d="M6 11v5c3.5 3 8.5 3 12 0v-5" />
+                <path d="M22 9v7" />
+              </svg>
+            )}
+
+            {item.icon === "islamic" && (
+              <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 20V11c0-4 3.5-6 8-9 4.5 3 8 5 8 9v9" />
+                <path d="M2 20h20" />
+                <path d="M10 20v-5a2 2 0 0 1 4 0v5" />
+                <path d="M12 2V1" />
+              </svg>
+            )}
+
+            {item.icon === "laptop" && (
+              <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="12" rx="1.5" />
+                <path d="M2 20h20l-2-4H4l-2 4Z" />
+                <path d="M9 10h6" />
+                <path d="M12 7v6" />
+              </svg>
+            )}
+          </div>
+
+          <h3>{item.judul}</h3>
+          <p>{item.deskripsi}</p>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

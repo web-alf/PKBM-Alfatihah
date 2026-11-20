@@ -1,0 +1,103 @@
+
+---
+import "../styles/program/KetentuanBiayaHomeschooling.css";
+
+const ketentuanStudyGroup = [
+  "Biaya meliputi pendaftaran, SPP bulanan, biaya semesteran setiap 6 bulan, dan biaya kelulusan.",
+  "Biaya pendaftaran dibayar maksimal 1 hari setelah tutor mengajar.",
+  "Jadwal disepakati bersama sesuai ketersediaan tutor dan peserta didik.",
+  "Biaya dapat berubah sewaktu-waktu sesuai kebijakan PKBM Al-Fatihah.",
+];
+
+const ketentuanUmum = [
+  "Biaya semesteran dan kelulusan dibayarkan sesuai tahap pelaksanaan masing-masing.",
+  "Biaya operasional tambahan berlaku sesuai ketentuan jarak dan metode pembelajaran tiap program.",
+  "Jadwal, teknis pembelajaran, dan ketentuan biaya dikomunikasikan kepada Ayah/Bunda Wali Santri sebelum program dimulai.",
+];
+---
+
+<section
+  class="ketentuan-hs"
+  id="ketentuan-biaya"
+  aria-labelledby="ketentuan-hs-title"
+>
+  <div class="ketentuan-hs-container">
+
+    <!-- JUDUL UTAMA -->
+    <div class="ketentuan-hs-heading">
+      <h2 id="ketentuan-hs-title">
+        Ketentuan Biaya Homeschooling
+      </h2>
+
+      <span class="ketentuan-hs-underline" aria-hidden="true"></span>
+
+      <p>
+        Informasi penting mengenai pembayaran, jadwal, dan
+        ketentuan pelaksanaan program homeschooling.
+      </p>
+    </div>
+
+    <!-- DUA CARD KETENTUAN -->
+    <div class="ketentuan-hs-grid">
+
+      <!-- KETENTUAN STUDY GROUP -->
+      <article class="ketentuan-hs-card ketentuan-hs-card--study">
+        <h3>Ketentuan Study Group</h3>
+
+        <ol class="ketentuan-hs-list">
+          {ketentuanStudyGroup.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ol>
+      </article>
+
+      <!-- KETENTUAN UMUM -->
+      <article class="ketentuan-hs-card ketentuan-hs-card--umum">
+        <h3>Ketentuan Umum</h3>
+
+        <ol class="ketentuan-hs-list">
+          {ketentuanUmum.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ol>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function initKetentuanAnimation() {
+    const cards = document.querySelectorAll<HTMLElement>(
+      ".ketentuan-hs-card"
+    );
+
+    if (!("IntersectionObserver" in window)) {
+      cards.forEach((card) => card.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+  }
+
+  initKetentuanAnimation();
+
+  document.addEventListener(
+    "astro:page-load",
+    initKetentuanAnimation
+  );
+</script>

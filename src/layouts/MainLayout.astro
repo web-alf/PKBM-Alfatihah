@@ -1,0 +1,213 @@
+
+---
+import Header from "./Header.astro";
+import FooterPKBM from "../components/FooterPKBM.astro";
+import FloatingWhatsApp from "../components/FloatingWhatsApp.astro";
+import "../styles/ScrollReveal.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  showFooter?: boolean;
+}
+
+const {
+  title = "PKBM Alfatihah Semarang",
+  description = "Solusi Pendidikan Fleksibel, Kredibel & Islami.",
+  showFooter = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    {showFooter && <FooterPKBM />}
+    <FloatingWhatsApp />
+
+    <script is:inline>
+      (function () {
+        try {
+          if (
+            !("IntersectionObserver" in window) ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ) {
+            return;
+          }
+
+          var main = document.querySelector("main");
+          if (!main) return;
+
+          function usable(el) {
+            var tag = el.tagName;
+            if (tag === "SCRIPT" || tag === "STYLE" || tag === "TEMPLATE") {
+              return false;
+            }
+            var cs = getComputedStyle(el);
+            return (
+              cs.position !== "absolute" &&
+              cs.position !== "fixed" &&
+              cs.display !== "contents" &&
+              cs.display !== "none"
+            );
+          }
+
+          function usableChildren(el) {
+            return Array.prototype.filter.call(el.children, usable);
+          }
+
+          var items = [];
+
+          function add(el, delay) {
+            el.classList.add("js-reveal");
+            if (delay) el.style.setProperty("--reveal-delay", delay + "ms");
+            items.push(el);
+          }
+
+          var sections = main.querySelectorAll(
+            ":scope > section, :scope > * > section"
+          );
+
+          Array.prototype.forEach.call(sections, function (section) {
+            var box = section.firstElementChild;
+            if (!box) return;
+
+            var isHero = section.matches(
+              '[class*="hero"], .program-kesetaraan'
+            );
+
+            usableChildren(box).forEach(function (child, index) {
+              if (isHero) {
+                add(child, Math.min(index, 5) * 100);
+                return;
+              }
+
+              var display = getComputedStyle(child).display;
+              var sub =
+                (display === "grid" || display === "flex") &&
+                child.tagName !== "P"
+                  ? usableChildren(child)
+                  : [];
+              var splittable =
+                sub.length >= 2 &&
+                sub.every(function (cell) {
+                  return getComputedStyle(cell).display !== "inline";
+                });
+
+              if (splittable) {
+                sub.forEach(function (cell, i) {
+                  add(cell, (i % 4) * 80);
+                });
+              } else {
+                add(child, 0);
+              }
+            });
+          });
+
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                var el = entry.target;
+                if (entry.isIntersecting) {
+                  el.classList.add("is-revealed");
+                  observer.unobserve(el);
+                } else if (entry.boundingClientRect.top < 0) {
+                  el.classList.add("is-revealed", "is-revealed-instant");
+                  observer.unobserve(el);
+                }
+              });
+            },
+            { rootMargin: "0px 0px -40px 0px", threshold: 0 }
+          );
+
+          items.forEach(function (el) {
+            observer.observe(el);
+          });
+        } catch (error) {
+          Array.prototype.forEach.call(
+            document.querySelectorAll(".js-reveal"),
+            function (el) {
+              el.classList.remove("js-reveal");
+            }
+          );
+        }
+      })();
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(:root) {
+    --pkbm-home-hero: #a53692;
+    --pkbm-mauve: #b6488f;
+    --pkbm-magenta: #a20077;
+    --pkbm-plum: #75194f;
+    --pkbm-gold: #d9a035;
+    --pkbm-gold-light: #ffe0a3;
+    --pkbm-white: #ffffff;
+    --pkbm-cream: #faf5f0;
+    --pkbm-ink: #292333;
+    --pkbm-text-muted: #51434c;
+    --pkbm-border: #e8dccb;
+    --pkbm-gold-border: #f0dfbb;
+    --pkbm-gold-soft: #fff5dd;
+    --pkbm-gold-soft-hover: #ffe9b5;
+    --pkbm-price-ink: #4b2b25;
+    --pkbm-price-label: #775b38;
+    --pkbm-price-value: #40221c;
+    --pkbm-price-unit: #654e40;
+    --pkbm-plum-rgb: 117, 25, 79;
+    --pkbm-dark-rgb: 74, 11, 50;
+    --pkbm-gold-rgb: 217, 160, 53;
+    --pkbm-white-rgb: 255, 255, 255;
+    --pkbm-section-pad: 48px;
+  }
+
+  @media (max-width: 1023px) {
+    :global(:root) {
+      --pkbm-section-pad: 40px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    :global(:root) {
+      --pkbm-section-pad: 32px;
+    }
+  }
+
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    min-height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--pkbm-cream);
+    color: var(--pkbm-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+  }
+</style>

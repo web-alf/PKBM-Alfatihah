@@ -1,0 +1,95 @@
+
+---
+import logoPKBM from "../assets/image/PKBM_icon.webp";
+import "../styles/program/ProgramKesetaraan.css";
+
+const registrationUrl =
+  "/pendaftaran";
+
+const whatsappUrl = "https://wa.me/6285319485269";
+---
+
+<section
+  class="program-kesetaraan"
+  aria-labelledby="program-kesetaraan-title"
+>
+  <div class="program-kesetaraan-container">
+    <div class="program-kesetaraan-visual">
+      <div class="program-kesetaraan-logo-card">
+        <img
+          src={logoPKBM.src}
+          alt="Logo PKBM Alfatihah"
+          width={logoPKBM.width}
+          height={logoPKBM.height}
+          loading="eager"
+        />
+      </div>
+
+      <div class="program-kesetaraan-meta">
+        <span class="program-kesetaraan-label">PROGRAM KESETARAAN</span>
+
+        <div class="program-kesetaraan-badge">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="8" r="6" />
+            <path d="m8.2 13.5-1 8 4.8-2.5 4.8 2.5-1-8" />
+          </svg>
+          <span>Terakreditasi A</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="program-kesetaraan-content">
+      <h1 id="program-kesetaraan-title">
+        Apa itu Program Kesetaraan
+        <span>PKBM Alfatihah?</span>
+      </h1>
+
+      <div class="program-kesetaraan-line"></div>
+
+      <p class="program-kesetaraan-description">
+        Program Kesetaraan Kejar Paket A, B &amp; C adalah
+        layanan pendidikan kesetaraan resmi dari PKBM Alfatihah
+        untuk warga belajar yang ingin menyelesaikan pendidikan
+        setara SD (Paket A), SMP (Paket B), dan SMA (Paket C).
+        Belajar bisa secara online, offline, atau mandiri,
+        dengan bekal nilai-nilai Islami.
+      </p>
+
+      <p class="program-kesetaraan-tagline">
+        Solusi Pendidikan Fleksibel, Kredibel &amp; Islami
+      </p>
+
+      <div class="program-kesetaraan-actions">
+
+        <a
+          href={registrationUrl}
+          class="program-kesetaraan-btn program-kesetaraan-btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Daftar Sekarang
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <a
+          href={whatsappUrl}
+          class="program-kesetaraan-btn program-kesetaraan-btn-outline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Konsultasi via WhatsApp
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>

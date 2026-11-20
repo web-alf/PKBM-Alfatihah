@@ -1,0 +1,167 @@
+
+---
+import tentangKamiImage from "../assets/image/tentang-kami.webp";
+import "../styles/about/TentangKami.css";
+
+const { profilOnly = false } = Astro.props;
+
+const misi = [
+  {
+    title: "Membentuk generasi Qur'ani",
+    description:
+      "melalui penanaman nilai-nilai Islam, pembiasaan ibadah, serta pengembangan kemampuan Tahfidz Al-Qur'an untuk menghasilkan peserta didik yang beriman, bertakwa kepada Allah SWT, dan berakhlak mulia.",
+  },
+  {
+    title: "Menyelenggarakan pendidikan yang bermutu dan inovatif",
+    description:
+      "melalui pembelajaran yang kreatif, adaptif, dan berpusat pada peserta didik guna mengembangkan kompetensi akademik maupun nonakademik.",
+  },
+  {
+    title: "Mengembangkan kecakapan hidup dan keterampilan digital",
+    description:
+      "untuk membentuk peserta didik yang mandiri, bernalar kritis, kreatif, produktif, dan mampu menghadapi tantangan perkembangan zaman.",
+  },
+  {
+    title: "Menanamkan karakter berkebhinekaan global",
+    description:
+      "melalui penguatan sikap toleransi, penghargaan terhadap keberagaman, kecintaan terhadap budaya lokal, serta semangat gotong royong.",
+  },
+  {
+    title: "Mengembangkan potensi dan kemandirian peserta didik",
+    description:
+      "melalui program pendidikan kesetaraan, homeschooling, dan pembelajaran keterampilan yang sesuai dengan kebutuhan serta potensi masing-masing peserta didik.",
+  },
+];
+---
+
+<div class="tentang-kami">
+
+  <!-- BAGIAN 1: PROFIL -->
+  <section
+    id="tentang-kami"
+    class:list={["tentang-profil", { "is-home": profilOnly }]}
+    aria-labelledby="profil-title"
+  >
+    <div class="tentang-container">
+
+      <div class="tentang-profil-heading">
+        <h2 id="profil-title">Apa itu PKBM Alfatihah?</h2>
+        <div class="tentang-profil-accent"></div>
+      </div>
+
+      <div class="tentang-profil-grid">
+
+        <div class:list={["tentang-profil-content", { "is-home": profilOnly }]}>
+          <p>
+            PKBM Alfatihah adalah tempat belajar yang terbuka untuk
+            semua orang, tanpa memandang usia atau latar belakang.
+            Bagi kamu yang sedang mengejar ijazah lewat Paket A, B,
+            atau C, atau ingin meningkatkan keterampilan agar lebih
+            siap menghadapi dunia kerja dan usaha, PKBM Alfatihah
+            adalah jawabannya.
+          </p>
+
+          {!profilOnly && (
+            <p>
+              PKBM Alfatihah menerapkan sistem pembelajaran yang
+              fleksibel, sehingga kamu bisa belajar kapan saja dan
+              di mana saja. Pembelajaran tidak hanya membekali
+              keterampilan dan sikap mental untuk kecakapan hidup,
+              tetapi juga menanamkan nilai-nilai Islami dan akhlak
+              Qur'ani.
+            </p>
+          )}
+
+          {profilOnly && (
+            <a href="/tentang-kami" class="tentang-profil-cta">
+              Kenali Kami Lebih Dekat
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
+
+        <div class="tentang-profil-visual">
+          <div class="tentang-image-frame">
+            <img
+              src={tentangKamiImage.src}
+              width={tentangKamiImage.width}
+              height={tentangKamiImage.height}
+              alt="Kegiatan belajar peserta PKBM Alfatihah"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="tentang-image-border" aria-hidden="true"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN 2: VISI & MISI -->
+  {!profilOnly && (
+  <section class="tentang-visi-misi" aria-labelledby="visi-misi-title">
+    <div class="tentang-container">
+
+      <div class="tentang-section-heading">
+        <h2 id="visi-misi-title">
+          Visi & Misi PKBM Al-Fatihah
+        </h2>
+
+        <div class="tentang-accent tentang-accent-center"></div>
+      </div>
+
+      <div class="tentang-visi-misi-grid">
+        <article class="tentang-card tentang-card-visi">
+          <div class="tentang-card-heading">
+            <span class="tentang-card-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="12" cy="12" r="1" />
+              </svg>
+            </span>
+
+            <h3>Visi Kami</h3>
+          </div>
+
+          <p class="tentang-visi-text">
+            "Terwujudnya PKBM Al-Fatihah sebagai lembaga pendidikan
+            nonformal yang unggul dalam membentuk generasi Qur'ani,
+            berakhlak mulia, kompeten, mandiri, kreatif, dan
+            berwawasan kebhinekaan global."
+          </p>
+        </article>
+
+        <section class="tentang-misi-section" aria-labelledby="misi-title">
+          <h3 id="misi-title" class="tentang-misi-section-title">
+            Misi Kami
+          </h3>
+
+          <div class="tentang-misi-grid">
+            {misi.map((item, index) => (
+              <article class="tentang-misi-card">
+                <div class="tentang-misi-card-heading">
+                  <span class="tentang-misi-number" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h4>{item.title}</h4>
+                </div>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  )}
+
+</div>

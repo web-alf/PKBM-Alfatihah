@@ -1,0 +1,100 @@
+
+---
+import "../styles/program/FAQSmartLearning.css";
+
+const daftarFAQ = [
+  {
+    pertanyaan: "Berapa lama satu kali pertemuan?",
+    jawaban: "60 menit per pertemuan.",
+  },
+  {
+    pertanyaan: "Apakah bisa belajar online?",
+    jawaban:
+      "Bisa! Pilih Online Private. Harga kelas online lebih hemat dibanding offline.",
+  },
+  {
+    pertanyaan: "Apakah tutor bisa datang ke rumah?",
+    jawaban:
+      "Bisa, dengan Home Private. Ada tambahan Rp15.000 per pertemuan.",
+  },
+  {
+    pertanyaan: "Untuk usia berapa saja?",
+    jawaban:
+      "Academic untuk SD–SMA, Tahfidz untuk semua jenjang, Tahsin cocok untuk pemula, sedangkan English dan AI untuk segala usia.",
+  },
+  {
+    pertanyaan: "Berapa biaya lesnya?",
+    jawaban:
+      "Mulai Rp25.000 per pertemuan, tergantung pilar, mode belajar, dan kelas. Lihat tabel harga di Bagian 5.",
+  },
+  {
+    pertanyaan: "Berapa biaya pendaftarannya?",
+    jawaban:
+      "Rp150.000 (diskon 50% dari harga normal Rp300.000), berlaku untuk semua kelas dan pilar, sampai kuota terpenuhi.",
+  },
+  {
+    pertanyaan: "Kalau mau ambil dua pilar sekaligus?",
+    jawaban:
+      "Ada diskon Paket 2 Pilar, misalnya Tahfidz + Academic atau English + AI.",
+  },
+  {
+    pertanyaan: "Bagaimana cara membayar?",
+    jawaban:
+      "Transfer Bank BSI No. Rek. 7266356026 a.n. PKBM Alfatihah, atau tunai langsung di PKBM. Mohon konfirmasi ke CS sebelum transfer.",
+  },
+];
+---
+
+<section
+  class="faq-smart"
+  id="faq-smart-learning"
+  aria-labelledby="faq-smart-title"
+>
+  <div class="faq-smart-container">
+
+    <!-- JUDUL -->
+    <header class="faq-smart-heading">
+      <h2 id="faq-smart-title">
+        Pertanyaan yang Sering Diajukan
+      </h2>
+
+      <span
+        class="faq-smart-divider"
+        aria-hidden="true"
+      ></span>
+
+      <p>
+        Temukan jawaban atas pertanyaan umum seputar
+        program Alfatihah Smart Learning.
+      </p>
+    </header>
+
+    <!-- DAFTAR FAQ -->
+    <div class="faq-smart-list">
+
+      {daftarFAQ.map((faq, index) => (
+        <details
+          class="faq-smart-item"
+          open={index === 0}
+        >
+          <summary class="faq-smart-question">
+            <span>{faq.pertanyaan}</span>
+
+            <span
+              class="faq-smart-icon"
+              aria-hidden="true"
+            ></span>
+          </summary>
+
+          <div class="faq-smart-answer">
+            <p>
+              {faq.jawaban}
+            </p>
+          </div>
+        </details>
+      ))}
+
+    </div>
+
+  </div>
+</section>

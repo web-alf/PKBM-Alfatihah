@@ -1,0 +1,23 @@
+/* Scroll reveal (fade up). Kelas .js-reveal hanya ditambahkan oleh JavaScript,
+   jadi tanpa JS seluruh konten tetap terlihat. */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal:not(.is-revealed) {
+    opacity: 0;
+    translate: 0 24px;
+  }
+
+  .js-reveal.is-revealed {
+    animation: pkbm-reveal-up 700ms ease-out var(--reveal-delay, 0ms) backwards;
+  }
+
+  .js-reveal.is-revealed-instant {
+    animation: none;
+  }
+}
+
+@keyframes pkbm-reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+}

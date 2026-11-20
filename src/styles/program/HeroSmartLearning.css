@@ -1,0 +1,446 @@
+
+/* ==========================================
+   HERO ALFATIHAH SMART LEARNING
+   DESAIN CENTERED - PREVIEW 2
+========================================== */
+
+.smart-hero {
+  background: #3c1e66;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  padding: 52px 24px 58px;
+  scroll-margin-top: 88px;
+  overflow: hidden;
+}
+
+.smart-hero,
+.smart-hero * {
+  box-sizing: border-box;
+}
+
+.smart-hero-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ==========================================
+   GAMBAR ATAS
+========================================== */
+
+.smart-hero-image {
+  width: fit-content;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #f4e5ee;
+  box-shadow: 0 12px 32px rgba(48, 6, 38, 0.13);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smart-hero-logo {
+  display: block;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+/* ==========================================
+   BADGE PROGRAM
+========================================== */
+
+.smart-hero-badges {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.smart-hero-program-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border: 1.5px solid #d9a035;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/* ==========================================
+   JUDUL
+========================================== */
+
+.smart-hero-title {
+  margin: 0;
+  width: 100%;
+  max-width: 1100px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.smart-hero-title span {
+  display: inline-block;
+  margin-left: 0.2em;
+  color: #D9A035;
+}
+
+.smart-hero-divider {
+  width: 65px;
+  height: 4px;
+  background: #d9a035;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+/* ==========================================
+   DESKRIPSI
+========================================== */
+
+.smart-hero-description {
+  max-width: 850px;
+  margin: 0;
+  color: #f8f3fc;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+/* ==========================================
+   TAGLINE
+========================================== */
+
+.smart-hero-tagline {
+  max-width: 850px;
+  margin: 16px 0 0;
+  color: #ffd17b;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.smart-hero-tagline span {
+  margin: 0 6px;
+}
+
+/* ==========================================
+   PROMO HORIZONTAL
+========================================== */
+
+.smart-hero-promo {
+  width: fit-content;
+  max-width: 640px;
+  margin-top: 16px;
+  padding: 16px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  background: #fff9f5;
+  border: 2px solid #d9a035;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.smart-hero-promo-icon {
+  width: 56px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c88a24;
+  border-right: 1px solid #e7c78f;
+  padding-right: 12px;
+}
+
+.smart-hero-promo-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.smart-hero-promo-content {
+  min-width: 0;
+  text-align: left;
+}
+
+.smart-hero-promo-heading {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: #d9a035;
+  border-radius: 999px;
+  color: #3c1e66;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 7px;
+}
+
+.smart-hero-promo-prices {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.smart-hero-promo-price {
+  color: #3c1e66;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.smart-hero-promo-normal {
+  color: #765d79;
+  font-size: 14px;
+}
+
+.smart-hero-promo-normal del {
+  text-decoration-color: #b83d54;
+  text-decoration-thickness: 2px;
+}
+
+.smart-hero-promo-note {
+  color: #63436d;
+  font-size: 12px;
+  margin: 7px 0 0;
+}
+
+/* ==========================================
+   TOMBOL CTA
+========================================== */
+
+.smart-hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.smart-hero-button {
+  min-height: 50px;
+  padding: 13px 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.smart-hero-button svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.smart-hero-button-primary {
+  background: #ffd17b;
+  color: #3c1e66;
+  border: 2px solid #ffd17b;
+}
+
+.smart-hero-button-primary:hover {
+  background: #d9a035;
+  border-color: #d9a035;
+  color: #3c1e66;
+  transform: translateY(-2px);
+}
+
+.smart-hero-button-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.smart-hero-button-outline:hover {
+  background: #ffffff;
+  color: #3c1e66;
+  transform: translateY(-2px);
+}
+
+.smart-hero-button:focus-visible {
+  outline: 3px solid #ffd17b;
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+  .smart-hero {
+    padding: 48px 24px 54px;
+  }
+
+  .smart-hero-title {
+    font-size: clamp(32px, 4.5vw, 40px);
+  }
+
+  .smart-hero-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .smart-hero {
+    scroll-margin-top: 76px;
+  }
+}
+
+@media (max-width: 768px) {
+  .smart-hero {
+    padding: 46px 20px 54px;
+  }
+
+  .smart-hero-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .smart-hero-badges {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .smart-hero-title {
+    font-size: clamp(30px, 6vw, 40px);
+    letter-spacing: -0.6px;
+  }
+
+  .smart-hero-divider {
+    margin: 22px auto;
+  }
+
+  .smart-hero-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .smart-hero-tagline {
+    font-size: 15px;
+  }
+
+  .smart-hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .smart-hero-button {
+    width: 100%;
+    max-width: 350px;
+    min-height: 49px;
+  }
+
+  .smart-hero-promo {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .smart-hero {
+    padding: 42px 18px 50px;
+    scroll-margin-top: 68px;
+  }
+
+  .smart-hero-program-badge {
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.35px;
+  }
+
+  .smart-hero-title {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
+  .smart-hero-description {
+    font-size: 13px;
+  }
+
+  .smart-hero-tagline {
+    font-size: 14px;
+  }
+
+  .smart-hero-tagline span {
+    margin: 0 3px;
+  }
+
+  .smart-hero-promo {
+    padding: 14px 12px;
+    gap: 8px;
+    border-radius: 15px;
+  }
+
+  .smart-hero-promo-icon {
+    width: 36px;
+    height: 44px;
+    padding-right: 6px;
+  }
+
+  .smart-hero-promo-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .smart-hero-promo-heading {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .smart-hero-promo-price {
+    font-size: 26px;
+  }
+
+  .smart-hero-promo-normal {
+    font-size: 12px;
+  }
+
+  .smart-hero-promo-note {
+    font-size: 11px;
+  }
+
+  .smart-hero-actions {
+    margin-top: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smart-hero-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,61 @@
+---
+import "../styles/home/ProgramRingkas.css";
+
+const programs = [
+  "Kejar Paket A, B & C",
+  "Alfatihah Homeschooling",
+  "Alfatihah Smart Learning",
+  "Diaspora Qur’an Center",
+];
+---
+
+<section
+  class="program-ringkas"
+  id="program-pendidikan"
+  aria-labelledby="program-ringkas-title"
+>
+  <div class="program-ringkas-container">
+    <p class="program-ringkas-label">PROGRAM PENDIDIKAN</p>
+
+    <h2 id="program-ringkas-title">
+      Temukan Jalan Belajarmu Bersama Kami
+    </h2>
+
+    <div class="program-ringkas-line" aria-hidden="true"></div>
+
+    <p class="program-ringkas-desc">
+      Empat pilihan program yang dirancang untuk mendukung setiap
+      perjalanan pendidikan.
+    </p>
+
+    <ul class="program-ringkas-list">
+      {programs.map((name) => (
+        <li>
+          <svg
+            class="program-ringkas-check"
+            viewBox="0 0 28 28"
+            width="28"
+            height="28"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle cx="14" cy="14" r="14" fill="#D9A035"></circle>
+            <path
+              d="m8.5 14.5 3.6 3.6 7.4-7.6"
+              stroke="#85005B"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <span>{name}</span>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/program-kesetaraan" class="program-ringkas-btn">
+      Jelajahi Semua Program
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>

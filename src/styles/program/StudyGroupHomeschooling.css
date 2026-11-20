@@ -1,0 +1,433 @@
+
+/* ======================================
+   STUDY GROUP HOMESCHOOLING
+====================================== */
+
+.study-hs {
+  width: 100%;
+  padding: 64px 20px;
+  background: #fff9f5;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.study-hs * {
+  box-sizing: border-box;
+}
+
+.study-hs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.study-hs-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.study-hs-heading h2 {
+  margin: 0;
+  color: #92197b;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.study-hs-heading-line {
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 16px auto 0;
+  background: #d9a035;
+  border-radius: 20px;
+}
+
+.study-hs-heading p {
+  max-width: 760px;
+  margin: 18px auto 0;
+  color: #76596b;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* MAIN LAYOUT */
+
+.study-hs-content {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+/* CHART SECTION */
+
+.study-hs-chart-section {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.study-hs-chart-heading {
+  margin-bottom: 24px;
+}
+
+.study-hs-chart-heading h3 {
+  margin: 0 0 6px;
+  color: #92197b;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.study-hs-chart-heading p {
+  margin: 0;
+  color: #8b7180;
+  font-size: 13px;
+}
+
+/* CHART */
+
+.study-hs-chart {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+  height: clamp(190px, 20vw, 220px);
+}
+
+.study-hs-bar-group {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.study-hs-student {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  color: #92197b;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.study-hs-bar {
+  width: 100%;
+  height: var(--bar-height);
+  flex: 0 0 var(--bar-height);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 5px;
+  background: transparent;
+  border-radius: 9px 9px 0 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.study-hs-bar::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: #92197B;
+  border-radius: inherit;
+  clip-path: inset(100% 0 0);
+  content: "";
+  transition:
+    clip-path 1s ease-out;
+  transition-delay: var(--bar-delay, 0s);
+}
+
+.study-hs-chart.is-visible .study-hs-bar::before {
+  clip-path: inset(0);
+}
+
+.study-hs-bar-gold::before {
+  background: #d9a035;
+}
+
+.study-hs-bar-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  transition-delay: calc(var(--bar-delay, 0s) + 0.65s);
+}
+
+.study-hs-chart.is-visible .study-hs-bar-content {
+  opacity: 1;
+}
+
+.study-hs-bar-gold {
+  color: #92197B;
+}
+
+.study-hs-percent {
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.study-hs-bar-caption {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+/* BIAYA */
+
+.study-hs-fees-heading {
+  margin: 0 0 16px;
+  color: #92197b;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.study-hs-fee-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+
+.study-hs-detail {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #f0cfe0;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 28px rgba(146, 25, 123, 0.05);
+}
+
+.study-hs-detail > h4 {
+  margin: 0;
+  color: #92197b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.study-hs-divider {
+  width: 100%;
+  height: 1px;
+  background: #f0cfe0;
+  margin: 12px 0 16px;
+}
+
+.study-hs-fee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.study-hs-fee-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.study-hs-fee-row span {
+  color: #76596b;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.study-hs-fee-row strong {
+  flex-shrink: 0;
+  color: #92197B;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.study-hs-registration-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  background: #fff0d4;
+  border-left: 3px solid #d9a035;
+  border-radius: 6px;
+  color: #805020;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .study-hs {
+    padding: 52px 20px;
+  }
+
+  .study-hs-chart {
+    width: 100%;
+  }
+
+  .study-hs-detail {
+    padding: 20px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .study-hs-fee-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .study-hs-detail {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .study-hs-detail {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .study-hs {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .study-hs {
+    padding: 44px 16px;
+  }
+
+  .study-hs-heading {
+    margin-bottom: 24px;
+  }
+
+  .study-hs-heading h2 {
+    font-size: 26px;
+  }
+
+  .study-hs-heading p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .study-hs-chart-heading h3 {
+    font-size: 17px;
+  }
+
+  .study-hs-chart-heading p {
+    font-size: 12px;
+  }
+
+  .study-hs-chart {
+    gap: 6px;
+  }
+
+  .study-hs-student {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .study-hs-bar {
+    padding: 6px 3px;
+    border-radius: 7px 7px 0 0;
+  }
+
+  .study-hs-percent {
+    font-size: clamp(18px, 5.5vw, 24px);
+  }
+
+  .study-hs-bar-caption {
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .study-hs-fees-heading {
+    font-size: 17px;
+  }
+
+  .study-hs-detail {
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .study-hs-detail > h4 {
+    font-size: 16px;
+  }
+
+  .study-hs-fee-row {
+    gap: 10px;
+  }
+
+  .study-hs-fee-row span,
+  .study-hs-fee-row strong {
+    font-size: 12px;
+  }
+
+  .study-hs-registration-note {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .study-hs-bar::before {
+    clip-path: inset(0);
+    transition: none;
+  }
+
+  .study-hs-bar-content {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.study-hs {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .study-hs {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .study-hs {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .study-hs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.study-hs {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

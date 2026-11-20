@@ -1,0 +1,468 @@
+
+/* ========================================
+   TENTANG KAMI - PKBM ALFATIHAH
+   ======================================== */
+
+.tentang-kami {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.tentang-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* PROFIL */
+
+.tentang-profil {
+  padding: 80px 24px 50px;
+  scroll-margin-top: 88px;
+  background: linear-gradient(
+    120deg,
+    var(--pkbm-white) 0%,
+    var(--pkbm-cream) 65%,
+    var(--pkbm-white) 100%
+  );
+}
+
+/* Beranda: tambahan ruang bawah sebelum section C1 */
+.tentang-profil.is-home {
+  padding-bottom: 74px;
+}
+
+.tentang-profil-heading {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.tentang-profil-heading h2 {
+  margin: 0;
+  color: var(--pkbm-magenta);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.tentang-profil-accent {
+  width: 65px;
+  height: 4px;
+  margin: 17px auto 0;
+  border-radius: 10px;
+  background: #92197B;
+}
+
+.tentang-profil-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.tentang-accent {
+  width: 65px;
+  height: 4px;
+  margin: 17px 0 19px;
+  border-radius: 10px;
+  background: var(--pkbm-gold);
+}
+
+.tentang-profil-content {
+  text-align: left;
+}
+
+.tentang-profil-content p {
+  margin: 0 0 16px;
+  color: var(--pkbm-text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tentang-profil-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* FOTO PROFIL */
+
+.tentang-profil-visual {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-self: center;
+  box-sizing: border-box;
+  padding: 0 13px 13px 0;
+}
+
+.tentang-image-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(var(--pkbm-plum-rgb), 0.13);
+}
+
+.tentang-image-frame img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.tentang-image-border {
+  position: absolute;
+  z-index: 1;
+  inset: 13px 0 0 13px;
+  border: 2px solid var(--pkbm-gold);
+  border-radius: 22px;
+}
+
+/* VISI & MISI */
+
+.tentang-visi-misi {
+  padding: 80px 24px 100px;
+  background: var(--pkbm-cream);
+}
+
+.tentang-section-heading {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.tentang-section-heading h2 {
+  margin: 0;
+  color: var(--pkbm-magenta);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.tentang-accent-center {
+  margin: 20px auto 0;
+  background: #92197B;
+}
+
+.tentang-visi-misi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.tentang-card {
+  padding: 30px;
+  border: 1px solid var(--pkbm-border);
+  border-radius: 18px;
+  background: var(--pkbm-white);
+  box-shadow: 0 8px 30px rgba(var(--pkbm-plum-rgb), 0.05);
+}
+
+.tentang-card-visi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border-color: #92197B;
+  background: #92197B;
+  text-align: center;
+}
+
+.tentang-card-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0;
+}
+
+.tentang-card-visi .tentang-card-icon {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+}
+
+.tentang-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: var(--pkbm-cream);
+  color: var(--pkbm-gold);
+}
+
+.tentang-card-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.tentang-card-heading h3 {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.tentang-visi-text {
+  max-width: 1000px;
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.tentang-misi-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tentang-misi-section-title {
+  margin: 0;
+  color: var(--pkbm-magenta);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.tentang-misi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 18px;
+}
+
+.tentang-misi-card {
+  display: flex;
+  grid-column: span 2;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  border: 1px solid #EBD5E2;
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(var(--pkbm-plum-rgb), 0.045);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tentang-misi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(var(--pkbm-plum-rgb), 0.1);
+}
+
+.tentang-misi-card:nth-child(2),
+.tentang-misi-card:nth-child(4) {
+  background: #F9EFF5;
+}
+
+.tentang-misi-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.tentang-misi-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.tentang-misi-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tentang-misi-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #92197B;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tentang-misi-card-heading h4 {
+  margin: 3px 0 0;
+  color: var(--pkbm-magenta);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.tentang-misi-card p {
+  margin: 0;
+  color: #463B45;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .tentang-profil-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tentang-profil-grid {
+    gap: 35px;
+  }
+
+  .tentang-misi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tentang-misi-grid > .tentang-misi-card {
+    grid-column: auto;
+  }
+
+  .tentang-misi-grid > .tentang-misi-card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: calc(50% - 9px);
+    justify-self: center;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .tentang-profil {
+    padding: 70px 18px 50px;
+  }
+
+  .tentang-profil.is-home {
+    padding-bottom: 74px;
+  }
+
+  .tentang-profil-heading {
+    margin-bottom: 28px;
+  }
+
+  .tentang-profil-heading h2 {
+    font-size: 28px;
+  }
+
+  .tentang-profil-content p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .tentang-visi-misi {
+    padding: 65px 18px 80px;
+  }
+
+  .tentang-section-heading h2 {
+    font-size: 28px;
+  }
+
+  .tentang-card {
+    padding: 22px 20px;
+  }
+
+  .tentang-card-visi {
+    gap: 16px;
+  }
+
+  .tentang-card-heading h3 {
+    font-size: 18px;
+  }
+
+  .tentang-misi-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tentang-misi-grid > .tentang-misi-card,
+  .tentang-misi-grid > .tentang-misi-card:nth-child(4),
+  .tentang-misi-grid > .tentang-misi-card:nth-child(5) {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .tentang-misi-card {
+    padding: 20px;
+  }
+
+  .tentang-visi-text {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+}
+
+/* CTA PROFIL (Beranda) */
+
+.tentang-profil-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px; /* + margin-bottom paragraf 16px = 22px */
+  padding: 12px 20px;
+  background: #FCE6F1;
+  border: 1px solid #C94792;
+  border-radius: 10px;
+  color: #A00069;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.tentang-profil-cta:hover,
+.tentang-profil-cta:focus-visible {
+  background: #A00069;
+  border-color: #A00069;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(160, 0, 105, 0.2);
+  transform: translateY(-1px);
+}
+
+.tentang-profil-cta:focus-visible {
+  outline: 2px solid #A00069;
+  outline-offset: 3px;
+}
+
+/* Beranda: grup teks naik ~18px (align-items: center) */
+@media (min-width: 901px) {
+  .tentang-profil-content.is-home {
+    padding-bottom: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tentang-profil-cta {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tentang-profil-cta {
+    transition: none;
+  }
+
+  .tentang-profil-cta:hover,
+  .tentang-profil-cta:focus-visible {
+    transform: none;
+  }
+}

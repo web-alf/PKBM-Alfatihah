@@ -1,0 +1,243 @@
+.faq-homeschooling {
+  width: 100%;
+  padding: 56px 20px;
+  background: #FFF9F5;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.faq-homeschooling *,
+.faq-homeschooling *::before,
+.faq-homeschooling *::after {
+  box-sizing: border-box;
+}
+
+.faq-homeschooling-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-homeschooling-heading {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.faq-homeschooling-heading h2 {
+  margin: 0;
+  color: #92197B;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.faq-homeschooling-line {
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 14px auto;
+  background: #D9A035;
+  border-radius: 10px;
+}
+
+.faq-homeschooling-heading p {
+  margin: 0;
+  color: #76596B;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.faq-homeschooling-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 10px 16px;
+}
+
+.faq-homeschooling-item {
+  min-width: 0;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #F0CFE0;
+  border-radius: 12px;
+}
+
+.faq-homeschooling-question-heading {
+  margin: 0;
+}
+
+.faq-homeschooling-question {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 18px;
+  border: 0;
+  background: transparent;
+  color: #92197B;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-homeschooling-question:focus-visible {
+  outline: 3px solid #D9A035;
+  outline-offset: -4px;
+  border-radius: 11px;
+}
+
+.faq-homeschooling-icon {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #F9EAF2;
+  color: #92197B;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.faq-homeschooling-minus {
+  display: none;
+}
+
+.faq-homeschooling-question[aria-expanded="true"] .faq-homeschooling-icon {
+  background: #92197B;
+  color: #FFFFFF;
+}
+
+.faq-homeschooling-question[aria-expanded="true"] .faq-homeschooling-plus {
+  display: none;
+}
+
+.faq-homeschooling-question[aria-expanded="true"] .faq-homeschooling-minus {
+  display: inline;
+}
+
+.faq-homeschooling-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s ease,
+    opacity 0.2s ease;
+}
+
+.faq-homeschooling-answer.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.faq-homeschooling-answer-inner {
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px solid #F0CFE0;
+}
+
+.faq-homeschooling-answer-inner p {
+  margin: 0;
+  padding: 13px 18px 16px;
+  color: #42323C;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .faq-homeschooling {
+    padding: 46px 20px;
+  }
+
+  .faq-homeschooling-heading {
+    margin-bottom: 20px;
+  }
+
+  .faq-homeschooling-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-homeschooling {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-homeschooling {
+    padding: 40px 16px;
+  }
+
+  .faq-homeschooling-heading h2 {
+    font-size: 26px;
+  }
+
+  .faq-homeschooling-heading p {
+    font-size: 13px;
+  }
+
+  .faq-homeschooling-question {
+    gap: 12px;
+    padding: 13px 14px;
+    font-size: 14px;
+  }
+
+  .faq-homeschooling-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    font-size: 20px;
+  }
+
+  .faq-homeschooling-answer-inner p {
+    padding: 12px 14px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-homeschooling-answer {
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.faq-homeschooling {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .faq-homeschooling {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-homeschooling {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-homeschooling {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.faq-homeschooling {
+  padding-top: var(--pkbm-section-pad);
+}

@@ -1,0 +1,140 @@
+
+---
+import "../styles/program/PilarBelajarSmartLearning.css";
+
+const pilar = [
+  {
+    judul: "Academic Private",
+    deskripsi:
+      "Pendampingan Matematika, IPA, Bahasa Indonesia, dll. untuk SD–SMA.",
+    icon: "academic",
+  },
+  {
+    judul: "Tahfidz Private",
+    deskripsi:
+      "Menghafal Al-Qur'an dengan talaqqi dan muraja'ah terjadwal, semua jenjang.",
+    icon: "tahfidz",
+  },
+  {
+    judul: "Tahsin Private",
+    deskripsi:
+      "Perbaikan bacaan sesuai tajwid dan makharijul huruf, cocok untuk pemula.",
+    icon: "tahsin",
+  },
+  {
+    judul: "English Private",
+    deskripsi:
+      "Percakapan, tata bahasa, dan persiapan ujian untuk segala usia.",
+    icon: "english",
+  },
+  {
+    judul: "AI Private",
+    deskripsi:
+      "Literasi dan pemanfaatan AI secara etis untuk belajar dan produktivitas, untuk segala usia.",
+    icon: "ai",
+  },
+];
+---
+
+<section
+  class="pilar-smart"
+  id="pilar-smart-learning"
+  aria-labelledby="pilar-smart-title"
+>
+  <div class="pilar-smart-container">
+
+    <!-- JUDUL SECTION -->
+    <div class="pilar-smart-heading">
+      <h2 id="pilar-smart-title">
+        Apa saja yang bisa dipelajari?
+      </h2>
+      <span class="pilar-smart-divider" aria-hidden="true"></span>
+    </div>
+
+    <!-- LIMA PILAR -->
+    <div class="pilar-smart-grid">
+      {pilar.map((item) => (
+        <article class="pilar-smart-item">
+
+          <div class="pilar-smart-icon" aria-hidden="true">
+
+            {item.icon === "academic" && (
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 11c-6-4-12-4-18-2v26c6-2 12-2 18 2V11Z"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linejoin="round" />
+                <path d="M24 11c6-4 12-4 18-2v26c-6-2-12-2-18 2V11Z"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linejoin="round" />
+                <path d="M10 15c4-1 7-.5 10 1M10 21c4-1 7-.5 10 1M28 16c3-1.5 6-2 10-1M28 22c3-1.5 6-2 10-1"
+                  stroke="#D9A035" stroke-width="1.8"
+                  stroke-linecap="round" />
+              </svg>
+            )}
+
+            {item.icon === "tahfidz" && (
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M6 12c6-2 12-1 18 4 6-5 12-6 18-4v20c-6-2-12-1-18 4-6-5-12-6-18-4V12Z"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linejoin="round" />
+                <path d="M24 16v20M10 18c4-1 7 0 10 2M28 20c3-2 6-3 10-2"
+                  stroke="#D9A035" stroke-width="1.8"
+                  stroke-linecap="round" />
+                <path d="M5 37h38" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" />
+              </svg>
+            )}
+
+            {item.icon === "tahsin" && (
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M8 36V24c0-9 7-14 16-19 9 5 16 10 16 19v12"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linejoin="round" />
+                <path d="M5 36h38M12 40h24"
+                  stroke="#D9A035" stroke-width="2"
+                  stroke-linecap="round" />
+                <path d="M24 5V2"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+                <path d="M20 36v-8a4 4 0 0 1 8 0v8"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+            )}
+
+            {item.icon === "english" && (
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M22 9C12 9 5 15 5 23c0 4 2 7 5 10l-2 7 9-4c2 .5 4 .7 5 .7 10 0 17-6 17-14S32 9 22 9Z"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linejoin="round" />
+                <path d="M30 15c8 1 13 6 13 13 0 3-1 6-4 8l1 6-7-3"
+                  stroke="#D9A035" stroke-width="2"
+                  stroke-linejoin="round" />
+              </svg>
+            )}
+
+            {item.icon === "ai" && (
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect x="11" y="11" width="26" height="26" rx="4"
+                  stroke="currentColor" stroke-width="2" />
+                <path d="M17 3v8M24 3v8M31 3v8M17 37v8M24 37v8M31 37v8M3 17h8M3 24h8M3 31h8M37 17h8M37 24h8M37 31h8"
+                  stroke="#D9A035" stroke-width="2"
+                  stroke-linecap="round" />
+                <text x="24" y="29" text-anchor="middle"
+                  fill="currentColor" font-size="14"
+                  font-weight="700" font-family="Arial, sans-serif">
+                  AI
+                </text>
+              </svg>
+            )}
+
+          </div>
+
+          <h3>{item.judul}</h3>
+          <p>{item.deskripsi}</p>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

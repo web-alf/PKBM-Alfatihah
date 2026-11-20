@@ -1,0 +1,380 @@
+
+/* =========================================
+   PROGRAM KESETARAAN PKBM ALFATIHAH
+========================================= */
+
+.program-kesetaraan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: auto;
+  min-height: 0;
+  padding: 52px 24px 58px;
+  overflow: hidden;
+  background: #92197B;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+/* CONTAINER */
+
+.program-kesetaraan-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+}
+
+.program-kesetaraan-content {
+  min-width: 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.program-kesetaraan-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 18px;
+}
+
+/* LABEL DAN BADGE */
+
+.program-kesetaraan-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.program-kesetaraan-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 6px 12px;
+  border: 1px solid #FFE0A3;
+  border-radius: 50px;
+  color: #FFE0A3;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.program-kesetaraan-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: 100%;
+  margin-top: 0;
+  padding: 6px 12px;
+  border: 1px solid rgba(117, 25, 79, 0.14);
+  border-radius: 50px;
+  background: #FFE0A3;
+  color: #75194F;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.program-kesetaraan-badge svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.program-kesetaraan-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 110px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.program-kesetaraan-logo-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* JUDUL */
+
+.program-kesetaraan h1 {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.program-kesetaraan h1 span {
+  display: block;
+  color: #D9A035;
+}
+
+/* GARIS */
+
+.program-kesetaraan-line {
+  width: 68px;
+  height: 4px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+
+/* DESKRIPSI */
+
+.program-kesetaraan-description {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* TAGLINE */
+
+.program-kesetaraan-tagline {
+  margin: 16px 0 0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #FFE0A3;
+  text-align: center;
+}
+
+/* TOMBOL */
+
+.program-kesetaraan-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.program-kesetaraan-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 52px;
+  padding: 13px 22px;
+  box-sizing: border-box;
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* TOMBOL DAFTAR */
+
+.program-kesetaraan-btn-primary {
+  background: #D9A035;
+  border-color: #D9A035;
+  color: #75194F;
+}
+
+.program-kesetaraan-btn-primary:hover {
+  background: #E8B64F;
+  border-color: #E8B64F;
+  color: #75194F;
+  transform: translateY(-3px);
+}
+
+/* TOMBOL WHATSAPP */
+
+.program-kesetaraan-btn-outline {
+  background: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.program-kesetaraan-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+.program-kesetaraan-btn:focus-visible {
+  outline: 3px solid #FFE0A3;
+  outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+  .program-kesetaraan {
+    min-height: auto;
+    padding: 48px 24px 54px;
+  }
+
+  .program-kesetaraan-container {
+    max-width: 900px;
+  }
+
+  .program-kesetaraan h1 {
+    font-size: clamp(32px, 4.5vw, 40px);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .program-kesetaraan {
+    padding: 46px 20px 54px;
+  }
+
+  .program-kesetaraan-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .program-kesetaraan-visual {
+    margin-bottom: 16px;
+  }
+
+  .program-kesetaraan-meta {
+    gap: 8px;
+  }
+
+  .program-kesetaraan-logo-card {
+    width: 190px;
+    height: 95px;
+  }
+
+  .program-kesetaraan h1 {
+    font-size: clamp(30px, 6vw, 40px);
+    letter-spacing: -0.6px;
+  }
+
+  .program-kesetaraan-line {
+    margin: 22px auto;
+  }
+
+  .program-kesetaraan-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .program-kesetaraan-tagline {
+    font-size: 15px;
+  }
+
+  .program-kesetaraan-actions {
+    justify-content: center;
+  }
+
+}
+
+/* MOBILE KECIL */
+
+@media (max-width: 480px) {
+  .program-kesetaraan {
+    padding: 42px 18px 50px;
+  }
+
+  .program-kesetaraan-badge {
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.15px;
+  }
+
+  .program-kesetaraan-label {
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.35px;
+  }
+
+  .program-kesetaraan h1 {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
+  .program-kesetaraan-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .program-kesetaraan-tagline {
+    font-size: 14px;
+  }
+
+  .program-kesetaraan-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: min(100%, 360px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .program-kesetaraan-btn {
+    width: 100%;
+  }
+
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .program-kesetaraan-btn {
+    transition: none;
+  }
+
+  .program-kesetaraan-btn:hover {
+    transform: none;
+  }
+}

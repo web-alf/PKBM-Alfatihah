@@ -1,0 +1,361 @@
+
+---
+import logoPKBM from "../assets/image/PKBM_icon.webp";
+import "../styles/layout/Header.css";
+
+const registrationUrl =
+  "/pendaftaran";
+
+const programs = [
+  {
+    name: "Kejar Paket A, B & C",
+    href: "/program-kesetaraan",
+  },
+  {
+    name: "Alfatihah Homeschooling",
+    href: "/homeschooling",
+  },
+  {
+    name: "Alfatihah Smart Learning",
+    href: "/smart-learning",
+  },
+  {
+    name: "Diaspora Qur'an Center",
+    href: "/diaspora",
+  },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const isProgramPage =
+  currentPath === "/program" ||
+  currentPath.startsWith("/program/") ||
+  programs.some((program) => currentPath === program.href);
+---
+
+<header class="site-header">
+  <div class="header-container">
+
+    <!-- LOGO -->
+    <a href="/" class="header-logo" aria-label="PKBM Alfatihah - Beranda">
+      <img
+        src={logoPKBM.src}
+        alt="PKBM Alfatihah"
+        class="header-logo-img"
+        width="200"
+        height="65"
+      />
+    </a>
+
+    <!-- NAVIGASI DESKTOP -->
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+
+      <a
+        href="/"
+        data-scroll-menu="home"
+        class:list={["nav-link", { "is-active": currentPath === "/" }]}
+        aria-current={currentPath === "/" ? "page" : undefined}
+      >
+        Beranda
+      </a>
+
+      <a
+        href="/tentang-kami"
+        data-scroll-menu="about"
+        class:list={[
+          "nav-link",
+          { "is-active": currentPath === "/tentang-kami" },
+        ]}
+        aria-current={currentPath === "/tentang-kami" ? "page" : undefined}
+      >
+        Tentang Kami
+      </a>
+
+      <!-- DROPDOWN PROGRAM -->
+      <div
+        data-scroll-menu="program"
+        class:list={["nav-dropdown", { "is-active": isProgramPage }]}
+      >
+        <button
+          type="button"
+          class="dropdown-button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="program-dropdown"
+        >
+          Program
+
+          <svg
+            class="dropdown-chevron"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="m3.5 6 4.5 4 4.5-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="program-dropdown"
+          class="dropdown-menu"
+          hidden
+        >
+          {programs.map((program) => (
+            <a
+              href={program.href}
+              aria-current={
+                currentPath === program.href ? "page" : undefined
+              }
+            >
+              {program.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a
+        href="/kontak"
+        data-scroll-menu="contact"
+        class:list={["nav-link", { "is-active": currentPath === "/kontak" }]}
+        aria-current={currentPath === "/kontak" ? "page" : undefined}
+      >
+        Kontak
+      </a>
+
+    </nav>
+
+    <!-- TOMBOL DAFTAR -->
+    <a
+      href={registrationUrl}
+      class="header-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Daftar Sekarang
+      <span aria-hidden="true">↗</span>
+    </a>
+
+    <!-- TOMBOL MOBILE -->
+    <button
+      class="mobile-toggle"
+      type="button"
+      aria-label="Buka menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="menu-icon" aria-hidden="true">☰</span>
+    </button>
+
+  </div>
+
+  <!-- NAVIGASI MOBILE -->
+  <nav
+    id="mobile-menu"
+    class="mobile-menu"
+    aria-label="Navigasi mobile"
+    hidden
+  >
+    <a
+      href="/"
+      aria-current={currentPath === "/" ? "page" : undefined}
+    >
+      Beranda
+    </a>
+
+    <a
+      href="/tentang-kami"
+      aria-current={currentPath === "/tentang-kami" ? "page" : undefined}
+    >
+      Tentang Kami
+    </a>
+
+    <span class="mobile-menu-label">
+      PROGRAM
+    </span>
+
+    {programs.map((program) => (
+      <a
+        href={program.href}
+        aria-current={
+          currentPath === program.href ? "page" : undefined
+        }
+      >
+        {program.name}
+      </a>
+    ))}
+
+    <a
+      href="/kontak"
+      aria-current={currentPath === "/kontak" ? "page" : undefined}
+    >
+      Kontak
+    </a>
+
+    <a
+      href={registrationUrl}
+      class="mobile-register"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Daftar Sekarang ↗
+    </a>
+  </nav>
+</header>
+
+<script>
+  const toggle =
+    document.querySelector<HTMLButtonElement>(".mobile-toggle");
+
+  const mobileMenu =
+    document.querySelector<HTMLElement>(".mobile-menu");
+
+  const menuIcon =
+    toggle?.querySelector<HTMLElement>(".menu-icon");
+
+  const dropdown =
+    document.querySelector<HTMLElement>(".nav-dropdown");
+
+  const dropdownButton =
+    dropdown?.querySelector<HTMLButtonElement>(".dropdown-button");
+
+  const dropdownMenu =
+    dropdown?.querySelector<HTMLElement>(".dropdown-menu");
+
+  /* =========================================
+     MOBILE MENU
+  ========================================= */
+
+  toggle?.addEventListener("click", () => {
+    if (!mobileMenu) return;
+
+    const isOpen =
+      toggle.getAttribute("aria-expanded") === "true";
+
+    toggle.setAttribute(
+      "aria-expanded",
+      String(!isOpen)
+    );
+
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? "Buka menu" : "Tutup menu"
+    );
+
+    mobileMenu.hidden = isOpen;
+
+    if (menuIcon) {
+      menuIcon.textContent = isOpen ? "☰" : "✕";
+    }
+  });
+
+  /* =========================================
+     DESKTOP DROPDOWN
+  ========================================= */
+
+  dropdownButton?.addEventListener("click", () => {
+    if (!dropdown || !dropdownButton) return;
+
+    const isOpen =
+      dropdown.classList.toggle("is-open");
+
+    dropdownButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    if (dropdownMenu) {
+      dropdownMenu.hidden = !isOpen;
+    }
+  });
+
+  /* =========================================
+     CLICK OUTSIDE
+  ========================================= */
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    const targetIsLink =
+      target instanceof Element &&
+      target.closest("a[href]") !== null;
+
+    if (
+      target instanceof Node &&
+      dropdown &&
+      !dropdown.contains(target)
+    ) {
+      dropdown.classList.remove("is-open");
+
+      dropdownButton?.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      if (dropdownMenu) {
+        dropdownMenu.hidden = true;
+      }
+    }
+
+    if (
+      target instanceof Node &&
+      mobileMenu &&
+      toggle &&
+      !targetIsLink &&
+      !mobileMenu.contains(target) &&
+      !toggle.contains(target) &&
+      !mobileMenu.hidden
+    ) {
+      mobileMenu.hidden = true;
+
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Buka menu");
+
+      if (menuIcon) {
+        menuIcon.textContent = "☰";
+      }
+    }
+  });
+
+  /* =========================================
+     ESCAPE KEY
+  ========================================= */
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+
+    if (dropdown?.classList.contains("is-open")) {
+      dropdown.classList.remove("is-open");
+
+      dropdownButton?.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      if (dropdownMenu) {
+        dropdownMenu.hidden = true;
+      }
+
+      dropdownButton?.focus();
+    }
+
+    if (mobileMenu && toggle && !mobileMenu.hidden) {
+      mobileMenu.hidden = true;
+
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Buka menu");
+
+      if (menuIcon) {
+        menuIcon.textContent = "☰";
+      }
+
+      toggle.focus();
+    }
+  });
+</script>

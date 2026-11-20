@@ -1,0 +1,81 @@
+
+---
+import "../styles/program/FAQKesetaraan.css";
+
+const daftarFAQ = [
+  {
+    pertanyaan: "Siapa saja yang bisa mengikuti program Kejar Paket?",
+    jawaban:
+      "Program ini terbuka untuk semua kalangan, baik anak-anak, remaja, maupun orang dewasa.",
+  },
+  {
+    pertanyaan:
+      "Apakah ijazah Kejar Paket PKBM Alfatihah diakui secara resmi?",
+    jawaban:
+      "Tentu saja! Ijazah dari program kesetaraan PKBM Alfatihah diakui oleh pemerintah dan setara dengan ijazah sekolah formal.",
+  },
+  {
+    pertanyaan: "Kapan waktu pendaftaran dibuka?",
+    jawaban:
+      "Pendaftaran dibuka setiap saat. Jika mendaftar saat kegiatan belajar sudah berlangsung, ada beberapa pertemuan yang tertinggal, tetapi kamu tetap bisa mengejarnya melalui rekaman pembelajaran yang tersedia.",
+  },
+  {
+    pertanyaan: "Dokumen apa saja yang perlu dipersiapkan?",
+    jawaban:
+      "Akta Lahir, KTP orang tua, Kartu Keluarga, Ijazah, NISN, dokumen pendidikan terakhir, serta surat keterangan lainnya.",
+  },
+  {
+    pertanyaan: "Bisakah ikut Kejar Paket sambil bekerja?",
+    jawaban:
+      "Bisa. Tersedia kelas online dengan jadwal fleksibel dan rekaman materi, serta kelas mandiri dengan modul dan evaluasi berkala.",
+  },
+  {
+    pertanyaan: "Berapa biaya Kejar Paket?",
+    jawaban:
+      "Biaya pendaftaran Rp200.000, SPP Rp70.000 per bulan, biaya rapor Rp150.000, dan biaya kelulusan/ijazah Rp150.000. Berlaku untuk kelas online maupun offline.",
+  },
+  {
+    pertanyaan: "Berapa lama setelah mendaftar bisa mulai belajar?",
+    jawaban:
+      "Setelah pendaftaran selesai, tim kami menyiapkan tutor dan sistem KBM dalam estimasi 5 jam – 3 hari kerja, lalu tutor akan menghubungi untuk sesi perdana.",
+  },
+];
+---
+
+<section class="faq-kesetaraan" aria-labelledby="faq-kesetaraan-title">
+  <div class="faq-kesetaraan-container">
+
+    <!-- JUDUL SECTION -->
+    <header class="faq-kesetaraan-heading">
+      <h2 id="faq-kesetaraan-title">
+        Pertanyaan Seputar Kejar Paket
+      </h2>
+      <div class="faq-kesetaraan-line" aria-hidden="true"></div>
+    </header>
+
+    <!-- ACCORDION FAQ -->
+    <div class="faq-kesetaraan-list">
+      {daftarFAQ.map((item, index) => (
+        <details
+          class="faq-kesetaraan-item"
+          name="faq-kejar-paket"
+          open={index === 0}
+        >
+          <summary class="faq-kesetaraan-question">
+            <span>{item.pertanyaan}</span>
+
+            <span class="faq-kesetaraan-icon" aria-hidden="true">
+              <span class="faq-icon-plus">+</span>
+              <span class="faq-icon-minus">−</span>
+            </span>
+          </summary>
+
+          <div class="faq-kesetaraan-answer">
+            <p>{item.jawaban}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

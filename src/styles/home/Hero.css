@@ -1,0 +1,301 @@
+
+/* =========================================
+   HERO PKBM ALFATIHAH
+   TEMA UNGU MAGENTA + GOLD
+========================================= */
+
+.pkbm-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 680px;
+  padding: 105px 24px;
+  overflow: hidden;
+
+  /* Background solid tanpa gradient */
+  background: #92197B;
+  background-image: none;
+
+  color: var(--pkbm-white);
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.pkbm-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  transform: translateY(-35px);
+}
+
+/* =========================================
+   BADGE
+========================================= */
+
+.pkbm-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 10px 17px;
+
+  border: 1px solid rgba(var(--pkbm-gold-rgb), 0.75);
+  border-radius: 50px;
+
+  background: rgba(var(--pkbm-dark-rgb), 0.25);
+  color: var(--pkbm-gold-light);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+}
+
+.pkbm-badge-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--pkbm-gold);
+}
+
+/* =========================================
+   JUDUL HERO
+========================================= */
+
+.pkbm-hero h1 {
+  margin: 22px 0 0;
+  color: var(--pkbm-white);
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(36px, 4.8vw, 60px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -1.4px;
+
+  text-shadow: 0 2px 8px rgba(var(--pkbm-plum-rgb), 0.12);
+}
+
+.pkbm-hero h1 span {
+  display: block;
+  color: #D9A035;
+}
+
+/* =========================================
+   GARIS EMAS
+========================================= */
+
+.pkbm-hero-line {
+  width: 70px;
+  height: 4px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+
+/* =========================================
+   DESKRIPSI
+========================================= */
+
+.pkbm-hero-description {
+  max-width: 900px;
+  margin: 0 auto;
+
+  color: var(--pkbm-white);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.pkbm-hero-copy-line {
+  display: block;
+}
+
+/* =========================================
+   TOMBOL HERO
+========================================= */
+
+.pkbm-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.pkbm-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 52px;
+  padding: 13px 25px;
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* =========================================
+   TOMBOL UTAMA
+========================================= */
+
+.pkbm-hero-btn-primary {
+  border-color: #FFFFFF;
+  background: #FFFFFF;
+  color: #92197B;
+
+  box-shadow: 0 8px 24px rgba(var(--pkbm-dark-rgb), 0.18);
+}
+
+.pkbm-hero-btn-primary:hover {
+  border-color: #F5EAF2;
+  background: #F5EAF2;
+  color: #92197B;
+
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(var(--pkbm-dark-rgb), 0.22);
+}
+
+/* =========================================
+   TOMBOL KEDUA - OUTLINE
+========================================= */
+
+.pkbm-hero-btn-outline {
+  border-color: var(--pkbm-white);
+  background: transparent;
+  color: var(--pkbm-white);
+}
+
+.pkbm-hero-btn-outline:hover {
+  border-color: var(--pkbm-white);
+  background: transparent;
+  color: var(--pkbm-white);
+
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   FOCUS AKSESIBILITAS
+========================================= */
+
+.pkbm-hero-btn:focus-visible {
+  outline: 3px solid var(--pkbm-white);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   DEKORASI BACKGROUND
+========================================= */
+
+/* Nonaktifkan glow agar warna Hero
+   benar-benar solid dan merata */
+
+.pkbm-hero-glow {
+  display: none;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .pkbm-hero {
+    min-height: auto;
+    padding: 85px 20px 95px;
+  }
+
+  .pkbm-hero-container {
+    transform: none;
+  }
+
+  .pkbm-hero h1 {
+    font-size: clamp(32px, 5.6vw, 44px);
+    letter-spacing: -1px;
+  }
+
+  .pkbm-hero-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .pkbm-hero-copy-line {
+    display: inline;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .pkbm-hero {
+    padding: 65px 18px 75px;
+  }
+
+  .pkbm-hero-badge {
+    padding: 10px 13px;
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+
+  .pkbm-hero h1 {
+    margin-top: 20px;
+    font-size: clamp(30px, 8vw, 35px);
+    line-height: 1.2;
+  }
+
+  .pkbm-hero-line {
+    margin: 18px auto;
+  }
+
+  .pkbm-hero-description {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .pkbm-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 22px;
+  }
+
+  .pkbm-hero-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pkbm-hero-btn {
+    transition: none;
+  }
+
+  .pkbm-hero-btn:hover {
+    transform: none;
+  }
+}

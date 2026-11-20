@@ -1,0 +1,283 @@
+
+/* =========================================
+   FAQ PROGRAM KESETARAAN
+========================================= */
+
+.faq-kesetaraan {
+  width: 100%;
+  padding: 65px 24px 90px;
+  background: #FFF9F5;
+  font-family: "Poppins", sans-serif;
+}
+
+.faq-kesetaraan *,
+.faq-kesetaraan *::before,
+.faq-kesetaraan *::after {
+  box-sizing: border-box;
+}
+
+.faq-kesetaraan-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.faq-kesetaraan-heading {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.faq-kesetaraan-heading h2 {
+  margin: 0;
+  color: #82165F;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.faq-kesetaraan-line {
+  width: 65px;
+  height: 4px;
+  margin: 17px auto 0;
+  background: #D9A035;
+  border-radius: 10px;
+}
+
+/* =========================================
+   ACCORDION LIST
+========================================= */
+
+.faq-kesetaraan-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px 18px;
+}
+
+/* ITEM */
+
+.faq-kesetaraan-item {
+  min-width: 0;
+  background: #FFFFFF;
+  border: 1px solid #EBD5E2;
+  border-radius: 14px;
+  overflow: hidden;
+
+  box-shadow: 0 5px 18px rgba(75, 22, 60, 0.04);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.faq-kesetaraan-item:hover {
+  border-color: #A74E92;
+}
+
+.faq-kesetaraan-item[open] {
+  border-color: #A74E92;
+  box-shadow: 0 8px 25px rgba(75, 22, 60, 0.08);
+}
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.faq-kesetaraan-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 22px 26px;
+
+  color: #82165F;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+/* HILANGKAN MARKER DEFAULT */
+
+.faq-kesetaraan-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-kesetaraan-question::marker {
+  content: "";
+}
+
+.faq-kesetaraan-question:hover {
+  color: #92197B;
+}
+
+.faq-kesetaraan-question:focus-visible {
+  outline: 3px solid #D9A035;
+  outline-offset: -4px;
+  border-radius: 12px;
+}
+
+/* =========================================
+   ICON + DAN -
+========================================= */
+
+.faq-kesetaraan-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  background: #F9EAF2;
+  color: #92197B;
+  border-radius: 50%;
+
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.faq-icon-minus {
+  display: none;
+}
+
+/* SAAT TERBUKA */
+
+.faq-kesetaraan-item[open] .faq-kesetaraan-icon {
+  background: #92197B;
+  color: #FFFFFF;
+}
+
+.faq-kesetaraan-item[open] .faq-icon-plus {
+  display: none;
+}
+
+.faq-kesetaraan-item[open] .faq-icon-minus {
+  display: inline;
+}
+
+/* =========================================
+   ANSWER
+========================================= */
+
+.faq-kesetaraan-answer {
+  padding: 0 26px 24px;
+}
+
+.faq-kesetaraan-answer::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 18px;
+  background: #EBD5E2;
+}
+
+.faq-kesetaraan-answer p {
+  margin: 0;
+  color: #42323C;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .faq-kesetaraan {
+    padding: 55px 20px 75px;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .faq-kesetaraan {
+    padding: 50px 18px 65px;
+  }
+
+  .faq-kesetaraan-heading {
+    margin-bottom: 28px;
+  }
+
+  .faq-kesetaraan-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .faq-kesetaraan-question {
+    padding: 18px 18px;
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .faq-kesetaraan-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 21px;
+  }
+
+  .faq-kesetaraan-answer {
+    padding: 0 18px 20px;
+  }
+
+  .faq-kesetaraan-answer p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 480px) {
+  .faq-kesetaraan {
+    padding: 45px 15px 55px;
+  }
+
+  .faq-kesetaraan-heading h2 {
+    font-size: 27px;
+  }
+
+  .faq-kesetaraan-question {
+    padding: 16px 15px;
+    font-size: 13px;
+  }
+
+  .faq-kesetaraan-answer {
+    padding: 0 15px 18px;
+  }
+
+  .faq-kesetaraan-answer p {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   AKSESIBILITAS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-kesetaraan-item {
+    transition: none;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.faq-kesetaraan {
+  padding-top: var(--pkbm-section-pad);
+}

@@ -1,0 +1,325 @@
+
+/* ==========================================
+   BAGIAN 8 - ALUR PENDAFTARAN
+========================================== */
+
+.cara-daftar-hs {
+  background: #fff9f5;
+  padding: 65px 20px 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+.cara-daftar-hs-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   JUDUL SECTION
+========================================== */
+
+.cara-daftar-hs-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.cara-daftar-hs-heading h2 {
+  color: #92197b;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 14px;
+}
+
+.cara-daftar-hs-underline {
+  display: block;
+  width: 55px;
+  height: 3px;
+  background: #d9a035;
+  border-radius: 10px;
+  margin: 0 auto 16px;
+}
+
+.cara-daftar-hs-heading p {
+  color: #76596b;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ==========================================
+   GRID 3 LANGKAH
+========================================== */
+
+.cara-daftar-hs-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  position: relative;
+  isolation: isolate;
+}
+
+/* GARIS PUTUS-PUTUS EMAS */
+
+.cara-daftar-hs-steps::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 16.6667%;
+  right: 16.6667%;
+  border-top: 2px dashed #d9a035;
+  z-index: 0;
+}
+
+.cara-daftar-hs-step {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   LINGKARAN ANGKA
+========================================== */
+
+.cara-daftar-hs-number-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.cara-daftar-hs-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+
+  background: #92197B;
+  color: #d9a035;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================
+   CARD INFORMASI
+========================================== */
+
+.cara-daftar-hs-card {
+  flex: 1;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #f0cfe0;
+  border-radius: 14px;
+
+  padding: 26px 26px 28px;
+  min-height: 185px;
+
+  box-shadow: 0 4px 15px rgba(146, 25, 123, 0.045);
+}
+
+.cara-daftar-hs-card h3 {
+  color: #92197b;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 14px;
+}
+
+.cara-daftar-hs-card p {
+  color: #382c35;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* LINK FORMULIR */
+
+.cara-daftar-hs-text-link {
+  color: #92197b;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cara-daftar-hs-text-link:hover {
+  color: #92197B;
+}
+
+.cara-daftar-hs-text-link:focus-visible {
+  outline: 2px solid #92197b;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   CATATAN BAWAH
+========================================== */
+
+.cara-daftar-hs-note {
+  max-width: 920px;
+  margin: 28px auto 0;
+  padding: 18px 24px;
+
+  background: #f8eaf1;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.cara-daftar-hs-note p {
+  color: #76596b;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .cara-daftar-hs {
+    padding: 55px 20px 65px;
+  }
+
+  .cara-daftar-hs-steps {
+    gap: 16px;
+  }
+
+  .cara-daftar-hs-card {
+    padding: 22px 18px;
+    min-height: 195px;
+  }
+
+  .cara-daftar-hs-card h3 {
+    font-size: 18px;
+  }
+
+  .cara-daftar-hs-card p {
+    font-size: 13px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 640px) {
+  .cara-daftar-hs {
+    padding: 45px 16px 55px;
+  }
+
+  .cara-daftar-hs-heading {
+    margin-bottom: 30px;
+  }
+
+  .cara-daftar-hs-heading h2 {
+    font-size: 24px;
+  }
+
+  .cara-daftar-hs-heading p {
+    font-size: 13px;
+  }
+
+  .cara-daftar-hs-steps {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* GARIS EMAS VERTIKAL */
+  .cara-daftar-hs-steps::before {
+    top: 29px;
+    bottom: 29px;
+    left: 28px;
+    right: auto;
+    border-top: none;
+    border-left: 2px dashed #d9a035;
+  }
+
+  .cara-daftar-hs-step {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .cara-daftar-hs-number-wrap {
+    margin: 0;
+    justify-content: flex-start;
+  }
+
+  .cara-daftar-hs-number {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
+  }
+
+  .cara-daftar-hs-card {
+    min-height: 0;
+    padding: 20px 18px;
+    border-radius: 12px;
+  }
+
+  .cara-daftar-hs-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .cara-daftar-hs-card p {
+    font-size: 13px;
+  }
+
+  .cara-daftar-hs-note {
+    margin-top: 24px;
+    padding: 16px 18px;
+  }
+
+  .cara-daftar-hs-note p {
+    font-size: 12px;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.cara-daftar-hs {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .cara-daftar-hs {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cara-daftar-hs {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cara-daftar-hs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.cara-daftar-hs {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

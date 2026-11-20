@@ -1,0 +1,95 @@
+---
+import "../styles/program/FAQDiaspora.css";
+
+const daftarFAQ = [
+  {
+    pertanyaan: "Siapa saja yang bisa ikut?",
+    jawaban:
+      "Anak-anak hingga dewasa, seluruh jenjang, khususnya keluarga Indonesia yang tinggal di luar negeri.",
+  },
+  {
+    pertanyaan: "Saya belum pernah belajar Tahsin, bisa ikut?",
+    jawaban:
+      "Bisa! Program ini terbuka untuk pemula. Disarankan memulai dari Tahsin, lalu lanjut ke Tahfidz.",
+  },
+  {
+    pertanyaan: "Apakah harus mengambil Tahsin dulu sebelum Tahfidz?",
+    jawaban:
+      "Tidak harus. Kedua pilar dapat diambil terpisah maupun berurutan.",
+  },
+  {
+    pertanyaan: "Bagaimana dengan perbedaan zona waktu?",
+    jawaban:
+      "Jam belajar disesuaikan dengan zona waktu domisili peserta, termasuk malam atau dini hari WIB.",
+  },
+  {
+    pertanyaan: "Bahasa pengantarnya apa?",
+    jawaban:
+      "Bahasa Indonesia, dengan nilai keislaman dan konteks budaya yang familiar bagi anak-anak.",
+  },
+  {
+    pertanyaan: "Berapa lama satu kali pertemuan?",
+    jawaban: "60 menit per pertemuan, secara daring.",
+  },
+  {
+    pertanyaan: "Berapa biaya lesnya?",
+    jawaban:
+      "Private Rp150.000, Semi Private Rp75.000 per orang, Reguler Rp40.000 per orang per pertemuan. Harga sama untuk Tahsin dan Tahfidz.",
+  },
+  {
+    pertanyaan: "Bisa membuat kelas bersama komunitas WNI di kota kami?",
+    jawaban:
+      "Bisa. Kelas Reguler dapat diisi komunitas WNI di satu negara/kota, atau gabungan beberapa negara dengan zona waktu berdekatan.",
+  },
+  {
+    pertanyaan: "Bagaimana cara membayar dari luar negeri?",
+    jawaban:
+      "Transfer internasional (SWIFT) atau layanan transfer lintas negara ke rekening BSI No. Rek. 7266356026 a.n. PKBM Alfatihah. Biaya transfer ditanggung pengirim. Pembayaran dalam mata uang asing (USD, EUR, SAR, dll.) mengikuti kurs saat transaksi. Mohon konfirmasi ke CS sebelum transfer.",
+  },
+];
+
+// Kolom kiri: pertanyaan 1-5, kolom kanan: pertanyaan 6-9
+const kolom = [
+  daftarFAQ.slice(0, 5).map((faq, i) => ({ ...faq, index: i })),
+  daftarFAQ.slice(5).map((faq, i) => ({ ...faq, index: i + 5 })),
+];
+---
+
+<section
+  class="faq-diaspora"
+  id="faq-diaspora"
+  aria-labelledby="faq-diaspora-title"
+>
+  <div class="faq-diaspora-container">
+
+    <!-- JUDUL -->
+    <header class="faq-diaspora-heading">
+      <h2 id="faq-diaspora-title">
+        Pertanyaan yang Sering Diajukan
+      </h2>
+
+      <span class="faq-diaspora-divider" aria-hidden="true"></span>
+    </header>
+
+    <!-- DAFTAR FAQ: 2 KOLOM INDEPENDEN -->
+    <div class="faq-diaspora-columns">
+      {kolom.map((items) => (
+        <div class="faq-diaspora-column">
+          {items.map((faq) => (
+            <details class="faq-diaspora-item" open={faq.index === 0}>
+              <summary class="faq-diaspora-question">
+                <span>{faq.pertanyaan}</span>
+                <span class="faq-diaspora-icon" aria-hidden="true"></span>
+              </summary>
+
+              <div class="faq-diaspora-answer">
+                <p>{faq.jawaban}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

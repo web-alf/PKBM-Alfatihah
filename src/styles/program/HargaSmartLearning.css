@@ -1,0 +1,575 @@
+
+/* ==========================================
+   HARGA SMART LEARNING
+   PREVIEW 1 - CLEAN & COMPACT
+   Purple : #3C1E66
+   Gold   : #D9A035
+   Cream  : #FFF9F5
+========================================== */
+
+.harga-smart {
+  --smart-purple: #3c1e66;
+  --smart-gold: #d9a035;
+  --smart-cream: #fff9f5;
+  --smart-white: #ffffff;
+  --smart-text: #382b46;
+  --smart-muted: #6c6074;
+  --smart-border: #e8dfdf;
+  --smart-cream-soft: #fff5e8;
+
+  width: 100%;
+  background: var(--smart-cream);
+  padding: 65px 20px 75px;
+  scroll-margin-top: 88px;
+  font-family: "Poppins", sans-serif;
+}
+
+.harga-smart,
+.harga-smart * {
+  box-sizing: border-box;
+}
+
+.harga-smart-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.harga-smart-heading {
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.harga-smart-heading h2 {
+  margin: 0;
+  color: var(--smart-purple);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+}
+
+.harga-smart-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 15px auto 13px;
+  background: var(--smart-gold);
+  border-radius: 999px;
+}
+
+.harga-smart-heading p {
+  margin: 0;
+  color: var(--smart-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   DAFTAR KATEGORI
+========================================== */
+
+.harga-smart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==========================================
+   KATEGORI / CARD
+========================================== */
+
+.harga-smart-group {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px 16px;
+
+  background: var(--smart-white);
+  border: 1px solid var(--smart-border);
+  border-radius: 14px;
+
+  box-shadow: 0 3px 12px rgba(60, 30, 102, 0.035);
+}
+
+/* Judul kategori + aksen emas */
+
+.harga-smart-group-title {
+  margin: 0 0 12px;
+  padding-left: 12px;
+
+  border-left: 3px solid var(--smart-gold);
+
+  color: var(--smart-purple);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   TABLE WRAPPER
+========================================== */
+
+.harga-smart-table-scroll {
+  width: 100%;
+  min-width: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  border: 1px solid var(--smart-border);
+  border-radius: 9px;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--smart-gold) transparent;
+}
+
+.harga-smart-table-scroll:focus-visible {
+  outline: 2px solid var(--smart-gold);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   TABEL HARGA
+========================================== */
+
+.harga-smart-table {
+  width: 100%;
+  min-width: 560px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-size: 13px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* HEADER UNGU TUA */
+
+.harga-smart-table thead {
+  background: var(--smart-purple);
+}
+
+.harga-smart-table thead th {
+  padding: 11px 12px;
+
+  background: var(--smart-purple);
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.harga-smart-table thead th + th {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ISI TABEL */
+
+.harga-smart-table tbody th,
+.harga-smart-table tbody td {
+  padding: 11px 12px;
+
+  border-top: 1px solid var(--smart-border);
+  border-right: 1px solid var(--smart-border);
+
+  line-height: 1.45;
+  vertical-align: middle;
+}
+
+.harga-smart-table tbody tr > :last-child {
+  border-right: none;
+}
+
+/* KOLOM MODE - KREM, BUKAN PINK */
+
+.harga-smart-table tbody th {
+  width: 18%;
+  min-width: 95px;
+
+  background: var(--smart-cream-soft);
+  color: var(--smart-purple);
+
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* KOLOM HARGA */
+
+.harga-smart-table tbody td {
+  background: #ffffff;
+  color: var(--smart-text);
+
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Sedikit variasi antarbaris tanpa pink */
+
+.harga-smart-table tbody tr:nth-child(even) td {
+  background: #fffdfb;
+}
+
+/* ==========================================
+   KETERANGAN OFFLINE & ONLINE
+========================================== */
+
+.harga-smart-mode-notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 20px;
+  color: var(--smart-muted);
+  text-align: center;
+}
+
+.harga-smart-mode-notes p {
+  margin: 0;
+  padding: 7px 12px;
+  background: var(--smart-white);
+  border: 1px solid var(--smart-border);
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.harga-smart-mode-notes strong {
+  color: var(--smart-purple);
+  font-weight: 700;
+}
+
+/* ==========================================
+   BIAYA PENDAFTARAN
+========================================== */
+
+.harga-smart-registration {
+  width: 100%;
+  margin-top: 22px;
+  padding: 20px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: #ffffff;
+  border: 1.5px solid var(--smart-gold);
+  border-radius: 14px;
+}
+
+/* BAGIAN KIRI */
+
+.harga-smart-registration-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.harga-smart-registration-copy h3 {
+  margin: 0 0 7px;
+
+  color: var(--smart-purple);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.harga-smart-registration-copy p {
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  color: var(--smart-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* DISKON EMAS */
+
+.harga-smart-discount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 11px;
+
+  background: var(--smart-gold);
+  color: var(--smart-purple);
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.harga-smart-dot {
+  margin: 0 4px;
+  color: var(--smart-muted);
+}
+
+.harga-smart-registration-copy s {
+  color: #8c8090;
+  text-decoration-thickness: 1px;
+}
+
+/* NOMINAL RP150.000 EMAS */
+
+.harga-smart-registration-price {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 205px;
+  padding: 15px 25px;
+
+  background: var(--smart-gold);
+  color: var(--smart-purple);
+
+  border-radius: 10px;
+
+  font-size: clamp(23px, 2.6vw, 30px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .harga-smart {
+    scroll-margin-top: 76px;
+  }
+}
+
+@media (max-width: 900px) {
+  .harga-smart {
+    padding: 60px 20px 70px;
+  }
+
+  .harga-smart-group {
+    padding: 13px 14px 14px;
+  }
+
+  .harga-smart-group-title {
+    font-size: 17px;
+  }
+
+  .harga-smart-registration {
+    padding: 18px 20px;
+  }
+
+  .harga-smart-registration-price {
+    min-width: 175px;
+    padding: 14px 20px;
+    font-size: 25px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 640px) {
+  .harga-smart {
+    padding: 50px 16px 60px;
+  }
+
+  .harga-smart-heading {
+    margin-bottom: 14px;
+  }
+
+  .harga-smart-heading h2 {
+    font-size: 24px;
+    letter-spacing: -0.3px;
+  }
+
+  .harga-smart-divider {
+    margin: 13px auto 12px;
+  }
+
+  .harga-smart-heading p {
+    font-size: 13px;
+  }
+
+  /* CARD */
+
+  .harga-smart-list {
+    gap: 14px;
+  }
+
+  .harga-smart-group {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .harga-smart-group-title {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    border-left-width: 3px;
+  }
+
+  /* TABEL */
+
+  .harga-smart-table-scroll {
+    border-radius: 8px;
+  }
+
+  .harga-smart-table {
+    min-width: 560px;
+    font-size: 12px;
+  }
+
+  .harga-smart-table thead th {
+    padding: 10px 9px;
+    font-size: 11px;
+  }
+
+  .harga-smart-table tbody th,
+  .harga-smart-table tbody td {
+    padding: 10px 9px;
+  }
+
+  .harga-smart-table tbody th {
+    font-size: 12px;
+  }
+
+  .harga-smart-table tbody td {
+    font-size: 13px;
+  }
+
+  /* KETERANGAN */
+
+  .harga-smart-mode-notes {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .harga-smart-mode-notes p {
+    padding: 6px 10px;
+  }
+
+  /* PROMO PENDAFTARAN */
+
+  .harga-smart-registration {
+    margin-top: 20px;
+    padding: 18px 16px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+
+    border-radius: 12px;
+  }
+
+  .harga-smart-registration-copy h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .harga-smart-registration-copy p {
+    font-size: 12px;
+  }
+
+  .harga-smart-discount {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .harga-smart-registration-price {
+    width: 100%;
+    min-width: 0;
+
+    padding: 14px 20px;
+    font-size: 26px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .harga-smart {
+    scroll-margin-top: 68px;
+  }
+}
+
+@media (max-width: 380px) {
+  .harga-smart {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .harga-smart-group {
+    padding: 10px;
+  }
+
+  .harga-smart-group-title {
+    font-size: 15px;
+  }
+
+  .harga-smart-registration {
+    padding: 16px 13px;
+  }
+
+  .harga-smart-registration-price {
+    font-size: 24px;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.harga-smart {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .harga-smart {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .harga-smart {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .harga-smart {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.harga-smart {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

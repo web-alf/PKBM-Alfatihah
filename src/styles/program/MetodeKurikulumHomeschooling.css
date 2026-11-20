@@ -1,0 +1,305 @@
+
+/* =========================================
+   METODE & KURIKULUM HOMESCHOOLING
+========================================= */
+
+.hk-section {
+  width: 100%;
+  padding: 64px 24px;
+  background: #FFF9F5;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.hk-section *,
+.hk-section *::before,
+.hk-section *::after {
+  box-sizing: border-box;
+}
+
+.hk-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   PBL
+========================================= */
+
+.hk-pbl {
+  margin-bottom: 32px;
+}
+
+.hk-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.hk-heading h2 {
+  margin: 0;
+  color: #92197B;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.hk-heading-line {
+  width: 58px;
+  height: 4px;
+  margin: 16px auto;
+  border-radius: 10px;
+  background: #D9A035;
+}
+
+.hk-heading p {
+  margin: 0;
+  color: #654B5D;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* SATU CARD PUTIH */
+
+.hk-pbl-card {
+  width: 100%;
+  padding: 24px 28px;
+  background: #FFFFFF;
+  border: 1px solid #F0CFE0;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(117, 25, 79, 0.035);
+}
+
+/* GRID MANFAAT */
+
+.hk-pbl-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 16px;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hk-pbl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  color: #75194F;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* CENTANG BULAT MAGENTA */
+
+.hk-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 18px;
+
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+
+  background: #A00080;
+  color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.hk-check svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* =========================================
+   KURIKULUM
+========================================= */
+
+.hk-kurikulum {
+  padding: 34px;
+  background: #92197B;
+  border-radius: 18px;
+}
+
+.hk-kurikulum-heading {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.hk-kurikulum-heading h2 {
+  margin: 0 0 12px;
+  color: #FFE0A3;
+  font-size: clamp(21px, 2.4vw, 26px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.hk-kurikulum-heading p {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* TIGA KOTAK MAUVE */
+
+.hk-kurikulum-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hk-kurikulum-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 8px 16px;
+
+  background: #B34B95;
+  border: 1px solid #FFE0A3;
+  border-radius: 12px;
+
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .hk-section {
+    padding: 54px 24px;
+  }
+
+  .hk-pbl-card {
+    padding: 24px;
+  }
+
+  .hk-kurikulum {
+    padding: 28px;
+  }
+
+  .hk-kurikulum-grid {
+    gap: 12px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .hk-section {
+    padding: 44px 20px;
+  }
+
+  .hk-heading {
+    margin-bottom: 22px;
+  }
+
+  .hk-heading p,
+  .hk-kurikulum-heading p {
+    font-size: 14px;
+  }
+
+  .hk-pbl-card {
+    padding: 20px;
+  }
+
+  .hk-pbl-list {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .hk-pbl-item {
+    font-size: 14px;
+  }
+
+  .hk-kurikulum {
+    padding: 26px 20px;
+  }
+
+  .hk-kurikulum-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 480px) {
+  .hk-section {
+    padding: 38px 16px;
+  }
+
+  .hk-heading h2 {
+    font-size: 24px;
+  }
+
+  .hk-pbl-card {
+    padding: 20px;
+  }
+
+  .hk-pbl-item {
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .hk-kurikulum-heading h2 {
+    font-size: 21px;
+  }
+
+  .hk-kurikulum-item {
+    font-size: 13px;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.hk-section {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .hk-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hk-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hk-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.hk-section {
+  padding-bottom: var(--pkbm-section-pad);
+}

@@ -1,0 +1,361 @@
+
+/* =========================================
+   HOMESCHOOLING - HERO
+   WARNA UTAMA: UNGU & EMAS
+========================================= */
+
+.homeschooling-hero {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 52px 24px 58px;
+  background: #92197B;
+  font-family: "Poppins", sans-serif;
+}
+
+.homeschooling-hero *,
+.homeschooling-hero *::before,
+.homeschooling-hero *::after {
+  box-sizing: border-box;
+}
+
+.homeschooling-hero-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.homeschooling-logo-card {
+  width: 270px;
+  max-width: 100%;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  background: #FFFFFF;
+  border: 1px solid #F4E5EE;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(48, 6, 38, 0.13);
+}
+
+.homeschooling-logo-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   LABEL & BADGE
+========================================= */
+
+.homeschooling-hero-labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.homeschooling-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+
+  border: 1px solid #D9A035;
+  border-radius: 50px;
+  color: #FFE0A3;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+}
+
+.homeschooling-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+
+  background: #FFE0A3;
+  color: #75194F;
+  border-radius: 50px;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.homeschooling-badge svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.homeschooling-hero h1 {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0;
+  color: #FFFFFF;
+
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.homeschooling-hero h1 .homeschooling-hero-title-gold {
+  color: #D9A035;
+}
+
+.homeschooling-hero-divider {
+  width: 65px;
+  height: 4px;
+  margin: 20px auto;
+  background: #D9A035;
+  border-radius: 999px;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.homeschooling-hero-description {
+  max-width: 850px;
+  margin: 0;
+  color: #FFFFFF;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.homeschooling-hero-tagline {
+  max-width: 850px;
+  margin: 16px 0 0;
+  color: #FFE0A3;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.homeschooling-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.homeschooling-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 50px;
+  padding: 13px 25px;
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.homeschooling-btn-primary {
+  background: #D9A035;
+  border-color: #D9A035;
+  color: #75194F;
+}
+
+.homeschooling-btn-primary:hover {
+  background: #E8B64F;
+  border-color: #E8B64F;
+  color: #75194F;
+  transform: translateY(-2px);
+}
+
+.homeschooling-btn-secondary {
+  background: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.homeschooling-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.homeschooling-btn:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .homeschooling-hero {
+    padding: 48px 24px 54px;
+  }
+
+  .homeschooling-hero-labels {
+    margin-bottom: 18px;
+  }
+
+  .homeschooling-hero h1 {
+    font-size: clamp(32px, 4.5vw, 40px);
+  }
+
+  .homeschooling-hero-description {
+    font-size: 15px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .homeschooling-hero {
+    padding: 46px 20px 54px;
+  }
+
+  .homeschooling-logo-card {
+    width: 190px;
+    max-width: 100%;
+    height: 95px;
+    min-height: 0;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .homeschooling-logo-card img {
+    max-height: 100%;
+  }
+
+  .homeschooling-hero-labels {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .homeschooling-hero h1 {
+    font-size: clamp(30px, 6vw, 40px);
+    letter-spacing: -0.6px;
+  }
+
+  .homeschooling-hero-divider {
+    margin: 22px auto;
+  }
+
+  .homeschooling-hero-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .homeschooling-hero-tagline {
+    font-size: 15px;
+  }
+
+  .homeschooling-hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .homeschooling-btn {
+    width: 100%;
+    max-width: 350px;
+    min-height: 49px;
+  }
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 480px) {
+  .homeschooling-hero {
+    padding: 42px 18px 50px;
+  }
+
+  .homeschooling-hero h1 {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
+  .homeschooling-hero-description {
+    font-size: 13px;
+  }
+
+  .homeschooling-hero-tagline {
+    font-size: 14px;
+  }
+
+  .homeschooling-label {
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.35px;
+  }
+
+  .homeschooling-badge {
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 0.15px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .homeschooling-btn {
+    transition: none;
+  }
+
+  .homeschooling-btn:hover {
+    transform: none;
+  }
+}

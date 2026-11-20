@@ -1,0 +1,217 @@
+
+/* ==========================================
+   LIMA PILAR BELAJAR SMART LEARNING
+   SIMPLE - TANPA CARD DAN NOMOR
+========================================== */
+
+.pilar-smart {
+  background: #fff9f5;
+  padding: 75px 20px 85px;
+  font-family: "Poppins", sans-serif;
+}
+
+.pilar-smart,
+.pilar-smart * {
+  box-sizing: border-box;
+}
+
+.pilar-smart-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* JUDUL SECTION */
+
+.pilar-smart-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.pilar-smart-heading h2 {
+  margin: 0;
+  color: #3c1e66;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pilar-smart-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 10px;
+  background: #d9a035;
+}
+
+/* GRID 5 KOLOM */
+
+.pilar-smart-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+/* ITEM TANPA CARD */
+
+.pilar-smart-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* IKON BULAT */
+
+.pilar-smart-icon {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f5e9f4;
+  border-radius: 50%;
+  color: #3c1e66;
+}
+
+.pilar-smart-icon svg {
+  width: 43px;
+  height: 43px;
+}
+
+/* JUDUL PILAR */
+
+.pilar-smart-item h3 {
+  margin: 0 0 12px;
+  color: #3c1e66;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* DESKRIPSI */
+
+.pilar-smart-item p {
+  margin: 0;
+  color: #382c35;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  max-width: 205px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .pilar-smart-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px 24px;
+    justify-items: center;
+  }
+
+  .pilar-smart-item {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .pilar-smart {
+    padding: 50px 16px 60px;
+  }
+
+  .pilar-smart-heading {
+    margin-bottom: 32px;
+  }
+
+  .pilar-smart-heading h2 {
+    font-size: 24px;
+  }
+
+  .pilar-smart-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 16px;
+  }
+
+  .pilar-smart-icon {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 13px;
+  }
+
+  .pilar-smart-icon svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pilar-smart-item h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .pilar-smart-item p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .pilar-smart-item:last-child {
+    grid-column: 1 / -1;
+    max-width: 230px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .pilar-smart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pilar-smart-item {
+    max-width: 290px;
+  }
+
+  .pilar-smart-item:last-child {
+    grid-column: auto;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.pilar-smart {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .pilar-smart {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pilar-smart {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pilar-smart {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.pilar-smart {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

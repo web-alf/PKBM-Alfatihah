@@ -1,0 +1,179 @@
+/* =====================================
+   PROGRAM RINGKAS (BERANDA) - C1 CENTERED PREMIUM
+   ===================================== */
+
+.program-ringkas {
+  width: 100%;
+  padding: 85px 24px 100px;
+  background: #92197B;
+  background-image: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.program-ringkas-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.program-ringkas-label {
+  margin: 0 0 14px;
+  color: #D9A035;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.program-ringkas h2 {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.program-ringkas-line {
+  width: 55px;
+  height: 4px;
+  margin: 20px auto 0;
+  border-radius: 10px;
+  background: #D9A035;
+}
+
+.program-ringkas-desc {
+  max-width: 640px;
+  margin: 24px auto 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.program-ringkas-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 36px auto 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.program-ringkas-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 24px;
+  border-radius: 16px;
+  background: #FFF0F7;
+  color: #85005B;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.program-ringkas-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+.program-ringkas-check {
+  flex: 0 0 auto;
+}
+
+.program-ringkas-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #D9A035;
+  color: #481431;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.program-ringkas-btn span {
+  transition: transform 0.25s ease;
+}
+
+.program-ringkas-btn:hover,
+.program-ringkas-btn:focus-visible {
+  background: #E4AE4B;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.program-ringkas-btn:hover span,
+.program-ringkas-btn:focus-visible span {
+  transform: translateX(3px);
+}
+
+.program-ringkas-btn:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .program-ringkas {
+    padding: 70px 18px 70px;
+  }
+
+  .program-ringkas-label {
+    font-size: 12px;
+  }
+
+  .program-ringkas-desc {
+    font-size: 14px;
+  }
+
+  .program-ringkas-list {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    max-width: none;
+    margin-top: 28px;
+  }
+
+  .program-ringkas-list li {
+    font-size: 15px;
+  }
+
+  .program-ringkas-btn {
+    margin-top: 32px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .program-ringkas-list li,
+  .program-ringkas-list li:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .program-ringkas-btn,
+  .program-ringkas-btn span {
+    transition: none;
+  }
+
+  .program-ringkas-btn:hover,
+  .program-ringkas-btn:focus-visible,
+  .program-ringkas-btn:hover span,
+  .program-ringkas-btn:focus-visible span {
+    transform: none;
+  }
+}

@@ -1,0 +1,138 @@
+
+---
+import "../styles/program/HargaSmartLearning.css";
+
+const kelompokHarga = [
+  {
+    nama: "Academic · Tahfidz · Tahsin",
+    harga: [
+      {
+        mode: "Offline",
+        private: "50.000",
+        semi: "40.000",
+        reguler: "30.000",
+      },
+      {
+        mode: "Online",
+        private: "40.000",
+        semi: "30.000",
+        reguler: "25.000",
+      },
+    ],
+  },
+  {
+    nama: "English",
+    harga: [
+      {
+        mode: "Offline",
+        private: "60.000",
+        semi: "50.000",
+        reguler: "40.000",
+      },
+      {
+        mode: "Online",
+        private: "50.000",
+        semi: "40.000",
+        reguler: "30.000",
+      },
+    ],
+  },
+  {
+    nama: "AI",
+    harga: [
+      {
+        mode: "Offline",
+        private: "65.000",
+        semi: "55.000",
+        reguler: "45.000",
+      },
+      {
+        mode: "Online",
+        private: "55.000",
+        semi: "45.000",
+        reguler: "35.000",
+      },
+    ],
+  },
+];
+---
+
+<section
+  class="harga-smart"
+  id="harga"
+  aria-labelledby="harga-smart-title"
+>
+  <div class="harga-smart-container">
+
+    <!-- JUDUL -->
+    <header class="harga-smart-heading">
+      <h2 id="harga-smart-title">Harga per Pertemuan</h2>
+      <span class="harga-smart-divider" aria-hidden="true"></span>
+      <p>Rupiah, per peserta, durasi 60 menit.</p>
+    </header>
+
+    <div class="harga-smart-mode-notes">
+      <p><strong>Offline</strong> = tatap muka di PKBM Al-Fatihah.</p>
+      <p><strong>Online</strong> = sesi daring.</p>
+    </div>
+
+    <!-- TIGA KELOMPOK HARGA -->
+    <div class="harga-smart-list">
+      {kelompokHarga.map((kelompok) => (
+        <article class="harga-smart-group">
+          <h3 class="harga-smart-group-title">{kelompok.nama}</h3>
+
+          <!-- TABEL HARGA -->
+          <div
+            class="harga-smart-table-scroll"
+            role="region"
+            aria-label={`Tabel harga ${kelompok.nama}`}
+            tabindex="0"
+          >
+            <table class="harga-smart-table">
+              <thead>
+                <tr>
+                  <th scope="col">Mode</th>
+                  <th scope="col">Private (1 murid)</th>
+                  <th scope="col">Semi (4–6 murid)</th>
+                  <th scope="col">Reguler (&gt;15 murid)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {kelompok.harga.map((item) => (
+                  <tr>
+                    <th scope="row">{item.mode}</th>
+                    <td>{item.private}</td>
+                    <td>{item.semi}</td>
+                    <td>{item.reguler}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+        </article>
+      ))}
+    </div>
+
+    <!-- BIAYA PENDAFTARAN -->
+    <div class="harga-smart-registration">
+      <div class="harga-smart-registration-copy">
+        <h3>Biaya Pendaftaran</h3>
+
+        <p>
+          <span class="harga-smart-discount">Diskon 50%</span>
+          <span class="harga-smart-dot" aria-hidden="true">·</span>
+          Harga normal
+          <s>Rp300.000</s>
+        </p>
+      </div>
+
+      <strong class="harga-smart-registration-price">
+        Rp150.000
+      </strong>
+    </div>
+
+  </div>
+</section>

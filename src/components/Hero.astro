@@ -1,0 +1,74 @@
+
+---
+import "../styles/home/Hero.css";
+
+const registrationUrl =
+  "/pendaftaran";
+
+const whatsappUrl = "https://wa.me/6285319485269";
+---
+
+<section class="pkbm-hero" aria-labelledby="hero-title">
+  <div class="pkbm-hero-container">
+
+    <div class="pkbm-hero-badge">
+      <span class="pkbm-badge-dot"></span>
+      PKBM ALFATIHAH SEMARANG · TERAKREDITASI A
+    </div>
+
+    <h1 id="hero-title">
+      Apa itu PKBM Alfatihah?
+      <span>Solusi Pendidikan Fleksibel, Kredibel & Islami</span>
+    </h1>
+
+    <div class="pkbm-hero-line"></div>
+
+    <p class="pkbm-hero-description">
+      <span class="pkbm-hero-copy-line">
+        PKBM Alfatihah adalah tempat belajar untuk semua orang, tanpa memandang usia atau latar belakang.
+      </span>{" "}
+      <span class="pkbm-hero-copy-line">
+        Bagi yang sedang mengejar ijazah lewat Paket A, B, atau C, ingin belajar lewat homeschooling,
+      </span>{" "}
+      <span class="pkbm-hero-copy-line">
+        atau membutuhkan les privat, PKBM Alfatihah menyediakan sistem pembelajaran yang fleksibel:
+      </span>{" "}
+      <span class="pkbm-hero-copy-line">
+        belajar kapan saja dan di mana saja, dengan bekal nilai-nilai Islami dan akhlak Qur'ani.
+      </span>
+    </p>
+
+    <div class="pkbm-hero-actions">
+      <a
+        href={registrationUrl}
+        class="pkbm-hero-btn pkbm-hero-btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Daftar Sekarang
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <a
+        href={whatsappUrl}
+        class="pkbm-hero-btn pkbm-hero-btn-outline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Konsultasi via WhatsApp
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div>
+
+  <div
+    class="pkbm-hero-glow pkbm-hero-glow-left"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="pkbm-hero-glow pkbm-hero-glow-right"
+    aria-hidden="true"
+  ></div>
+</section>

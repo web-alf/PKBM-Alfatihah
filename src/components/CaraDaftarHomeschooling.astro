@@ -1,0 +1,97 @@
+
+---
+import "../styles/program/CaraDaftarHomeschooling.css";
+
+const langkahPendaftaran = [
+  {
+    nomor: "1",
+    judul: "Hubungi Kami",
+    deskripsi: "Isi formulir di website atau hubungi WhatsApp pendaftaran.",
+  },
+  {
+    nomor: "2",
+    judul: "Persiapan Tutor",
+    deskripsi:
+      "Tim menyiapkan tutor dan sistem KBM (estimasi 5 jam – 3 hari kerja).",
+  },
+  {
+    nomor: "3",
+    judul: "Sesi Perdana",
+    deskripsi:
+      "Tutor menghubungi peserta, menyepakati jadwal, dan belajar dimulai.",
+  },
+];
+
+const linkFormulir =
+  "/pendaftaran";
+---
+
+<section
+  class="cara-daftar-hs"
+  id="cara-mendaftar"
+  aria-labelledby="cara-daftar-hs-title"
+>
+  <div class="cara-daftar-hs-container">
+
+    <!-- JUDUL SECTION -->
+    <div class="cara-daftar-hs-heading">
+      <h2 id="cara-daftar-hs-title">
+        Bagaimana Cara Mendaftar?
+      </h2>
+
+      <span
+        class="cara-daftar-hs-underline"
+        aria-hidden="true"
+      ></span>
+
+      <p>Mudah, cukup ikuti langkah berikut.</p>
+    </div>
+
+    <!-- ALUR PENDAFTARAN -->
+    <div class="cara-daftar-hs-steps">
+      {langkahPendaftaran.map((langkah) => (
+        <article class="cara-daftar-hs-step">
+
+          <!-- LINGKARAN NOMOR -->
+          <div class="cara-daftar-hs-number-wrap">
+            <span class="cara-daftar-hs-number">
+              {langkah.nomor}
+            </span>
+          </div>
+
+          <!-- CARD INFORMASI -->
+          <div class="cara-daftar-hs-card">
+            <h3>{langkah.judul}</h3>
+
+            {langkah.nomor === "1" ? (
+              <p>
+                Isi formulir di website (
+                <a
+                  href={linkFormulir}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cara-daftar-hs-text-link"
+                >
+                  Formulir Pendaftaran PKBM
+                </a>
+                ) atau hubungi WhatsApp pendaftaran.
+              </p>
+            ) : (
+              <p>{langkah.deskripsi}</p>
+            )}
+          </div>
+
+        </article>
+      ))}
+    </div>
+
+    <!-- CATATAN TAMBAHAN -->
+    <div class="cara-daftar-hs-note">
+      <p>
+        Jadwal, teknis pembelajaran, dan rincian biaya
+        dikomunikasikan kepada Ayah/Bunda sebelum program dimulai.
+      </p>
+    </div>
+
+  </div>
+</section>

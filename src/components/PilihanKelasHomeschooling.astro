@@ -1,0 +1,81 @@
+
+---
+import "../styles/program/PilihanKelasHomeschooling.css";
+
+const pilihanKelas = [
+  {
+    nama: "Kelas Online",
+    deskripsi:
+      "Belajar via Zoom Meeting atau Google Meet, interaksi langsung dengan tutor.",
+    harga: "Rp450.000/bulan",
+  },
+  {
+    nama: "Siswa ke Lembaga",
+    deskripsi:
+      "Offline, tatap muka di PKBM Al-Fatihah. Wilayah Semarang Timur.",
+    harga: "Rp500.000/bulan",
+  },
+  {
+    nama: "Tutor ke Rumah",
+    deskripsi:
+      "Offline, tutor datang ke rumah santri. Wilayah Semarang Timur.",
+    harga: "Mulai Rp500.000/bulan",
+  },
+  {
+    nama: "Kelas Mandiri",
+    deskripsi:
+      "Belajar dengan modul dan lembar kerja, didukung tutor sesuai program.",
+    harga: "Rp325.000/bulan",
+  },
+  {
+    nama: "Paket Study Group",
+    deskripsi:
+      "Belajar berkelompok 2–5 siswa, online atau offline. Makin ramai, makin hemat.",
+    harga: null,
+  },
+];
+---
+
+<section
+  class="pilihan-kelas-section"
+  aria-labelledby="pilihan-kelas-title"
+>
+  <div class="pilihan-kelas-container">
+
+    <!-- JUDUL SECTION -->
+    <div class="pilihan-kelas-heading">
+      <h2 id="pilihan-kelas-title">
+        Pilih kelas yang paling pas untuk Ananda
+      </h2>
+
+      <div
+        class="pilihan-kelas-line"
+        aria-hidden="true"
+      ></div>
+    </div>
+
+    <!-- SATU CARD UNTUK LIMA PILIHAN KELAS -->
+    <div class="pilihan-kelas-card">
+      {pilihanKelas.map((kelas) => (
+        <div class="pilihan-kelas-item">
+
+          <div class="pilihan-kelas-item-header">
+            <h3>{kelas.nama}</h3>
+
+            {kelas.harga && (
+              <span class="pilihan-kelas-harga">
+                {kelas.harga}
+              </span>
+            )}
+          </div>
+
+          <p class="pilihan-kelas-deskripsi">
+            {kelas.deskripsi}
+          </p>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

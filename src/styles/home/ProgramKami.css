@@ -1,0 +1,259 @@
+
+/* =====================================
+   PROGRAM KAMI - PKBM ALFATIHAH
+   ===================================== */
+
+.program-kami {
+  width: 100%;
+  padding: 85px 24px 100px;
+  background: var(--pkbm-cream);
+  font-family: "Poppins", sans-serif;
+}
+
+.program-kami-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* JUDUL SECTION */
+
+.program-kami-heading {
+  margin-bottom: 42px;
+  text-align: center;
+}
+
+.program-kami-heading h2 {
+  margin: 0;
+  color: var(--pkbm-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.program-kami-heading-line {
+  width: 55px;
+  height: 4px;
+  margin: 20px auto 0;
+  border-radius: 10px;
+  background: var(--pkbm-gold);
+}
+
+/* GRID 4 KARTU */
+
+.program-kami-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+}
+
+/* KARTU */
+
+.program-kami-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 280px;
+  padding: 23px 19px 18px;
+  border: 1px solid var(--pkbm-border);
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 6px 22px rgba(var(--pkbm-plum-rgb), 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.program-kami-card:hover {
+  transform: translateY(-3px);
+  border-color: #92197B;
+  background: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(var(--pkbm-plum-rgb), 0.09);
+}
+
+/* LOGO DAN JUDUL */
+
+.program-kami-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.program-kami-logo {
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  height: 82px;
+  flex-shrink: 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: center;
+}
+
+.program-kami-card h3 {
+  margin: 0;
+  color: #92197B;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* DESKRIPSI */
+
+.program-kami-description {
+  margin: 0 0 22px;
+  color: #6B5268;
+  font-size: 12.5px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+/* KOTAK HARGA */
+
+.program-kami-price-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 62px;
+  margin-top: auto;
+  padding: 10px 12px;
+  border: 1px solid var(--pkbm-gold-border);
+  border-radius: 11px;
+  background: var(--pkbm-gold-soft);
+  color: var(--pkbm-price-ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.program-kami-price-box:hover {
+  background: var(--pkbm-gold-soft-hover);
+  border-color: var(--pkbm-gold);
+}
+
+.program-kami-price-box:focus-visible {
+  outline: 3px solid var(--pkbm-plum);
+  outline-offset: 3px;
+}
+
+.program-kami-price-info {
+  min-width: 0;
+}
+
+.program-kami-price-label {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--pkbm-price-label);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.program-kami-price-value {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 2px;
+}
+
+.program-kami-price-value strong {
+  color: var(--pkbm-price-value);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.program-kami-price-value span {
+  color: var(--pkbm-price-unit);
+  font-size: 10px;
+}
+
+/* PANAH HARGA */
+
+.program-kami-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #92197B;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.program-kami-price-box:hover .program-kami-arrow {
+  background: #75194F;
+  transform: translateX(3px);
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+  .program-kami-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .program-kami-card {
+    min-height: 250px;
+  }
+
+  .program-kami-card h3 {
+    font-size: 17px;
+  }
+
+  .program-kami-description {
+    font-size: 13px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .program-kami {
+    padding: 65px 18px 75px;
+  }
+
+  .program-kami-heading {
+    margin-bottom: 30px;
+  }
+
+  .program-kami-heading h2 {
+    font-size: 27px;
+  }
+
+  .program-kami-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .program-kami-card {
+    min-height: 0;
+    padding: 22px 20px 18px;
+  }
+
+  .program-kami-card h3 {
+    font-size: 17px;
+  }
+
+  .program-kami-description {
+    font-size: 13px;
+  }
+
+  .program-kami-price-value strong {
+    font-size: 17px;
+  }
+}

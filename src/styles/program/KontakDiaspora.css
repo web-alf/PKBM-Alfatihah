@@ -1,0 +1,321 @@
+
+/* =========================================
+   KONTAK DIASPORA
+   MINIMAL PLUM - ONE UNIFIED SECTION
+========================================= */
+
+.kontak-diaspora {
+  --plum: #75194f;
+  --gold: #f0c275;
+  --white: #ffffff;
+  --soft-white: #f8e8f0;
+  --line: rgba(255, 255, 255, 0.24);
+
+  width: 100%;
+  padding: 65px 20px;
+  background: var(--plum);
+  font-family: "Poppins", sans-serif;
+  color: var(--white);
+}
+
+.kontak-diaspora,
+.kontak-diaspora * {
+  box-sizing: border-box;
+}
+
+.kontak-diaspora-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING AJAKAN
+========================================= */
+
+.kontak-diaspora-heading {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kontak-diaspora-label {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.kontak-diaspora-heading h2 {
+  max-width: 700px;
+  margin: 0 auto 12px;
+  color: var(--white);
+  font-size: clamp(28px, 3.4vw, 36px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.kontak-diaspora-description {
+  margin: 0;
+  color: var(--soft-white);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   SEPARATOR
+========================================= */
+
+.kontak-diaspora-separator {
+  width: 100%;
+  height: 1px;
+  margin: 32px 0 28px;
+  background: var(--line);
+}
+
+/* =========================================
+   INFORMASI KONTAK HEADING
+========================================= */
+
+.kontak-diaspora-info-heading {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.kontak-diaspora-info-heading h3 {
+  margin: 0 0 8px;
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.kontak-diaspora-info-heading p {
+  margin: 0;
+  color: var(--soft-white);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   GRID KONTAK
+========================================= */
+
+.kontak-diaspora-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.kontak-diaspora-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kontak-diaspora-item {
+  min-width: 0;
+}
+
+.kontak-diaspora-item h4,
+.kontak-diaspora-location h4,
+.kontak-diaspora-payment h4 {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.kontak-diaspora-item p,
+.kontak-diaspora-location p,
+.kontak-diaspora-payment p {
+  margin: 0;
+  color: var(--soft-white);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.kontak-diaspora-item a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.kontak-diaspora-item a:hover {
+  text-decoration: underline;
+}
+
+.kontak-diaspora-secondary {
+  display: block;
+  color: var(--soft-white);
+}
+
+/* =========================================
+   ACTION LINKS
+========================================= */
+
+.kontak-diaspora-action,
+.kontak-diaspora-item a.kontak-diaspora-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.kontak-diaspora-action:hover,
+.kontak-diaspora-item a.kontak-diaspora-action:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.kontak-diaspora a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* =========================================
+   GOOGLE MAPS
+========================================= */
+
+.kontak-diaspora-location {
+  min-width: 0;
+}
+
+.kontak-diaspora-location .kontak-diaspora-action {
+  margin-top: 10px;
+}
+
+.kontak-diaspora-map {
+  width: 100%;
+  height: 220px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f4e8ef;
+}
+
+.kontak-diaspora-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =========================================
+   PEMBAYARAN
+========================================= */
+
+.kontak-diaspora-separator-bottom {
+  margin: 32px 0 24px;
+}
+
+.kontak-diaspora-payment {
+  max-width: 100%;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .kontak-diaspora {
+    padding: 60px 20px;
+  }
+
+  .kontak-diaspora-grid {
+    gap: 32px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .kontak-diaspora {
+    padding: 50px 20px;
+  }
+
+  .kontak-diaspora-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .kontak-diaspora-heading h2 {
+    font-size: 27px;
+    line-height: 1.3;
+  }
+
+  .kontak-diaspora-description {
+    font-size: 14px;
+  }
+
+  .kontak-diaspora-separator {
+    margin: 28px 0 24px;
+  }
+
+  .kontak-diaspora-info-heading {
+    margin-bottom: 24px;
+  }
+
+  .kontak-diaspora-info-heading h3 {
+    font-size: 22px;
+  }
+
+  .kontak-diaspora-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .kontak-diaspora-details {
+    gap: 18px;
+  }
+
+  .kontak-diaspora-separator-bottom {
+    margin: 28px 0 22px;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.kontak-diaspora {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .kontak-diaspora {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kontak-diaspora {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kontak-diaspora {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.kontak-diaspora {
+  padding-top: var(--pkbm-section-pad);
+}

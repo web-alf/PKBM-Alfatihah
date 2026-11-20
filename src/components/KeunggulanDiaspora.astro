@@ -1,0 +1,122 @@
+
+---
+import "../styles/program/KeunggulanDiaspora.css";
+
+const keunggulan = [
+  {
+    judul: "Berbahasa Indonesia",
+    deskripsi:
+      "Pendidikan Al-Qur'an berbahasa Indonesia yang membawa nilai keislaman dan konteks budaya yang familiar bagi anak-anak.",
+    ikon: "bahasa",
+  },
+  {
+    judul: "Jadwal Lintas Zona Waktu",
+    deskripsi:
+      "Jam belajar disesuaikan dengan zona waktu domisili peserta, termasuk malam atau dini hari WIB.",
+    ikon: "waktu",
+  },
+  {
+    judul: "Talaqqi & Muraja'ah",
+    deskripsi:
+      "Bimbingan Tahsin dan Tahfidz dengan metode talaqqi dan muraja'ah terjadwal.",
+    ikon: "quran",
+  },
+];
+---
+
+<section
+  class="keunggulan-diaspora"
+  id="keunggulan-diaspora"
+  aria-labelledby="keunggulan-diaspora-title"
+>
+  <div class="keunggulan-diaspora-container">
+
+    <!-- JUDUL SECTION -->
+    <header class="keunggulan-diaspora-heading">
+      <h2 id="keunggulan-diaspora-title">
+        Kenapa memilih Diaspora Qur'an Center?
+      </h2>
+
+      <span
+        class="keunggulan-diaspora-divider"
+        aria-hidden="true"
+      ></span>
+    </header>
+
+    <!-- TIGA KEUNGGULAN -->
+    <div class="keunggulan-diaspora-grid">
+      {keunggulan.map((item) => (
+        <article class="keunggulan-diaspora-item">
+
+          <!-- IKON LINGKARAN -->
+          <div class="keunggulan-diaspora-icon" aria-hidden="true">
+
+            {item.ikon === "bahasa" && (
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m5 8 6 6" />
+                <path d="m4 14 6-6 2-3H2" />
+                <path d="M2 5h12" />
+                <path d="M7 2v3" />
+                <path d="m13 21 5-11 5 11" />
+                <path d="M14.5 18h7" />
+              </svg>
+            )}
+
+            {item.ikon === "waktu" && (
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+                <path d="M12 3v2" />
+                <path d="M12 19v2" />
+                <path d="M3 12h2" />
+                <path d="M19 12h2" />
+              </svg>
+            )}
+
+            {item.ikon === "quran" && (
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 7c-3-2-6-2-9-1v13c3-1 6-1 9 1V7Z" />
+                <path d="M12 7c3-2 6-2 9-1v13c-3-1-6-1-9 1V7Z" />
+                <path d="M12 7v13" />
+                <path d="M6 10h3" />
+                <path d="M15 10h3" />
+                <path d="M6 13h3" />
+                <path d="M15 13h3" />
+              </svg>
+            )}
+
+          </div>
+
+          <!-- JUDUL -->
+          <h3>{item.judul}</h3>
+
+          <!-- DESKRIPSI -->
+          <p>{item.deskripsi}</p>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

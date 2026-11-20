@@ -1,0 +1,219 @@
+/* =========================================
+   FOOTER PKBM ALFATIHAH
+   Putih, 4 kolom, compact, aksen gold
+========================================= */
+
+.footer-pkbm {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #d9a035;
+  color: #51434c;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-pkbm,
+.footer-pkbm * {
+  box-sizing: border-box;
+}
+
+.footer-pkbm-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- 4 KOLOM ---------- */
+
+.footer-pkbm-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.1fr 1.5fr;
+  gap: 32px 40px;
+  align-items: start;
+  padding: 44px 0 40px;
+}
+
+.footer-pkbm-col {
+  min-width: 0;
+}
+
+.footer-pkbm-col h2 {
+  margin: 0 0 16px;
+  color: #75194f;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.footer-pkbm-col ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-pkbm-col a,
+.footer-pkbm-col dd {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-pkbm-col a {
+  color: #51434c;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-pkbm-col a:hover,
+.footer-pkbm-col a:focus-visible {
+  color: #b51a7a;
+}
+
+.footer-pkbm-col a[aria-current="page"] {
+  color: #75194f;
+  font-weight: 600;
+}
+
+.footer-pkbm-col a:focus-visible,
+.footer-pkbm-logo:focus-visible {
+  outline: 2px solid #d9a035;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Kolom Program: geser 20px ke kiri hanya di desktop (4 kolom) */
+@media (min-width: 1024px) {
+  .footer-pkbm-program {
+    transform: translateX(-20px);
+  }
+}
+
+/* Branding */
+.footer-pkbm-logo {
+  display: inline-block;
+  line-height: 0;
+}
+
+.footer-pkbm-logo img {
+  display: block;
+  width: auto;
+  height: 48px;
+}
+
+.footer-pkbm-brand p {
+  max-width: 320px;
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Kontak */
+.footer-pkbm-contact dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.footer-pkbm-contact dt {
+  color: #75194f;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.footer-pkbm-contact dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.footer-pkbm-col a.footer-pkbm-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: #a20077;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-pkbm-more span {
+  transition: transform 0.2s ease;
+}
+
+.footer-pkbm-col a.footer-pkbm-more:hover,
+.footer-pkbm-col a.footer-pkbm-more:focus-visible {
+  color: #75194f;
+}
+
+.footer-pkbm-more:hover span,
+.footer-pkbm-more:focus-visible span {
+  transform: translateX(3px);
+}
+
+/* ---------- COPYRIGHT ---------- */
+
+.footer-pkbm-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 12px;
+  margin: 0;
+  padding: 18px 0;
+  border-top: 1px solid rgba(217, 160, 53, 0.45);
+  color: #75194f;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.footer-pkbm-separator {
+  color: #d9a035;
+  font-weight: 700;
+}
+
+/* ---------- RESPONSIF ---------- */
+
+@media (max-width: 1023px) {
+  .footer-pkbm-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 32px;
+    padding: 36px 0 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-pkbm-container {
+    padding: 0 18px;
+  }
+
+  .footer-pkbm-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 0 24px;
+  }
+
+  .footer-pkbm-text {
+    gap: 2px 10px;
+    padding: 16px 0;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-pkbm-container {
+    padding: 0 15px;
+  }
+
+  .footer-pkbm-text {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-pkbm-separator {
+    line-height: 1.2;
+  }
+}

@@ -1,0 +1,98 @@
+
+---
+import "../styles/program/PendaftaranDiaspora.css";
+
+const langkahPendaftaran = [
+  {
+    nomor: "1",
+    teks: "Konsultasi via WhatsApp +62 853 1948 5269",
+    link: "https://wa.me/6285319485269",
+    jenis: "whatsapp",
+  },
+  {
+    nomor: "2",
+    teks: "Pilih pilar (Tahsin/Tahfidz), kelas, dan jadwal sesuai zona waktu",
+  },
+  {
+    nomor: "3",
+    teks: "Isi Formulir Pendaftaran",
+    link: "/pendaftaran",
+    jenis: "formulir",
+  },
+  {
+    nomor: "4",
+    teks: "Bayar biaya pendaftaran Rp150.000",
+  },
+  {
+    nomor: "5",
+    teks: "Mulai belajar sesuai jadwal yang disepakati",
+  },
+];
+---
+
+<section
+  class="pendaftaran-diaspora"
+  id="pendaftaran-diaspora"
+  aria-labelledby="pendaftaran-diaspora-title"
+>
+  <div class="pendaftaran-diaspora-container">
+
+    <header class="pendaftaran-diaspora-heading">
+      <h2 id="pendaftaran-diaspora-title">
+        Bagaimana cara mendaftar?
+      </h2>
+
+      <span
+        class="pendaftaran-diaspora-divider"
+        aria-hidden="true"
+      ></span>
+
+      <p>
+        Mudah, cukup ikuti langkah berikut.
+      </p>
+    </header>
+
+    <ol class="pendaftaran-diaspora-timeline">
+      {langkahPendaftaran.map((langkah) => (
+        <li class="pendaftaran-diaspora-step">
+
+          <span
+            class="pendaftaran-diaspora-number"
+            aria-hidden="true"
+          >
+            {langkah.nomor}
+          </span>
+
+          <div class="pendaftaran-diaspora-step-content">
+            {langkah.jenis === "whatsapp" ? (
+              <p>
+                <a
+                  href={langkah.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {langkah.teks}
+                </a>
+              </p>
+            ) : langkah.jenis === "formulir" ? (
+              <p>
+                <a
+                  href={langkah.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pendaftaran-diaspora-form-link"
+                >
+                  {langkah.teks}
+                </a>
+              </p>
+            ) : (
+              <p>{langkah.teks}</p>
+            )}
+          </div>
+
+        </li>
+      ))}
+    </ol>
+
+  </div>
+</section>

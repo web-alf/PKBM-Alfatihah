@@ -1,0 +1,453 @@
+
+/* ==========================================
+   CARA BELAJAR DIASPORA QUR'AN CENTER
+   PREVIEW 1 - SPLIT LAYOUT PREMIUM
+
+   Navy  : #001C49
+   Gold  : #D9A035
+   Cream : #FFF9F5
+========================================== */
+
+.cara-belajar-diaspora {
+  --diaspora-navy: #001c49;
+  --diaspora-gold: #d9a035;
+  --diaspora-cream: #fff9f5;
+  --diaspora-white: #ffffff;
+  --diaspora-text: #344766;
+  --diaspora-muted: #596579;
+  --diaspora-border: #e1e5eb;
+
+  width: 100%;
+  padding: 65px 20px 75px;
+  background: var(--diaspora-cream);
+  font-family: "Poppins", sans-serif;
+}
+
+.cara-belajar-diaspora,
+.cara-belajar-diaspora * {
+  box-sizing: border-box;
+}
+
+.cara-belajar-diaspora-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.cara-belajar-diaspora-heading {
+  margin: 0 0 38px;
+  text-align: center;
+}
+
+.cara-belajar-diaspora-heading h2 {
+  margin: 0;
+  color: var(--diaspora-navy);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+.cara-belajar-diaspora-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 15px auto 0;
+  background: var(--diaspora-gold);
+  border-radius: 999px;
+}
+
+/* ==========================================
+   SPLIT LAYOUT
+========================================== */
+
+.cara-belajar-diaspora-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* ==========================================
+   PANEL KIRI - ONLINE PRIVATE
+========================================== */
+
+.cara-belajar-diaspora-main {
+  min-width: 0;
+  padding: 36px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background: var(--diaspora-navy);
+  border-radius: 16px;
+}
+
+.cara-belajar-diaspora-main-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #183760;
+  border-radius: 14px;
+  color: var(--diaspora-gold);
+}
+
+.cara-belajar-diaspora-main-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.cara-belajar-diaspora-main h3 {
+  margin: 0 0 13px;
+
+  color: var(--diaspora-white);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cara-belajar-diaspora-main-description {
+  margin: 0 0 30px;
+
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* DURASI */
+
+.cara-belajar-diaspora-main-duration {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-top: 1px solid #476181;
+  color: #f3cb7c;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.cara-belajar-diaspora-main-duration svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   PANEL KANAN - PILIHAN KELAS
+========================================== */
+
+.cara-belajar-diaspora-classes {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cara-belajar-diaspora-classes > h3 {
+  margin: 0 0 17px;
+
+  color: var(--diaspora-navy);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cara-belajar-diaspora-class-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.cara-belajar-diaspora-class {
+  flex: 1;
+  min-width: 0;
+  padding: 17px 20px;
+
+  background: var(--diaspora-white);
+  border: 1px solid var(--diaspora-border);
+  border-radius: 12px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cara-belajar-diaspora-class:hover {
+  border-color: var(--diaspora-gold);
+  box-shadow: 0 5px 16px rgba(0, 28, 73, 0.06);
+}
+
+.cara-belajar-diaspora-class h4 {
+  margin: 0 0 6px;
+
+  color: var(--diaspora-navy);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.cara-belajar-diaspora-class p {
+  margin: 0;
+
+  color: var(--diaspora-text);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   CATATAN KELAS REGULER
+========================================== */
+
+.cara-belajar-diaspora-note {
+  margin-top: 22px;
+  padding: 18px 22px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  background: transparent;
+  border: 1px solid var(--diaspora-gold);
+  border-radius: 12px;
+}
+
+.cara-belajar-diaspora-note svg {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--diaspora-gold);
+}
+
+.cara-belajar-diaspora-note p {
+  margin: 0;
+
+  color: var(--diaspora-text);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .cara-belajar-diaspora {
+    padding: 60px 20px 70px;
+  }
+
+  .cara-belajar-diaspora-layout {
+    gap: 20px;
+  }
+
+  .cara-belajar-diaspora-main {
+    padding: 27px;
+  }
+
+  .cara-belajar-diaspora-main h3 {
+    font-size: 22px;
+  }
+
+  .cara-belajar-diaspora-classes > h3 {
+    font-size: 19px;
+  }
+
+  .cara-belajar-diaspora-class {
+    padding: 15px 16px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 640px) {
+  .cara-belajar-diaspora {
+    padding: 50px 16px 60px;
+  }
+
+  .cara-belajar-diaspora-heading {
+    margin-bottom: 30px;
+  }
+
+  .cara-belajar-diaspora-heading h2 {
+    font-size: 24px;
+    letter-spacing: -0.3px;
+  }
+
+  .cara-belajar-diaspora-divider {
+    margin-top: 13px;
+  }
+
+  /* LAYOUT SATU KOLOM */
+
+  .cara-belajar-diaspora-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* PANEL NAVY */
+
+  .cara-belajar-diaspora-main {
+    padding: 25px 22px;
+    border-radius: 13px;
+  }
+
+  .cara-belajar-diaspora-main-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 18px;
+  }
+
+  .cara-belajar-diaspora-main-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cara-belajar-diaspora-main h3 {
+    margin-bottom: 10px;
+    font-size: 21px;
+  }
+
+  .cara-belajar-diaspora-main-description {
+    margin-bottom: 22px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .cara-belajar-diaspora-main-duration {
+    padding-top: 17px;
+    font-size: 12px;
+  }
+
+  .cara-belajar-diaspora-main-duration svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  /* PILIHAN KELAS */
+
+  .cara-belajar-diaspora-classes > h3 {
+    margin-bottom: 13px;
+    font-size: 19px;
+  }
+
+  .cara-belajar-diaspora-class-list {
+    gap: 10px;
+  }
+
+  .cara-belajar-diaspora-class {
+    padding: 15px 16px;
+    border-radius: 10px;
+  }
+
+  .cara-belajar-diaspora-class h4 {
+    font-size: 15px;
+  }
+
+  .cara-belajar-diaspora-class p {
+    font-size: 12px;
+  }
+
+  /* CATATAN */
+
+  .cara-belajar-diaspora-note {
+    margin-top: 20px;
+    padding: 15px;
+    gap: 11px;
+    border-radius: 10px;
+  }
+
+  .cara-belajar-diaspora-note svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cara-belajar-diaspora-note p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+  .cara-belajar-diaspora {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .cara-belajar-diaspora-main {
+    padding: 21px 18px;
+  }
+
+  .cara-belajar-diaspora-class {
+    padding: 13px 14px;
+  }
+
+  .cara-belajar-diaspora-class h4 {
+    font-size: 14px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cara-belajar-diaspora-class {
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.cara-belajar-diaspora {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .cara-belajar-diaspora {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cara-belajar-diaspora {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cara-belajar-diaspora {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.cara-belajar-diaspora {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}

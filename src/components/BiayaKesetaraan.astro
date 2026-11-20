@@ -1,0 +1,75 @@
+
+---
+import "../styles/program/BiayaKesetaraan.css";
+
+const rincianBiaya = [
+  {
+    nama: "Biaya Pendaftaran",
+    deskripsi:
+      "Administrasi pendaftaran, input data Dapodik, kartu peserta didik, pendampingan administrasi sampai aktif belajar",
+    harga: "Rp200.000",
+  },
+  {
+    nama: "SPP Bulanan",
+    deskripsi:
+      "Kegiatan belajar mengajar (KBM), pendampingan tutor, akses materi pembelajaran, evaluasi dan monitoring belajar",
+    harga: "Rp70.000/bulan",
+  },
+  {
+    nama: "Biaya Rapor",
+    deskripsi:
+      "Pengolahan nilai siswa, rapor semester resmi, administrasi penilaian dan arsip akademik",
+    harga: "Rp150.000",
+  },
+  {
+    nama: "Biaya Kelulusan/Ijazah",
+    deskripsi:
+      "Administrasi kelulusan, penerbitan ijazah resmi, pengesahan dan legalisasi dokumen kelulusan",
+    harga: "Rp150.000",
+  },
+];
+---
+
+<section class="biaya-kesetaraan" aria-labelledby="biaya-title">
+  <div class="biaya-kesetaraan-container">
+
+    <!-- JUDUL SECTION -->
+    <header class="biaya-kesetaraan-heading">
+      <h2 id="biaya-title">Rincian Biaya</h2>
+      <div class="biaya-kesetaraan-line" aria-hidden="true"></div>
+      <p>Berlaku untuk kelas online maupun offline.</p>
+    </header>
+
+    <!-- DAFTAR BIAYA -->
+    <div class="biaya-kesetaraan-card">
+      <dl class="biaya-kesetaraan-list">
+        {rincianBiaya.map((item) => (
+          <div class="biaya-kesetaraan-item">
+            <div class="biaya-kesetaraan-item-header">
+              <dt class="biaya-kesetaraan-name">
+                {item.nama}
+              </dt>
+
+              <dd class="biaya-kesetaraan-price">
+                {item.harga}
+              </dd>
+            </div>
+
+            <dd class="biaya-kesetaraan-description">
+              {item.deskripsi}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <!-- INFORMASI TAMBAHAN -->
+    <div class="biaya-kesetaraan-note">
+      <p>
+        Seluruh program menggunakan Kurikulum Nasional
+        dan ijazah resmi melalui PKBM.
+      </p>
+    </div>
+
+  </div>
+</section>

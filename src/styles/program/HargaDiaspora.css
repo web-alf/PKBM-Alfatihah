@@ -1,0 +1,249 @@
+
+/* =========================================
+   HARGA DIASPORA - MODERN PRICING CARDS
+========================================= */
+
+.harga-diaspora {
+  width: 100%;
+  padding: 75px 20px;
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.harga-diaspora,
+.harga-diaspora * {
+  box-sizing: border-box;
+}
+
+.harga-diaspora-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.harga-diaspora-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.harga-diaspora-heading h2 {
+  margin: 0;
+  color: #001c49;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.harga-diaspora-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 15px auto 18px;
+  background: #d9a035;
+  border-radius: 99px;
+}
+
+.harga-diaspora-heading p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #344766;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* PRICING GRID */
+
+.harga-diaspora-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.harga-diaspora-card {
+  min-width: 0;
+  padding: 24px 22px 26px;
+  background: #fff9f5;
+  border: 1px solid #d9a035;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.harga-diaspora-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 28, 73, 0.08);
+}
+
+.harga-diaspora-card h3 {
+  margin: 0 0 6px;
+  color: #001c49;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.harga-diaspora-peserta {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.harga-diaspora-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 16px 0 18px;
+  background: #ead9b8;
+}
+
+.harga-diaspora-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  min-height: 62px;
+}
+
+.harga-diaspora-price strong {
+  color: #001c49;
+  font-size: clamp(23px, 2.4vw, 30px);
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.harga-diaspora-price span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* NOTE */
+
+.harga-diaspora-note {
+  max-width: 850px;
+  margin: 28px auto 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .harga-diaspora {
+    padding: 60px 20px;
+  }
+
+  .harga-diaspora-grid {
+    gap: 14px;
+  }
+
+  .harga-diaspora-card {
+    padding: 22px 14px 24px;
+  }
+
+  .harga-diaspora-card h3 {
+    font-size: 18px;
+  }
+
+  .harga-diaspora-price strong {
+    font-size: 22px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .harga-diaspora {
+    padding: 55px 16px;
+  }
+
+  .harga-diaspora-heading {
+    margin-bottom: 30px;
+  }
+
+  .harga-diaspora-heading h2 {
+    font-size: 24px;
+  }
+
+  .harga-diaspora-heading p {
+    font-size: 13px;
+  }
+
+  .harga-diaspora-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .harga-diaspora-card {
+    padding: 20px 18px 22px;
+  }
+
+  .harga-diaspora-line {
+    margin: 14px 0 16px;
+  }
+
+  .harga-diaspora-price {
+    min-height: 0;
+  }
+
+  .harga-diaspora-price strong {
+    font-size: 28px;
+  }
+
+  .harga-diaspora-note {
+    margin-top: 23px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .harga-diaspora-card {
+    transition: none;
+  }
+}
+
+/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+.harga-diaspora {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 992px) {
+  .harga-diaspora {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .harga-diaspora {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .harga-diaspora {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+.harga-diaspora {
+  padding-top: var(--pkbm-section-pad);
+  padding-bottom: var(--pkbm-section-pad);
+}
