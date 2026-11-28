@@ -1,6 +1,8 @@
 
 ---
 import "../styles/program/PromoDiaspora.css";
+
+const whatsappUrl = "https://wa.me/6285319485269";
 ---
 
 <section
@@ -10,64 +12,230 @@ import "../styles/program/PromoDiaspora.css";
 >
   <div class="promo-diaspora-container">
 
-    <div class="promo-diaspora-box">
-
+    <!-- JUDUL SECTION -->
+    <header class="promo-diaspora-heading">
       <h2 id="promo-diaspora-title">
         Biaya pendaftaran
       </h2>
 
-      <div class="promo-diaspora-prices">
-        <span class="promo-diaspora-old-price">
-          Rp300.000
-        </span>
+      <span
+        class="promo-diaspora-divider"
+        aria-hidden="true"
+      ></span>
+    </header>
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M5 12h14" />
-          <path d="m13 6 6 6-6 6" />
+    <!-- BANNER PROMO UTAMA -->
+    <div class="promo-diaspora-main">
+
+      <!-- ILUSTRASI MEGAFON (KIRI) -->
+      <div class="promo-diaspora-megaphone" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" focusable="false">
+          <defs>
+            <linearGradient
+              id="promoDiasporaMegaphoneBody"
+              x1="30"
+              y1="25"
+              x2="95"
+              y2="90"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#1C3F72" />
+              <stop offset="1" stop-color="#001C49" />
+            </linearGradient>
+
+            <linearGradient
+              id="promoDiasporaMegaphoneBell"
+              x1="55"
+              y1="20"
+              x2="100"
+              y2="95"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#F5D177" />
+              <stop offset="1" stop-color="#D9A035" />
+            </linearGradient>
+          </defs>
+
+          <ellipse cx="60" cy="104" rx="34" ry="7" fill="#001C49" opacity=".1" />
+
+          <g transform="rotate(-12 60 60)">
+            <!-- PEGANGAN -->
+            <rect x="22" y="58" width="16" height="26" rx="6" fill="#001C49" />
+
+            <!-- BODI CORONG -->
+            <path
+              d="M34 44L62 28C67 25 74 28 74 34V78C74 84 67 87 62 84L34 68Z"
+              fill="url(#promoDiasporaMegaphoneBody)"
+              stroke="#00112E"
+              stroke-width="1.5"
+            />
+
+            <!-- CORONG EMAS -->
+            <path
+              d="M74 34L96 24C100 22 104 25 104 30V82C104 87 100 90 96 88L74 78Z"
+              fill="url(#promoDiasporaMegaphoneBell)"
+              stroke="#B5801F"
+              stroke-width="1.5"
+            />
+
+            <!-- GARIS SUARA -->
+            <g stroke="#F5D177" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+              <path d="M110 40C116 48 116 64 110 72" />
+              <path d="M101 46C105 51 105 61 101 66" />
+            </g>
+          </g>
+
+          <!-- SPARKLE PROMO -->
+          <path
+            d="M24 24L27 31L34 34L27 37L24 44L21 37L14 34L21 31Z"
+            fill="#F5D177"
+          />
+          <path
+            d="M94 98L96 103L101 105L96 107L94 112L92 107L87 105L92 103Z"
+            fill="#D9A035"
+          />
         </svg>
-
-        <strong class="promo-diaspora-new-price">
-          Rp150.000
-        </strong>
       </div>
 
-      <span class="promo-diaspora-badge">
-        Diskon 50% semua ukuran kelas
-      </span>
+      <!-- INFORMASI PROMO -->
+      <div class="promo-diaspora-main-content">
 
-      <p class="promo-diaspora-note">
-        Syarat dan ketentuan berlaku. Informasi lengkap hubungi CS WhatsApp.
-      </p>
+        <span class="promo-diaspora-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2L14.2 9.3L21.5 9.3L15.6 13.7L17.8 21L12 16.6L6.2 21L8.4 13.7L2.5 9.3L9.8 9.3Z" />
+          </svg>
+          Diskon 50% semua ukuran kelas
+        </span>
 
-      <a
-        class="promo-diaspora-button"
-        href="https://wa.me/6285319485269"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Hubungi CS WhatsApp
+        <div class="promo-diaspora-prices">
+          <s class="promo-diaspora-old-price">
+            Rp300.000
+          </s>
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
+          <strong class="promo-diaspora-new-price">
+            Rp150.000
+          </strong>
+        </div>
+
+        <p class="promo-diaspora-note">
+          Syarat dan ketentuan berlaku. Informasi lengkap hubungi CS WhatsApp.
+        </p>
+
+        <a
+          class="promo-diaspora-button"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <path d="M5 12h14" />
-          <path d="m13 6 6 6-6 6" />
+          Hubungi CS WhatsApp
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </a>
+
+      </div>
+
+      <!-- ORNAMEN DISKON: PERSEN, BINTANG, CONFETTI (KANAN) -->
+      <div class="promo-diaspora-confetti" aria-hidden="true">
+        <svg viewBox="0 0 150 150" fill="none" focusable="false">
+          <defs>
+            <linearGradient id="promoDiasporaConfettiNavy" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#1C3F72" />
+              <stop offset=".5" stop-color="#0C2A5C" />
+              <stop offset="1" stop-color="#001C49" />
+            </linearGradient>
+
+            <linearGradient id="promoDiasporaConfettiGold" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#F5D177" />
+              <stop offset="1" stop-color="#D9A035" />
+            </linearGradient>
+          </defs>
+
+          <!-- PITA ATAS -->
+          <path
+            d="M19 15C40-5 48 27 31 35C22 39 20 26 32 25"
+            stroke="url(#promoDiasporaConfettiGold)"
+            stroke-width="9"
+            stroke-linecap="round"
+          />
+
+          <!-- KOIN PERSEN -->
+          <g transform="rotate(-18 68 55)">
+            <circle cx="68" cy="59" r="22" fill="#00112E" />
+            <circle cx="68" cy="54" r="22" fill="url(#promoDiasporaConfettiNavy)" />
+            <circle
+              cx="68"
+              cy="54"
+              r="15"
+              fill="url(#promoDiasporaConfettiGold)"
+              stroke="#B5801F"
+              stroke-width="2"
+            />
+            <text
+              x="68"
+              y="61"
+              text-anchor="middle"
+              font-size="21"
+              font-weight="800"
+              font-family="Poppins, sans-serif"
+              fill="#001C49"
+            >%</text>
+          </g>
+
+          <!-- PITA KANAN -->
+          <path
+            d="M106 35Q133 46 111 62Q95 75 118 84"
+            stroke="url(#promoDiasporaConfettiNavy)"
+            stroke-width="9"
+            stroke-linecap="round"
+          />
+
+          <!-- PITA BAWAH -->
+          <path
+            d="M82 91L103 97L93 110L113 122"
+            stroke="#D9A035"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <!-- POTONGAN CONFETTI -->
+          <rect
+            x="37" y="82"
+            width="9" height="15"
+            rx="2"
+            fill="#F5D177"
+            transform="rotate(35 37 82)"
+          />
+
+          <rect
+            x="127" y="95"
+            width="8" height="13"
+            rx="2"
+            fill="#1C3F72"
+            transform="rotate(-30 127 95)"
+          />
+
+          <!-- BINTANG -->
+          <path
+            d="M61 108L65 116L74 118L67 124L68 133L61 129L53 133L55 124L48 118L57 116Z"
+            fill="#F5D177"
+          />
+
+          <circle cx="94" cy="15" r="4" fill="#D9A035" />
+          <circle cx="26" cy="65" r="4" fill="#1C3F72" />
         </svg>
-      </a>
+      </div>
 
     </div>
 

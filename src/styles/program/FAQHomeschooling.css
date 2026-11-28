@@ -1,7 +1,27 @@
+
+/* ==========================================
+   FAQ HOMESCHOOLING
+========================================== */
+
 .faq-homeschooling {
+  --faq-magenta: #92197B;
+  --faq-yellow: #FCD757;
+  --faq-wave-height: clamp(35px, 5vw, 75px);
+  --faq-footer-bg: #F9E4F2;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   width: 100%;
-  padding: 56px 20px;
-  background: #FFF9F5;
+
+  padding:
+    30px
+    var(--pkbm-container-pad, 24px)
+    calc(var(--faq-wave-height) + 35px);
+
+  background: #FAF0F7;
+
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
@@ -13,19 +33,29 @@
 }
 
 .faq-homeschooling-container {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
+/* ==========================================
+   JUDUL SECTION
+========================================== */
+
 .faq-homeschooling-heading {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   text-align: center;
 }
 
 .faq-homeschooling-heading h2 {
   margin: 0;
-  color: #92197B;
+
+  color: var(--faq-magenta);
+
+  font-family: "Poppins", sans-serif;
   font-size: clamp(26px, 3vw, 36px);
   font-weight: 800;
   line-height: 1.3;
@@ -33,34 +63,87 @@
 
 .faq-homeschooling-line {
   display: block;
-  width: 60px;
+
+  width: 55px;
   height: 4px;
-  margin: 14px auto;
-  background: #D9A035;
-  border-radius: 10px;
+
+  margin: 12px auto;
+
+  background: var(--faq-yellow);
+  border-radius: 999px;
 }
 
 .faq-homeschooling-heading p {
-  margin: 0;
-  color: #76596B;
+  max-width: 800px;
+  margin: 0 auto;
+
+  color: #584452;
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.8;
 }
+
+/* ==========================================
+   LAYOUT DUA KOLOM INDEPENDEN
+========================================== */
 
 .faq-homeschooling-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
   align-items: start;
-  gap: 10px 16px;
+
+  gap: 24px;
+
+  width: 100%;
 }
+
+/* SETIAP KOLOM BERDIRI SENDIRI */
+
+.faq-homeschooling-column {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  gap: 12px;
+}
+
+/* ==========================================
+   CARD FAQ
+========================================== */
 
 .faq-homeschooling-item {
   min-width: 0;
   overflow: hidden;
-  background: #FFFFFF;
-  border: 1px solid #F0CFE0;
-  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+
+  box-shadow:
+    0 3px 0 rgba(146, 25, 123, 0.025),
+    0 5px 14px rgba(146, 25, 123, 0.075);
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+.faq-homeschooling-item:hover {
+  background: #FFFFFF;
+
+  box-shadow:
+    0 5px 16px rgba(146, 25, 123, 0.11);
+}
+
+/* ==========================================
+   PERTANYAAN
+========================================== */
 
 .faq-homeschooling-question-heading {
   margin: 0;
@@ -68,67 +151,111 @@
 
 .faq-homeschooling-question {
   display: flex;
+
   width: 100%;
+  min-height: 54px;
+
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 15px 18px;
+
+  gap: 14px;
+  padding: 12px 18px;
+
   border: 0;
   background: transparent;
-  color: #92197B;
-  font: inherit;
+
+  color: var(--faq-magenta);
+
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.5;
+
   text-align: left;
   cursor: pointer;
 }
 
-.faq-homeschooling-question:focus-visible {
-  outline: 3px solid #D9A035;
-  outline-offset: -4px;
-  border-radius: 11px;
+.faq-homeschooling-question > span:first-child {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
+
+.faq-homeschooling-question:focus-visible {
+  outline: 2px solid var(--faq-magenta);
+  outline-offset: -4px;
+  border-radius: 16px;
+}
+
+/* ==========================================
+   IKON PLUS DAN MINUS
+========================================== */
 
 .faq-homeschooling-icon {
   display: inline-flex;
-  width: 30px;
-  height: 30px;
-  flex: 0 0 30px;
+
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+
   align-items: center;
   justify-content: center;
+
+  border: 1px solid #F5D9EA;
   border-radius: 50%;
-  background: #F9EAF2;
-  color: #92197B;
+
+  background: #FFF8FC;
+
+  color: var(--faq-magenta);
+
   font-size: 21px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
+
+  box-shadow:
+    0 2px 5px rgba(146, 25, 123, 0.07);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .faq-homeschooling-minus {
   display: none;
 }
 
-.faq-homeschooling-question[aria-expanded="true"] .faq-homeschooling-icon {
-  background: #92197B;
+/* KONDISI FAQ TERBUKA */
+
+.faq-homeschooling-question[aria-expanded="true"]
+.faq-homeschooling-icon {
+  background: var(--faq-magenta);
+  border-color: var(--faq-magenta);
   color: #FFFFFF;
 }
 
-.faq-homeschooling-question[aria-expanded="true"] .faq-homeschooling-plus {
+.faq-homeschooling-question[aria-expanded="true"]
+.faq-homeschooling-plus {
   display: none;
 }
 
-.faq-homeschooling-question[aria-expanded="true"] .faq-homeschooling-minus {
+.faq-homeschooling-question[aria-expanded="true"]
+.faq-homeschooling-minus {
   display: inline;
 }
+
+/* ==========================================
+   ANIMASI BUKA TUTUP JAWABAN
+========================================== */
 
 .faq-homeschooling-answer {
   display: grid;
   grid-template-rows: 0fr;
+
   opacity: 0;
+
   transition:
     grid-template-rows 0.3s ease,
-    opacity 0.2s ease;
+    opacity 0.25s ease;
 }
 
 .faq-homeschooling-answer.is-open {
@@ -139,43 +266,114 @@
 .faq-homeschooling-answer-inner {
   min-height: 0;
   overflow: hidden;
-  border-top: 1px solid #F0CFE0;
 }
 
 .faq-homeschooling-answer-inner p {
-  margin: 0;
-  padding: 13px 18px 16px;
+  position: relative;
+
+  margin: 0 18px;
+  padding: 14px 0 18px;
+
+  border-top: 1px solid #F0D5E6;
+
   color: #42323C;
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
+/* ==========================================
+   GELOMBANG BAWAH MENUJU FOOTER
+========================================== */
+
+.faq-homeschooling-wave {
+  position: absolute;
+
+  z-index: 1;
+
+  right: 0;
+  bottom: -1px;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: var(--faq-wave-height);
+
+  pointer-events: none;
+}
+
+.faq-homeschooling-wave path {
+  fill: var(--faq-footer-bg);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+  .faq-homeschooling-list {
+    gap: 18px;
+  }
+
+  .faq-homeschooling-column {
+    gap: 12px;
+  }
+
+  .faq-homeschooling-question {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .faq-homeschooling-answer-inner p {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
 @media (max-width: 768px) {
+
   .faq-homeschooling {
-    padding: 46px 20px;
+    --faq-wave-height: 40px;
+
+    padding-top: 26px;
+
+    padding-bottom:
+      calc(var(--faq-wave-height) + 25px);
   }
 
   .faq-homeschooling-heading {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .faq-homeschooling-list {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
+
+  .faq-homeschooling-column {
+    gap: 12px;
+  }
+
+  .faq-homeschooling-item {
+    border-radius: 16px;
+  }
+
 }
 
-@media (max-width: 640px) {
-  .faq-homeschooling {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-}
+/* ==========================================
+   MOBILE KECIL
+========================================== */
 
-@media (max-width: 480px) {
-  .faq-homeschooling {
-    padding: 40px 16px;
-  }
+@media (max-width: 600px) {
 
   .faq-homeschooling-heading h2 {
     font-size: 26px;
@@ -183,61 +381,66 @@
 
   .faq-homeschooling-heading p {
     font-size: 13px;
+    line-height: 1.8;
   }
 
   .faq-homeschooling-question {
+    min-height: 52px;
+
     gap: 12px;
-    padding: 13px 14px;
-    font-size: 14px;
+    padding: 12px 14px;
+
+    font-size: 13px;
+    font-weight: 700;
   }
 
   .faq-homeschooling-icon {
-    width: 28px;
-    height: 28px;
-    flex-basis: 28px;
-    font-size: 20px;
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+
+    font-size: 19px;
   }
 
   .faq-homeschooling-answer-inner p {
-    padding: 12px 14px 14px;
+    margin-right: 14px;
+    margin-left: 14px;
+
+    padding: 12px 0 14px;
+
     font-size: 13px;
+    line-height: 1.8;
   }
+
 }
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .faq-homeschooling-answer {
+
+  .faq-homeschooling-answer,
+  .faq-homeschooling-item,
+  .faq-homeschooling-icon {
     transition: none;
   }
-}
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+}
+/* FIX GELOMBANG FAQ MENUJU FOOTER */
+
 .faq-homeschooling {
-  padding-left: 24px;
-  padding-right: 24px;
+  --faq-footer-bg: #FCF2F8;
+  --faq-wave-height: clamp(30px, 4vw, 60px);
+
+  padding-bottom: calc(var(--faq-wave-height) + 20px);
 }
 
-@media (max-width: 992px) {
-  .faq-homeschooling {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+.faq-homeschooling-wave {
+  bottom: -1px;
+  height: var(--faq-wave-height);
 }
 
-@media (max-width: 768px) {
-  .faq-homeschooling {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq-homeschooling {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.faq-homeschooling {
-  padding-top: var(--pkbm-section-pad);
+.faq-homeschooling-wave path {
+  fill: var(--faq-footer-bg);
 }

@@ -1,10 +1,10 @@
-
 ---
 import "../styles/program/HargaSmartLearning.css";
 
 const kelompokHarga = [
   {
     nama: "Academic · Tahfidz · Tahsin",
+    icon: "academic",
     harga: [
       {
         mode: "Offline",
@@ -22,6 +22,7 @@ const kelompokHarga = [
   },
   {
     nama: "English",
+    icon: "english",
     harga: [
       {
         mode: "Offline",
@@ -39,6 +40,7 @@ const kelompokHarga = [
   },
   {
     nama: "AI",
+    icon: "ai",
     harga: [
       {
         mode: "Offline",
@@ -64,23 +66,342 @@ const kelompokHarga = [
 >
   <div class="harga-smart-container">
 
-    <!-- JUDUL -->
+    <!-- JUDUL SECTION -->
     <header class="harga-smart-heading">
-      <h2 id="harga-smart-title">Harga per Pertemuan</h2>
-      <span class="harga-smart-divider" aria-hidden="true"></span>
+
+      <h2 id="harga-smart-title">
+        Harga per Pertemuan
+      </h2>
+
+      <span
+        class="harga-smart-divider"
+        aria-hidden="true"
+      ></span>
+
       <p>Rupiah, per peserta, durasi 60 menit.</p>
+
     </header>
 
+    <!-- KETERANGAN MODE -->
     <div class="harga-smart-mode-notes">
-      <p><strong>Offline</strong> = tatap muka di PKBM Al-Fatihah.</p>
-      <p><strong>Online</strong> = sesi daring.</p>
+
+      <p>
+        <strong>Offline</strong> = tatap muka di PKBM Al-Fatihah.
+      </p>
+
+      <p>
+        <strong>Online</strong> = sesi daring.
+      </p>
+
     </div>
 
     <!-- TIGA KELOMPOK HARGA -->
     <div class="harga-smart-list">
+
       {kelompokHarga.map((kelompok) => (
         <article class="harga-smart-group">
-          <h3 class="harga-smart-group-title">{kelompok.nama}</h3>
+
+          <!-- HEADER CARD -->
+          <div class="harga-smart-group-header">
+
+            <div class="harga-smart-group-icon" aria-hidden="true">
+
+              <!-- ICON ACADEMIC -->
+              {kelompok.icon === "academic" && (
+
+                <svg viewBox="0 0 80 80" fill="none">
+
+                  <defs>
+                    <linearGradient
+                      id="harga-book-cover"
+                      x1="0" y1="0"
+                      x2="1" y2="1"
+                    >
+                      <stop stop-color="#F1A7E1" />
+                      <stop offset="1" stop-color="#92197B" />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="harga-book-page"
+                      x1="0" y1="0"
+                      x2="0" y2="1"
+                    >
+                      <stop stop-color="#FFFDF8" />
+                      <stop offset="1" stop-color="#FFE4AC" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse
+                    cx="40" cy="69"
+                    rx="29" ry="4"
+                    fill="#3C1E66"
+                    opacity=".12"
+                  />
+
+                  <!-- Sampul belakang -->
+                  <path
+                    d="M7 19Q24 13 40 24Q56 13 73 19V63Q56 57 40 67Q24 57 7 63Z"
+                    fill="#7130AC"
+                  />
+
+                  <!-- Sampul depan -->
+                  <path
+                    d="M7 14Q24 8 40 19Q56 8 73 14V58Q56 52 40 62Q24 52 7 58Z"
+                    fill="url(#harga-book-cover)"
+                    stroke="#92197B"
+                    stroke-width="2"
+                  />
+
+                  <!-- Halaman kiri -->
+                  <path
+                    d="M13 12Q27 8 40 19V56Q27 46 13 50Z"
+                    fill="url(#harga-book-page)"
+                    stroke="#D9A035"
+                    stroke-width="1.5"
+                  />
+
+                  <!-- Halaman kanan -->
+                  <path
+                    d="M67 12Q53 8 40 19V56Q53 46 67 50Z"
+                    fill="url(#harga-book-page)"
+                    stroke="#D9A035"
+                    stroke-width="1.5"
+                  />
+
+                  <path
+                    d="M40 19V56"
+                    stroke="#D9A035"
+                    stroke-width="2"
+                  />
+
+                  <!-- Tulisan buku -->
+                  <path
+                    d="M19 22Q27 21 34 26
+                       M19 30Q27 29 34 34
+                       M19 38Q27 37 34 42
+                       M46 26Q53 21 61 22
+                       M46 34Q53 29 61 30
+                       M46 42Q53 37 61 38"
+                    stroke="#A74E92"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+
+                  <!-- Pembatas buku -->
+                  <path
+                    d="M51 14V33L56 29L61 33V12"
+                    fill="#D9A035"
+                  />
+
+                </svg>
+
+              )}
+
+              <!-- ICON ENGLISH -->
+              {kelompok.icon === "english" && (
+
+                <svg viewBox="0 0 80 80" fill="none">
+
+                  <defs>
+                    <linearGradient
+                      id="harga-laptop-body"
+                      x1="0" y1="0"
+                      x2="1" y2="1"
+                    >
+                      <stop stop-color="#DDA6FA" />
+                      <stop offset=".5" stop-color="#A36ADD" />
+                      <stop offset="1" stop-color="#7130AC" />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="harga-laptop-screen"
+                      x1="0" y1="0"
+                      x2="1" y2="1"
+                    >
+                      <stop stop-color="#F4D9FF" />
+                      <stop offset="1" stop-color="#C99AEE" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse
+                    cx="40" cy="69"
+                    rx="30" ry="4"
+                    fill="#3C1E66"
+                    opacity=".12"
+                  />
+
+                  <!-- Layar -->
+                  <rect
+                    x="12" y="10"
+                    width="56" height="43"
+                    rx="7"
+                    fill="url(#harga-laptop-body)"
+                    stroke="#7130AC"
+                    stroke-width="2"
+                  />
+
+                  <rect
+                    x="17" y="15"
+                    width="46" height="32"
+                    rx="4"
+                    fill="url(#harga-laptop-screen)"
+                  />
+
+                  <circle
+                    cx="40" cy="12.5"
+                    r="1.5"
+                    fill="#FFFFFF"
+                  />
+
+                  <!-- Tombol video -->
+                  <rect
+                    x="30" y="21"
+                    width="20" height="20"
+                    rx="5"
+                    fill="#FFD17B"
+                    stroke="#D9A035"
+                    stroke-width="1.5"
+                  />
+
+                  <path
+                    d="M37 26L45 31L37 36Z"
+                    fill="#FFFFFF"
+                    stroke="#D9A035"
+                    stroke-linejoin="round"
+                  />
+
+                  <!-- Keyboard -->
+                  <path
+                    d="M12 52H68L77 64Q78 69 72 69H8Q2 69 3 64Z"
+                    fill="#7130AC"
+                  />
+
+                  <path
+                    d="M15 52H65L73 62H7Z"
+                    fill="url(#harga-laptop-body)"
+                  />
+
+                  <rect
+                    x="31" y="59"
+                    width="18" height="4"
+                    rx="2"
+                    fill="#E9C8FC"
+                  />
+
+                  <path
+                    d="M20 17H29"
+                    stroke="#FFFFFF"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    opacity=".7"
+                  />
+
+                </svg>
+
+              )}
+
+              <!-- ICON AI -->
+              {kelompok.icon === "ai" && (
+
+                <svg viewBox="0 0 80 80" fill="none">
+
+                  <defs>
+                    <linearGradient
+                      id="harga-ai-body"
+                      x1="0" y1="0"
+                      x2="1" y2="1"
+                    >
+                      <stop stop-color="#F3A6E1" />
+                      <stop offset=".5" stop-color="#C55AB7" />
+                      <stop offset="1" stop-color="#92197B" />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="harga-ai-gold"
+                      x1="0" y1="0"
+                      x2="1" y2="1"
+                    >
+                      <stop stop-color="#FFE5A1" />
+                      <stop offset="1" stop-color="#D9A035" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse
+                    cx="40" cy="72"
+                    rx="24" ry="4"
+                    fill="#3C1E66"
+                    opacity=".12"
+                  />
+
+                  <!-- Pin microchip -->
+                  <path
+                    d="M25 5V17M40 5V17M55 5V17
+                       M25 63V75M40 63V75M55 63V75
+                       M5 25H17M5 40H17M5 55H17
+                       M63 25H75M63 40H75M63 55H75"
+                    stroke="#D9A035"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  />
+
+                  <!-- Body belakang -->
+                  <rect
+                    x="16" y="19"
+                    width="48" height="48"
+                    rx="10"
+                    fill="#7130AC"
+                  />
+
+                  <!-- Body depan -->
+                  <rect
+                    x="16" y="14"
+                    width="48" height="48"
+                    rx="10"
+                    fill="url(#harga-ai-body)"
+                    stroke="#92197B"
+                    stroke-width="2"
+                  />
+
+                  <!-- Chip tengah -->
+                  <rect
+                    x="25" y="23"
+                    width="30" height="30"
+                    rx="6"
+                    fill="url(#harga-ai-gold)"
+                    stroke="#D9A035"
+                    stroke-width="1.5"
+                  />
+
+                  <text
+                    x="40"
+                    y="43"
+                    text-anchor="middle"
+                    font-family="Arial, sans-serif"
+                    font-size="17"
+                    font-weight="800"
+                    fill="#92197B"
+                  >
+                    AI
+                  </text>
+
+                  <path
+                    d="M22 25V23Q22 20 26 20H33"
+                    stroke="#FCE2F5"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+
+                </svg>
+
+              )}
+
+            </div>
+
+            <h3 class="harga-smart-group-title">
+              {kelompok.nama}
+            </h3>
+
+          </div>
 
           <!-- TABEL HARGA -->
           <div
@@ -89,17 +410,36 @@ const kelompokHarga = [
             aria-label={`Tabel harga ${kelompok.nama}`}
             tabindex="0"
           >
+
             <table class="harga-smart-table">
+
+              <colgroup>
+                <col class="harga-smart-col-mode" />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+
               <thead>
                 <tr>
                   <th scope="col">Mode</th>
-                  <th scope="col">Private (1 murid)</th>
-                  <th scope="col">Semi (4–6 murid)</th>
-                  <th scope="col">Reguler (&gt;15 murid)</th>
+
+                  <th scope="col">
+                    Private (1 murid)
+                  </th>
+
+                  <th scope="col">
+                    Semi (4–6 murid)
+                  </th>
+
+                  <th scope="col">
+                    Reguler (&gt;15 murid)
+                  </th>
                 </tr>
               </thead>
 
               <tbody>
+
                 {kelompok.harga.map((item) => (
                   <tr>
                     <th scope="row">{item.mode}</th>
@@ -108,30 +448,158 @@ const kelompokHarga = [
                     <td>{item.reguler}</td>
                   </tr>
                 ))}
+
               </tbody>
+
             </table>
+
           </div>
 
         </article>
       ))}
+
     </div>
 
     <!-- BIAYA PENDAFTARAN -->
     <div class="harga-smart-registration">
-      <div class="harga-smart-registration-copy">
-        <h3>Biaya Pendaftaran</h3>
 
-        <p>
-          <span class="harga-smart-discount">Diskon 50%</span>
-          <span class="harga-smart-dot" aria-hidden="true">·</span>
-          Harga normal
-          <s>Rp300.000</s>
-        </p>
+      <div class="harga-smart-registration-main">
+
+        <!-- ICON CLIPBOARD -->
+        <div
+          class="harga-smart-registration-icon"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 80 80" fill="none">
+
+            <defs>
+              <linearGradient
+                id="harga-clipboard-body"
+                x1="0" y1="0"
+                x2="1" y2="1"
+              >
+                <stop stop-color="#EAA5E8" />
+                <stop offset="1" stop-color="#92197B" />
+              </linearGradient>
+
+              <linearGradient
+                id="harga-clipboard-clip"
+                x1="0" y1="0"
+                x2="1" y2="1"
+              >
+                <stop stop-color="#FFE5A1" />
+                <stop offset="1" stop-color="#D9A035" />
+              </linearGradient>
+            </defs>
+
+            <ellipse
+              cx="40" cy="73"
+              rx="24" ry="4"
+              fill="#3C1E66"
+              opacity=".12"
+            />
+
+            <!-- Clipboard belakang -->
+            <rect
+              x="15" y="14"
+              width="50" height="59"
+              rx="7"
+              fill="#7130AC"
+            />
+
+            <!-- Clipboard depan -->
+            <rect
+              x="15" y="10"
+              width="50" height="59"
+              rx="7"
+              fill="url(#harga-clipboard-body)"
+              stroke="#92197B"
+              stroke-width="2"
+            />
+
+            <!-- Kertas -->
+            <rect
+              x="21" y="17"
+              width="38" height="46"
+              rx="3"
+              fill="#FFF9F5"
+            />
+
+            <!-- Penjepit -->
+            <rect
+              x="29" y="6"
+              width="22" height="15"
+              rx="4"
+              fill="url(#harga-clipboard-clip)"
+              stroke="#D9A035"
+              stroke-width="1.5"
+            />
+
+            <circle
+              cx="40" cy="10"
+              r="2"
+              fill="#FFF9F5"
+            />
+
+            <!-- Checklist -->
+            <path
+              d="M26 30L29 33L34 27
+                 M26 42L29 45L34 39
+                 M26 54L29 57L34 51"
+              stroke="#D9A035"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <!-- Garis tulisan -->
+            <path
+              d="M39 30H53
+                 M39 42H53
+                 M39 54H53"
+              stroke="#A74E92"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+        <!-- INFORMASI PENDAFTARAN -->
+        <div class="harga-smart-registration-copy">
+
+          <h3>Biaya Pendaftaran</h3>
+
+          <p>
+
+            <span class="harga-smart-discount">
+              Diskon 50%
+            </span>
+
+            <span
+              class="harga-smart-dot"
+              aria-hidden="true"
+            >
+              ·
+            </span>
+
+            Harga normal
+
+            <s>Rp300.000</s>
+
+          </p>
+
+        </div>
+
       </div>
 
+      <!-- NOMINAL PENDAFTARAN -->
       <strong class="harga-smart-registration-price">
         Rp150.000
       </strong>
+
     </div>
 
   </div>

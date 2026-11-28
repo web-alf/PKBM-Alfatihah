@@ -65,39 +65,3 @@ const ketentuanUmum = [
     </div>
   </div>
 </section>
-
-<script>
-  function initKetentuanAnimation() {
-    const cards = document.querySelectorAll<HTMLElement>(
-      ".ketentuan-hs-card"
-    );
-
-    if (!("IntersectionObserver" in window)) {
-      cards.forEach((card) => card.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-      }
-    );
-
-    cards.forEach((card) => observer.observe(card));
-  }
-
-  initKetentuanAnimation();
-
-  document.addEventListener(
-    "astro:page-load",
-    initKetentuanAnimation
-  );
-</script>

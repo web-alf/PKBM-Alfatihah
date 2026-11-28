@@ -1,0 +1,534 @@
+/* =========================================
+   FAQ TAMAN BACA
+========================================= */
+
+.faq-taman-baca {
+  --faq-purple: #a74e92;
+  --faq-magenta: #92197b;
+  --faq-yellow: #fcd757;
+  --faq-cream: #fff9f5;
+  --faq-pink: #f8d5eb;
+  --faq-text: #34405b;
+  --faq-border: #f0e2eb;
+
+  position: relative;
+  width: 100%;
+  padding: 75px clamp(32px, 5.5vw, 100px) 85px;
+  background: var(--faq-cream);
+  font-family: "Poppins", Arial, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.faq-taman-baca *,
+.faq-taman-baca *::before,
+.faq-taman-baca *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   DEKORASI BACKGROUND
+========================================= */
+
+.faq-taman-baca::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  left: -160px;
+  width: 420px;
+  height: 350px;
+  background: var(--faq-pink);
+  border-radius: 40% 60% 65% 35%;
+  transform: rotate(-25deg);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.faq-taman-baca::after {
+  content: "";
+  position: absolute;
+  right: -180px;
+  bottom: -220px;
+  width: 440px;
+  height: 380px;
+  background: var(--faq-pink);
+  border-radius: 65% 35% 40% 60%;
+  transform: rotate(-25deg);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.faq-taman-baca-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.faq-taman-baca-heading {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.faq-taman-baca-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 16px;
+  margin-bottom: 15px;
+
+  background: var(--faq-pink);
+  color: var(--faq-magenta);
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.faq-taman-baca-heading h1 {
+  margin: 0;
+  color: var(--faq-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.faq-taman-baca-divider {
+  width: 55px;
+  height: 4px;
+  margin: 16px auto 20px;
+  background: var(--faq-yellow);
+  border-radius: 50px;
+}
+
+.faq-taman-baca-heading p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--faq-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================================
+   GRID FAQ
+========================================= */
+
+.faq-taman-baca-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  width: 100%;
+}
+
+/* =========================================
+   KOLOM FAQ
+========================================= */
+
+.faq-taman-baca-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* =========================================
+   CARD FAQ
+========================================= */
+
+.faq-taman-baca-item {
+  width: 100%;
+  min-width: 0;
+
+  background: #ffffff;
+  border: 1px solid var(--faq-border);
+  border-radius: 16px;
+
+  box-shadow: 0 4px 16px rgba(117, 25, 79, 0.035);
+  overflow: hidden;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.faq-taman-baca-item:hover {
+  border-color: #dfb5d4;
+  box-shadow: 0 6px 20px rgba(117, 25, 79, 0.06);
+}
+
+.faq-taman-baca-item[open] {
+  border-color: #d7a5ca;
+}
+
+/* =========================================
+   PERTANYAAN
+========================================= */
+
+.faq-taman-baca-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 76px;
+  padding: 20px 22px;
+
+  color: var(--faq-magenta);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+
+  list-style: none;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.faq-taman-baca-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-taman-baca-question::marker {
+  content: "";
+}
+
+.faq-taman-baca-question-text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.faq-taman-baca-question:hover {
+  background: #fffafd;
+}
+
+.faq-taman-baca-question:focus-visible {
+  outline: 3px solid var(--faq-purple);
+  outline-offset: -4px;
+  border-radius: 15px;
+}
+
+/* =========================================
+   IKON PLUS MINUS
+========================================= */
+
+.faq-taman-baca-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
+  background: var(--faq-pink);
+  color: var(--faq-magenta);
+  border-radius: 50%;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.faq-taman-baca-icon svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.faq-taman-baca-icon-vertical {
+  transform-origin: center;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* =========================================
+   KONDISI FAQ TERBUKA
+========================================= */
+
+.faq-taman-baca-item[open]
+.faq-taman-baca-icon {
+  background: var(--faq-magenta);
+  color: #ffffff;
+}
+
+.faq-taman-baca-item[open]
+.faq-taman-baca-icon-vertical {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.faq-taman-baca-item[open]
+.faq-taman-baca-question {
+  background: #fffafd;
+}
+
+/* =========================================
+   JAWABAN
+========================================= */
+
+.faq-taman-baca-answer {
+  position: relative;
+
+  margin: 0 22px;
+  padding: 17px 0 22px;
+
+  border-top: 1px solid var(--faq-border);
+
+  color: var(--faq-text);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+}
+
+.faq-taman-baca-answer p {
+  margin: 0;
+}
+
+.faq-taman-baca-answer p + p {
+  margin-top: 12px;
+}
+
+/* =========================================
+   LIST JAWABAN
+========================================= */
+
+.faq-taman-baca-answer ul,
+.faq-taman-baca-answer ol {
+  margin: 0;
+  padding-left: 21px;
+}
+
+.faq-taman-baca-answer ul {
+  list-style: disc;
+}
+
+.faq-taman-baca-answer ol {
+  list-style: decimal;
+}
+
+.faq-taman-baca-answer li {
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+.faq-taman-baca-answer li:last-child {
+  margin-bottom: 0;
+}
+
+.faq-taman-baca-answer li::marker {
+  color: var(--faq-magenta);
+  font-weight: 700;
+}
+
+.faq-taman-baca-answer a {
+  color: var(--faq-magenta);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* =========================================
+   ANIMASI JAWABAN
+========================================= */
+
+.faq-taman-baca-item[open]
+.faq-taman-baca-answer {
+  animation: faq-taman-baca-fade 0.25s ease;
+}
+
+@keyframes faq-taman-baca-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   RESPONSIVE LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .faq-taman-baca {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .faq-taman-baca-grid {
+    gap: 20px;
+  }
+
+  .faq-taman-baca-question {
+    padding: 18px 20px;
+    font-size: 13px;
+  }
+
+  .faq-taman-baca-answer {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .faq-taman-baca {
+    padding: 60px 40px 70px;
+  }
+
+  .faq-taman-baca-container {
+    max-width: 800px;
+  }
+
+  .faq-taman-baca-grid {
+    gap: 18px;
+  }
+
+  .faq-taman-baca-column {
+    gap: 12px;
+  }
+
+  .faq-taman-baca-question {
+    min-height: 72px;
+    padding: 17px 18px;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .faq-taman-baca-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .faq-taman-baca-answer {
+    margin-left: 18px;
+    margin-right: 18px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE TABLET KECIL
+========================================= */
+
+@media (max-width: 768px) {
+  .faq-taman-baca-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .faq-taman-baca {
+    padding: 45px 24px 55px;
+  }
+
+  .faq-taman-baca-container {
+    max-width: 420px;
+  }
+
+  .faq-taman-baca-heading {
+    margin-bottom: 30px;
+  }
+
+  .faq-taman-baca-badge {
+    padding: 6px 13px;
+    font-size: 10px;
+  }
+
+  .faq-taman-baca-heading h1 {
+    font-size: 28px;
+  }
+
+  .faq-taman-baca-heading p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .faq-taman-baca-grid {
+    gap: 12px;
+  }
+
+  .faq-taman-baca-column {
+    gap: 12px;
+  }
+
+  .faq-taman-baca-item {
+    border-radius: 13px;
+  }
+
+  .faq-taman-baca-question {
+    min-height: 65px;
+    padding: 16px;
+    gap: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .faq-taman-baca-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .faq-taman-baca-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .faq-taman-baca-answer {
+    margin: 0 16px;
+    padding: 14px 0 18px;
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  .faq-taman-baca::before,
+  .faq-taman-baca::after {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-taman-baca-item,
+  .faq-taman-baca-question,
+  .faq-taman-baca-icon,
+  .faq-taman-baca-icon-vertical {
+    transition: none;
+  }
+
+  .faq-taman-baca-item[open]
+  .faq-taman-baca-answer {
+    animation: none;
+  }
+}

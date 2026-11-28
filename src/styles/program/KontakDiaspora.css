@@ -25,7 +25,7 @@
 
 .kontak-diaspora-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max);
   margin: 0 auto;
 }
 
@@ -290,29 +290,8 @@
 
 /* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
 .kontak-diaspora {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .kontak-diaspora {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .kontak-diaspora {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .kontak-diaspora {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+  padding-left: var(--pkbm-container-pad);
+  padding-right: var(--pkbm-container-pad);
 }
 
 /* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */

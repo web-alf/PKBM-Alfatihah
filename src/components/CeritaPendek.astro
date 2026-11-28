@@ -1,0 +1,144 @@
+---
+import { Image } from "astro:assets";
+import { ceritaPendek } from "../data/cerita-pendek";
+import "../styles/program/CeritaPendek.css";
+---
+
+<section
+  class="cerita-pendek"
+  aria-labelledby="cerita-pendek-title"
+>
+  <div class="cerita-pendek-container">
+
+    <!-- HEADING -->
+    <header class="cerita-pendek-heading">
+
+      <span class="cerita-pendek-badge">
+        Taman Baca
+      </span>
+
+      <h1 id="cerita-pendek-title">
+        Cerita Pendek
+      </h1>
+
+      <div class="cerita-pendek-divider"></div>
+
+      <p>
+        Temukan berbagai cerita inspiratif dan komik edukatif
+        yang penuh pesan bermakna, motivasi, dan semangat belajar.
+      </p>
+
+    </header>
+
+    <!-- DAFTAR CERITA -->
+    <div class="cerita-pendek-grid">
+
+      {ceritaPendek.map((cerita) => (
+        <article class="cerita-card">
+
+          <!-- GAMBAR -->
+          <div class="cerita-card-media">
+
+            <a
+              href={`/cerita-pendek/${cerita.slug}`}
+              class="cerita-card-image-link"
+              aria-label={cerita.title}
+            >
+              <Image
+                src={cerita.image}
+                alt={cerita.title}
+                class="cerita-card-image"
+                loading="lazy"
+              />
+            </a>
+
+            <!-- KATEGORI -->
+            <span class="cerita-card-category">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <path d="M12 7v14" />
+                <path d="M3 4h5a4 4 0 0 1 4 4
+                  4 4 0 0 1 4-4h5v15h-5
+                  a4 4 0 0 0-4 2
+                  4 4 0 0 0-4-2H3z" />
+              </svg>
+
+              {cerita.category}
+
+            </span>
+
+          </div>
+
+          <!-- KONTEN CARD -->
+          <div class="cerita-card-body">
+
+            <h2 class="cerita-card-title">
+              <a href={`/cerita-pendek/${cerita.slug}`}>
+                {cerita.title}
+              </a>
+            </h2>
+
+            <div class="cerita-card-footer">
+
+              <!-- TANGGAL -->
+              <time
+                class="cerita-card-date"
+                datetime={cerita.dateISO}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="16"
+                    rx="2"
+                  />
+                  <path d="M16 3v4M8 3v4M3 10h18" />
+                </svg>
+
+                {cerita.date}
+
+              </time>
+
+              <!-- TOMBOL -->
+              <a
+                href={`/cerita-pendek/${cerita.slug}`}
+                class="cerita-card-button"
+              >
+                Baca Selengkapnya
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+
+  </div>
+</section>

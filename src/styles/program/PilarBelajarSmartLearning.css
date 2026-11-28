@@ -1,132 +1,261 @@
-
 /* ==========================================
    LIMA PILAR BELAJAR SMART LEARNING
-   SIMPLE - TANPA CARD DAN NOMOR
+   PLAYFUL EDUCATIONAL - 3D ICON
 ========================================== */
 
 .pilar-smart {
-  background: #fff9f5;
-  padding: 75px 20px 85px;
+  position: relative;
+  width: 100%;
+
+  padding:
+    var(--pkbm-section-pad)
+    var(--pkbm-container-pad);
+
+  background: #FFF9F5;
   font-family: "Poppins", sans-serif;
 }
 
 .pilar-smart,
-.pilar-smart * {
+.pilar-smart *,
+.pilar-smart *::before,
+.pilar-smart *::after {
   box-sizing: border-box;
 }
 
 .pilar-smart-container {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max);
   margin: 0 auto;
 }
 
-/* JUDUL SECTION */
+/* ==========================================
+   JUDUL SECTION
+========================================== */
 
 .pilar-smart-heading {
-  text-align: center;
   margin-bottom: 42px;
+  text-align: center;
 }
 
 .pilar-smart-heading h2 {
   margin: 0;
-  color: #3c1e66;
+
+  color: #3C1E66;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .pilar-smart-divider {
   display: block;
-  width: 60px;
-  height: 3px;
-  margin: 18px auto 0;
-  border-radius: 10px;
-  background: #d9a035;
+  width: 55px;
+  height: 4px;
+  margin: 16px auto 0;
+
+  background: #D9A035;
+  border-radius: 999px;
 }
 
-/* GRID 5 KOLOM */
+/* ==========================================
+   GRID LIMA KOLOM
+========================================== */
 
 .pilar-smart-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 22px;
   align-items: start;
+  gap: 22px;
 }
 
-/* ITEM TANPA CARD */
+/* ==========================================
+   ITEM TANPA CARD
+========================================== */
 
 .pilar-smart-item {
+  position: relative;
   min-width: 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   text-align: center;
 }
 
-/* IKON BULAT */
+/* ==========================================
+   LINGKARAN PASTEL DAN ICON 3D
+========================================== */
 
 .pilar-smart-icon {
-  width: 76px;
-  height: 76px;
-  margin-bottom: 18px;
+  position: relative;
+
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  margin: 0 auto 12px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #f5e9f4;
+  background: radial-gradient(
+    circle at 35% 25%,
+    #FDF1FC 0%,
+    #F5E9F4 65%,
+    #EEDDF2 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
-  color: #3c1e66;
+
+  box-shadow:
+    0 4px 10px rgba(60, 30, 102, 0.035);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .pilar-smart-icon svg {
-  width: 43px;
-  height: 43px;
+  display: block;
+
+  width: 60px;
+  height: 60px;
+
+  flex-shrink: 0;
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 3px 3px rgba(60, 30, 102, 0.10)
+  );
+
+  transition: transform 0.25s ease;
 }
 
-/* JUDUL PILAR */
+/* HOVER ICON */
+
+.pilar-smart-item:hover .pilar-smart-icon {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 7px 14px rgba(60, 30, 102, 0.08);
+}
+
+.pilar-smart-item:hover .pilar-smart-icon svg {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   JUDUL PILAR
+========================================== */
 
 .pilar-smart-item h3 {
-  margin: 0 0 12px;
-  color: #3c1e66;
+  margin: 0 0 8px;
+
+  color: #3C1E66;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.4;
+
+  text-align: center;
 }
 
-/* DESKRIPSI */
+/* ==========================================
+   DESKRIPSI PILAR
+========================================== */
 
 .pilar-smart-item p {
-  margin: 0;
-  color: #382c35;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.75;
+  width: 100%;
   max-width: 205px;
+  margin: 0 auto;
+
+  color: #382C35;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
+
+  text-align: center;
+  overflow-wrap: break-word;
 }
 
-/* TABLET */
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+
+  .pilar-smart-grid {
+    gap: 18px;
+  }
+
+  .pilar-smart-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pilar-smart-icon svg {
+    width: 55px;
+    height: 55px;
+  }
+
+  .pilar-smart-item h3 {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   TABLET
+   3 ITEM ATAS + 2 ITEM BAWAH
+========================================== */
 
 @media (max-width: 1000px) {
+
   .pilar-smart-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 35px 24px;
     justify-items: center;
   }
 
   .pilar-smart-item {
+    grid-column: span 2;
     width: 100%;
     max-width: 250px;
   }
+
+  .pilar-smart-item:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .pilar-smart-item:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .pilar-smart-icon {
+    width: 82px;
+    height: 82px;
+  }
+
+  .pilar-smart-icon svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .pilar-smart-item h3 {
+    font-size: 17px;
+  }
 }
 
-/* MOBILE */
+/* ==========================================
+   MOBILE
+   2 + 2 + 1
+========================================== */
 
 @media (max-width: 640px) {
-  .pilar-smart {
-    padding: 50px 16px 60px;
-  }
 
   .pilar-smart-heading {
     margin-bottom: 32px;
@@ -136,30 +265,41 @@
     font-size: 24px;
   }
 
+  .pilar-smart-divider {
+    width: 50px;
+    margin-top: 14px;
+  }
+
   .pilar-smart-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px 16px;
   }
 
+  .pilar-smart-item,
+  .pilar-smart-item:nth-child(4),
+  .pilar-smart-item:nth-child(5) {
+    grid-column: auto;
+  }
+
   .pilar-smart-icon {
-    width: 65px;
-    height: 65px;
-    margin-bottom: 13px;
-  }
-
-  .pilar-smart-icon svg {
-    width: 38px;
-    height: 38px;
-  }
-
-  .pilar-smart-item h3 {
-    font-size: 15px;
+    width: 76px;
+    height: 76px;
     margin-bottom: 10px;
   }
 
+  .pilar-smart-icon svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .pilar-smart-item h3 {
+    margin-bottom: 7px;
+    font-size: 15px;
+  }
+
   .pilar-smart-item p {
-    font-size: 12px;
-    line-height: 1.65;
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .pilar-smart-item:last-child {
@@ -169,9 +309,15 @@
   }
 }
 
+/* ==========================================
+   MOBILE KECIL
+========================================== */
+
 @media (max-width: 380px) {
+
   .pilar-smart-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .pilar-smart-item {
@@ -180,38 +326,27 @@
 
   .pilar-smart-item:last-child {
     grid-column: auto;
+    max-width: 290px;
+  }
+
+  .pilar-smart-item p {
+    max-width: 250px;
   }
 }
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.pilar-smart {
-  padding-left: 24px;
-  padding-right: 24px;
-}
+/* ==========================================
+   REDUCED MOTION
+========================================== */
 
-@media (max-width: 992px) {
-  .pilar-smart {
-    padding-left: 20px;
-    padding-right: 20px;
+@media (prefers-reduced-motion: reduce) {
+
+  .pilar-smart-icon,
+  .pilar-smart-icon svg {
+    transition: none;
   }
-}
 
-@media (max-width: 768px) {
-  .pilar-smart {
-    padding-left: 18px;
-    padding-right: 18px;
+  .pilar-smart-item:hover .pilar-smart-icon,
+  .pilar-smart-item:hover .pilar-smart-icon svg {
+    transform: none;
   }
-}
-
-@media (max-width: 480px) {
-  .pilar-smart {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.pilar-smart {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

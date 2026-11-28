@@ -1,0 +1,798 @@
+
+/* ========================================
+   TUTOR ANDALAN - PKBM ALFATIHAH
+   WAVE BACKGROUND & INFINITE CAROUSEL
+======================================== */
+
+.tutor-andalan {
+  --tutor-bg: #A74E92;
+
+  --tutor-wave-h: clamp(40px, 5vw, 75px);
+
+  --tutor-gap: 20px;
+  --tutor-per-view: 5;
+
+  position: relative;
+  isolation: isolate;
+
+  overflow: visible;
+
+  width: 100%;
+
+  padding:
+    calc(var(--tutor-wave-h) + 8px)
+    clamp(32px, 5.5vw, 100px)
+    calc(var(--tutor-wave-h) + 8px);
+
+  background: transparent;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.tutor-andalan *,
+.tutor-andalan *::before,
+.tutor-andalan *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   LAYER DEKORASI
+   PALING BELAKANG
+======================================== */
+
+.tutor-decoration {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* ========================================
+   DAUN PNG
+======================================== */
+
+.tutor-daun {
+  position: absolute;
+
+  top: -55px;
+
+  display: block;
+
+  width: clamp(100px, 12vw, 175px);
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* DAUN KIRI */
+
+.tutor-daun-left {
+  left: 0;
+
+  transform: none;
+}
+
+/* DAUN KANAN */
+
+.tutor-daun-right {
+  right: 0;
+
+  transform: none;
+}
+
+/* ========================================
+   BACKGROUND UNGU
+   BERADA DI DEPAN DAUN
+======================================== */
+
+.tutor-background {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+/* BACKGROUND TENGAH */
+
+.tutor-background-body {
+  position: absolute;
+
+  top: calc(var(--tutor-wave-h) - 1px);
+  bottom: calc(var(--tutor-wave-h) - 1px);
+
+  right: 0;
+  left: 0;
+
+  background: var(--tutor-bg);
+}
+
+/* ========================================
+   GELOMBANG ATAS DAN BAWAH
+======================================== */
+
+.tutor-wave {
+  position: absolute;
+
+  right: 0;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: var(--tutor-wave-h);
+
+  pointer-events: none;
+}
+
+/* GELOMBANG ATAS */
+
+.tutor-wave-top {
+  top: 0;
+}
+
+/* GELOMBANG BAWAH */
+
+.tutor-wave-bottom {
+  bottom: 0;
+}
+
+/* WARNA GELOMBANG SAMA DENGAN BACKGROUND */
+
+.tutor-wave path {
+  fill: var(--tutor-bg);
+}
+
+/* ========================================
+   CONTAINER
+   SAMA DENGAN PROGRAM KAMI
+======================================== */
+
+.tutor-andalan-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1160px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   JUDUL TUTOR ANDALAN
+======================================== */
+
+.tutor-heading {
+  margin-bottom: 24px;
+
+  text-align: center;
+}
+
+.tutor-heading h2 {
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* ========================================
+   GARIS KUNING
+======================================== */
+
+.tutor-accent {
+  width: 55px;
+  height: 4px;
+
+  margin: 10px auto 0;
+
+  border-radius: 999px;
+
+  background: #FFC400;
+}
+
+/* ========================================
+   CAROUSEL
+======================================== */
+
+.tutor-carousel {
+  position: relative;
+
+  width: 100%;
+}
+
+/* AREA FOTO DAN PANAH */
+
+.tutor-carousel-main {
+  position: relative;
+
+  width: 100%;
+}
+
+/* ========================================
+   FRAME FOTO
+======================================== */
+
+.tutor-frame {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 4px 0 10px;
+}
+
+/* ========================================
+   TRACK CAROUSEL
+======================================== */
+
+.tutor-track {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: var(--tutor-gap);
+
+  width: 100%;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  overscroll-behavior-x: contain;
+
+  touch-action: pan-y;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.tutor-track::-webkit-scrollbar {
+  display: none;
+}
+
+.tutor-track:focus-visible {
+  outline: 2px solid #FFC400;
+  outline-offset: -2px;
+}
+
+/* ========================================
+   FOTO TUTOR
+======================================== */
+
+.tutor-slide {
+  position: relative;
+
+  flex: 0 0 calc(
+    (
+      100% -
+      var(--tutor-gap) *
+      (var(--tutor-per-view) - 1)
+    ) / var(--tutor-per-view)
+  );
+
+  min-width: 0;
+
+  scroll-snap-align: start;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* ========================================
+   ASET FOTO ASLI
+======================================== */
+
+.tutor-slide img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 1 / 1;
+
+  border-radius: 18px;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: transparent;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ========================================
+   PANAH NAVIGASI
+======================================== */
+
+.tutor-nav {
+  position: absolute;
+
+  top: 50%;
+
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #FFFFFF;
+
+  color: #A74E92;
+
+  box-shadow:
+    0 4px 12px rgba(60, 20, 55, 0.22);
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* IKON PANAH */
+
+.tutor-nav svg {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+}
+
+/* PANAH KIRI */
+
+.tutor-nav.is-prev {
+  left: -19px;
+}
+
+/* PANAH KANAN */
+
+.tutor-nav.is-next {
+  right: -19px;
+}
+
+/* HOVER */
+
+.tutor-nav:hover {
+  background: #FCD757;
+
+  color: #92197B;
+
+  transform:
+    translateY(-50%)
+    scale(1.06);
+
+  box-shadow:
+    0 5px 15px rgba(60, 20, 55, 0.28);
+}
+
+.tutor-nav:focus-visible {
+  outline: 3px solid #FFC400;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   PAGINATION 10 TITIK
+======================================== */
+
+.tutor-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 2px;
+
+  margin-top: 8px;
+}
+
+/* AREA KLIK DOT */
+
+.tutor-dot {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  width: 18px;
+  height: 24px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* BENTUK TITIK */
+
+.tutor-dot::before {
+  content: "";
+
+  display: block;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.40);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* TITIK AKTIF */
+
+.tutor-dot.is-active::before {
+  background: #FFC400;
+
+  transform: scale(1.25);
+}
+
+.tutor-dot:hover::before {
+  background: #FCD757;
+}
+
+.tutor-dot:focus-visible {
+  outline: 2px solid #FFC400;
+  outline-offset: 1px;
+}
+
+/* ========================================
+   LAPTOP
+======================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .tutor-andalan {
+    --tutor-gap: 18px;
+    --tutor-per-view: 5;
+
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .tutor-heading {
+    margin-bottom: 22px;
+  }
+
+  .tutor-daun {
+    top: -48px;
+
+    width: 145px;
+  }
+
+  .tutor-nav {
+    width: 34px;
+    height: 34px;
+  }
+
+  .tutor-nav.is-prev {
+    left: -17px;
+  }
+
+  .tutor-nav.is-next {
+    right: -17px;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+
+  .tutor-andalan {
+    --tutor-per-view: 4;
+    --tutor-gap: 16px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .tutor-andalan-container {
+    max-width: 800px;
+  }
+
+  .tutor-daun {
+    top: -40px;
+
+    width: clamp(90px, 12vw, 125px);
+  }
+
+  .tutor-heading {
+    margin-bottom: 22px;
+  }
+
+  .tutor-slide,
+  .tutor-slide img {
+    border-radius: 16px;
+  }
+}
+
+/* TABLET SEDANG */
+
+@media (max-width: 900px) {
+
+  .tutor-andalan {
+    --tutor-per-view: 3;
+  }
+}
+
+/* TABLET KECIL */
+
+@media (max-width: 700px) {
+
+  .tutor-andalan {
+    --tutor-per-view: 2;
+    --tutor-gap: 16px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .tutor-andalan {
+    --tutor-wave-h: 36px;
+    --tutor-gap: 12px;
+    --tutor-per-view: 2;
+
+    padding:
+      calc(var(--tutor-wave-h) + 12px)
+      24px
+      calc(var(--tutor-wave-h) + 12px);
+  }
+
+  .tutor-andalan-container {
+    max-width: 420px;
+  }
+
+  /* JUDUL */
+
+  .tutor-heading {
+    margin-bottom: 20px;
+  }
+
+  .tutor-heading h2 {
+    font-size: 27px;
+  }
+
+  .tutor-accent {
+    margin-top: 10px;
+  }
+
+  /* DAUN DI BELAKANG GELOMBANG */
+
+  .tutor-daun {
+    top: -30px;
+
+    width: 85px;
+  }
+
+  .tutor-daun-left {
+    left: 0;
+  }
+
+  .tutor-daun-right {
+    right: 0;
+  }
+
+  /* FOTO */
+
+  .tutor-slide,
+  .tutor-slide img {
+    border-radius: 12px;
+  }
+
+  /* PANAH */
+
+  .tutor-nav {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tutor-nav svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .tutor-nav.is-prev {
+    left: -12px;
+  }
+
+  .tutor-nav.is-next {
+    right: -12px;
+  }
+
+  /* PAGINATION */
+
+  .tutor-dots {
+    margin-top: 4px;
+
+    gap: 0;
+  }
+
+  .tutor-dot {
+    width: 17px;
+    height: 24px;
+  }
+
+  .tutor-dot::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* ========================================
+   MOBILE KECIL
+======================================== */
+
+@media (max-width: 420px) {
+
+  .tutor-andalan {
+    --tutor-per-view: 1.35;
+    --tutor-gap: 12px;
+  }
+
+  .tutor-slide,
+  .tutor-slide img {
+    border-radius: 14px;
+  }
+
+  .tutor-daun {
+    top: -25px;
+
+    width: 75px;
+  }
+
+  .tutor-nav.is-prev {
+    left: -10px;
+  }
+
+  .tutor-nav.is-next {
+    right: -10px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .tutor-track {
+    scroll-behavior: auto;
+  }
+
+  .tutor-nav,
+  .tutor-dot::before {
+    transition: none;
+  }
+
+  .tutor-nav:hover {
+    transform: translateY(-50%);
+  }
+}
+/* ========================================
+   REVISI POSISI DAUN TUTOR
+======================================== */
+
+.tutor-daun {
+  top: -70px;
+}
+
+.tutor-daun-left {
+  left: -20px;
+}
+
+.tutor-daun-right {
+  right: -20px;
+}
+
+/* LAPTOP */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .tutor-daun {
+    top: -63px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+  .tutor-daun {
+    top: -55px;
+  }
+
+  .tutor-daun-left {
+    left: -15px;
+  }
+
+  .tutor-daun-right {
+    right: -15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .tutor-daun {
+    top: -40px;
+  }
+
+  .tutor-daun-left {
+    left: -10px;
+  }
+
+  .tutor-daun-right {
+    right: -10px;
+  }
+}
+/* TURUNKAN DAUN KIRI SAJA */
+
+.tutor-daun-left {
+  top: -55px;
+}
+
+/* LAPTOP */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .tutor-daun-left {
+    top: -48px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .tutor-daun-left {
+    top: -40px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .tutor-daun-left {
+    top: -30px;
+  }
+}

@@ -1,80 +1,219 @@
 
-/* ======================================
+/* =========================================
    STUDY GROUP HOMESCHOOLING
-====================================== */
+========================================= */
 
 .study-hs {
+  --study-purple: #92197B;
+  --study-yellow: #FCD757;
+  --study-bg: #FBF1F8;
+  --study-wave-top-fill: #FBF1F8;
+  --study-wave-height: clamp(28px, 3.5vw, 55px);
+
+  position: relative;
+  isolation: isolate;
   width: 100%;
-  padding: 64px 20px;
-  background: #fff9f5;
+  padding: 0;
+  overflow: hidden;
+  background: var(--study-bg);
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
-.study-hs * {
+.study-hs *,
+.study-hs *::before,
+.study-hs *::after {
   box-sizing: border-box;
 }
 
-.study-hs-container {
-  max-width: 1200px;
+/* =========================================
+   BANNER JUDUL
+========================================= */
+
+.study-hs-banner {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+
+  padding:
+    calc(var(--study-wave-height) + 15px)
+    var(--pkbm-container-pad, 24px)
+    calc(var(--study-wave-height) + 18px);
+
+  background: linear-gradient(
+    110deg,
+    #F6D8EC 0%,
+    #FBE8F5 45%,
+    #F9E2F1 75%,
+    #F5D7EB 100%
+  );
+}
+
+.study-hs-banner-inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns:
+    minmax(100px, 1fr)
+    minmax(0, 4fr)
+    minmax(100px, 1fr);
+
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
-/* HEADING */
+/* =========================================
+   GELOMBANG ATAS DAN BAWAH BANNER
+========================================= */
+
+.study-hs-wave {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+
+  display: block;
+  width: 100%;
+  height: var(--study-wave-height);
+
+  pointer-events: none;
+}
+
+.study-hs-wave-top {
+  top: -1px;
+}
+
+.study-hs-wave-top path {
+  fill: var(--study-wave-top-fill);
+}
+
+.study-hs-wave-bottom {
+  bottom: -1px;
+}
+
+.study-hs-wave-bottom path {
+  fill: var(--study-bg);
+}
+
+/* =========================================
+   DEKORASI BANNER
+========================================= */
+
+.study-hs-people,
+.study-hs-books {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.study-hs-people {
+  max-width: 145px;
+  justify-self: center;
+  align-self: center;
+}
+
+.study-hs-books {
+  max-width: 185px;
+  justify-self: end;
+  align-self: end;
+  transform: translateY(12px);
+}
+
+/* =========================================
+   JUDUL STUDY GROUP
+========================================= */
 
 .study-hs-heading {
+  position: relative;
+  min-width: 0;
+  margin: 0;
   text-align: center;
-  margin-bottom: 24px;
 }
 
 .study-hs-heading h2 {
   margin: 0;
-  color: #92197b;
-  font-size: clamp(28px, 3vw, 36px);
-  font-weight: 700;
-  line-height: 1.4;
+
+  color: var(--study-purple);
+
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .study-hs-heading-line {
   display: block;
-  width: 60px;
+  width: 55px;
   height: 4px;
-  margin: 16px auto 0;
-  background: #d9a035;
-  border-radius: 20px;
+  margin: 14px auto 0;
+
+  background: var(--study-yellow);
+  border-radius: 999px;
 }
 
 .study-hs-heading p {
   max-width: 760px;
-  margin: 18px auto 0;
-  color: #76596b;
+  margin: 15px auto 0;
+
+  color: #584452;
+
   font-size: 14px;
-  line-height: 1.9;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
 }
 
-/* MAIN LAYOUT */
+/* =========================================
+   CONTAINER KONTEN
+========================================= */
+
+.study-hs-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  padding:
+    28px
+    var(--pkbm-container-pad, 24px)
+    var(--pkbm-section-pad, 60px);
+}
 
 .study-hs-content {
   display: flex;
   flex-direction: column;
-  gap: 96px;
+  gap: 34px;
+
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
+  margin: 0 auto;
 }
 
-/* CHART SECTION */
+/* =========================================
+   DIAGRAM BATANG
+========================================= */
 
 .study-hs-chart-section {
+  position: relative;
   min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
 .study-hs-chart-heading {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .study-hs-chart-heading h3 {
-  margin: 0 0 6px;
-  color: #92197b;
+  margin: 0 0 5px;
+
+  color: var(--study-purple);
+
   font-size: 19px;
   font-weight: 700;
   line-height: 1.4;
@@ -82,141 +221,268 @@
 
 .study-hs-chart-heading p {
   margin: 0;
-  color: #8b7180;
-  font-size: 13px;
-}
 
-/* CHART */
+  color: #76596B;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}
 
 .study-hs-chart {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 12px;
-  height: clamp(190px, 20vw, 220px);
+  align-items: end;
+  gap: 14px;
+
+  width: 100%;
+  height: clamp(220px, 21vw, 260px);
 }
+
+/* =========================================
+   GRUP BATANG
+========================================= */
 
 .study-hs-bar-group {
   position: relative;
-  min-width: 0;
-  height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
+
+  min-width: 0;
+  height: 100%;
 }
 
 .study-hs-student {
   display: block;
   width: 100%;
-  margin-bottom: 8px;
-  color: #92197b;
-  font-size: 13px;
+  margin-bottom: 10px;
+
+  color: var(--study-purple);
+
+  font-size: 14px;
   font-weight: 700;
+  line-height: 1.4;
   text-align: center;
 }
 
+/* =========================================
+   BENTUK BATANG
+========================================= */
+
 .study-hs-bar {
-  width: 100%;
-  height: var(--bar-height);
-  flex: 0 0 var(--bar-height);
   position: relative;
   isolation: isolate;
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 8px 5px;
+  justify-content: center;
+
+  width: 100%;
+  height: var(--bar-height);
+  flex: 0 0 var(--bar-height);
+
+  padding: 12px 8px;
+
   background: transparent;
-  border-radius: 9px 9px 0 0;
-  color: #ffffff;
+  border-radius: 12px 12px 0 0;
+
+  color: #FFFFFF;
   text-align: center;
 }
 
+/* WARNA BATANG */
+
 .study-hs-bar::before {
+  content: "";
+
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: #92197B;
-  border-radius: inherit;
-  clip-path: inset(100% 0 0);
-  content: "";
-  transition:
-    clip-path 1s ease-out;
-  transition-delay: var(--bar-delay, 0s);
-}
 
-.study-hs-chart.is-visible .study-hs-bar::before {
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    #A91690,
+    #92197B
+  );
+
   clip-path: inset(0);
 }
 
-.study-hs-bar-gold::before {
-  background: #d9a035;
+.study-hs-bar-group:nth-child(2)
+.study-hs-bar::before {
+  background: linear-gradient(
+    135deg,
+    #9D2589,
+    #83166F
+  );
 }
+
+.study-hs-bar-group:nth-child(3)
+.study-hs-bar::before {
+  background: linear-gradient(
+    135deg,
+    #AC2996,
+    #92197B
+  );
+}
+
+.study-hs-bar-gold::before {
+  background: var(--study-yellow);
+}
+
+.study-hs-bar-gold {
+  color: var(--study-purple);
+}
+
+/* =========================================
+   ANIMASI DIAGRAM BATANG
+========================================= */
+
+.study-hs-chart.is-animated
+.study-hs-bar::before {
+  clip-path: inset(100% 0 0);
+
+  transition: clip-path 1s
+    cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition-delay: var(--bar-delay, 0s);
+}
+
+.study-hs-chart.is-animated.is-visible
+.study-hs-bar::before {
+  clip-path: inset(0);
+}
+
+/* KONTEN DI DALAM BATANG */
 
 .study-hs-bar-content {
   position: relative;
   z-index: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  opacity: 0;
-  transition: opacity 0.2s ease-out;
-  transition-delay: calc(var(--bar-delay, 0s) + 0.65s);
-}
+  gap: 5px;
 
-.study-hs-chart.is-visible .study-hs-bar-content {
   opacity: 1;
 }
 
-.study-hs-bar-gold {
-  color: #92197B;
+.study-hs-chart.is-animated
+.study-hs-bar-content {
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  transition-delay:
+    calc(var(--bar-delay, 0s) + 0.65s);
+}
+
+.study-hs-chart.is-animated.is-visible
+.study-hs-bar-content {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .study-hs-percent {
-  font-size: clamp(25px, 3vw, 34px);
-  font-weight: 700;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
   line-height: 1.2;
 }
 
 .study-hs-bar-caption {
-  font-size: 10px;
-  line-height: 1.35;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-/* BIAYA */
+/* =========================================
+   RINCIAN BIAYA STUDY GROUP
+========================================= */
+
+.study-hs-fees {
+  position: relative;
+  min-width: 0;
+}
 
 .study-hs-fees-heading {
-  margin: 0 0 16px;
-  color: #92197b;
-  font-size: 19px;
+  margin: 0 0 20px;
+
+  color: var(--study-purple);
+
+  font-size: 21px;
   font-weight: 700;
   line-height: 1.4;
   text-align: center;
+}
+
+.study-hs-fees-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    clamp(100px, 14vw, 175px);
+
+  align-items: center;
+  gap: 20px;
 }
 
 .study-hs-fee-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
-  gap: 16px;
+  gap: 18px;
 }
+
+/* =========================================
+   CARD BIAYA
+========================================= */
 
 .study-hs-detail {
+  display: flex;
+  flex-direction: column;
+
   min-width: 0;
-  background: #ffffff;
-  border: 1px solid #f0cfe0;
-  border-radius: 18px;
-  padding: 20px;
-  box-shadow: 0 8px 28px rgba(146, 25, 123, 0.05);
+  padding: 22px;
+
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #FFFFFF;
+  border-radius: 20px;
+
+  box-shadow:
+    0 5px 12px rgba(146, 25, 123, 0.04),
+    0 10px 24px rgba(146, 25, 123, 0.06);
 }
 
-.study-hs-detail > h4 {
+/* JUDUL CARD */
+
+.study-hs-detail-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.study-hs-detail-heading svg {
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  color: var(--study-purple);
+}
+
+.study-hs-detail-heading h4 {
   margin: 0;
-  color: #92197b;
+
+  color: var(--study-purple);
+
   font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
@@ -225,112 +491,278 @@
 .study-hs-divider {
   width: 100%;
   height: 1px;
-  background: #f0cfe0;
-  margin: 12px 0 16px;
+  margin: 12px 0 4px;
+
+  background: #EFD4E6;
 }
+
+/* =========================================
+   BARIS NOMINAL BIAYA
+========================================= */
 
 .study-hs-fee-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
 }
 
 .study-hs-fee-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 15px;
+  gap: 12px;
+
+  padding: 10px 0;
+}
+
+.study-hs-fee-row:not(:last-child) {
+  border-bottom: 1px solid #F0DCE8;
 }
 
 .study-hs-fee-row span {
-  color: #76596b;
-  font-size: 13px;
+  min-width: 0;
+
+  color: #584452;
+
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
 .study-hs-fee-row strong {
   flex-shrink: 0;
-  color: #92197B;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: right;
+
+  color: var(--study-purple);
+
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1.6;
+  text-align: right;
 }
 
+/* CATATAN PENDAFTARAN */
+
 .study-hs-registration-note {
-  margin: 14px 0 0;
+  margin: auto 0 0;
   padding: 10px 12px;
-  background: #fff0d4;
-  border-left: 3px solid #d9a035;
-  border-radius: 6px;
+
+  background: #FFF4D5;
+  border-left: 3px solid var(--study-yellow);
+  border-radius: 7px;
+
   color: #805020;
+
   font-size: 12px;
+  font-weight: 400;
   line-height: 1.7;
 }
 
-/* TABLET */
+/* =========================================
+   DEKORASI CLIPBOARD
+========================================= */
 
-@media (max-width: 900px) {
-  .study-hs {
-    padding: 52px 20px;
+.study-hs-clipboard-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.study-hs-clipboard {
+  display: block;
+  width: 100%;
+  max-width: 175px;
+  height: auto;
+
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .study-hs-banner-inner {
+    grid-template-columns:
+      100px
+      minmax(0, 1fr)
+      110px;
+
+    gap: 15px;
   }
 
-  .study-hs-chart {
-    width: 100%;
+  .study-hs-people {
+    max-width: 100px;
+  }
+
+  .study-hs-books {
+    max-width: 120px;
+  }
+
+  .study-hs-fees-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .study-hs-clipboard-wrap {
+    display: none;
   }
 
   .study-hs-detail {
     padding: 20px;
   }
+
+  .study-hs-content {
+    gap: 30px;
+  }
+
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 768px) {
+
+  .study-hs-banner {
+    padding-top:
+      calc(var(--study-wave-height) + 20px);
+
+    padding-bottom:
+      calc(var(--study-wave-height) + 15px);
+  }
+
+  .study-hs-banner-inner {
+    display: block;
+  }
+
+  .study-hs-heading {
+    padding: 0 30px;
+  }
+
+  .study-hs-heading h2 {
+    font-size: 28px;
+  }
+
+  .study-hs-heading p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .study-hs-people {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 48px;
+  }
+
+  .study-hs-books {
+    position: absolute;
+    right: -12px;
+    bottom: -22px;
+    width: 58px;
+    transform: none;
+  }
+
+  .study-hs-container {
+    padding-top: 22px;
+  }
+
+  .study-hs-content {
+    gap: 28px;
+  }
+
+  .study-hs-chart-heading h3 {
+    font-size: 17px;
+  }
+
+  .study-hs-chart {
+    height: 220px;
+    gap: 9px;
+  }
+
+  .study-hs-student {
+    font-size: 12px;
+  }
+
+  .study-hs-percent {
+    font-size: 28px;
+  }
+
+  .study-hs-bar-caption {
+    font-size: 10px;
+  }
+
   .study-hs-fee-cards {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
+  }
+
+  .study-hs-fees-heading {
+    font-size: 19px;
+    margin-bottom: 16px;
   }
 
   .study-hs-detail {
     padding: 18px;
+    border-radius: 17px;
   }
+
+  .study-hs-fee-row span,
+  .study-hs-fee-row strong {
+    font-size: 13px;
+  }
+
 }
 
-@media (max-width: 600px) {
-  .study-hs-detail {
-    padding: 14px;
-  }
-}
-
-@media (max-width: 640px) {
-  .study-hs {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-}
+/* =========================================
+   MOBILE KECIL
+========================================= */
 
 @media (max-width: 480px) {
+
   .study-hs {
-    padding: 44px 16px;
+    --study-wave-height: 28px;
   }
 
   .study-hs-heading {
-    margin-bottom: 24px;
+    padding: 0 15px;
   }
 
   .study-hs-heading h2 {
     font-size: 26px;
   }
 
+  .study-hs-heading-line {
+    margin-top: 12px;
+  }
+
   .study-hs-heading p {
-    font-size: 12px;
-    line-height: 1.8;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+
+  .study-hs-people {
+    width: 38px;
+    left: -8px;
+    top: -12px;
+  }
+
+  .study-hs-books {
+    width: 45px;
+    right: -8px;
+    bottom: -25px;
+  }
+
+  .study-hs-chart-heading {
+    margin-bottom: 10px;
   }
 
   .study-hs-chart-heading h3 {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .study-hs-chart-heading p {
@@ -338,43 +770,45 @@
   }
 
   .study-hs-chart {
+    height: 200px;
     gap: 6px;
   }
 
   .study-hs-student {
-    font-size: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
+    font-size: 11px;
   }
 
   .study-hs-bar {
     padding: 6px 3px;
-    border-radius: 7px 7px 0 0;
+    border-radius: 8px 8px 0 0;
   }
 
   .study-hs-percent {
-    font-size: clamp(18px, 5.5vw, 24px);
+    font-size: clamp(20px, 6vw, 27px);
   }
 
   .study-hs-bar-caption {
     font-size: 9px;
-    line-height: 1.35;
-  }
-
-  .study-hs-fees-heading {
-    font-size: 17px;
+    line-height: 1.4;
   }
 
   .study-hs-detail {
-    padding: 14px;
-    border-radius: 15px;
+    padding: 15px;
   }
 
-  .study-hs-detail > h4 {
+  .study-hs-detail-heading h4 {
     font-size: 16px;
   }
 
+  .study-hs-detail-heading svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .study-hs-fee-row {
-    gap: 10px;
+    gap: 8px;
+    padding: 9px 0;
   }
 
   .study-hs-fee-row span,
@@ -385,49 +819,201 @@
   .study-hs-registration-note {
     font-size: 11px;
   }
+
 }
 
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
+  .study-hs-chart.is-animated
   .study-hs-bar::before {
     clip-path: inset(0);
     transition: none;
   }
 
+  .study-hs-chart.is-animated
   .study-hs-bar-content {
     opacity: 1;
+    transform: none;
     transition: none;
   }
+
 }
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
+/* =========================================
+   REVISI STUDY GROUP - COMPACT LAYOUT
+========================================= */
+
 .study-hs {
-  padding-left: 24px;
-  padding-right: 24px;
+  --study-wave-height: clamp(24px, 2.8vw, 42px);
 }
 
-@media (max-width: 992px) {
-  .study-hs {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+/* BANNER JUDUL */
+
+.study-hs-banner {
+  padding-top: calc(var(--study-wave-height) + 5px);
+  padding-bottom: calc(var(--study-wave-height) + 8px);
 }
+
+.study-hs-heading-line {
+  margin-top: 10px;
+}
+
+.study-hs-heading p {
+  max-width: 700px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.study-hs-people {
+  max-width: 125px;
+}
+
+.study-hs-books {
+  max-width: 165px;
+  transform: translateY(8px);
+}
+
+/* JARAK KONTEN UTAMA */
+
+.study-hs-container {
+  padding-top: 20px;
+}
+
+.study-hs-content {
+  gap: 24px;
+}
+
+/* JUDUL DIAGRAM */
+
+.study-hs-chart-heading {
+  margin-bottom: 0;
+}
+
+.study-hs-chart-heading h3 {
+  margin-bottom: 4px;
+}
+
+/* DIAGRAM BATANG */
+
+.study-hs-chart {
+  height: clamp(160px, 15vw, 190px);
+  gap: 12px;
+}
+
+.study-hs-student {
+  margin-bottom: 7px;
+  font-size: 13px;
+}
+
+.study-hs-bar {
+  border-radius: 10px 10px 0 0;
+  padding: 8px 6px;
+}
+
+.study-hs-percent {
+  font-size: clamp(26px, 2.6vw, 34px);
+}
+
+.study-hs-bar-caption {
+  font-size: 11px;
+}
+
+/* RINCIAN BIAYA */
+
+.study-hs-fees-heading {
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.study-hs-fee-cards {
+  gap: 18px;
+}
+
+.study-hs-detail {
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.study-hs-divider {
+  margin: 10px 0 3px;
+}
+
+.study-hs-fee-row {
+  padding: 7px 0;
+}
+
+.study-hs-registration-note {
+  margin-top: auto;
+  padding: 8px 10px;
+}
+
+.study-hs-clipboard {
+  max-width: 175px;
+}
+
+/* RESPONSIVE MOBILE */
 
 @media (max-width: 768px) {
-  .study-hs {
-    padding-left: 18px;
-    padding-right: 18px;
+
+  .study-hs-banner {
+    padding-top: 38px;
+    padding-bottom: 40px;
   }
+
+  .study-hs-heading p {
+    font-size: 13px;
+  }
+
+  .study-hs-content {
+    gap: 24px;
+  }
+
+  .study-hs-chart {
+    height: 180px;
+    gap: 8px;
+  }
+
+  .study-hs-percent {
+    font-size: 25px;
+  }
+
+  .study-hs-bar-caption {
+    font-size: 10px;
+  }
+
+  .study-hs-detail {
+    padding: 16px;
+  }
+
 }
 
 @media (max-width: 480px) {
-  .study-hs {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
 
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.study-hs {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
+  .study-hs-chart {
+    height: 165px;
+    gap: 6px;
+  }
+
+  .study-hs-student {
+    font-size: 11px;
+  }
+
+  .study-hs-percent {
+    font-size: 23px;
+  }
+
+  .study-hs-bar-caption {
+    font-size: 9px;
+  }
+
+  .study-hs-fee-row span,
+  .study-hs-fee-row strong {
+    font-size: 12px;
+  }
+
 }

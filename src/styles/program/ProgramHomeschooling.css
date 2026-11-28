@@ -1,18 +1,24 @@
-
 /* =========================================
-   HOMESCHOOLING - HERO
-   WARNA UTAMA: UNGU & EMAS
+   HERO ALFATIHAH HOMESCHOOLING
 ========================================= */
 
 .homeschooling-hero {
+  --hs-primary: #92197B;
+  --hs-yellow: #FCD757;
+  --hs-wave-height: clamp(60px, 7vw, 105px);
+  --hs-wave-fill: #FFF9F5;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   width: 100%;
-  height: auto;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 52px 24px 58px;
-  background: #92197B;
+  padding:
+    75px
+    var(--pkbm-container-pad, 24px)
+    calc(var(--hs-wave-height) + 55px);
+
+  background: var(--hs-primary);
   font-family: "Poppins", sans-serif;
 }
 
@@ -22,72 +28,69 @@
   box-sizing: border-box;
 }
 
-.homeschooling-hero-container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 /* =========================================
-   LOGO
+   CONTAINER - DUA KOLOM
 ========================================= */
 
-.homeschooling-logo-card {
-  width: 270px;
-  max-width: 100%;
-  height: 105px;
-  display: flex;
+.homeschooling-hero-container {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
-  justify-content: center;
-  padding: 12px;
-  margin-bottom: 12px;
+  gap: clamp(32px, 5vw, 70px);
 
-  background: #FFFFFF;
-  border: 1px solid #F4E5EE;
-  border-radius: 16px;
-  box-shadow: 0 12px 32px rgba(48, 6, 38, 0.13);
-}
-
-.homeschooling-logo-card img {
-  display: block;
   width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  max-width: var(--pkbm-container-max, 1160px);
+  margin: 0 auto;
 }
 
 /* =========================================
-   LABEL & BADGE
+   KONTEN KIRI
+========================================= */
+
+.homeschooling-hero-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  text-align: left;
+}
+
+/* =========================================
+   LABEL DAN BADGE
 ========================================= */
 
 .homeschooling-hero-labels {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 18px;
+
+  margin-bottom: 22px;
 }
 
 .homeschooling-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 12px;
 
-  border: 1px solid #D9A035;
-  border-radius: 50px;
-  color: #FFE0A3;
+  padding: 8px 15px;
 
-  font-size: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+
+  color: #FFFFFF;
+
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.6px;
-  line-height: 1.2;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
 }
 
 .homeschooling-badge {
@@ -95,101 +98,121 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 6px 12px;
 
-  background: #FFE0A3;
-  color: #75194F;
-  border-radius: 50px;
+  padding: 8px 14px;
 
-  font-size: 10px;
+  background: var(--hs-yellow);
+  color: #4A0B45;
+
+  border-radius: 999px;
+
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .homeschooling-badge svg {
-  width: 14px;
-  height: 14px;
+  display: block;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
 }
 
 /* =========================================
-   HEADING
+   JUDUL HERO
 ========================================= */
 
 .homeschooling-hero h1 {
   width: 100%;
-  max-width: 1000px;
   margin: 0;
+
   color: #FFFFFF;
 
-  font-size: 48px;
+  font-size: clamp(32px, 3.4vw, 48px);
   font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -1px;
+  letter-spacing: -0.8px;
 }
 
-.homeschooling-hero h1 .homeschooling-hero-title-gold {
-  color: #D9A035;
+.homeschooling-hero-title-gold {
+  display: block;
+  color: var(--hs-yellow);
 }
+
+/* GARIS KUNING */
 
 .homeschooling-hero-divider {
-  width: 65px;
+  width: 55px;
   height: 4px;
-  margin: 20px auto;
-  background: #D9A035;
+
+  margin: 20px 0;
+
+  background: var(--hs-yellow);
   border-radius: 999px;
 }
 
 /* =========================================
-   DESCRIPTION
+   DESKRIPSI
 ========================================= */
 
 .homeschooling-hero-description {
-  max-width: 850px;
+  width: 100%;
+  max-width: 620px;
   margin: 0;
+
   color: #FFFFFF;
 
-  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.9;
+  line-height: 1.8;
+  letter-spacing: normal;
 }
 
-.homeschooling-hero-tagline {
-  max-width: 850px;
-  margin: 16px 0 0;
-  color: #FFE0A3;
+/* =========================================
+   TAGLINE
+========================================= */
 
-  font-size: 16px;
+.homeschooling-hero-tagline {
+  max-width: 620px;
+  margin: 16px 0 0;
+
+  color: var(--hs-yellow);
+
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.6;
 }
 
 /* =========================================
-   BUTTONS
+   TOMBOL CTA
 ========================================= */
 
 .homeschooling-hero-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 22px;
+  gap: 12px;
+
+  width: 100%;
+  margin-top: 26px;
 }
 
 .homeschooling-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 9px;
 
-  min-height: 50px;
-  padding: 13px 25px;
+  min-height: 48px;
+  padding: 12px 22px;
 
   border: 2px solid transparent;
-  border-radius: 12px;
+  border-radius: 999px;
 
-  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.4;
   text-decoration: none;
@@ -197,21 +220,32 @@
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+.homeschooling-btn svg {
+  flex-shrink: 0;
+}
+
+/* DAFTAR SEKARANG */
+
 .homeschooling-btn-primary {
-  background: #D9A035;
-  border-color: #D9A035;
-  color: #75194F;
+  background: var(--hs-yellow);
+  border-color: var(--hs-yellow);
+  color: #4A0B45;
 }
 
 .homeschooling-btn-primary:hover {
-  background: #E8B64F;
-  border-color: #E8B64F;
-  color: #75194F;
-  transform: translateY(-2px);
+  background: var(--hs-yellow);
+  border-color: var(--hs-yellow);
+  color: #4A0B45;
+
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 11, 69, 0.2);
 }
+
+/* KONSULTASI WHATSAPP */
 
 .homeschooling-btn-secondary {
   background: transparent;
@@ -223,7 +257,8 @@
   background: rgba(255, 255, 255, 0.12);
   border-color: #FFFFFF;
   color: #FFFFFF;
-  transform: translateY(-2px);
+
+  transform: translateY(-3px);
 }
 
 .homeschooling-btn:focus-visible {
@@ -232,24 +267,195 @@
 }
 
 /* =========================================
+   VISUAL HERO - KOLOM KANAN
+========================================= */
+
+.homeschooling-hero-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  padding: 35px 12px 30px;
+}
+
+/* DEKORASI AWAN */
+
+.homeschooling-cloud {
+  position: absolute;
+  top: -15px;
+  left: -45px;
+  z-index: 0;
+
+  display: block;
+  width: clamp(75px, 9vw, 125px);
+  height: auto;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   BINGKAI FOTO
+========================================= */
+
+.homeschooling-photo-wrap {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 520px;
+}
+
+/* LAPISAN KUNING DI BELAKANG FOTO */
+
+.homeschooling-photo-wrap::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: var(--hs-yellow);
+  border-radius: 48px 48px 65px 48px;
+
+  transform: translate(10px, 8px) rotate(3deg);
+}
+
+/* BINGKAI PUTIH */
+
+.homeschooling-photo-frame {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 5 / 4;
+
+  padding: 7px;
+
+  background: #FFFFFF;
+  border-radius: 48px 48px 65px 48px;
+
+  box-shadow: 0 15px 35px rgba(64, 9, 56, 0.18);
+
+  transform: rotate(-4deg);
+}
+
+/* FOTO */
+
+.homeschooling-photo-frame img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 41px 41px 58px 41px;
+}
+
+/* =========================================
+   GELOMBANG BAWAH HERO
+========================================= */
+
+.homeschooling-hero-wave {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: var(--hs-wave-height);
+
+  pointer-events: none;
+}
+
+.homeschooling-hero-wave path {
+  fill: var(--hs-wave-fill);
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .homeschooling-hero-container {
+    gap: 35px;
+  }
+
+  .homeschooling-hero h1 {
+    font-size: clamp(32px, 3.5vw, 42px);
+  }
+
+  .homeschooling-btn {
+    padding: 11px 17px;
+    font-size: 12px;
+  }
+
+  .homeschooling-cloud {
+    left: -25px;
+  }
+}
+
+/* =========================================
    TABLET
 ========================================= */
 
 @media (max-width: 992px) {
   .homeschooling-hero {
-    padding: 48px 24px 54px;
+    padding-top: 55px;
+    padding-bottom: calc(var(--hs-wave-height) + 40px);
   }
 
-  .homeschooling-hero-labels {
-    margin-bottom: 18px;
+  .homeschooling-hero-container {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 30px;
   }
 
   .homeschooling-hero h1 {
-    font-size: clamp(32px, 4.5vw, 40px);
+    font-size: clamp(29px, 3.7vw, 38px);
   }
 
-  .homeschooling-hero-description {
-    font-size: 15px;
+  .homeschooling-hero-labels {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .homeschooling-label,
+  .homeschooling-badge {
+    font-size: 10px;
+    padding: 7px 11px;
+  }
+
+  .homeschooling-hero-tagline {
+    font-size: 14px;
+  }
+
+  .homeschooling-btn {
+    font-size: 12px;
+    padding: 11px 16px;
+  }
+
+  .homeschooling-photo-frame {
+    border-radius: 36px 36px 48px 36px;
+  }
+
+  .homeschooling-photo-frame img {
+    border-radius: 29px 29px 41px 29px;
+  }
+
+  .homeschooling-photo-wrap::before {
+    border-radius: 36px 36px 48px 36px;
+  }
+
+  .homeschooling-cloud {
+    top: -5px;
+    left: -15px;
   }
 }
 
@@ -259,34 +465,63 @@
 
 @media (max-width: 768px) {
   .homeschooling-hero {
-    padding: 46px 20px 54px;
+    --hs-wave-height: 60px;
+
+    padding-top: 40px;
+    padding-bottom: calc(var(--hs-wave-height) + 30px);
   }
 
-  .homeschooling-logo-card {
-    width: 190px;
-    max-width: 100%;
-    height: 95px;
-    min-height: 0;
-    padding: 12px;
-    margin-bottom: 12px;
+  .homeschooling-hero-container {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+    gap: 24px;
   }
 
-  .homeschooling-logo-card img {
-    max-height: 100%;
+  /* FOTO DI ATAS */
+
+  .homeschooling-hero-visual {
+    order: -1;
+
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 18px 18px;
+  }
+
+  .homeschooling-photo-frame {
+    aspect-ratio: 5 / 4;
+    padding: 6px;
+    transform: rotate(-3deg);
+  }
+
+  .homeschooling-photo-wrap::before {
+    transform: translate(7px, 6px) rotate(3deg);
+  }
+
+  .homeschooling-cloud {
+    top: 0;
+    left: 0;
+    width: 75px;
+  }
+
+  /* KONTEN TENGAH */
+
+  .homeschooling-hero-content {
+    align-items: center;
+    text-align: center;
   }
 
   .homeschooling-hero-labels {
-    gap: 8px;
+    justify-content: center;
     margin-bottom: 16px;
   }
 
   .homeschooling-hero h1 {
-    font-size: clamp(30px, 6vw, 40px);
-    letter-spacing: -0.6px;
+    font-size: clamp(29px, 6vw, 38px);
+    letter-spacing: -0.5px;
   }
 
   .homeschooling-hero-divider {
-    margin: 22px auto;
+    margin: 18px auto;
   }
 
   .homeschooling-hero-description {
@@ -295,20 +530,14 @@
   }
 
   .homeschooling-hero-tagline {
-    font-size: 15px;
+    margin-top: 14px;
+    font-size: 14px;
   }
 
   .homeschooling-hero-actions {
-    width: 100%;
-    flex-direction: column;
+    justify-content: center;
     gap: 12px;
     margin-top: 22px;
-  }
-
-  .homeschooling-btn {
-    width: 100%;
-    max-width: 350px;
-    min-height: 49px;
   }
 }
 
@@ -318,11 +547,41 @@
 
 @media (max-width: 480px) {
   .homeschooling-hero {
-    padding: 42px 18px 50px;
+    --hs-wave-height: 45px;
+
+    padding-top: 30px;
+    padding-bottom: calc(var(--hs-wave-height) + 30px);
+  }
+
+  .homeschooling-hero-container {
+    gap: 20px;
+  }
+
+  .homeschooling-hero-visual {
+    max-width: 330px;
+    padding: 15px 12px;
+  }
+
+  .homeschooling-photo-frame {
+    border-radius: 28px 28px 40px 28px;
+  }
+
+  .homeschooling-photo-frame img {
+    border-radius: 22px 22px 34px 22px;
+  }
+
+  .homeschooling-photo-wrap::before {
+    border-radius: 28px 28px 40px 28px;
   }
 
   .homeschooling-hero h1 {
-    font-size: clamp(28px, 8vw, 34px);
+    font-size: clamp(26px, 7.5vw, 33px);
+  }
+
+  .homeschooling-label,
+  .homeschooling-badge {
+    font-size: 9px;
+    padding: 6px 10px;
   }
 
   .homeschooling-hero-description {
@@ -330,24 +589,24 @@
   }
 
   .homeschooling-hero-tagline {
-    font-size: 14px;
+    font-size: 13px;
   }
 
-  .homeschooling-label {
-    padding: 6px 10px;
-    font-size: 9px;
-    letter-spacing: 0.35px;
+  .homeschooling-hero-actions {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .homeschooling-badge {
-    padding: 6px 10px;
-    font-size: 9px;
-    letter-spacing: 0.15px;
+  .homeschooling-btn {
+    width: 100%;
+    max-width: 300px;
+    min-height: 46px;
+    font-size: 13px;
   }
 }
 
 /* =========================================
-   REDUCED MOTION
+   AKSESIBILITAS
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {

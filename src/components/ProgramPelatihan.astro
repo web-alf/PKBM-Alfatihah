@@ -1,0 +1,301 @@
+---
+import "../styles/program/ProgramPelatihan.css";
+
+import desainGrafis from "../assets/image/desaingrafis.webp";
+import advertising from "../assets/image/advertising.webp";
+import publicSpeaking from "../assets/image/publikspeaking.webp";
+
+const programs = [
+  {
+    id: "desain-grafis",
+    label: "Pelatihan Desain Grafis",
+    title: "Belajar bikin desain kece yang bikin orang melongo!",
+    intro: "Di sini kamu bakal:",
+    image: desainGrafis.src,
+    type: "image",
+    points: [
+      "Kenalan sama software desain populer kayak Adobe Photoshop, Illustrator, atau Canva",
+      "Pelajari teknik desain dari nol, mulai dari logo, poster, sampai social media content.",
+      "Dapat tips & trik dari mentor yang udah expert di dunia kreatif.",
+      "Proyek nyata? Pasti! Kamu bakal bikin portofolio keren buat modal kerja atau freelance.",
+    ],
+  },
+  {
+    id: "advertising",
+    label: "Pelatihan Advertising",
+    title: "Siap jadi jagoan iklan yang bikin produk laku keras?",
+    intro: "Yang bakal kamu pelajari:",
+    image: advertising.src,
+    type: "image",
+    points: [
+      "Dasar-dasar copywriting yang bikin orang langsung klik.",
+      "Strategi marketing di platform digital kayak Instagram, TikTok, atau Google Ads.",
+      "Cara bikin kampanye iklan yang catchy dan efektif.",
+      "Latihan langsung bikin campaign dari awal sampai analisis hasilnya.",
+    ],
+  },
+  {
+    id: "public-speaking",
+    label: "Pelatihan Public Speaking",
+    title: "Public speaking kamu bakal naik level dan bikin semua orang kagum!",
+    intro: "Yang bakal kamu pelajari:",
+    image: publicSpeaking.src,
+    type: "image",
+    points: [
+      "Semua materi dirancang sesuai kebutuhan zaman sekarang. Kamu bakal belajar gaya bicara yang relevan dan impactful.",
+      "Bukan cuma teori, kamu bakal langsung latihan ngomong depan temen-temen biar makin luwes.",
+      "Nggak ada lagi gugup pas presentasi atau ngomong di depan banyak orang. Kamu bakal tampil lebih pro!",
+      "Nggak cuma jadi public speaker, tapi kamu bakal siap jadi orang yang bisa memotivasi dan menginspirasi banyak orang.",
+    ],
+  },
+  {
+    id: "hidroponik",
+    label: "Pelatihan Hidroponik",
+    title: "Pengen bercocok tanam tanpa ribet tanah? Hidroponik solusinya!",
+    intro: "Apa aja yang kamu dapet?",
+    video: "https://drive.google.com/file/d/1r8aHWPEbizFCPYsV3ZQdfrKJQYMRBXXp/preview",
+    type: "video",
+    points: [
+      "Belajar dasar-dasar hidroponik, mulai dari peralatan sampai nutrisi tanaman.",
+      "Praktek langsung bikin sistem hidroponik sendiri (dan bawa hasilnya pulang!).",
+      "Tips panen sayur segar yang sehat dan bisa dijual.",
+      "Mentor yang bakal ajarin cara ngejalanin bisnis hidroponik dari nol.",
+    ],
+  },
+];
+---
+
+<section
+  class="program-pelatihan"
+  id="program-pelatihan"
+  aria-labelledby="program-pelatihan-title"
+>
+  <div class="program-pelatihan-container">
+
+    <!-- HEADING -->
+    <header class="program-pelatihan-heading">
+      <span class="program-pelatihan-heading-badge">
+        Pilihan Program
+      </span>
+
+      <h2 id="program-pelatihan-title">
+        Pilihan Program Pelatihan Keterampilan
+      </h2>
+
+      <span
+        class="program-pelatihan-divider"
+        aria-hidden="true"
+      ></span>
+    </header>
+
+    <!-- GRID PROGRAM -->
+    <div class="program-pelatihan-grid">
+
+      {programs.map((program) => (
+        <article class:list={[
+          "program-pelatihan-card",
+          `program-pelatihan-card--${program.id}`
+        ]}>
+
+          <!-- FOTO / VIDEO -->
+          <div class="program-pelatihan-media">
+            {program.type === "video" ? (
+              <iframe
+                src={program.video}
+                title="Video Pelatihan Hidroponik"
+                loading="lazy"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe>
+            ) : (
+              <img
+                src={program.image}
+                alt={program.label}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+          </div>
+
+          <!-- ISI CARD -->
+          <div class="program-pelatihan-content">
+
+            <!-- LABEL DAN IKON -->
+            <div class="program-pelatihan-label">
+
+              <span
+                class="program-pelatihan-icon"
+                aria-hidden="true"
+              >
+
+                {program.id === "desain-grafis" && (
+                  <svg viewBox="0 0 48 48" fill="none">
+                    <path
+                      d="M24 5C13 5 5 13 5 24C5 34 13 42 23 42H27C31 42 33 38 30 35C27 32 29 29 33 29H36C42 29 44 24 42 18C39 10 32 5 24 5Z"
+                      fill="#A74E92"
+                    />
+                    <path
+                      d="M10 28C14 35 19 38 26 38"
+                      stroke="#92197B"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="15" cy="18" r="4" fill="#FCD757"/>
+                    <circle cx="25" cy="13" r="4" fill="#FFF9F5"/>
+                    <circle cx="34" cy="19" r="4" fill="#FCD757"/>
+                    <circle cx="14" cy="29" r="3" fill="#F5B4DB"/>
+                  </svg>
+                )}
+
+                {program.id === "advertising" && (
+                  <svg viewBox="0 0 48 48" fill="none">
+                    <g transform="rotate(-15 24 24)">
+                      <rect
+                        x="9" y="26"
+                        width="9" height="16"
+                        rx="4"
+                        fill="#92197B"
+                      />
+                      <rect
+                        x="4" y="17"
+                        width="13" height="15"
+                        rx="5"
+                        fill="#A74E92"
+                      />
+                      <path
+                        d="M15 17L35 8V40L15 32Z"
+                        fill="#FCD757"
+                      />
+                      <ellipse
+                        cx="35" cy="24"
+                        rx="7" ry="16"
+                        fill="#E9AC16"
+                      />
+                      <ellipse
+                        cx="36" cy="24"
+                        rx="4" ry="11"
+                        fill="#FFF1B4"
+                      />
+                    </g>
+                  </svg>
+                )}
+
+                {program.id === "public-speaking" && (
+                  <svg viewBox="0 0 48 48" fill="none">
+                    <rect
+                      x="16" y="3"
+                      width="16" height="28"
+                      rx="8"
+                      fill="#A74E92"
+                    />
+                    <path
+                      d="M10 23V25C10 33 16 37 24 37C32 37 38 33 38 25V23"
+                      stroke="#92197B"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M24 37V44M16 44H32"
+                      stroke="#92197B"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M19 12H29M19 18H29M19 24H29"
+                      stroke="#F8D9EE"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                )}
+
+                {program.id === "hidroponik" && (
+                  <svg viewBox="0 0 48 48" fill="none">
+                    <path
+                      d="M24 34V13"
+                      stroke="#478D32"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M24 23C10 24 5 16 6 7C17 7 24 12 24 23Z"
+                      fill="#8BC34A"
+                    />
+                    <path
+                      d="M24 17C24 7 32 3 42 4C41 14 35 20 24 17Z"
+                      fill="#57A63E"
+                    />
+                    <path
+                      d="M5 34Q10 29 15 34T25 34T35 34T45 34"
+                      stroke="#65BDE1"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M5 41Q10 36 15 41T25 41T35 41T45 41"
+                      stroke="#65BDE1"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                )}
+
+              </span>
+
+              <span>{program.label}</span>
+
+            </div>
+
+            <!-- JUDUL PROGRAM -->
+            <h3>{program.title}</h3>
+
+            <p class="program-pelatihan-intro">
+              {program.intro}
+            </p>
+
+            <!-- CHECKLIST -->
+            <ul class="program-pelatihan-list">
+              {program.points.map((point) => (
+                <li>
+                  <span
+                    class="program-pelatihan-check"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12L10 17L19 7"/>
+                    </svg>
+                  </span>
+
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+          </div>
+
+          <!-- ORNAMEN SUDUT CARD -->
+          <svg
+            class="program-pelatihan-card-ornament"
+            viewBox="0 0 160 75"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 75C65 72 124 45 160 0V75H0Z"
+              fill="#F8D9EE"
+            />
+          </svg>
+
+        </article>
+      ))}
+
+    </div>
+  </div>
+</section>

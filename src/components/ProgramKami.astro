@@ -61,6 +61,7 @@ const programs = [
 >
   <div class="program-kami-container">
 
+    <!-- JUDUL SECTION -->
     <div class="program-kami-heading">
       <h2 id="program-kami-title">
         Program apa saja yang ada di PKBM Alfatihah?
@@ -69,43 +70,103 @@ const programs = [
       <div class="program-kami-heading-line"></div>
     </div>
 
+    <!-- GRID PROGRAM -->
     <div class="program-kami-grid">
-      {programs.map((program) => (
-        <article class="program-kami-card">
-
-          <div class="program-kami-card-header">
-            <img class="program-kami-logo" src={program.logo.src} alt="" />
-            <h3>{program.title}</h3>
-          </div>
-
-          <p class="program-kami-description">
-            {program.description}
-          </p>
-
-          <a
-            href={program.href}
-            class="program-kami-price-box"
-            aria-label={`Lihat program ${program.title}, ${program.priceLabel} ${program.price} ${program.period}`}
+      {
+        programs.map((program) => (
+          <article
+            class:list={[
+              "program-kami-card",
+              `program-kami-card--${program.id}`,
+            ]}
           >
-            <div class="program-kami-price-info">
-              <span class="program-kami-price-label">
-                {program.priceLabel}
-              </span>
 
-              <div class="program-kami-price-value">
-                <strong>{program.price}</strong>
-                <span>{program.period}</span>
-              </div>
+            <!-- AREA LOGO -->
+            <div class="program-kami-card-header">
+              <img
+                class="program-kami-logo"
+                src={program.logo.src}
+                width={program.logo.width}
+                height={program.logo.height}
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
-            <span class="program-kami-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
+            <!-- ISI KARTU -->
+            <div class="program-kami-card-body">
 
-        </article>
-      ))}
+              <h3>{program.title}</h3>
+
+              <p class="program-kami-description">
+                {program.description}
+              </p>
+
+              <!-- HARGA DAN TOMBOL -->
+              <a
+                href={program.href}
+                class="program-kami-price-box"
+                aria-label={`Lihat program ${program.title}, ${program.priceLabel} ${program.price} ${program.period}`}
+              >
+                <div class="program-kami-price-info">
+
+                  <span class="program-kami-price-label">
+                    {program.priceLabel}
+                  </span>
+
+                  <div class="program-kami-price-value">
+                    <strong>{program.price}</strong>
+                    <span>{program.period}</span>
+                  </div>
+
+                </div>
+
+                <span
+                  class="program-kami-arrow"
+                  aria-hidden="true"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="19"
+                    height="19"
+                    fill="none"
+                  >
+                    <path
+                      d="M5 12H19M13 6L19 12L13 18"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+
+              </a>
+
+            </div>
+
+          </article>
+        ))
+      }
     </div>
 
   </div>
+
+  <!-- GELOMBANG BAWAH -->
+  <svg
+    class="program-kami-wave"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0 66
+         C170 34 400 22 640 46
+         C860 68 1050 100 1240 82
+         C1330 74 1390 58 1440 46
+         V120 H0Z"
+    />
+  </svg>
 </section>

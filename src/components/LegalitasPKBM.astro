@@ -1,0 +1,189 @@
+---
+import { Image, getImage } from "astro:assets";
+import IkonCentang from "./IkonCentang.astro";
+import PetikKuning from "./PetikKuning.astro";
+import sertifikatNpsn from "../assets/image/SRTIFIKAT-NSPN-PKBM20241205_15125091_page-0001.webp";
+import sertifikatPkbm from "../assets/image/SRTIFIKAT-PKBM20241205_15121459_page-0001.webp";
+import skPendiri from "../assets/image/13a.-SK-PENDIRI-DAN-KEMENKUHAM-YAYASAN_11zon_page-0001.webp";
+import "../styles/about/TentangKami.css";
+import "../styles/about/LegalitasPKBM.css";
+
+const ijazah = {
+  intro:
+    "Peserta didik PKBM Alfatihah dapat memperoleh ijazah dengan cara mengikuti ujian kesetaraan yang diselenggarakan oleh Kementerian Pendidikan dan Kebudayaan. Ujian Kesetaraan terdiri atas tiga jenjang, yaitu:",
+  outro:
+    "Dengan memiliki ijazah tersebut, lulusan dari PKBM Alfatihah dapat melanjutkan pendidikannya ke jenjang pendidikan formal yang lebih tinggi baik negeri maupun swasta atau juga tetap ingin melanjutkan pada PKBM Alfatihah.",
+};
+
+const paket = [
+  { title: "Kejar Paket A", level: "Setara SD" },
+  { title: "Kejar Paket B", level: "Setara SMP" },
+  { title: "Kejar Paket C", level: "Setara SMA" },
+];
+
+const legalitas = [
+  "Rekomendasi Kemenkum dan HAM No : AHU-0001974.AH.01.04 Tahun 2023",
+  "No. SK Pendirian : 421.3/4/DPM-PTSP/PKBM/X/2024",
+  "No. SK Ijin Operasional : B/27669/421.9/XI/2024",
+  "NPSN : P9999907",
+];
+
+const sertifikat = [
+  { src: sertifikatNpsn, alt: "Sertifikat NPSN PKBM Alfatihah" },
+  { src: skPendiri, alt: "SK Pendirian dan Kemenkum HAM Yayasan" },
+  { src: sertifikatPkbm, alt: "Sertifikat PKBM Alfatihah" },
+];
+
+const slides = await Promise.all(
+  sertifikat.map(async (item) => ({
+    ...item,
+    full: (await getImage({ src: item.src, width: 1240 })).src,
+  })),
+);
+---
+
+<section class="legalitas-section" aria-labelledby="legalitas-ijazah-title">
+  <div class="tentang-container legalitas-layout">
+    <div class="legalitas-col legalitas-ijazah">
+      <h2 id="legalitas-ijazah-title" class="legalitas-title">Legalitas Ijazah</h2>
+      <div class="legalitas-accent"></div>
+
+      <p>{ijazah.intro}</p>
+
+      <ul class="paket-grid">
+        {paket.map((p) => (
+          <li class="paket-card">
+            <svg class="paket-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <path d="M24 8L3 19L24 30L45 19L24 8Z" fill="currentColor"></path>
+              <path
+                d="M12 25.5V33C12 36.5 17.4 40 24 40C30.6 40 36 36.5 36 33V25.5L24 31.8L12 25.5Z"
+                fill="currentColor"
+              ></path>
+              <path
+                d="M42 21V32"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                fill="none"
+              ></path>
+            </svg>
+            <strong>{p.title}</strong>
+            <span>{p.level}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p>{ijazah.outro}</p>
+    </div>
+
+    <div class="legalitas-divider" aria-hidden="true"></div>
+
+    <div class="legalitas-col legalitas-pkbm">
+      <h2 class="legalitas-title">Legalitas PKBM Alfatihah</h2>
+      <div class="legalitas-accent"></div>
+
+      <div class="legalitas-body">
+        <ul class="legalitas-list">
+          {legalitas.map((item) => (
+            <li>
+              <span class="legalitas-check">
+                <IkonCentang />
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="legalitas-carousel" data-carousel>
+          <PetikKuning side="right" class="legalitas-petik" />
+
+          <div class="legalitas-frame">
+            <div class="legalitas-track" data-track tabindex="0" aria-label="Sertifikat legalitas">
+              {slides.map((s, i) => (
+                <div class="legalitas-slide" role="group" aria-label={`Sertifikat ${i + 1} dari ${slides.length}`}>
+                  <button type="button" class="legalitas-open" data-full={s.full} data-alt={s.alt} aria-label={`Perbesar: ${s.alt}`}>
+                    <Image src={s.src} alt={s.alt} width={520} loading={i === 0 ? "eager" : "lazy"} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button type="button" class="legalitas-nav is-prev" data-prev aria-label="Sertifikat sebelumnya">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4L6 10L12 16"></path></svg>
+          </button>
+          <button type="button" class="legalitas-nav is-next" data-next aria-label="Sertifikat berikutnya">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4L14 10L8 16"></path></svg>
+          </button>
+
+          <div class="legalitas-dots">
+            {slides.map((_, i) => (
+              <button type="button" class="legalitas-dot" data-dot={i} aria-label={`Ke sertifikat ${i + 1}`}></button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog class="legalitas-modal" data-modal aria-label="Sertifikat ukuran besar">
+    <button type="button" class="legalitas-modal-close" data-close aria-label="Tutup">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M5 5L15 15M15 5L5 15"></path></svg>
+    </button>
+    <img data-modal-img alt="" />
+  </dialog>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((root) => {
+    const track = root.querySelector<HTMLElement>("[data-track]")!;
+    const dots = Array.from(root.querySelectorAll<HTMLElement>("[data-dot]"));
+    const count = dots.length;
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+
+    const goTo = (index: number) => {
+      const next = (index + count) % count;
+      track.scrollTo({ left: next * track.clientWidth, behavior: "smooth" });
+    };
+
+    const sync = () => {
+      const active = Math.min(current(), count - 1);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === active);
+        dot.setAttribute("aria-current", String(i === active));
+      });
+    };
+
+    root.querySelector("[data-prev]")?.addEventListener("click", () => goTo(current() - 1));
+    root.querySelector("[data-next]")?.addEventListener("click", () => goTo(current() + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+    track.addEventListener("scroll", sync, { passive: true });
+    track.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goTo(current() - 1);
+      if (e.key === "ArrowRight") goTo(current() + 1);
+    });
+    window.addEventListener("resize", () => track.scrollTo({ left: current() * track.clientWidth }));
+    sync();
+  });
+
+  const modal = document.querySelector<HTMLDialogElement>("[data-modal]");
+  const modalImg = modal?.querySelector<HTMLImageElement>("[data-modal-img]");
+
+  document.querySelectorAll<HTMLElement>(".legalitas-open").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!modal || !modalImg) return;
+      modalImg.src = btn.dataset.full ?? "";
+      modalImg.alt = btn.dataset.alt ?? "";
+      modal.showModal();
+    });
+  });
+
+  modal?.querySelector("[data-close]")?.addEventListener("click", () => modal.close());
+  // Klik area gelap (di luar gambar) menutup modal.
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) modal.close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.open) modal.close();
+  });
+</script>

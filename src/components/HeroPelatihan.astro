@@ -1,0 +1,75 @@
+---
+import "../styles/program/HeroPelatihan.css";
+import pelatihanImage from "../assets/image/pelatihan.webp";
+---
+
+<section class="hero-pelatihan" id="hero-pelatihan">
+  <div class="hero-pelatihan-container">
+
+    <div class="hero-pelatihan-content">
+
+      <span class="hero-pelatihan-label">
+        PKBM Alfatihah
+      </span>
+
+      <h1>
+        Pelatihan<br />
+        Keterampilan
+      </h1>
+
+      <div class="hero-pelatihan-tagline">
+        Upgrade Skill, Siap Jadi Pro!
+      </div>
+
+      <p>
+        Hai, kamu yang pengen jadi ahli di bidang kreatif atau
+        bercocok tanam modern! Lagi nyari pelatihan seru, praktis,
+        dan kekinian? Yuk gabung di <strong>PKBM Alfatihah!</strong>{" "}
+        Kami punya program pelatihan yang bikin kamu jago desain
+        grafis, handal di dunia advertising, atau bahkan sukses
+        panen hidroponik. Nggak cuma teori, disini kamu langsung
+        praktek dan siap terjun ke dunia nyata.
+      </p>
+
+    </div>
+
+    <div class="hero-pelatihan-visual">
+
+      <!-- Lapisan putih belakang -->
+      <div
+        class="hero-pelatihan-photo-back"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Bingkai foto utama -->
+      <div class="hero-pelatihan-photo-frame">
+        <img
+          src={pelatihanImage.src}
+          width={pelatihanImage.width}
+          height={pelatihanImage.height}
+          alt="Kegiatan Pelatihan Keterampilan PKBM Alfatihah"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Wave bawah -->
+  <svg
+    class="hero-pelatihan-wave"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 55
+         C240 0 420 35 650 65
+         C900 95 1120 0 1440 55
+         V100 H0 Z"
+    />
+  </svg>
+
+</section>

@@ -1,9 +1,9 @@
-
 ---
 import "../styles/program/AlurPendaftaranKesetaraan.css";
 
-const linkFormulir =
-  "/pendaftaran";
+import folderImage from "../assets/image/Golden Folder with Documents.webp";
+
+const linkFormulir = "/pendaftaran";
 
 const linkWhatsApp = "https://wa.me/6285319485269";
 
@@ -11,28 +11,33 @@ const langkahPendaftaran = [
   {
     nomor: "1",
     judul: "Hubungi kami",
+    icon: "phone",
   },
   {
     nomor: "2",
     judul: "Bayar & konfirmasi",
     deskripsi: "biaya pendaftaran.",
+    icon: "payment",
   },
   {
     nomor: "3",
     judul: "Lampirkan dokumen",
     deskripsi: "yang dibutuhkan.",
+    icon: "document",
   },
   {
     nomor: "4",
     judul: "Persiapan tutor",
     deskripsi:
       "Tim Alfatihah menyiapkan tutor profesional dan sistem KBM (estimasi 5 jam – 3 hari kerja).",
+    icon: "users",
   },
   {
     nomor: "5",
     judul: "Sesi perdana",
     deskripsi:
       "Tutor menghubungi warga belajar, menyepakati jadwal, dan belajar dimulai.",
+    icon: "rocket",
   },
 ];
 
@@ -53,7 +58,8 @@ const dokumenPersyaratan = [
 >
   <div class="alur-pendaftaran-container">
 
-    <!-- JUDUL -->
+    <!-- JUDUL SECTION -->
+
     <header class="alur-pendaftaran-heading">
       <h2 id="alur-pendaftaran-title">
         Bagaimana cara mendaftar?
@@ -71,9 +77,12 @@ const dokumenPersyaratan = [
     </header>
 
     <!-- TIMELINE PENDAFTARAN -->
+
     <ol class="alur-pendaftaran-timeline">
       {langkahPendaftaran.map((langkah) => (
         <li class="alur-pendaftaran-step">
+
+          <!-- NOMOR -->
 
           <div
             class="alur-pendaftaran-marker"
@@ -82,8 +91,244 @@ const dokumenPersyaratan = [
             <span>{langkah.nomor}</span>
           </div>
 
+          <!-- CARD LANGKAH -->
+
           <article class="alur-pendaftaran-card">
+
+            <!-- IKON -->
+
+            <div
+              class="alur-pendaftaran-icon"
+              aria-hidden="true"
+            >
+
+              <!-- IKON TELEPON -->
+
+              {langkah.icon === "phone" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <defs>
+                    <linearGradient id="alur-phone-gradient"
+                      x1="7" y1="4" x2="43" y2="41"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#B13D99" />
+                      <stop offset="1" stop-color="#6B1259" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse cx="25" cy="44" rx="16" ry="2.5"
+                    fill="#92197B" opacity=".12" />
+
+                  <path
+                    d="M13 5C10 4 7 7 7 11C7 26 22 41 37 41C41 41 44 38 43 35L39 27C38 25 36 25 34 26L29 29C23 26 19 22 16 16L19 11C20 9 19 7 17 6L13 5Z"
+                    fill="url(#alur-phone-gradient)"
+                    stroke="#6B1259"
+                    stroke-width="1.2"
+                  />
+                  <path
+                    d="M28 7C35 9 39 13 41 20M27 14C31 15 33 17 34 21"
+                    stroke="#FCD757"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )}
+
+              <!-- IKON PEMBAYARAN -->
+
+              {langkah.icon === "payment" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <defs>
+                    <linearGradient id="alur-payment-gradient"
+                      x1="7" y1="5" x2="34" y2="42"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#B13D99" />
+                      <stop offset="1" stop-color="#6B1259" />
+                    </linearGradient>
+
+                    <linearGradient id="alur-payment-pencil"
+                      x1="25" y1="16" x2="44" y2="35"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FFE8A0" />
+                      <stop offset="1" stop-color="#FCD757" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse cx="25" cy="45" rx="18" ry="2.5"
+                    fill="#92197B" opacity=".12" />
+
+                  <rect
+                    x="7" y="5" width="27" height="37" rx="3"
+                    fill="url(#alur-payment-gradient)"
+                    stroke="#6B1259"
+                    stroke-width="1.2"
+                  />
+                  <path
+                    d="M14 13H27M14 20H25M14 27H21"
+                    stroke="#FFFFFF"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    opacity=".85"
+                  />
+                  <path
+                    d="M25 29L38 16L44 22L31 35L23 37L25 29Z"
+                    fill="url(#alur-payment-pencil)"
+                    stroke="#FCD757"
+                    stroke-width="1"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M37 17L43 23"
+                    stroke="#92197B"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )}
+
+              <!-- IKON DOKUMEN -->
+
+              {langkah.icon === "document" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <defs>
+                    <linearGradient id="alur-document-gradient"
+                      x1="10" y1="4" x2="39" y2="42"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#B13D99" />
+                      <stop offset="1" stop-color="#6B1259" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse cx="24" cy="45" rx="17" ry="2.5"
+                    fill="#92197B" opacity=".12" />
+
+                  <path
+                    d="M10 4H28L39 15V42H10V4Z"
+                    fill="url(#alur-document-gradient)"
+                    stroke="#6B1259"
+                    stroke-width="1.2"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M28 4V15H39"
+                    fill="#FFFFFF"
+                    opacity=".25"
+                    stroke="#FFFFFF"
+                    stroke-width="1"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17 22H32M17 29H32M17 36H28"
+                    stroke="#FCD757"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )}
+
+              <!-- IKON TUTOR -->
+
+              {langkah.icon === "users" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <defs>
+                    <linearGradient id="alur-users-gradient"
+                      x1="13" y1="21" x2="35" y2="40"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#B13D99" />
+                      <stop offset="1" stop-color="#6B1259" />
+                    </linearGradient>
+
+                    <linearGradient id="alur-users-side-gradient"
+                      x1="2" y1="23" x2="46" y2="36"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FFE8A0" />
+                      <stop offset="1" stop-color="#FCD757" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse cx="24" cy="45" rx="20" ry="2.5"
+                    fill="#92197B" opacity=".12" />
+
+                  <circle cx="9" cy="17" r="5"
+                    fill="url(#alur-users-side-gradient)" opacity=".9" />
+                  <circle cx="39" cy="17" r="5"
+                    fill="url(#alur-users-side-gradient)" opacity=".9" />
+
+                  <path
+                    d="M2 34V29C2 24 5 23 9 23H13C10 26 10 30 10 36H5C3 36 2 35 2 34ZM46 34V29C46 24 43 23 39 23H35C38 26 38 30 38 36H43C45 36 46 35 46 34Z"
+                    fill="#FCD757"
+                    opacity=".55"
+                  />
+
+                  <circle cx="24" cy="12" r="7"
+                    fill="url(#alur-users-gradient)"
+                    stroke="#6B1259" stroke-width="1" />
+                  <path
+                    d="M13 35V30C13 23 18 21 24 21C30 21 35 23 35 30V35C35 38 33 40 30 40H18C15 40 13 38 13 35Z"
+                    fill="url(#alur-users-gradient)"
+                    stroke="#6B1259"
+                    stroke-width="1"
+                  />
+                </svg>
+              )}
+
+              <!-- IKON ROKET -->
+
+              {langkah.icon === "rocket" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <defs>
+                    <linearGradient id="alur-rocket-gradient"
+                      x1="17" y1="5" x2="43" y2="31"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#B13D99" />
+                      <stop offset="1" stop-color="#6B1259" />
+                    </linearGradient>
+
+                    <linearGradient id="alur-rocket-flame"
+                      x1="5" y1="31" x2="20" y2="44"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FFE8A0" />
+                      <stop offset="1" stop-color="#FCD757" />
+                    </linearGradient>
+                  </defs>
+
+                  <ellipse cx="24" cy="45" rx="19" ry="2.5"
+                    fill="#92197B" opacity=".12" />
+
+                  <path
+                    d="M17 30C19 15 29 5 43 5C43 19 33 29 18 31L17 30Z"
+                    fill="url(#alur-rocket-gradient)"
+                    stroke="#6B1259"
+                    stroke-width="1.2"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="32"
+                    cy="16"
+                    r="5"
+                    fill="#FFFFFF"
+                    stroke="#FCD757"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M19 18L9 20L4 29L17 28M30 29L28 39L19 44L20 31"
+                    fill="url(#alur-rocket-flame)"
+                    opacity=".9"
+                  />
+                  <path
+                    d="M13 33C8 34 6 38 5 44C11 43 15 41 16 36"
+                    fill="#FCD757"
+                    opacity=".7"
+                  />
+                </svg>
+              )}
+
+            </div>
+
+            <!-- JUDUL LANGKAH -->
+
             <h3>{langkah.judul}</h3>
+
+            <!-- DESKRIPSI -->
 
             {langkah.nomor === "1" ? (
               <p>
@@ -101,35 +346,70 @@ const dokumenPersyaratan = [
                   href={linkWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                >WhatsApp pendaftaran</a>.
+                >
+                  WhatsApp pendaftaran
+                </a>.
               </p>
             ) : (
               <p>{langkah.deskripsi}</p>
             )}
+
           </article>
 
         </li>
       ))}
     </ol>
 
-    <!-- DOKUMEN PERSYARATAN -->
+    <!-- PANEL DOKUMEN PERSYARATAN -->
+
     <div class="alur-pendaftaran-dokumen">
-      <h3>Dokumen yang perlu disiapkan</h3>
+
+      <!-- GAMBAR FOLDER DAN JUDUL -->
+
+      <div class="alur-pendaftaran-dokumen-heading">
+
+        <img
+          class="alur-pendaftaran-folder"
+          src={folderImage.src}
+          width={folderImage.width}
+          height={folderImage.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+
+        <h3>Dokumen yang perlu disiapkan</h3>
+
+      </div>
+
+      <!-- DAFTAR DOKUMEN -->
 
       <ul class="alur-pendaftaran-dokumen-grid">
         {dokumenPersyaratan.map((dokumen) => (
           <li>
+
             <span
               class="alur-pendaftaran-check"
               aria-hidden="true"
             >
-              ✓
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12L10 17L19 7" />
+              </svg>
             </span>
 
             <span>{dokumen}</span>
+
           </li>
         ))}
       </ul>
+
     </div>
 
   </div>

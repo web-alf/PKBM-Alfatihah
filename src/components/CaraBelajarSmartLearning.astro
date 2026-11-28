@@ -1,4 +1,3 @@
-
 ---
 import "../styles/program/CaraBelajarSmartLearning.css";
 ---
@@ -21,93 +20,450 @@ import "../styles/program/CaraBelajarSmartLearning.css";
     <!-- KONTEN UTAMA -->
     <div class="cara-smart-layout">
 
+      <!-- DEKORASI KIRI -->
+      <svg
+        class="cara-smart-petik cara-smart-petik-left"
+        viewBox="0 0 44 44"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 28L19 33M12 13L25 24M29 5L34 19"
+          stroke="#D9A035"
+          stroke-width="6"
+          stroke-linecap="round"
+        />
+      </svg>
+
+      <!-- DEKORASI KANAN -->
+      <svg
+        class="cara-smart-petik cara-smart-petik-right"
+        viewBox="0 0 44 44"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 28L19 33M12 13L25 24M29 5L34 19"
+          stroke="#D9A035"
+          stroke-width="6"
+          stroke-linecap="round"
+        />
+      </svg>
+
       <!-- EMPAT PILIHAN BELAJAR -->
       <div class="cara-smart-grid">
 
         <!-- PRIVATE CLASS -->
         <article class="cara-smart-card">
+
           <div class="cara-smart-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <circle cx="15" cy="14" r="6"
-                stroke="currentColor" stroke-width="2" />
-              <circle cx="33" cy="14" r="6"
-                stroke="currentColor" stroke-width="2" />
-              <path d="M4 35v-5a11 11 0 0 1 22 0v5M22 35v-5a11 11 0 0 1 22 0v5"
-                stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" />
-              <path d="M4 38h40"
-                stroke="#D9A035" stroke-width="2.5"
-                stroke-linecap="round" />
+
+            <svg viewBox="0 0 80 80" fill="none">
+              <defs>
+                <linearGradient
+                  id="cara-book-cover"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#B98FDD" />
+                  <stop offset="1" stop-color="#3C1E66" />
+                </linearGradient>
+
+                <linearGradient
+                  id="cara-book-page"
+                  x1="0" y1="0" x2="0" y2="1"
+                >
+                  <stop stop-color="#FFFDF8" />
+                  <stop offset="1" stop-color="#FFE4AC" />
+                </linearGradient>
+              </defs>
+
+              <ellipse
+                cx="40" cy="68" rx="28" ry="4"
+                fill="#3C1E66" opacity=".12"
+              />
+
+              <!-- Sampul buku -->
+              <path
+                d="M8 19Q24 13 40 24Q56 13 72 19V63Q56 57 40 67Q24 57 8 63Z"
+                fill="#2A1548"
+              />
+
+              <path
+                d="M8 14Q24 8 40 19Q56 8 72 14V58Q56 52 40 62Q24 52 8 58Z"
+                fill="url(#cara-book-cover)"
+                stroke="#3C1E66"
+                stroke-width="2"
+              />
+
+              <!-- Halaman kiri -->
+              <path
+                d="M13 12Q27 8 40 19V56Q27 46 13 50Z"
+                fill="url(#cara-book-page)"
+                stroke="#D9A035"
+                stroke-width="1.5"
+              />
+
+              <!-- Halaman kanan -->
+              <path
+                d="M67 12Q53 8 40 19V56Q53 46 67 50Z"
+                fill="url(#cara-book-page)"
+                stroke="#D9A035"
+                stroke-width="1.5"
+              />
+
+              <path
+                d="M40 19V56"
+                stroke="#D9A035"
+                stroke-width="2"
+              />
+
+              <!-- Garis tulisan -->
+              <path
+                d="M19 22Q27 21 34 26
+                   M19 30Q27 29 34 34
+                   M19 38Q27 37 34 42
+                   M46 26Q53 21 61 22
+                   M46 34Q53 29 61 30
+                   M46 42Q53 37 61 38"
+                stroke="#7E55B3"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+
+              <!-- Pembatas buku -->
+              <path
+                d="M51 14V33L56 29L61 33V12"
+                fill="#D9A035"
+              />
+
             </svg>
+
           </div>
 
           <div class="cara-smart-card-content">
             <h3>Private Class</h3>
             <p>Tatap muka 1 lawan 1 di PKBM Al-Fatihah.</p>
           </div>
+
         </article>
 
         <!-- ONLINE PRIVATE -->
         <article class="cara-smart-card">
+
           <div class="cara-smart-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <rect x="7" y="8" width="34" height="26" rx="2"
-                stroke="currentColor" stroke-width="2" />
-              <path d="M3 39h42l-4-5H7l-4 5Z"
-                stroke="currentColor" stroke-width="2"
-                stroke-linejoin="round" />
-              <path d="m21 16 10 5-10 5V16Z"
-                fill="#D9A035" />
+
+            <svg viewBox="0 0 80 80" fill="none">
+
+              <defs>
+                <linearGradient
+                  id="cara-laptop-body"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#B98FDD" />
+                  <stop offset=".5" stop-color="#7E55B3" />
+                  <stop offset="1" stop-color="#3C1E66" />
+                </linearGradient>
+
+                <linearGradient
+                  id="cara-laptop-screen"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#E3D4F3" />
+                  <stop offset="1" stop-color="#B394D9" />
+                </linearGradient>
+              </defs>
+
+              <ellipse
+                cx="40" cy="69" rx="30" ry="4"
+                fill="#3C1E66" opacity=".12"
+              />
+
+              <!-- Layar laptop -->
+              <rect
+                x="12" y="10"
+                width="56" height="43"
+                rx="7"
+                fill="url(#cara-laptop-body)"
+                stroke="#3C1E66"
+                stroke-width="2"
+              />
+
+              <rect
+                x="17" y="15"
+                width="46" height="32"
+                rx="4"
+                fill="url(#cara-laptop-screen)"
+              />
+
+              <!-- Kamera -->
+              <circle
+                cx="40" cy="12.5" r="1.5"
+                fill="#FFFFFF"
+              />
+
+              <!-- Tombol video -->
+              <rect
+                x="30" y="21"
+                width="20" height="20"
+                rx="5"
+                fill="#FFD17B"
+                stroke="#D9A035"
+                stroke-width="1.5"
+              />
+
+              <path
+                d="M37 26L45 31L37 36Z"
+                fill="#FFF9F5"
+                stroke="#D9A035"
+                stroke-width="1"
+                stroke-linejoin="round"
+              />
+
+              <!-- Keyboard -->
+              <path
+                d="M12 52H68L77 64Q78 69 72 69H8Q2 69 3 64Z"
+                fill="#3C1E66"
+              />
+
+              <path
+                d="M15 52H65L73 62H7Z"
+                fill="url(#cara-laptop-body)"
+              />
+
+              <!-- Touchpad -->
+              <rect
+                x="31" y="59"
+                width="18" height="4"
+                rx="2"
+                fill="#D8C2EE"
+              />
+
+              <path
+                d="M20 17H29"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+                opacity=".7"
+              />
+
             </svg>
+
           </div>
 
           <div class="cara-smart-card-content">
             <h3>Online Private</h3>
             <p>Sesi daring yang fleksibel, tanpa batas jarak.</p>
           </div>
+
         </article>
 
         <!-- HOME PRIVATE -->
         <article class="cara-smart-card">
+
           <div class="cara-smart-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M5 23 24 7l19 16"
-                stroke="currentColor" stroke-width="2.5"
+
+            <svg viewBox="0 0 80 80" fill="none">
+
+              <defs>
+                <linearGradient
+                  id="cara-house-roof"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#B98FDD" />
+                  <stop offset="1" stop-color="#3C1E66" />
+                </linearGradient>
+
+                <linearGradient
+                  id="cara-house-wall"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#FFF9F5" />
+                  <stop offset="1" stop-color="#E3D4F3" />
+                </linearGradient>
+              </defs>
+
+              <ellipse
+                cx="40" cy="69" rx="28" ry="4"
+                fill="#3C1E66" opacity=".12"
+              />
+
+              <!-- Cerobong -->
+              <rect
+                x="55" y="13"
+                width="10" height="21"
+                rx="2"
+                fill="#FFD17B"
+                stroke="#D9A035"
+                stroke-width="1.5"
+              />
+
+              <!-- Dinding -->
+              <path
+                d="M16 34L40 15L64 34V66H16Z"
+                fill="url(#cara-house-wall)"
+                stroke="#7E55B3"
+                stroke-width="1.5"
+              />
+
+              <!-- Atap -->
+              <path
+                d="M7 35L36 10Q40 6 44 10L73 35L67 42L40 19L13 42Z"
+                fill="url(#cara-house-roof)"
+                stroke="#3C1E66"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M13 34L39 12"
+                stroke="#E3D4F3"
+                stroke-width="2.5"
                 stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M10 21v21h28V21"
-                stroke="currentColor" stroke-width="2"
-                stroke-linejoin="round" />
-              <rect x="19" y="28" width="10" height="14"
-                stroke="currentColor" stroke-width="2" />
-              <rect x="31" y="26" width="5" height="6"
-                fill="#D9A035" />
+              />
+
+              <!-- Pintu -->
+              <path
+                d="M31 66V48Q40 37 49 48V66Z"
+                fill="#60358E"
+                stroke="#3C1E66"
+                stroke-width="1.5"
+              />
+
+              <circle
+                cx="44" cy="56" r="2"
+                fill="#FFD17B"
+              />
+
+              <!-- Jendela -->
+              <rect
+                x="20" y="40"
+                width="10" height="12"
+                rx="2"
+                fill="#FFD17B"
+                stroke="#D9A035"
+              />
+
+              <rect
+                x="51" y="40"
+                width="10" height="12"
+                rx="2"
+                fill="#FFD17B"
+                stroke="#D9A035"
+              />
+
+              <path
+                d="M25 40V52M20 46H30M56 40V52M51 46H61"
+                stroke="#FFF9F5"
+                stroke-width="1.5"
+              />
+
+              <rect
+                x="12" y="65"
+                width="56" height="5"
+                rx="2.5"
+                fill="#3C1E66"
+              />
+
             </svg>
+
           </div>
 
           <div class="cara-smart-card-content">
+
             <h3>Home Private</h3>
             <p>Tutor datang ke rumah.</p>
+
             <p class="cara-smart-extra">
               +Rp15.000 per pertemuan
             </p>
+
           </div>
+
         </article>
 
         <!-- LEARNING CENTER -->
         <article class="cara-smart-card cara-smart-card-location">
+
           <div class="cara-smart-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M24 42s14-13 14-25a14 14 0 0 0-28 0c0 12 14 25 14 25Z"
-                stroke="currentColor" stroke-width="2.5"
-                stroke-linejoin="round" />
-              <circle cx="24" cy="17" r="5"
-                fill="#D9A035" />
+
+            <svg viewBox="0 0 80 80" fill="none">
+
+              <defs>
+                <linearGradient
+                  id="cara-location-pin"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#B98FDD" />
+                  <stop offset=".5" stop-color="#7E55B3" />
+                  <stop offset="1" stop-color="#3C1E66" />
+                </linearGradient>
+
+                <linearGradient
+                  id="cara-location-center"
+                  x1="0" y1="0" x2="1" y2="1"
+                >
+                  <stop stop-color="#FCD757" />
+                  <stop offset="1" stop-color="#D9A035" />
+                </linearGradient>
+              </defs>
+
+              <!-- Bayangan -->
+              <ellipse
+                cx="40" cy="69"
+                rx="23" ry="6"
+                fill="#D8C2EE"
+              />
+
+              <ellipse
+                cx="40" cy="68"
+                rx="14" ry="3"
+                fill="#B394D9"
+              />
+
+              <!-- Pin lokasi -->
+              <path
+                d="M40 7C24 7 15 19 15 32C15 47 40 69 40 69S65 47 65 32C65 19 56 7 40 7Z"
+                fill="#2A1548"
+              />
+
+              <path
+                d="M40 5C25 5 17 17 17 30C17 44 40 65 40 65S63 44 63 30C63 17 55 5 40 5Z"
+                fill="url(#cara-location-pin)"
+                stroke="#3C1E66"
+                stroke-width="2"
+              />
+
+              <!-- Lingkaran tengah -->
+              <circle
+                cx="40" cy="29"
+                r="12"
+                fill="url(#cara-location-center)"
+                stroke="#D9A035"
+                stroke-width="2"
+              />
+
+              <circle
+                cx="40" cy="29"
+                r="6"
+                fill="#FFF9F5"
+              />
+
+              <!-- Highlight -->
+              <path
+                d="M23 26Q24 13 37 11"
+                stroke="#E3D4F3"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
             </svg>
+
           </div>
 
           <div class="cara-smart-card-content">
+
             <h3>Learning Center</h3>
+
             <p>Belajar di cabang PKBM terdekat.</p>
 
             <p class="cara-smart-extra">
@@ -120,75 +476,167 @@ import "../styles/program/CaraBelajarSmartLearning.css";
               Bangetayu Kulon, Kec. Genuk,
               Kota Semarang, Jawa Tengah 50115.
             </p>
+
           </div>
+
         </article>
 
       </div>
 
-      <!-- PILIHAN KELAS -->
+      <!-- PANEL PILIHAN KELAS -->
       <aside
         class="cara-smart-classes"
         aria-labelledby="cara-smart-classes-title"
       >
+
         <h3 id="cara-smart-classes-title">
           Pilihan kelas
         </h3>
 
-        <span class="cara-smart-classes-line" aria-hidden="true"></span>
+        <span
+          class="cara-smart-classes-line"
+          aria-hidden="true"
+        ></span>
 
         <div class="cara-smart-class-list">
 
+          <!-- PRIVATE -->
           <div class="cara-smart-class-item">
+
             <div class="cara-smart-class-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="7" r="4"
-                  stroke="currentColor" stroke-width="1.7" />
-                <path d="M4 22v-3a8 8 0 0 1 16 0v3"
-                  stroke="currentColor" stroke-width="1.7" />
+
+              <svg viewBox="0 0 48 48" fill="none">
+
+                <circle
+                  cx="24" cy="12" r="8"
+                  fill="#FFD17B"
+                />
+
+                <path
+                  d="M10 42V33A14 14 0 0 1 38 33V42Z"
+                  fill="#D9A035"
+                />
+
+                <path
+                  d="M13 39V33A11 11 0 0 1 35 33V39Z"
+                  fill="#FFD17B"
+                />
+
+                <path
+                  d="M19 8Q21 6 24 6"
+                  stroke="#FFF3D3"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+
               </svg>
+
             </div>
+
             <p><strong>Private</strong> – 1 murid</p>
+
           </div>
 
+          <!-- SEMI PRIVATE -->
           <div class="cara-smart-class-item">
+
             <div class="cara-smart-class-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="6" r="3"
-                  stroke="currentColor" stroke-width="1.6" />
-                <circle cx="4.5" cy="10" r="2.5"
-                  stroke="currentColor" stroke-width="1.6" />
-                <circle cx="19.5" cy="10" r="2.5"
-                  stroke="currentColor" stroke-width="1.6" />
-                <path d="M6 22v-4a6 6 0 0 1 12 0v4M1 22v-5a4 4 0 0 1 4-4M23 22v-5a4 4 0 0 0-4-4"
-                  stroke="currentColor" stroke-width="1.6" />
+
+              <svg viewBox="0 0 48 48" fill="none">
+
+                <!-- Orang kiri -->
+                <circle cx="9" cy="16" r="5" fill="#D9A035" />
+                <path
+                  d="M1 39V29A8 8 0 0 1 17 29V39Z"
+                  fill="#D9A035"
+                />
+
+                <!-- Orang kanan -->
+                <circle cx="39" cy="16" r="5" fill="#D9A035" />
+                <path
+                  d="M31 39V29A8 8 0 0 1 47 29V39Z"
+                  fill="#D9A035"
+                />
+
+                <!-- Orang tengah -->
+                <circle cx="24" cy="10" r="7" fill="#FFD17B" />
+
+                <path
+                  d="M13 42V29A11 11 0 0 1 35 29V42Z"
+                  fill="#FFD17B"
+                  stroke="#D9A035"
+                  stroke-width="1"
+                />
+
               </svg>
+
             </div>
+
             <p><strong>Semi Private</strong> – 4–6 murid</p>
+
           </div>
 
+          <!-- REGULER -->
           <div class="cara-smart-class-item">
+
             <div class="cara-smart-class-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="5" r="3"
-                  stroke="currentColor" stroke-width="1.6" />
-                <circle cx="4.5" cy="9" r="2.5"
-                  stroke="currentColor" stroke-width="1.6" />
-                <circle cx="19.5" cy="9" r="2.5"
-                  stroke="currentColor" stroke-width="1.6" />
-                <path d="M6 22v-4a6 6 0 0 1 12 0v4M1 22v-6a4 4 0 0 1 5-4M23 22v-6a4 4 0 0 0-5-4"
-                  stroke="currentColor" stroke-width="1.6" />
+
+              <svg viewBox="0 0 48 48" fill="none">
+
+                <!-- Barisan belakang -->
+                <circle cx="13" cy="9" r="5" fill="#D9A035" />
+                <circle cx="35" cy="9" r="5" fill="#D9A035" />
+
+                <path
+                  d="M5 27V21A8 8 0 0 1 21 21V27Z"
+                  fill="#D9A035"
+                />
+
+                <path
+                  d="M27 27V21A8 8 0 0 1 43 21V27Z"
+                  fill="#D9A035"
+                />
+
+                <!-- Barisan depan -->
+                <circle cx="8" cy="23" r="5" fill="#FFD17B" />
+                <circle cx="40" cy="23" r="5" fill="#FFD17B" />
+
+                <path
+                  d="M0 44V35A8 8 0 0 1 16 35V44Z"
+                  fill="#FFD17B"
+                />
+
+                <path
+                  d="M32 44V35A8 8 0 0 1 48 35V44Z"
+                  fill="#FFD17B"
+                />
+
+                <circle cx="24" cy="18" r="7" fill="#FFE5A1" />
+
+                <path
+                  d="M13 45V34A11 11 0 0 1 35 34V45Z"
+                  fill="#FFE5A1"
+                  stroke="#D9A035"
+                  stroke-width="1"
+                />
+
               </svg>
+
             </div>
+
             <p><strong>Reguler</strong> – lebih dari 15 murid</p>
+
           </div>
 
         </div>
+
       </aside>
 
     </div>
 
-    <!-- DURASI -->
+    <!-- BAR DURASI -->
     <div class="cara-smart-duration">
+
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -203,6 +651,7 @@ import "../styles/program/CaraBelajarSmartLearning.css";
       </svg>
 
       <p>Durasi 60 menit per pertemuan</p>
+
     </div>
 
   </div>

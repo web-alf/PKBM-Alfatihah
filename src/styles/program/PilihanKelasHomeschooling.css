@@ -1,12 +1,44 @@
-
 /* =========================================
    PILIHAN KELAS HOMESCHOOLING
 ========================================= */
 
 .pilihan-kelas-section {
+  --kelas-wave-h: clamp(45px, 5vw, 80px);
+
+  /* Warna section sebelum dan sesudah */
+  --kelas-wave-top: #FBF1F8;
+  --kelas-wave-bottom: #FFF9F5;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   width: 100%;
-  padding: 64px 24px;
-  background: #FFF9F5;
+  margin: 0;
+
+  padding:
+    calc(var(--kelas-wave-h) + 20px)
+    var(--pkbm-container-pad)
+    calc(var(--kelas-wave-h) + 20px);
+
+  background:
+    radial-gradient(
+      ellipse at 8% 25%,
+      #FBE0F1 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 90% 80%,
+      #F8DDED 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      110deg,
+      #FBE8F5 0%,
+      #FFF5FA 50%,
+      #FBE5F3 100%
+    );
+
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
@@ -18,9 +50,45 @@
 }
 
 .pilihan-kelas-container {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
+}
+
+/* =========================================
+   GELOMBANG ATAS DAN BAWAH
+========================================= */
+
+.pilihan-kelas-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  display: block;
+  width: 100%;
+  height: var(--kelas-wave-h);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pilihan-kelas-wave-top {
+  top: -1px;
+}
+
+.pilihan-kelas-wave-top path {
+  fill: var(--kelas-wave-top);
+}
+
+.pilihan-kelas-wave-bottom {
+  bottom: -1px;
+}
+
+.pilihan-kelas-wave-bottom path {
+  fill: var(--kelas-wave-bottom);
 }
 
 /* =========================================
@@ -28,37 +96,103 @@
 ========================================= */
 
 .pilihan-kelas-heading {
-  margin-bottom: 32px;
+  position: relative;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .pilihan-kelas-heading h2 {
   margin: 0;
-  color: #92197B;
-  font-size: clamp(26px, 3vw, 36px);
+
+  color: var(--pkbm-magenta, #92197B);
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 800;
   line-height: 1.3;
 }
 
 .pilihan-kelas-line {
-  width: 60px;
+  width: 55px;
   height: 4px;
-  margin: 18px auto 0;
-  border-radius: 10px;
-  background: #D9A035;
+
+  margin: 12px auto 0;
+
+  background: #FCD757;
+  border-radius: 999px;
 }
 
 /* =========================================
-   CARD UTAMA
+   LAYOUT ILUSTRASI DAN DAFTAR KELAS
+========================================= */
+
+.pilihan-kelas-layout {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 28%) minmax(0, 72%);
+  align-items: center;
+
+  gap: 0;
+  width: 100%;
+}
+
+/* =========================================
+   ILUSTRASI TAS DAN BUKU
+========================================= */
+
+.pilihan-kelas-illustration {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 12px 10px;
+}
+
+.pilihan-kelas-illustration img {
+  display: block;
+
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 10px 12px rgba(117, 25, 79, 0.07)
+  );
+}
+
+/* =========================================
+   PANEL DAFTAR KELAS
+
+   Satu panel transparan, bukan card
+   terpisah untuk masing-masing kelas.
 ========================================= */
 
 .pilihan-kelas-card {
+  position: relative;
+
   width: 100%;
-  padding: 12px 32px;
-  background: #FFFFFF;
-  border: 1px solid #F0CFE0;
-  border-radius: 18px;
-  box-shadow: 0 6px 20px rgba(117, 25, 79, 0.035);
+  min-width: 0;
+
+  padding: 6px 26px 6px 18px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.58),
+    rgba(255, 255, 255, 0.20)
+  );
+
+  border: none;
+  border-radius: 42px;
+  box-shadow: none;
 }
 
 /* =========================================
@@ -66,72 +200,195 @@
 ========================================= */
 
 .pilihan-kelas-item {
-  padding: 24px 0;
+  display: grid;
+
+  grid-template-columns:
+    58px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+  gap: 18px;
+
+  min-width: 0;
+  padding: 16px 0;
 }
 
 .pilihan-kelas-item:not(:last-child) {
-  border-bottom: 1px solid #F0CFE0;
+  border-bottom: 1px solid rgba(167, 78, 146, 0.17);
 }
 
-.pilihan-kelas-item-header {
+/* =========================================
+   IKON
+========================================= */
+
+.pilihan-kelas-icon {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 10px;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+
+  background: #FFFFFF;
+  border-radius: 50%;
+
+  box-shadow:
+    0 4px 12px rgba(146, 25, 123, 0.07);
 }
 
-.pilihan-kelas-item-header h3 {
-  margin: 0;
+.pilihan-kelas-icon svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+/* =========================================
+   NAMA DAN DESKRIPSI
+========================================= */
+
+.pilihan-kelas-content {
+  min-width: 0;
+}
+
+.pilihan-kelas-content h3 {
+  margin: 0 0 4px;
+
   color: #92197B;
-  font-size: 18px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
 }
 
-/* BADGE HARGA */
+.pilihan-kelas-deskripsi {
+  margin: 0;
+
+  color: var(--pkbm-text-muted, #584452);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: normal;
+
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   BADGE HARGA
+========================================= */
 
 .pilihan-kelas-harga {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  justify-self: end;
+
+  min-width: 145px;
   max-width: 100%;
-  padding: 10px 18px;
-  border-radius: 50px;
-  background: #FFF0D4;
-  color: #92197B;
-  font-size: 15px;
+
+  padding: 8px 16px;
+
+  background: #FCD757;
+  color: #4A0B45;
+
+  border-radius: 999px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.4;
   text-align: center;
+  white-space: nowrap;
 }
 
-/* DESKRIPSI */
+/* =========================================
+   LAPTOP
+========================================= */
 
-.pilihan-kelas-deskripsi {
-  margin: 0;
-  color: #584452;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.8;
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .pilihan-kelas-layout {
+    grid-template-columns: minmax(0, 26%) minmax(0, 74%);
+  }
+
+  .pilihan-kelas-card {
+    padding-right: 18px;
+    padding-left: 14px;
+  }
+
+  .pilihan-kelas-item {
+    grid-template-columns: 50px minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+
+  .pilihan-kelas-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pilihan-kelas-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pilihan-kelas-content h3 {
+    font-size: 16px;
+  }
+
+  .pilihan-kelas-harga {
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
 }
 
 /* =========================================
    TABLET
 ========================================= */
 
-@media (max-width: 992px) {
-  .pilihan-kelas-section {
-    padding: 54px 24px;
+@media (max-width: 1024px) {
+  .pilihan-kelas-layout {
+    grid-template-columns: minmax(0, 25%) minmax(0, 75%);
   }
 
   .pilihan-kelas-card {
-    padding: 10px 26px;
+    padding: 8px 18px;
+    border-radius: 30px;
   }
 
   .pilihan-kelas-item {
-    padding: 22px 0;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 8px 14px;
+    padding: 16px 0;
+  }
+
+  .pilihan-kelas-icon {
+    width: 46px;
+    height: 46px;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+
+  .pilihan-kelas-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .pilihan-kelas-content h3 {
+    font-size: 16px;
+  }
+
+  .pilihan-kelas-harga {
+    grid-column: 2;
+    justify-self: start;
+
+    min-width: 0;
+    padding: 7px 14px;
+    font-size: 12px;
   }
 }
 
@@ -141,37 +398,56 @@
 
 @media (max-width: 768px) {
   .pilihan-kelas-section {
-    padding: 44px 20px;
+    --kelas-wave-h: 45px;
+
+    padding-top: calc(var(--kelas-wave-h) + 15px);
+    padding-bottom: calc(var(--kelas-wave-h) + 20px);
   }
 
   .pilihan-kelas-heading {
-    margin-bottom: 26px;
+    margin-bottom: 12px;
   }
 
   .pilihan-kelas-heading h2 {
     font-size: 28px;
   }
 
+  .pilihan-kelas-layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .pilihan-kelas-illustration {
+    padding: 0;
+  }
+
+  .pilihan-kelas-illustration img {
+    width: 100%;
+    max-width: 210px;
+  }
+
   .pilihan-kelas-card {
-    padding: 8px 20px;
-    border-radius: 16px;
+    padding: 4px 18px;
+    border-radius: 26px;
   }
 
   .pilihan-kelas-item {
-    padding: 22px 0;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 8px 12px;
+    padding: 18px 0;
   }
 
-  .pilihan-kelas-item-header h3 {
+  .pilihan-kelas-content h3 {
     font-size: 16px;
-  }
-
-  .pilihan-kelas-harga {
-    padding: 8px 14px;
-    font-size: 13px;
   }
 
   .pilihan-kelas-deskripsi {
     font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .pilihan-kelas-harga {
+    font-size: 12px;
   }
 }
 
@@ -181,57 +457,203 @@
 
 @media (max-width: 480px) {
   .pilihan-kelas-section {
-    padding: 38px 16px;
+    --kelas-wave-h: 35px;
   }
 
   .pilihan-kelas-heading h2 {
-    font-size: 25px;
+    font-size: 26px;
+  }
+
+  .pilihan-kelas-illustration img {
+    max-width: 185px;
   }
 
   .pilihan-kelas-card {
-    padding: 6px 18px;
+    padding: 4px 14px;
+    border-radius: 24px;
   }
 
-  .pilihan-kelas-item-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
+  .pilihan-kelas-item {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 8px 12px;
+  }
+
+  .pilihan-kelas-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pilihan-kelas-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .pilihan-kelas-content h3 {
+    font-size: 15px;
+  }
+
+  .pilihan-kelas-harga {
+    padding: 7px 12px;
+    white-space: normal;
+  }
+}
+/* =========================================
+   FINAL REVISI - LAYOUT LEBIH COMPACT
+========================================= */
+
+.pilihan-kelas-heading {
+  margin-bottom: 12px;
+}
+
+.pilihan-kelas-line {
+  margin-top: 12px;
+}
+
+.pilihan-kelas-layout {
+  grid-template-columns: minmax(0, 26%) minmax(0, 74%);
+  gap: 0;
+  align-items: center;
+}
+
+/* ILUSTRASI */
+
+.pilihan-kelas-illustration {
+  padding: 0 8px 0 0;
+}
+
+.pilihan-kelas-illustration img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  filter: none;
+}
+
+/* PANEL TRANSPARAN */
+
+.pilihan-kelas-card {
+  padding: 4px 20px 4px 16px;
+  border: none;
+  border-radius: 38px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.40),
+    rgba(255, 255, 255, 0.08)
+  );
+
+  box-shadow: none;
+}
+
+/* BARIS KELAS */
+
+.pilihan-kelas-item {
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: 10px 0;
+  align-items: center;
+}
+
+/* IKON */
+
+.pilihan-kelas-icon {
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 3px 8px rgba(146, 25, 123, 0.05);
+}
+
+.pilihan-kelas-icon svg {
+  width: 29px;
+  height: 29px;
+}
+
+/* JUDUL DAN DESKRIPSI */
+
+.pilihan-kelas-content h3 {
+  margin: 0 0 3px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pilihan-kelas-deskripsi {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* HARGA */
+
+.pilihan-kelas-harga {
+  min-width: 0;
+  padding: 6px 16px;
+  background: #FCD757;
+  color: #4A0B45;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+/* TABLET */
+
+@media (max-width: 1024px) {
+  .pilihan-kelas-layout {
+    grid-template-columns: 25% minmax(0, 1fr);
+  }
+
+  .pilihan-kelas-item {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 6px 12px;
+    padding: 12px 0;
+  }
+
+  .pilihan-kelas-icon {
+    width: 42px;
+    height: 42px;
+    grid-row: 1 / span 2;
+  }
+
+  .pilihan-kelas-harga {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .pilihan-kelas-layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .pilihan-kelas-illustration {
+    padding: 0;
+  }
+
+  .pilihan-kelas-illustration img {
+    max-width: 210px;
+  }
+
+  .pilihan-kelas-card {
+    padding: 4px 14px;
+    border-radius: 24px;
+  }
+
+  .pilihan-kelas-item {
+    padding: 14px 0;
+  }
+
+  .pilihan-kelas-content h3 {
+    font-size: 15px;
+  }
+
+  .pilihan-kelas-deskripsi {
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .pilihan-kelas-harga {
     font-size: 12px;
   }
-}
-
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.pilihan-kelas-section {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .pilihan-kelas-section {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .pilihan-kelas-section {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .pilihan-kelas-section {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.pilihan-kelas-section {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

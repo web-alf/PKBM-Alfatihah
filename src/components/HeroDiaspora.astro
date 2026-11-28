@@ -1,7 +1,11 @@
 
 ---
 import "../styles/program/HeroDiaspora.css";
-import diasporaLogo from "../assets/image/diaspora.webp";
+
+import heroImage from "../assets/image/pegangquran-cutout.png";
+import booksImage from "../assets/image/Stacked Navy and Gold Books.png";
+import leavesImage from "../assets/image/Overlapping Green Leaves with Soft Shadow.png";
+import quranImage from "../assets/image/Open Book on Gold Stand.webp";
 
 const whatsappUrl = "https://wa.me/6285319485269";
 ---
@@ -13,99 +17,11 @@ const whatsappUrl = "https://wa.me/6285319485269";
 >
   <div class="hero-diaspora-container">
 
-    <!-- LOGO PROGRAM -->
-    <div class="hero-diaspora-logo">
-      <img
-        src={diasporaLogo.src}
-        alt="Logo Diaspora Qur'an Center"
-        width="168"
-        height="84"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </div>
+    <!-- KONTEN SEBELAH KIRI -->
+    <div class="hero-diaspora-content">
 
-    <!-- LABEL KECIL -->
-    <span class="hero-diaspora-label">
-      UNTUK DIASPORA INDONESIA
-    </span>
-
-    <!-- JUDUL UTAMA -->
-    <h1 id="hero-diaspora-title">
-      <span class="hero-diaspora-title-white">Diaspora</span>{" "}
-      <span class="hero-diaspora-title-gold">Qur'an Center</span>
-    </h1>
-
-    <!-- GARIS EMAS -->
-    <span
-      class="hero-diaspora-divider"
-      aria-hidden="true"
-    ></span>
-
-    <!-- DESKRIPSI -->
-    <p class="hero-diaspora-description">
-      Diaspora Qur'an Center adalah layanan les privat Tahsin
-      dan Tahfidz Al-Qur'an secara daring untuk anak-anak dan
-      keluarga Indonesia di luar negeri, diselenggarakan oleh
-      PKBM Alfatihah Semarang. Belajar dari mana saja, dengan
-      bahasa Indonesia dan jadwal yang menyesuaikan zona
-      waktu peserta.
-    </p>
-
-    <!-- TAGLINE -->
-    <p class="hero-diaspora-tagline">
-      Personalized Qur'an Learning
-      <span aria-hidden="true">•</span>
-      Islamic Values
-      <span aria-hidden="true">•</span>
-      Anywhere in the World
-    </p>
-
-    <!-- BADGE PROMO -->
-    <div class="hero-diaspora-promo">
-
-      <div class="hero-diaspora-promo-icon" aria-hidden="true">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 3 12V4a1 1 0 0 1 1-1h8a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.8Z"
-          />
-          <circle cx="7.5" cy="7.5" r="1.2" />
-        </svg>
-      </div>
-
-      <div class="hero-diaspora-promo-content">
-
-        <span class="hero-diaspora-promo-badge">
-          Diskon pendaftaran 50%
-        </span>
-
-        <div class="hero-diaspora-promo-prices">
-          <strong>Rp150.000</strong>
-
-          <span>
-            normal <s>Rp300.000</s>
-          </span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TOMBOL CTA -->
-    <div class="hero-diaspora-actions">
-
-      <a
-        href={whatsappUrl}
-        class="hero-diaspora-btn hero-diaspora-btn-primary"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <!-- LABEL KECIL -->
+      <span class="hero-diaspora-label">
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -115,24 +31,230 @@ const whatsappUrl = "https://wa.me/6285319485269";
           stroke-linejoin="round"
           aria-hidden="true"
         >
-          <path
-            d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"
-          />
-          <path d="M8.5 9.5c1 2.5 3 4.5 5.5 5.5" />
+          <path d="M12 5C8 3 5 3 2 4v15c3-1 6-1 10 1 4-2 7-2 10-1V4c-3-1-6-1-10 1Z" />
+          <path d="M12 5v15" />
         </svg>
 
-        Konsultasi via WhatsApp
-      </a>
+        UNTUK DIASPORA INDONESIA
+      </span>
 
-      <a
-        href="#harga-diaspora"
-        class="hero-diaspora-btn hero-diaspora-btn-secondary"
+      <!-- JUDUL UTAMA -->
+      <h1 id="hero-diaspora-title">
+        <span class="hero-diaspora-title-white">
+          Diaspora
+        </span>
+        <span class="hero-diaspora-title-gold">
+          Qur'an Center
+        </span>
+      </h1>
+
+      <!-- DESKRIPSI -->
+      <p class="hero-diaspora-description">
+        Diaspora Qur'an Center adalah layanan les privat Tahsin
+        dan Tahfidz Al-Qur'an secara daring untuk anak-anak dan
+        keluarga Indonesia di luar negeri, diselenggarakan oleh
+        PKBM Alfatihah Semarang. Belajar dari mana saja, dengan
+        bahasa Indonesia dan jadwal yang menyesuaikan zona
+        waktu peserta.
+      </p>
+
+      <!-- TAGLINE -->
+      <p class="hero-diaspora-tagline">
+        <span>Personalized Qur'an Learning</span>
+        <span class="hero-diaspora-dot" aria-hidden="true">•</span>
+        <span>Islamic Values</span>
+        <span class="hero-diaspora-dot" aria-hidden="true">•</span>
+        <span>Anywhere in the World</span>
+      </p>
+
+      <!-- BADGE PROMO -->
+      <div class="hero-diaspora-promo">
+
+        <div class="hero-diaspora-promo-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 3 12V4a1 1 0 0 1 1-1h8a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.8Z"
+            />
+            <circle cx="7.5" cy="7.5" r="1.2" />
+          </svg>
+        </div>
+
+        <div class="hero-diaspora-promo-content">
+
+          <span class="hero-diaspora-promo-badge">
+            Diskon pendaftaran 50%
+          </span>
+
+          <div class="hero-diaspora-promo-prices">
+            <strong>Rp150.000</strong>
+
+            <span>
+              normal <s>Rp300.000</s>
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TOMBOL CTA -->
+      <div class="hero-diaspora-actions">
+
+        <a
+          href={whatsappUrl}
+          class="hero-diaspora-btn hero-diaspora-btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"
+            />
+            <path d="M8.5 9.5c1 2.5 3 4.5 5.5 5.5" />
+          </svg>
+
+          Konsultasi via WhatsApp
+        </a>
+
+        <a
+          href="#harga-diaspora"
+          class="hero-diaspora-btn hero-diaspora-btn-secondary"
+        >
+          Lihat Harga
+          <span aria-hidden="true">↓</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- =====================================
+         VISUAL SEBELAH KANAN
+    ====================================== -->
+
+    <div class="hero-diaspora-visual">
+
+      <!-- ORNAMEN AWAN -->
+      <svg
+        class="hero-diaspora-cloud"
+        viewBox="0 0 160 85"
+        fill="none"
+        aria-hidden="true"
       >
-        Lihat Harga
-        <span aria-hidden="true">↓</span>
-      </a>
+        <defs>
+          <linearGradient
+            id="diaspora-cloud-gradient"
+            x1="80"
+            y1="0"
+            x2="80"
+            y2="85"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FFFFFF" />
+            <stop offset="1" stop-color="#F3E3CC" />
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M28 76C12 76 4 66 4 53C4 38 17 28 31 30C35 12 50 3 67 3C87 3 102 16 106 33C110 30 116 29 122 29C141 29 155 42 155 57C155 69 145 76 130 76Z"
+          fill="url(#diaspora-cloud-gradient)"
+        />
+      </svg>
+
+      <!-- ORNAMEN DAUN KIRI -->
+      <img
+        class="hero-diaspora-leaves hero-diaspora-leaves-left"
+        src={leavesImage.src}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+      />
+
+      <!-- ORNAMEN DAUN KANAN -->
+      <img
+        class="hero-diaspora-leaves hero-diaspora-leaves-right"
+        src={leavesImage.src}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+      />
+
+      <!-- FRAME FOTO UTAMA -->
+      <div class="hero-diaspora-frame">
+
+        <div class="hero-diaspora-frame-inner">
+
+          <img
+            class="hero-diaspora-image"
+            src={heroImage.src}
+            alt="Santri memegang Al-Qur'an"
+            width={heroImage.width}
+            height={heroImage.height}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+
+        </div>
+
+      </div>
+
+      <!-- ORNAMEN BUKU -->
+      <img
+        class="hero-diaspora-books"
+        src={booksImage.src}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+      />
+
+      <!-- ORNAMEN AL-QUR'AN DAN REHAL -->
+      <img
+        class="hero-diaspora-quran"
+        src={quranImage.src}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+      />
 
     </div>
 
   </div>
+
+  <!-- GELOMBANG BAWAH HERO -->
+  <svg
+    class="hero-diaspora-wave"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="
+        M0 42
+        C150 90 240 94 380 68
+        C540 40 620 76 760 61
+        C920 40 980 40 1100 76
+        C1230 112 1330 76 1440 30
+        V100
+        H0
+        Z
+      "
+    />
+  </svg>
+
 </section>

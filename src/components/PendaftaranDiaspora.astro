@@ -1,31 +1,40 @@
-
 ---
 import "../styles/program/PendaftaranDiaspora.css";
 
 const langkahPendaftaran = [
   {
     nomor: "1",
+    judul: "Konsultasi WhatsApp",
     teks: "Konsultasi via WhatsApp +62 853 1948 5269",
     link: "https://wa.me/6285319485269",
+    linkText: "Chat WhatsApp",
     jenis: "whatsapp",
   },
   {
     nomor: "2",
+    judul: "Pilih Program",
     teks: "Pilih pilar (Tahsin/Tahfidz), kelas, dan jadwal sesuai zona waktu",
+    jenis: "program",
   },
   {
     nomor: "3",
+    judul: "Isi Formulir",
     teks: "Isi Formulir Pendaftaran",
     link: "/pendaftaran",
+    linkText: "Buka Formulir",
     jenis: "formulir",
   },
   {
     nomor: "4",
+    judul: "Biaya Pendaftaran",
     teks: "Bayar biaya pendaftaran Rp150.000",
+    jenis: "payment",
   },
   {
     nomor: "5",
+    judul: "Mulai Belajar",
     teks: "Mulai belajar sesuai jadwal yang disepakati",
+    jenis: "book",
   },
 ];
 ---
@@ -47,12 +56,11 @@ const langkahPendaftaran = [
         aria-hidden="true"
       ></span>
 
-      <p>
-        Mudah, cukup ikuti langkah berikut.
-      </p>
+      <p>Mudah, cukup ikuti langkah berikut.</p>
     </header>
 
     <ol class="pendaftaran-diaspora-timeline">
+
       {langkahPendaftaran.map((langkah) => (
         <li class="pendaftaran-diaspora-step">
 
@@ -64,34 +72,317 @@ const langkahPendaftaran = [
           </span>
 
           <div class="pendaftaran-diaspora-step-content">
-            {langkah.jenis === "whatsapp" ? (
-              <p>
-                <a
-                  href={langkah.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+            <div class="pendaftaran-diaspora-icon">
+
+              {/* ICON WHATSAPP */}
+
+              {langkah.jenis === "whatsapp" && (
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                  {langkah.teks}
-                </a>
-              </p>
-            ) : langkah.jenis === "formulir" ? (
-              <p>
-                <a
-                  href={langkah.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pendaftaran-diaspora-form-link"
+                  <ellipse
+                    cx="50" cy="92" rx="33" ry="5"
+                    fill="#001C49" opacity=".1"
+                  />
+
+                  <path
+                    d="M50 8C26 8 8 25 8 48C8 58 12 67 17 74L10 92L31 85C37 88 43 89 50 89C74 89 92 71 92 48C92 25 74 8 50 8Z"
+                    fill="#001C49"
+                    stroke="#00132F"
+                    stroke-width="3"
+                  />
+
+                  <path
+                    d="M22 29Q31 15 48 14"
+                    stroke="#FFFFFF"
+                    stroke-opacity=".3"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  />
+
+                  <path
+                    d="M32 25L24 32C22 43 37 66 55 72C64 75 73 67 76 60L61 50L54 58C44 54 37 46 34 39L41 33L32 25Z"
+                    fill="#F5D177"
+                  />
+                </svg>
+              )}
+
+              {/* ICON PILIH PROGRAM */}
+
+              {langkah.jenis === "program" && (
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  aria-hidden="true"
                 >
-                  {langkah.teks}
-                </a>
-              </p>
-            ) : (
-              <p>{langkah.teks}</p>
+                  <ellipse
+                    cx="50" cy="92" rx="30" ry="5"
+                    fill="#001C49" opacity=".1"
+                  />
+
+                  <rect
+                    x="21" y="9"
+                    width="62" height="79"
+                    rx="12" fill="#00132F"
+                  />
+
+                  <rect
+                    x="16" y="5"
+                    width="62" height="79"
+                    rx="12" fill="#001C49"
+                  />
+
+                  <rect
+                    x="23" y="12"
+                    width="48" height="65"
+                    rx="7" fill="#FFF9F5"
+                  />
+
+                  {[26, 44, 62].map((y) => (
+                    <g>
+                      <path
+                        d={`M29 ${y}l5 5 9-11`}
+                        stroke="#F5D177"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+
+                      <path
+                        d={`M49 ${y}h14`}
+                        stroke="#001C49"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                      />
+                    </g>
+                  ))}
+                </svg>
+              )}
+
+              {/* ICON FORMULIR */}
+
+              {langkah.jenis === "formulir" && (
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <ellipse
+                    cx="50" cy="92" rx="30" ry="5"
+                    fill="#001C49" opacity=".1"
+                  />
+
+                  <rect
+                    x="21" y="13"
+                    width="62" height="76"
+                    rx="12" fill="#00132F"
+                  />
+
+                  <rect
+                    x="16" y="9"
+                    width="62" height="76"
+                    rx="12" fill="#001C49"
+                  />
+
+                  <rect
+                    x="23" y="17"
+                    width="48" height="60"
+                    rx="6" fill="#FFF9F5"
+                  />
+
+                  <rect
+                    x="32" y="3"
+                    width="31" height="19"
+                    rx="6" fill="#D9A035"
+                  />
+
+                  <rect
+                    x="33" y="3"
+                    width="28" height="15"
+                    rx="5" fill="#F5D177"
+                  />
+
+                  <path
+                    d="M31 33H63M31 44H63M31 55H48"
+                    stroke="#001C49"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+
+                  <path
+                    d="M46 65L53 72L68 55"
+                    stroke="#D9A035"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              )}
+
+              {/* ICON PEMBAYARAN */}
+
+              {langkah.jenis === "payment" && (
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <ellipse
+                    cx="50" cy="92" rx="35" ry="5"
+                    fill="#001C49" opacity=".1"
+                  />
+
+                  <circle
+                    cx="53" cy="27" r="23"
+                    fill="#D9A035"
+                  />
+
+                  <circle
+                    cx="53" cy="25" r="20"
+                    fill="#F5D177"
+                  />
+
+                  <text
+                    x="53" y="32"
+                    text-anchor="middle"
+                    font-size="18"
+                    font-weight="700"
+                    fill="#001C49"
+                  >
+                    Rp
+                  </text>
+
+                  <rect
+                    x="11" y="39"
+                    width="78" height="47"
+                    rx="12" fill="#00132F"
+                  />
+
+                  <rect
+                    x="8" y="34"
+                    width="78" height="47"
+                    rx="12" fill="#001C49"
+                  />
+
+                  <path
+                    d="M18 44H47"
+                    stroke="#FFFFFF"
+                    stroke-opacity=".3"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+
+                  <rect
+                    x="64" y="49"
+                    width="31" height="23"
+                    rx="8" fill="#F5D177"
+                  />
+
+                  <circle
+                    cx="77" cy="60" r="5"
+                    fill="#001C49"
+                  />
+                </svg>
+              )}
+
+              {/* ICON MULAI BELAJAR */}
+
+              {langkah.jenis === "book" && (
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <ellipse
+                    cx="50" cy="92" rx="36" ry="5"
+                    fill="#001C49" opacity=".1"
+                  />
+
+                  <path
+                    d="M6 20Q30 10 50 29Q70 10 94 20V80Q70 72 50 87Q30 72 6 80Z"
+                    fill="#001C49"
+                  />
+
+                  <path
+                    d="M13 14Q34 8 50 25V79Q33 65 13 73Z"
+                    fill="#FFF9F5"
+                  />
+
+                  <path
+                    d="M50 25Q67 8 87 14V73Q67 65 50 79Z"
+                    fill="#F5D177"
+                  />
+
+                  <path
+                    d="M50 26V79"
+                    stroke="#D9A035"
+                    stroke-width="3"
+                  />
+
+                  <path
+                    d="M21 30Q33 29 42 37
+                       M21 42Q33 41 42 49
+                       M21 54Q33 53 42 61
+                       M58 37Q67 29 79 30
+                       M58 49Q67 41 79 42
+                       M58 61Q67 53 79 54"
+                    stroke="#001C49"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+
+                  <path
+                    d="M69 12V37L75 32L81 37V12Z"
+                    fill="#D9A035"
+                  />
+                </svg>
+              )}
+
+            </div>
+
+            <h3 class="pendaftaran-diaspora-step-title">
+              {langkah.judul}
+            </h3>
+
+            <p class="pendaftaran-diaspora-description">
+              {langkah.teks}
+            </p>
+
+            {langkah.link && (
+              <a
+                class="pendaftaran-diaspora-link"
+                href={langkah.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {langkah.linkText}
+
+                <svg
+                  viewBox="0 0 24 24"
+                  width="17"
+                  height="17"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 12H20M14 6L20 12L14 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
             )}
+
           </div>
 
         </li>
       ))}
+
     </ol>
 
   </div>

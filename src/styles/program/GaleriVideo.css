@@ -1,0 +1,830 @@
+/* =========================================
+   GALERI VIDEO PKBM ALFATIHAH
+========================================= */
+
+.galeri-video {
+  --gv-purple: #a74e92;
+  --gv-magenta: #92197b;
+  --gv-yellow: #fcd757;
+  --gv-cream: #fff9f5;
+  --gv-pink: #f8d5eb;
+  --gv-text: #34405b;
+  --gv-border: #f0e2eb;
+
+  position: relative;
+  width: 100%;
+  padding: 75px clamp(32px, 5.5vw, 100px) 85px;
+
+  background: var(--gv-cream);
+  font-family: "Poppins", Arial, sans-serif;
+
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.galeri-video *,
+.galeri-video *::before,
+.galeri-video *::after {
+  box-sizing: border-box;
+}
+
+.galeri-video [hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   BACKGROUND DECORATION
+========================================= */
+
+.galeri-video::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  left: -160px;
+
+  width: 420px;
+  height: 350px;
+
+  background: var(--gv-pink);
+  border-radius: 40% 60% 65% 35%;
+  transform: rotate(-25deg);
+
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.galeri-video::after {
+  content: "";
+  position: absolute;
+  bottom: -220px;
+  right: -180px;
+
+  width: 440px;
+  height: 380px;
+
+  background: var(--gv-pink);
+  border-radius: 65% 35% 40% 60%;
+
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.galeri-video-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.galeri-video-heading {
+  max-width: 720px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.galeri-video-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+  padding: 7px 16px;
+
+  background: var(--gv-pink);
+  color: var(--gv-magenta);
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.galeri-video-heading h2 {
+  margin: 0;
+
+  color: var(--gv-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+
+  scroll-margin-top: 110px;
+}
+
+.galeri-video-divider {
+  width: 55px;
+  height: 4px;
+  margin: 16px auto 20px;
+
+  background: var(--gv-yellow);
+  border-radius: 50px;
+}
+
+.galeri-video-heading p {
+  max-width: 640px;
+  margin: 0 auto;
+
+  color: var(--gv-text);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CATEGORY TABS
+========================================= */
+
+.galeri-video-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.galeri-video-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  padding: 12px 22px;
+
+  background: #ffffff;
+  color: var(--gv-magenta);
+
+  border: 1px solid #e8cfe0;
+  border-radius: 50px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.galeri-video-tab:hover {
+  background: #f9e6f2;
+}
+
+.galeri-video-tab.is-active {
+  background: var(--gv-purple);
+  color: #ffffff;
+  border-color: var(--gv-purple);
+}
+
+.galeri-video-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+
+  background: var(--gv-pink);
+  color: var(--gv-magenta);
+
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.galeri-video-tab.is-active
+.galeri-video-count {
+  background: var(--gv-yellow);
+  color: #75194f;
+}
+
+/* =========================================
+   VIDEO GRID
+========================================= */
+
+.galeri-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+  width: 100%;
+}
+
+/* =========================================
+   VIDEO CARD
+========================================= */
+
+.galeri-video-card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding: 12px;
+
+  background: #ffffff;
+  border: 1px solid var(--gv-border);
+  border-radius: 22px;
+
+  box-shadow: 0 5px 20px rgba(117, 25, 79, 0.04);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  animation: gv-card-enter 0.4s ease both;
+}
+
+.galeri-video-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 28px rgba(117, 25, 79, 0.09);
+}
+
+@keyframes gv-card-enter {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* =========================================
+   VIDEO PREVIEW
+========================================= */
+
+.galeri-video-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+
+  background: linear-gradient(
+    135deg,
+    #e9bedf,
+    #a74e92
+  );
+
+  border: 0;
+  border-radius: 15px;
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* =========================================
+   THUMBNAIL
+========================================= */
+
+.galeri-video-thumbnail {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  transition: transform 0.4s ease;
+}
+
+.galeri-video-preview:hover
+.galeri-video-thumbnail {
+  transform: scale(1.04);
+}
+
+.galeri-video-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(45, 14, 40, 0.17);
+  transition: background 0.25s ease;
+}
+
+.galeri-video-preview:hover
+.galeri-video-overlay {
+  background: rgba(45, 14, 40, 0.27);
+}
+
+/* =========================================
+   VIDEO NUMBER
+========================================= */
+
+.galeri-video-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+
+  padding: 6px 11px;
+
+  background: var(--gv-yellow);
+  color: #75194f;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================================
+   PLAY ICON
+========================================= */
+
+.galeri-video-play-icon {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+
+  background: var(--gv-magenta);
+  color: #ffffff;
+
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.galeri-video-play-icon svg {
+  width: 26px;
+  height: 26px;
+  margin-left: 3px;
+}
+
+.galeri-video-preview:hover
+.galeri-video-play-icon {
+  transform: scale(1.1);
+  background: var(--gv-purple);
+}
+
+/* =========================================
+   CARD BODY
+========================================= */
+
+.galeri-video-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  padding: 16px 7px 8px;
+}
+
+.galeri-video-category {
+  align-self: flex-start;
+
+  margin-bottom: 10px;
+  padding: 5px 11px;
+
+  background: #f9e5f2;
+  color: var(--gv-magenta);
+
+  border-radius: 50px;
+
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.galeri-video-body h3 {
+  margin: 0 0 17px;
+
+  color: var(--gv-magenta);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* =========================================
+   CARD FOOTER
+========================================= */
+
+.galeri-video-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+
+  border-top: 1px solid var(--gv-border);
+}
+
+.galeri-video-watch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+  padding: 10px 17px;
+
+  background: var(--gv-magenta);
+  color: #ffffff;
+
+  border: 0;
+  border-radius: 50px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.galeri-video-watch:hover {
+  background: var(--gv-purple);
+}
+
+.galeri-video-watch svg {
+  width: 17px;
+  height: 17px;
+}
+
+.galeri-video-external {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  background: #f9e5f2;
+  color: var(--gv-magenta);
+
+  border-radius: 50%;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.galeri-video-external:hover {
+  background: var(--gv-purple);
+  color: #ffffff;
+}
+
+.galeri-video-external svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   LOAD MORE
+========================================= */
+
+.galeri-video-more-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 13px;
+  margin-top: 32px;
+}
+
+.galeri-video-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  padding: 13px 25px;
+
+  background: var(--gv-purple);
+  color: #ffffff;
+
+  border: 0;
+  border-radius: 50px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.galeri-video-more:hover {
+  background: var(--gv-magenta);
+}
+
+.galeri-video-more svg {
+  width: 17px;
+  height: 17px;
+}
+
+.galeri-video-status {
+  margin: 0;
+  color: var(--gv-text);
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+/* =========================================
+   VIDEO MODAL
+========================================= */
+
+.galeri-video-modal {
+  position: fixed;
+  inset: 0;
+
+  width: min(850px, calc(100% - 40px));
+  max-height: 90dvh;
+  margin: auto;
+  padding: 0;
+
+  background: #ffffff;
+  border: none;
+  border-radius: 22px;
+
+  overflow: auto;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+.galeri-video-modal::backdrop {
+  background: rgba(35, 12, 31, 0.75);
+  backdrop-filter: blur(5px);
+}
+
+.galeri-video-modal[open] {
+  animation: gv-modal-enter 0.25s ease;
+}
+
+@keyframes gv-modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.galeri-video-modal-inner {
+  padding: 20px;
+}
+
+.galeri-video-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.galeri-video-modal-header h3 {
+  margin: 0;
+  color: var(--gv-magenta);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.galeri-video-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+
+  background: #f9e5f2;
+  color: var(--gv-magenta);
+
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.galeri-video-modal-close svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* =========================================
+   VIDEO PLAYER
+========================================= */
+
+.galeri-video-player {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  background: #181818;
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+.galeri-video-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border: none;
+}
+
+.galeri-video-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  padding-top: 15px;
+}
+
+.galeri-video-modal-footer a {
+  color: var(--gv-magenta);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.galeri-video-modal-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.galeri-video button:focus-visible,
+.galeri-video a:focus-visible {
+  outline: 3px solid var(--gv-purple);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .galeri-video {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .galeri-video-grid {
+    gap: 20px;
+  }
+
+  .galeri-video-body h3 {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .galeri-video {
+    padding: 60px 40px 70px;
+  }
+
+  .galeri-video-container {
+    max-width: 800px;
+  }
+
+  .galeri-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .galeri-video {
+    padding: 45px 24px 55px;
+  }
+
+  .galeri-video-container {
+    max-width: 420px;
+  }
+
+  .galeri-video-heading {
+    margin-bottom: 25px;
+  }
+
+  .galeri-video-badge {
+    font-size: 10px;
+    padding: 6px 13px;
+  }
+
+  .galeri-video-heading h2 {
+    font-size: 28px;
+  }
+
+  .galeri-video-heading p {
+    font-size: 13px;
+  }
+
+  .galeri-video-tabs {
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 24px;
+  }
+
+  .galeri-video-tab {
+    width: 100%;
+    padding: 11px 15px;
+    font-size: 12px;
+  }
+
+  .galeri-video-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .galeri-video-card {
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  .galeri-video-preview {
+    border-radius: 12px;
+  }
+
+  .galeri-video-play-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .galeri-video-body h3 {
+    font-size: 16px;
+  }
+
+  .galeri-video-watch {
+    font-size: 11px;
+  }
+
+  .galeri-video-modal {
+    width: calc(100% - 24px);
+    border-radius: 16px;
+  }
+
+  .galeri-video-modal-inner {
+    padding: 12px;
+  }
+
+  .galeri-video-modal-header h3 {
+    font-size: 15px;
+  }
+
+  .galeri-video::before,
+  .galeri-video::after {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .galeri-video *,
+  .galeri-video *::before,
+  .galeri-video *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

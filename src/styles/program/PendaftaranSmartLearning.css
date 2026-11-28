@@ -1,10 +1,7 @@
 
 /* ==========================================
    PENDAFTARAN SMART LEARNING
-   TIMELINE 5 LANGKAH
-   Purple : #3C1E66
-   Gold   : #D9A035
-   Cream  : #FFF9F5
+   PLAYFUL EDUCATIONAL TIMELINE
 ========================================== */
 
 .pendaftaran-smart {
@@ -14,69 +11,86 @@
   --smart-white: #ffffff;
   --smart-text: #382b46;
   --smart-muted: #6c6074;
-  --smart-border: #e8dfdf;
 
+  --timeline-number: 46px;
+  --timeline-gap: 20px;
+
+  position: relative;
   width: 100%;
-  padding: 65px 20px 75px;
+
+  padding:
+    var(--pkbm-section-pad)
+    var(--pkbm-container-pad);
+
   background: var(--smart-cream);
   font-family: "Poppins", sans-serif;
 }
 
 .pendaftaran-smart,
-.pendaftaran-smart * {
+.pendaftaran-smart *,
+.pendaftaran-smart *::before,
+.pendaftaran-smart *::after {
   box-sizing: border-box;
 }
 
 .pendaftaran-smart-container {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max);
   margin: 0 auto;
 }
 
 /* ==========================================
-   SECTION HEADING
+   JUDUL SECTION
 ========================================== */
 
 .pendaftaran-smart-heading {
-  margin-bottom: 42px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .pendaftaran-smart-heading h2 {
   margin: 0;
+
   color: var(--smart-purple);
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: -0.5px;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .pendaftaran-smart-divider {
   display: block;
-  width: 60px;
-  height: 3px;
-  margin: 15px auto 13px;
+
+  width: 55px;
+  height: 4px;
+
+  margin: 15px auto 12px;
+
   background: var(--smart-gold);
   border-radius: 999px;
 }
 
 .pendaftaran-smart-heading p {
   margin: 0;
-  color: var(--smart-muted);
+
+  color: var(--smart-text);
   font-size: 14px;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 /* ==========================================
-   TIMELINE CONTAINER
+   TIMELINE 5 LANGKAH
 ========================================== */
 
 .pendaftaran-smart-steps {
+  position: relative;
+  isolation: isolate;
+
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
-
-  position: relative;
+  align-items: stretch;
+  gap: var(--timeline-gap);
 
   margin: 0;
   padding: 0;
@@ -84,27 +98,25 @@
   list-style: none;
 }
 
-/* ==========================================
-   GARIS PENGHUBUNG NOMOR
-   POSISI TEPAT DI TENGAH LINGKARAN
-========================================== */
+/* GARIS PENGHUBUNG SOLID */
 
 .pendaftaran-smart-steps::before {
   content: "";
 
   position: absolute;
-
-  /* Tengah lingkaran 56px */
-  top: 27px;
-
-  /* Dari pusat lingkaran pertama
-     sampai pusat lingkaran terakhir */
-  left: 10%;
-  right: 10%;
-
-  border-top: 2px dashed var(--smart-gold);
-
   z-index: 0;
+
+  top: calc(var(--timeline-number) / 2 - 1.5px);
+
+  left: calc((100% - 4 * var(--timeline-gap)) / 10);
+  right: calc((100% - 4 * var(--timeline-gap)) / 10);
+
+  height: 3px;
+
+  background: var(--smart-gold);
+  border-radius: 999px;
+
+  pointer-events: none;
 }
 
 /* ==========================================
@@ -128,14 +140,14 @@
 
 .pendaftaran-smart-number-wrap {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: -5px;
 }
 
 .pendaftaran-smart-number {
@@ -143,18 +155,27 @@
   align-items: center;
   justify-content: center;
 
-  width: 56px;
-  height: 56px;
+  width: var(--timeline-number);
+  height: var(--timeline-number);
   flex-shrink: 0;
 
-  background: var(--smart-purple);
-  color: var(--smart-gold);
+  background: linear-gradient(
+    145deg,
+    #60358e 0%,
+    #3c1e66 75%
+  );
 
+  color: #ffd76a;
+
+  border: 2px solid #ffffff;
   border-radius: 50%;
 
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 19px;
+  font-weight: 800;
   line-height: 1;
+
+  box-shadow:
+    0 3px 6px rgba(60, 30, 102, 0.12);
 }
 
 /* ==========================================
@@ -162,23 +183,34 @@
 ========================================== */
 
 .pendaftaran-smart-card {
-  width: 100%;
-  min-height: 170px;
-  height: 100%;
-
-  padding: 22px 15px;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 
-  background: var(--smart-white);
-  border: 1px solid var(--smart-border);
-  border-radius: 14px;
+  width: 100%;
+  min-width: 0;
+  min-height: 195px;
+
+  padding: 20px 15px 18px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #ffffff 60%,
+    #faf5fc 100%
+  );
+
+  border: 1px solid #ffffff;
+  border-radius: 24px;
 
   text-align: center;
 
-  box-shadow: 0 3px 12px rgba(60, 30, 102, 0.035);
+  box-shadow:
+    0 4px 5px rgba(60, 30, 102, 0.035),
+    0 8px 18px rgba(60, 30, 102, 0.09);
 
   transition:
     transform 0.25s ease,
@@ -186,36 +218,76 @@
 }
 
 .pendaftaran-smart-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(60, 30, 102, 0.08);
-}
+  transform: translateY(-4px);
 
-/* JUDUL CARD */
-
-.pendaftaran-smart-card h3 {
-  margin: 0 0 12px;
-
-  color: var(--smart-purple);
-
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-/* DESKRIPSI CARD */
-
-.pendaftaran-smart-card p {
-  margin: 0;
-
-  color: var(--smart-muted);
-
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.75;
+  box-shadow:
+    0 6px 12px rgba(60, 30, 102, 0.05),
+    0 14px 25px rgba(60, 30, 102, 0.12);
 }
 
 /* ==========================================
-   LINK WHATSAPP & FORMULIR
+   ILUSTRASI IKON
+========================================== */
+
+.pendaftaran-smart-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 10px;
+}
+
+.pendaftaran-smart-icon svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 3px 3px rgba(60, 30, 102, 0.07)
+  );
+}
+
+/* ==========================================
+   JUDUL CARD
+========================================== */
+
+.pendaftaran-smart-card h3 {
+  margin: 0 0 8px;
+
+  color: var(--smart-purple);
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   DESKRIPSI CARD
+========================================== */
+
+.pendaftaran-smart-card p {
+  width: 100%;
+  margin: 0;
+
+  color: var(--smart-text);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
+
+  overflow-wrap: break-word;
+}
+
+/* ==========================================
+   LINK WHATSAPP DAN FORMULIR
 ========================================== */
 
 .pendaftaran-smart-link {
@@ -225,10 +297,9 @@
   gap: 5px;
 
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 12px;
 
   color: var(--smart-purple);
-
   font-size: 12px;
   font-weight: 700;
   line-height: 1.5;
@@ -239,7 +310,7 @@
 }
 
 .pendaftaran-smart-link:hover {
-  color: var(--smart-gold);
+  color: #a97820;
 }
 
 .pendaftaran-smart-link:focus-visible {
@@ -249,9 +320,41 @@
 }
 
 .pendaftaran-smart-link svg {
+  display: block;
+
   width: 15px;
   height: 15px;
   flex-shrink: 0;
+
+  transition: transform 0.2s ease;
+}
+
+.pendaftaran-smart-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (max-width: 1200px) {
+  .pendaftaran-smart {
+    --timeline-gap: 16px;
+  }
+
+  .pendaftaran-smart-card {
+    padding: 20px 12px 18px;
+    border-radius: 22px;
+  }
+
+  .pendaftaran-smart-card h3 {
+    font-size: 15px;
+  }
+
+  .pendaftaran-smart-icon {
+    width: 58px;
+    height: 58px;
+  }
 }
 
 /* ==========================================
@@ -260,16 +363,20 @@
 
 @media (max-width: 1000px) {
   .pendaftaran-smart {
-    padding: 60px 20px 70px;
-  }
-
-  .pendaftaran-smart-steps {
-    gap: 12px;
+    --timeline-number: 42px;
+    --timeline-gap: 12px;
   }
 
   .pendaftaran-smart-card {
-    padding: 20px 12px;
-    min-height: 180px;
+    min-height: 185px;
+    padding: 18px 10px 16px;
+    border-radius: 20px;
+  }
+
+  .pendaftaran-smart-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 8px;
   }
 
   .pendaftaran-smart-card h3 {
@@ -277,7 +384,8 @@
   }
 
   .pendaftaran-smart-card p {
-    font-size: 11px;
+    font-size: 13px;
+    line-height: 1.75;
   }
 
   .pendaftaran-smart-link {
@@ -291,19 +399,20 @@
 
 @media (max-width: 767px) {
   .pendaftaran-smart {
-    padding: 50px 16px 60px;
+    --timeline-number: 42px;
+    --timeline-gap: 16px;
   }
 
   .pendaftaran-smart-heading {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
   }
 
   .pendaftaran-smart-heading h2 {
     font-size: 24px;
-    letter-spacing: -0.3px;
   }
 
   .pendaftaran-smart-divider {
+    width: 50px;
     margin: 13px auto 12px;
   }
 
@@ -316,70 +425,89 @@
   .pendaftaran-smart-steps {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--timeline-gap);
   }
-
-  /* GARIS VERTIKAL */
 
   .pendaftaran-smart-steps::before {
-    top: 25px;
-    bottom: 25px;
-    left: 23px;
-    right: auto;
-
-    border-top: none;
-    border-left: 2px dashed var(--smart-gold);
+    display: none;
   }
-
-  /* SETIAP LANGKAH */
 
   .pendaftaran-smart-step {
     display: grid;
-    grid-template-columns: 48px minmax(0, 1fr);
+
+    grid-template-columns:
+      var(--timeline-number)
+      minmax(0, 1fr);
+
     align-items: start;
-    gap: 15px;
+    gap: 13px;
   }
 
-  /* LINGKARAN */
+  /* GARIS ANTAR NOMOR */
+
+  .pendaftaran-smart-step:not(:last-child)::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    top: calc(var(--timeline-number) / 2);
+    bottom: calc(
+      -1 * var(--timeline-gap) -
+      var(--timeline-number) / 2
+    );
+
+    left: calc(var(--timeline-number) / 2 - 1.5px);
+
+    width: 3px;
+
+    background: var(--smart-gold);
+    border-radius: 999px;
+  }
+
+  /* NOMOR */
 
   .pendaftaran-smart-number-wrap {
-    width: 48px;
-    margin-bottom: 0;
+    width: var(--timeline-number);
+    margin: 0;
   }
 
   .pendaftaran-smart-number {
-    width: 48px;
-    height: 48px;
-    font-size: 19px;
+    font-size: 17px;
   }
 
   /* CARD */
 
   .pendaftaran-smart-card {
     min-height: 0;
-    padding: 18px 17px;
+    padding: 20px 18px;
 
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
 
-    border-radius: 12px;
+    border-radius: 22px;
+  }
+
+  .pendaftaran-smart-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 8px;
   }
 
   .pendaftaran-smart-card h3 {
     margin-bottom: 7px;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .pendaftaran-smart-card p {
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.8;
   }
-
-  /* LINK */
 
   .pendaftaran-smart-link {
     margin-top: 0;
-    padding-top: 12px;
+    padding-top: 10px;
     font-size: 12px;
   }
 }
@@ -390,20 +518,25 @@
 
 @media (max-width: 380px) {
   .pendaftaran-smart {
-    padding-left: 14px;
-    padding-right: 14px;
+    --timeline-number: 38px;
   }
 
   .pendaftaran-smart-step {
-    gap: 12px;
+    gap: 10px;
   }
 
   .pendaftaran-smart-card {
-    padding: 16px 14px;
+    padding: 18px 12px;
+    border-radius: 18px;
   }
 
   .pendaftaran-smart-card h3 {
-    font-size: 15px;
+    font-size: 16px;
+  }
+
+  .pendaftaran-smart-icon {
+    width: 52px;
+    height: 52px;
   }
 }
 
@@ -413,40 +546,13 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pendaftaran-smart-card,
-  .pendaftaran-smart-link {
+  .pendaftaran-smart-link,
+  .pendaftaran-smart-link svg {
     transition: none;
   }
-}
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.pendaftaran-smart {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .pendaftaran-smart {
-    padding-left: 20px;
-    padding-right: 20px;
+  .pendaftaran-smart-card:hover,
+  .pendaftaran-smart-link:hover svg {
+    transform: none;
   }
-}
-
-@media (max-width: 768px) {
-  .pendaftaran-smart {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .pendaftaran-smart {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.pendaftaran-smart {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

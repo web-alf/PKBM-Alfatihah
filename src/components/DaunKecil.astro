@@ -1,0 +1,30 @@
+---
+// Rumpun 4 daun hijau gendut bergradasi, gaya soft 3D.
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class:list={["daun-kecil", className]}
+  viewBox="0 0 100 90"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <path id="dk-leaf" d="M0 0C6 -24 44 -26 60 0C44 26 6 24 0 0Z"></path>
+    <path id="dk-leaf-hl" d="M8 -6C18 -14 34 -14 44 -8C34 -10 18 -9 8 -6Z"></path>
+    <linearGradient id="dk-a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8EDC87"></stop>
+      <stop offset="1" stop-color="#2F8F4E"></stop>
+    </linearGradient>
+    <linearGradient id="dk-b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6FCB78"></stop>
+      <stop offset="1" stop-color="#25794A"></stop>
+    </linearGradient>
+  </defs>
+  <use href="#dk-leaf" fill="url(#dk-b)" transform="translate(46 84) rotate(-150) scale(0.75)"></use>
+  <use href="#dk-leaf" fill="url(#dk-a)" transform="translate(50 84) rotate(-108) scale(0.95)"></use>
+  <use href="#dk-leaf-hl" fill="#FFFFFF" fill-opacity="0.35" transform="translate(50 84) rotate(-108) scale(0.95)"></use>
+  <use href="#dk-leaf" fill="url(#dk-b)" transform="translate(52 84) rotate(-62) scale(0.9)"></use>
+  <use href="#dk-leaf-hl" fill="#FFFFFF" fill-opacity="0.3" transform="translate(52 84) rotate(-62) scale(0.9)"></use>
+  <use href="#dk-leaf" fill="url(#dk-a)" transform="translate(54 84) rotate(-22) scale(0.7)"></use>
+</svg>

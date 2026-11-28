@@ -1,0 +1,584 @@
+---
+import { Image } from "astro:assets";
+import testiImage from "../assets/image/testi1.webp";
+import "../styles/program/GaleriTestimoni.css";
+
+const videos = [
+  {
+    id: "ugYoPPUSQnY",
+    title: "Testimoni Video 1",
+    platform: "YouTube",
+    thumbnail:
+      "https://i.ytimg.com/vi/ugYoPPUSQnY/hqdefault.jpg",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/ugYoPPUSQnY?autoplay=1&rel=0",
+    url:
+      "https://www.youtube.com/watch?v=ugYoPPUSQnY",
+  },
+  {
+    id: "1bk8A7XaL_gS7kT3q_5Fdj45FANyz5MmG",
+    title: "Testimoni Video 2",
+    platform: "Google Drive",
+    thumbnail:
+      "https://drive.google.com/thumbnail?id=1bk8A7XaL_gS7kT3q_5Fdj45FANyz5MmG&sz=w800",
+    embedUrl:
+      "https://drive.google.com/file/d/1bk8A7XaL_gS7kT3q_5Fdj45FANyz5MmG/preview",
+    url:
+      "https://drive.google.com/file/d/1bk8A7XaL_gS7kT3q_5Fdj45FANyz5MmG/view",
+  },
+  {
+    id: "1O4HAjt1-co9C28B4bwouGHLT_WK-goMm",
+    title: "Testimoni Video 3",
+    platform: "Google Drive",
+    thumbnail:
+      "https://drive.google.com/thumbnail?id=1O4HAjt1-co9C28B4bwouGHLT_WK-goMm&sz=w800",
+    embedUrl:
+      "https://drive.google.com/file/d/1O4HAjt1-co9C28B4bwouGHLT_WK-goMm/preview",
+    url:
+      "https://drive.google.com/file/d/1O4HAjt1-co9C28B4bwouGHLT_WK-goMm/view",
+  },
+  {
+    id: "1aqW92HSIOrf5OOZwc1MfcISR9SmntfPv",
+    title: "Testimoni Video 4",
+    platform: "Google Drive",
+    thumbnail:
+      "https://drive.google.com/thumbnail?id=1aqW92HSIOrf5OOZwc1MfcISR9SmntfPv&sz=w800",
+    embedUrl:
+      "https://drive.google.com/file/d/1aqW92HSIOrf5OOZwc1MfcISR9SmntfPv/preview",
+    url:
+      "https://drive.google.com/file/d/1aqW92HSIOrf5OOZwc1MfcISR9SmntfPv/view",
+  },
+];
+---
+
+<section
+  class="galeri-testimoni"
+  aria-labelledby="galeri-testimoni-title"
+>
+  <div class="gt-container">
+
+    <!-- HEADING -->
+    <header class="gt-heading">
+
+      <span class="gt-badge">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path
+            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8
+            8.5 8.5 0 0 1-7.6 4.7
+            8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7
+            a8.38 8.38 0 0 1-.9-3.8
+            8.5 8.5 0 0 1 4.7-7.6
+            8.38 8.38 0 0 1 3.8-.9h.5
+            a8.48 8.48 0 0 1 8 8z"
+          />
+          <path
+            d="M12 15s-4-2.5-4-5
+            a2.2 2.2 0 0 1 4-1.2
+            2.2 2.2 0 0 1 4 1.2
+            c0 2.5-4 5-4 5z"
+            fill="currentColor"
+            stroke="none"
+          />
+        </svg>
+
+        Testimoni Santri
+      </span>
+
+      <h2 id="galeri-testimoni-title">
+        Cerita Mereka Bersama PKBM Alfatihah
+      </h2>
+
+      <div
+        class="gt-divider"
+        aria-hidden="true"
+      ></div>
+
+      <p>
+        Yuk, lihat testimoni langsung dari santri
+        tentang pengalaman belajar di PKBM Alfatihah.
+      </p>
+
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <div class="gt-layout">
+
+      <!-- TESTIMONI FOTO -->
+      <div class="gt-photo-panel">
+
+        <h3 class="gt-photo-heading">
+          Testimoni Foto
+        </h3>
+
+        <div class="gt-photo-decoration"></div>
+
+        <!-- QUOTE ICON -->
+        <div class="gt-quote" aria-hidden="true">
+          <svg
+            viewBox="0 0 48 48"
+            fill="currentColor"
+          >
+            <path
+              d="M7 9h14v15c0 9-5 14-13 15v-6
+              c4-1 6-4 6-8H7V9zm20 0h14v15
+              c0 9-5 14-13 15v-6
+              c4-1 6-4 6-8h-7V9z"
+            />
+          </svg>
+        </div>
+
+        <!-- ORIGINAL PHONE IMAGE -->
+        <button
+          type="button"
+          class="gt-photo-button"
+          data-gt-photo
+          aria-label="Perbesar foto testimoni santri"
+        >
+          <Image
+            src={testiImage}
+            alt="Testimoni santri PKBM Alfatihah"
+            class="gt-photo"
+            loading="lazy"
+          />
+        </button>
+
+        <span class="gt-photo-caption">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 5 5M7 10h6M10 7v6" />
+          </svg>
+
+          Klik foto untuk memperbesar
+        </span>
+
+      </div>
+
+      <!-- TESTIMONI VIDEO -->
+      <div class="gt-video-panel">
+
+        <div class="gt-video-heading">
+
+          <span class="gt-video-heading-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect
+                x="2"
+                y="4"
+                width="20"
+                height="16"
+                rx="4"
+              />
+              <path
+                d="m10 8 6 4-6 4z"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </span>
+
+          <h3>Testimoni Video Santri</h3>
+
+        </div>
+
+        <div class="gt-video-grid">
+
+          {videos.map((video) => (
+            <article class="gt-video-card">
+
+              <button
+                type="button"
+                class="gt-video-preview"
+                data-gt-play
+                data-url={video.embedUrl}
+                data-original-url={video.url}
+                data-title={video.title}
+                aria-label={`Putar ${video.title}`}
+              >
+
+                <!-- DECORATIVE FALLBACK -->
+                <svg
+                  class="gt-preview-wave"
+                  viewBox="0 0 400 180"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 125
+                    C80 75 120 180 220 125
+                    S340 75 400 110
+                    V180 H0Z"
+                    fill="#ffffff"
+                    opacity=".15"
+                  />
+                </svg>
+
+                <!-- THUMBNAIL -->
+                <img
+                  src={video.thumbnail}
+                  alt=""
+                  class="gt-video-thumbnail"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <span class="gt-video-overlay"></span>
+
+                <!-- PLATFORM LABEL -->
+                <span class="gt-platform">
+
+                  {video.platform === "YouTube" ? (
+                    <svg
+                      viewBox="0 0 28 20"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        width="28"
+                        height="20"
+                        rx="6"
+                        fill="#FF0033"
+                      />
+                      <path
+                        d="m11 5 9 5-9 5z"
+                        fill="#ffffff"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 2h8L6 20l-4-7z"
+                        fill="#0F9D58"
+                      />
+                      <path
+                        d="M16 2 23 14h-8L8 2z"
+                        fill="#F4B400"
+                      />
+                      <path
+                        d="M6 14h17l-4 7H2z"
+                        fill="#4285F4"
+                      />
+                    </svg>
+                  )}
+
+                  {video.platform}
+
+                </span>
+
+                <!-- PLAY BUTTON -->
+                <span class="gt-play-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+
+              </button>
+
+              <!-- CARD TITLE -->
+              <div class="gt-video-body">
+
+                <h4>{video.title}</h4>
+
+                <a
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="gt-external-link"
+                  aria-label={`Buka ${video.title} di ${video.platform}`}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M13 5h6v6" />
+                    <path d="m19 5-9 9" />
+                    <path d="M19 13v6H5V5h6" />
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+          ))}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <dialog
+    class="gt-modal"
+    data-gt-video-modal
+    aria-labelledby="gt-modal-title"
+  >
+
+    <div class="gt-modal-inner">
+
+      <div class="gt-modal-header">
+
+        <h3 id="gt-modal-title" data-gt-modal-title>
+          Testimoni Video
+        </h3>
+
+        <button
+          type="button"
+          class="gt-modal-close"
+          data-gt-close
+          aria-label="Tutup video"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+
+      </div>
+
+      <div class="gt-modal-player">
+
+        <iframe
+          data-gt-iframe
+          title="Video Testimoni Santri"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+      </div>
+
+      <div class="gt-modal-footer">
+        <a
+          data-gt-original-link
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buka Video Asli ↗
+        </a>
+      </div>
+
+    </div>
+
+  </dialog>
+
+  <!-- PHOTO MODAL -->
+  <dialog
+    class="gt-photo-modal"
+    data-gt-photo-modal
+    aria-label="Foto testimoni santri"
+  >
+
+    <div class="gt-photo-modal-inner">
+
+      <button
+        type="button"
+        class="gt-modal-close gt-photo-close"
+        data-gt-close
+        aria-label="Tutup foto"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      </button>
+
+      <Image
+        src={testiImage}
+        alt="Foto lengkap testimoni santri PKBM Alfatihah"
+        class="gt-photo-full"
+        loading="lazy"
+      />
+
+    </div>
+
+  </dialog>
+
+</section>
+
+<script>
+  function initGaleriTestimoni() {
+    const sections =
+      document.querySelectorAll<HTMLElement>(
+        ".galeri-testimoni"
+      );
+
+    sections.forEach((section) => {
+      if (section.dataset.initialized === "true") {
+        return;
+      }
+
+      section.dataset.initialized = "true";
+
+      const videoModal =
+        section.querySelector<HTMLDialogElement>(
+          "[data-gt-video-modal]"
+        );
+
+      const photoModal =
+        section.querySelector<HTMLDialogElement>(
+          "[data-gt-photo-modal]"
+        );
+
+      const iframe =
+        section.querySelector<HTMLIFrameElement>(
+          "[data-gt-iframe]"
+        );
+
+      const modalTitle =
+        section.querySelector<HTMLElement>(
+          "[data-gt-modal-title]"
+        );
+
+      const originalLink =
+        section.querySelector<HTMLAnchorElement>(
+          "[data-gt-original-link]"
+        );
+
+      let previousFocus: HTMLElement | null = null;
+
+      // PLAY VIDEO
+      section
+        .querySelectorAll<HTMLButtonElement>(
+          "[data-gt-play]"
+        )
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            if (!videoModal || !iframe) return;
+
+            previousFocus = button;
+
+            iframe.src = button.dataset.url || "";
+
+            iframe.title =
+              button.dataset.title ||
+              "Testimoni Video";
+
+            if (modalTitle) {
+              modalTitle.textContent =
+                button.dataset.title ||
+                "Testimoni Video";
+            }
+
+            if (originalLink) {
+              originalLink.href =
+                button.dataset.originalUrl || "";
+            }
+
+            videoModal.showModal();
+          });
+        });
+
+      // OPEN PHOTO
+      section
+        .querySelector<HTMLButtonElement>(
+          "[data-gt-photo]"
+        )
+        ?.addEventListener("click", (event) => {
+          previousFocus =
+            event.currentTarget as HTMLElement;
+
+          photoModal?.showModal();
+        });
+
+      // CLOSE BUTTON
+      section
+        .querySelectorAll<HTMLButtonElement>(
+          "[data-gt-close]"
+        )
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            button.closest("dialog")?.close();
+          });
+        });
+
+      // CLOSE WHEN CLICKING BACKDROP
+      [videoModal, photoModal].forEach((modal) => {
+        modal?.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            modal.close();
+          }
+        });
+
+        modal?.addEventListener("close", () => {
+          previousFocus?.focus();
+        });
+      });
+
+      // STOP VIDEO AFTER CLOSE
+      videoModal?.addEventListener("close", () => {
+        iframe?.removeAttribute("src");
+      });
+
+      // THUMBNAIL FALLBACK
+      section
+        .querySelectorAll<HTMLImageElement>(
+          ".gt-video-thumbnail"
+        )
+        .forEach((image) => {
+          const hideImage = () => {
+            image.hidden = true;
+          };
+
+          image.addEventListener("error", hideImage);
+
+          if (
+            image.complete &&
+            image.naturalWidth === 0
+          ) {
+            hideImage();
+          }
+        });
+    });
+  }
+
+  initGaleriTestimoni();
+
+  document.addEventListener(
+    "astro:page-load",
+    initGaleriTestimoni
+  );
+</script>

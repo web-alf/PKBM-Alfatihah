@@ -3,8 +3,18 @@
 ========================================= */
 
 .detail-kesetaraan {
-  padding: 80px 24px 28px;
-  background: #FFF9F5;
+  --detail-purple: #92197B;
+  --detail-yellow: #FCD757;
+  --detail-background: var(--pkbm-cream, #FCF7F2);
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 40px clamp(32px, 5.5vw, 100px) 45px;
+
+  overflow: hidden;
+
+  background: var(--detail-background);
   font-family: "Poppins", sans-serif;
 }
 
@@ -14,13 +24,20 @@
   box-sizing: border-box;
 }
 
+/* =========================================
+   CONTAINER
+========================================= */
+
 .detail-kesetaraan-container {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
-/* CARD GRID */
+/* =========================================
+   GRID DUA CARD
+========================================= */
 
 .detail-kesetaraan-grid {
   display: grid;
@@ -29,15 +46,28 @@
   gap: 24px;
 }
 
+/* =========================================
+   CARD UTAMA
+========================================= */
+
 .detail-card {
+  position: relative;
+
   display: flex;
-  min-width: 0;
   flex-direction: column;
-  padding: 28px;
-  border: 1px solid #F2E7EB;
-  border-radius: 16px;
+
+  min-width: 0;
+  padding: 24px 28px;
+
+  border: 1px solid #F1E1EC;
+  border-radius: 22px;
+
   background: #FFFFFF;
-  box-shadow: 0 8px 26px rgba(75, 22, 60, 0.08);
+
+  box-shadow:
+    0 5px 10px rgba(117, 25, 79, 0.04),
+    0 10px 24px rgba(117, 25, 79, 0.08);
+
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -45,8 +75,14 @@
 
 .detail-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(75, 22, 60, 0.12);
+
+  box-shadow:
+    0 12px 28px rgba(117, 25, 79, 0.12);
 }
+
+/* =========================================
+   CARD UNGU KIRI
+========================================= */
 
 .detail-card-benefits {
   border-color: #92197B;
@@ -54,61 +90,113 @@
   color: #FFFFFF;
 }
 
+/* =========================================
+   DEKORASI PETIK KUNING
+========================================= */
+
+.detail-card-benefits::before {
+  content: "";
+
+  position: absolute;
+  top: 35px;
+  left: -47px;
+
+  width: 42px;
+  height: 48px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 60'%3E%3Cpath d='M17 8L33 24 M5 36L23 34' fill='none' stroke='%23FCD757' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   HEADER CARD
+========================================= */
+
 .detail-card-header {
   display: flex;
   flex-direction: column;
-  min-height: 76px;
-  gap: 12px;
-  margin-bottom: 18px;
+
+  min-height: 0;
+  gap: 10px;
+
+  margin-bottom: 20px;
 }
 
 .detail-card-header h3 {
-  min-height: 2.8em;
+  min-height: 0;
   margin: 0;
-  color: #82165F;
-  font-size: clamp(18px, 1.7vw, 22px);
+
+  color: #92197B;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(19px, 1.8vw, 23px);
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.35;
+
+  letter-spacing: -0.3px;
 }
 
 .detail-card-benefits .detail-card-header h3 {
   color: #FFFFFF;
 }
 
+/* GARIS KUNING */
+
 .detail-card-heading-line {
-  width: 48px;
+  width: 38px;
   height: 3px;
-  margin-top: auto;
-  border-radius: 10px;
-  background: #D9A035;
+
+  margin-top: 0;
+
+  border-radius: 999px;
+  background: #FCD757;
 }
 
+/* Card kiri tanpa garis seperti referensi */
+
 .detail-card-benefits .detail-card-heading-line {
-  background: #FFE0A3;
+  display: none;
 }
+
+/* =========================================
+   BODY CARD
+========================================= */
 
 .detail-card-body {
   display: flex;
-  min-width: 0;
-  flex: 1;
   flex-direction: column;
+
+  flex: 1;
+  min-width: 0;
 }
 
-/* KEUNGGULAN */
+/* =========================================
+   DAFTAR KEUNGGULAN
+========================================= */
 
 .detail-feature-list {
   display: flex;
-  flex: 1;
   flex-direction: column;
+
+  flex: initial;
+  gap: 0;
 }
 
 .detail-feature {
   display: flex;
-  flex: 1;
   align-items: flex-start;
+
+  flex: initial;
   gap: 14px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 12px 0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.13);
 }
 
 .detail-feature:first-child {
@@ -120,32 +208,72 @@
   border-bottom: 0;
 }
 
+/* =========================================
+   IKON CENTANG KUNING
+========================================= */
+
 .detail-feature-icon,
 .detail-check-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 30px;
-  width: 30px;
-  height: 30px;
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 32px;
+
+  width: 32px;
+  height: 32px;
+
   border-radius: 50%;
-  font-size: 17px;
-  font-weight: 800;
+
+  font-size: 0;
   line-height: 1;
 }
 
-.detail-feature-icon {
-  background: #FFE0A3;
-  color: #75194F;
+/* Hilangkan ikon lama */
+
+.detail-feature-icon > *,
+.detail-check-icon > * {
+  display: none;
 }
 
+.detail-feature-icon {
+  background: #FCD757;
+  color: #FFFFFF;
+}
+
+/* SVG CENTANG PUTIH */
+
+.detail-feature-icon::before {
+  content: "";
+
+  display: block;
+
+  width: 19px;
+  height: 19px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4 4L19 6'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* =========================================
+   TEKS KEUNGGULAN
+========================================= */
+
 .detail-feature-text {
+  flex: 1;
   min-width: 0;
 }
 
 .detail-feature-text h4 {
-  margin: 0 0 4px;
+  margin: 0 0 3px;
+
   color: #FFFFFF;
+
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.4;
@@ -153,59 +281,202 @@
 
 .detail-feature-text p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 13px;
+
+  color: #FFFFFF;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.65;
+
+  letter-spacing: normal;
+  overflow-wrap: break-word;
 }
 
-/* UNTUK SIAPA */
+/* =========================================
+   CARD KANAN: UNTUK SIAPA
+========================================= */
 
 .detail-audience-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin: 0;
+
+  gap: 14px;
+
+  margin: 0 0 22px;
   padding: 0;
+
   list-style: none;
 }
 
 .detail-audience-item {
   display: flex;
   align-items: center;
+
   gap: 14px;
   min-width: 0;
+
   color: #33313A;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.5;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
 }
+
+/* =========================================
+   IKON BULAT UNGU
+========================================= */
 
 .detail-check-icon {
   flex-shrink: 0;
-  background: #A74E92;
+
+  background: #92197B;
   color: #FFFFFF;
 }
 
+.detail-check-icon::before {
+  content: "";
+
+  display: block;
+
+  width: 19px;
+  height: 19px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* IKON 01: SISWA */
+
+.detail-audience-item:nth-child(1)
+.detail-check-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3Cpath d='M4 21v-3a8 8 0 0 1 16 0v3z'/%3E%3C/svg%3E");
+}
+
+/* IKON 02: PEKERJA */
+
+.detail-audience-item:nth-child(2)
+.detail-check-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='18' height='14' rx='2'/%3E%3Cpath d='M8 7V4h8v3M3 13h18M10 13v2h4v-2'/%3E%3C/svg%3E");
+}
+
+/* IKON 03: IBU RUMAH TANGGA */
+
+.detail-audience-item:nth-child(3)
+.detail-check-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M2 11 12 2l10 9h-3v10h-5v-7h-4v7H5V11z'/%3E%3C/svg%3E");
+}
+
+/* IKON 04: MASYARAKAT UMUM */
+
+.detail-audience-item:nth-child(4)
+.detail-check-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Ccircle cx='12' cy='6' r='3'/%3E%3Ccircle cx='4.5' cy='9' r='2.5'/%3E%3Ccircle cx='19.5' cy='9' r='2.5'/%3E%3Cpath d='M7 21v-6a5 5 0 0 1 10 0v6zM1 20v-5a4 4 0 0 1 5-4v9zM18 20v-9a4 4 0 0 1 5 4v5z'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   CATATAN KUNING
+========================================= */
+
 .detail-audience-note {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
   margin-top: auto;
-  padding: 18px;
-  border-radius: 12px;
-  background: #FFF1D8;
+  padding: 16px 18px;
+
+  border: 1px solid #FBE7AD;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    110deg,
+    #FFF0C6 0%,
+    #FFF6DE 100%
+  );
+}
+
+/* IKON TOPI WISUDA */
+
+.detail-audience-note::before {
+  content: "";
+
+  display: block;
+
+  flex: 0 0 40px;
+
+  width: 40px;
+  height: 40px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M10 22v11q14 12 28 0V22' fill='%2392197B'/%3E%3Cpath d='M2 17 24 7l22 10-22 10z' fill='%23BD53AD'/%3E%3Cpath d='M24 17 43 20v15' fill='none' stroke='%23FCD757' stroke-width='3' stroke-linecap='round'/%3E%3Crect x='40' y='33' width='6' height='9' rx='2' fill='%23FCD757'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .detail-audience-note p {
+  flex: 1;
+  min-width: 0;
+
   margin: 0;
+
   color: #463B45;
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.65;
+
+  overflow-wrap: break-word;
 }
 
-/* TABLET */
+/* =========================================
+   LAPTOP
+========================================= */
 
-@media (max-width: 992px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
+
   .detail-kesetaraan {
-    padding: 64px 24px 24px;
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .detail-kesetaraan-grid {
+    gap: 20px;
+  }
+
+  .detail-card {
+    padding: 22px;
+  }
+
+  .detail-card-benefits::before {
+    left: -35px;
+    width: 30px;
+  }
+
+  .detail-card-header h3 {
+    font-size: 21px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .detail-kesetaraan {
+    padding: 35px 40px 40px;
+  }
+
+  .detail-kesetaraan-container {
+    max-width: 800px;
   }
 
   .detail-kesetaraan-grid {
@@ -213,94 +484,168 @@
   }
 
   .detail-card {
-    padding: 24px;
-  }
-
-  .detail-card-header {
-    min-height: 72px;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-  .detail-kesetaraan {
-    padding: 52px 24px 22px;
-  }
-
-  .detail-kesetaraan-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .detail-card {
-    padding: 24px;
-  }
-
-  .detail-card-header {
-    min-height: 0;
-    margin-bottom: 20px;
+    padding: 22px;
+    border-radius: 20px;
   }
 
   .detail-card-header h3 {
-    font-size: 19px;
+    font-size: 20px;
   }
 
-  .detail-feature {
-    flex: initial;
-    padding: 14px 0;
-  }
-
-  .detail-audience-list {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 640px) {
-  .detail-kesetaraan {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-}
-
-/* MOBILE KECIL */
-
-@media (max-width: 480px) {
-  .detail-kesetaraan {
-    padding: 46px 16px 20px;
-  }
-
-  .detail-card {
-    padding: 20px 18px;
-  }
-
-  .detail-card-header h3 {
-    font-size: 17px;
-  }
-
-  .detail-feature {
-    gap: 12px;
+  .detail-card-benefits::before {
+    left: -33px;
+    width: 28px;
   }
 
   .detail-feature-text h4 {
     font-size: 15px;
   }
 
-  .detail-feature-text p {
-    font-size: 13px;
+  .detail-feature {
+    gap: 10px;
   }
 
   .detail-audience-item {
-    gap: 12px;
-    font-size: 14px;
-  }
-
-  .detail-audience-note {
-    padding: 16px;
+    gap: 10px;
   }
 }
 
+/* =========================================
+   TABLET KECIL
+========================================= */
+
+@media (max-width: 768px) {
+
+  .detail-kesetaraan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .detail-kesetaraan-container {
+    max-width: 600px;
+  }
+
+  .detail-card {
+    padding: 24px;
+  }
+
+  .detail-card-benefits::before {
+    display: none;
+  }
+
+  .detail-card-header {
+    margin-bottom: 18px;
+  }
+
+  .detail-audience-note {
+    margin-top: 4px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .detail-kesetaraan {
+    padding: 28px 24px 35px;
+  }
+
+  .detail-kesetaraan-container {
+    max-width: 420px;
+  }
+
+  .detail-kesetaraan-grid {
+    gap: 18px;
+  }
+
+  .detail-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .detail-card-header h3 {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .detail-card-header {
+    margin-bottom: 18px;
+  }
+
+  .detail-feature {
+    gap: 11px;
+    padding: 11px 0;
+  }
+
+  .detail-feature-text h4 {
+    font-size: 15px;
+  }
+
+  .detail-feature-text p,
+  .detail-audience-item,
+  .detail-audience-note p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .detail-feature-icon,
+  .detail-check-icon {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .detail-feature-icon::before,
+  .detail-check-icon::before {
+    width: 17px;
+    height: 17px;
+  }
+
+  .detail-audience-list {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .detail-audience-note {
+    gap: 10px;
+    padding: 14px 12px;
+  }
+
+  .detail-audience-note::before {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 360px) {
+
+  .detail-kesetaraan {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .detail-card {
+    padding: 20px 15px;
+  }
+
+  .detail-card-header h3 {
+    font-size: 18px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
   .detail-card {
     transition: none;
   }
@@ -308,36 +653,4 @@
   .detail-card:hover {
     transform: none;
   }
-}
-
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.detail-kesetaraan {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .detail-kesetaraan {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .detail-kesetaraan {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .detail-kesetaraan {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.detail-kesetaraan {
-  padding-bottom: var(--pkbm-section-pad);
 }

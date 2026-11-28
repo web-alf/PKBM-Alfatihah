@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import { artikel } from "../data/artikel";
+import "../styles/program/Artikel.css";
+---
+
+<section class="artikel-section" aria-labelledby="artikel-title">
+  <div class="artikel-container">
+
+    <!-- HEADING -->
+    <header class="artikel-heading">
+
+      <span class="artikel-heading-badge">
+        Taman Baca
+      </span>
+
+      <h1 id="artikel-title">Artikel</h1>
+
+      <div class="artikel-divider"></div>
+
+      <p>
+        Temukan berbagai artikel inspiratif, wawasan, dan
+        informasi menarik untuk menambah pengetahuan
+        serta memperluas cara pandangmu.
+      </p>
+
+    </header>
+
+    <!-- GRID ARTIKEL -->
+    <div class="artikel-grid">
+
+      {artikel.map((item) => (
+        <article class="artikel-card">
+
+          <!-- GAMBAR -->
+          <div class="artikel-card-media">
+
+            <a
+              href={`/artikel/${item.slug}`}
+              class="artikel-card-image-link"
+              aria-label={item.title}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                class="artikel-card-image"
+                loading="lazy"
+              />
+            </a>
+
+            <span class="artikel-card-category">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+              </svg>
+
+              {item.category}
+
+            </span>
+
+          </div>
+
+          <!-- KONTEN -->
+          <div class="artikel-card-body">
+
+            <h2 class="artikel-card-title">
+              <a href={`/artikel/${item.slug}`}>
+                {item.title}
+              </a>
+            </h2>
+
+            <p class="artikel-card-excerpt">
+              {item.excerpt}
+            </p>
+
+            <!-- FOOTER -->
+            <div class="artikel-card-footer">
+
+              <time
+                class="artikel-card-date"
+                datetime={item.dateISO}
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="16"
+                    rx="2"
+                  />
+                  <path d="M16 3v4M8 3v4M3 10h18" />
+                </svg>
+
+                {item.date}
+
+              </time>
+
+              <a
+                href={`/artikel/${item.slug}`}
+                class="artikel-card-button"
+              >
+                Baca Selengkapnya
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+
+  </div>
+</section>

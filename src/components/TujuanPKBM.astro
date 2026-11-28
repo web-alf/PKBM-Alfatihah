@@ -1,0 +1,74 @@
+---
+import IkonCentang from "./IkonCentang.astro";
+import IkonTujuan from "./IkonTujuan.astro";
+import "../styles/about/TentangKami.css";
+import "../styles/about/TujuanPKBM.css";
+
+const tujuan = [
+  {
+    variant: "pendek",
+    icon: "topi",
+    title: "Tujuan Jangka Pendek",
+    items: [
+      "Terwujudnya Tahfidz Qur’an dengan metode Al-Jawarih pada surat-surat pendek di Juz 30 yang berakhlak mulia",
+      "Terciptanya suasana pembelajaran yang inovatif dan kreatif",
+      "Melaksanakan program pembelajaran yang memperkuat bernalar kritis",
+      "Melaksanakan pembelajaran yang ini mengenalkan implementasi kebhinekaan global",
+    ],
+  },
+  {
+    variant: "menengah",
+    icon: "buku",
+    title: "Tujuan Jangka Menengah",
+    items: [
+      "Terwujudnya Tahfidz Qur’an Juz 30 yang berakhlak mulia",
+      "Memotivasi warga belajar untuk menggagas inovasi sederhana untuk memberikan solusi dalam kehidupannya.",
+      "Merancang pembelajaran yang sesuai dengan tingkat perbedaan kemampuan kognitif warga belajar mengarahkan pada keterampilan dan kecakapan hidup sesuai bakat dan minatnya.",
+      "Meningkatkan kecintaan dan kebanggan terhadap potensi daerah.",
+    ],
+  },
+  {
+    variant: "panjang",
+    icon: "piala",
+    title: "Tujuan Jangka Panjang",
+    items: [
+      "Terwujudnya Tahfidz Qur’an Juz 29 dengan tajwid dan tahsin yang baik.",
+      "Menyediakan fasilitas untuk mengembangkan kreativitas, inovasi dan minat bakat warga belajar.",
+      "Menjalin kerjasama untuk memfasilitasi berbagai keragaman potensi, minat dan bakat warga belajar.",
+      "Membentuk warga belajar berakhlakul mulia dan selalu peduli sosial dalam toleransi beragama.",
+    ],
+  },
+];
+---
+
+<section class="tujuan-section" aria-labelledby="tujuan-title">
+  <div class="tentang-container">
+    <div class="tentang-section-heading">
+      <h2 id="tujuan-title">Tujuan PKBM Alfatihah</h2>
+      <div class="tentang-accent tentang-accent-center"></div>
+    </div>
+
+    <div class="tujuan-panel">
+      <div class="tujuan-grid">
+        {tujuan.map((t) => (
+          <article class={`tujuan-card is-${t.variant}`}>
+            <header class="tujuan-card-head">
+              <span class="tujuan-icon">
+                <IkonTujuan name={t.icon} />
+              </span>
+              <h3>{t.title}</h3>
+            </header>
+            <ul class="tujuan-list">
+              {t.items.map((item) => (
+                <li>
+                  <IkonCentang />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

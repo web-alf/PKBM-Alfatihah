@@ -1,10 +1,7 @@
 
 /* ==========================================
    FAQ ALFATIHAH SMART LEARNING
-   ACCORDION - CLEAN & MINIMAL
-   Purple : #3C1E66
-   Gold   : #D9A035
-   Cream  : #FFF9F5
+   INDEPENDENT COLUMN ACCORDION
 ========================================== */
 
 .faq-smart {
@@ -16,20 +13,41 @@
   --smart-muted: #6c6074;
   --smart-border: #e8dfdf;
 
+  --faq-wave-height: clamp(65px, 7vw, 110px);
+  --faq-wave-color: #fff5fa;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   width: 100%;
-  padding: 65px 20px 75px;
+
+  padding:
+    var(--pkbm-section-pad, 65px)
+    var(--pkbm-container-pad, 24px)
+    calc(var(--faq-wave-height) + 35px);
+
   background: var(--smart-cream);
   font-family: "Poppins", sans-serif;
 }
 
 .faq-smart,
-.faq-smart * {
+.faq-smart *,
+.faq-smart *::before,
+.faq-smart *::after {
   box-sizing: border-box;
 }
 
+/* ==========================================
+   CONTAINER
+========================================== */
+
 .faq-smart-container {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
@@ -38,44 +56,68 @@
 ========================================== */
 
 .faq-smart-heading {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   text-align: center;
 }
 
 .faq-smart-heading h2 {
   margin: 0;
+
   color: var(--smart-purple);
+
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: -0.5px;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .faq-smart-divider {
   display: block;
-  width: 60px;
-  height: 3px;
+
+  width: 55px;
+  height: 4px;
+
   margin: 15px auto 13px;
+
   background: var(--smart-gold);
   border-radius: 999px;
 }
 
 .faq-smart-heading p {
   margin: 0;
+
   color: var(--smart-muted);
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 /* ==========================================
-   DAFTAR FAQ
+   LAYOUT DUA KOLOM INDEPENDEN
 ========================================== */
 
 .faq-smart-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
   align-items: start;
-  gap: 10px 16px;
+  gap: 24px;
+}
+
+/* Setiap kolom berdiri sendiri */
+
+.faq-smart-column {
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+  gap: 12px;
+
+  width: 100%;
+  min-width: 0;
 }
 
 /* ==========================================
@@ -85,17 +127,34 @@
 .faq-smart-item {
   width: 100%;
   min-width: 0;
+
   overflow: hidden;
 
-  background: var(--smart-white);
-  border: 1px solid var(--smart-border);
-  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #ffffff 65%,
+    #faf5fc 100%
+  );
 
-  transition: border-color 0.2s ease;
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+
+  box-shadow:
+    0 3px 5px rgba(60, 30, 102, 0.035),
+    0 5px 12px rgba(60, 30, 102, 0.07);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .faq-smart-item:hover {
-  border-color: #d9c6df;
+  border-color: #e3d2e9;
+
+  box-shadow:
+    0 4px 8px rgba(60, 30, 102, 0.04),
+    0 7px 15px rgba(60, 30, 102, 0.09);
 }
 
 .faq-smart-item[open] {
@@ -110,12 +169,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
 
-  min-height: 60px;
-  padding: 15px 18px;
+  gap: 16px;
+
+  min-height: 58px;
+  padding: 14px 18px;
 
   color: var(--smart-purple);
+
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 600;
   line-height: 1.6;
@@ -123,6 +185,11 @@
   cursor: pointer;
   list-style: none;
   user-select: none;
+}
+
+.faq-smart-question > span:first-child {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Hilangkan marker bawaan browser */
@@ -137,100 +204,157 @@
 
 .faq-smart-question:focus-visible {
   outline: 2px solid var(--smart-gold);
-  outline-offset: -3px;
+  outline-offset: -4px;
+  border-radius: 16px;
 }
 
 /* ==========================================
-   IKON PLUS / MINUS
+   ICON PLUS DAN MINUS
 ========================================== */
 
 .faq-smart-icon {
   position: relative;
 
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #f6f0fa;
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  background: #f3e8f8;
   border-radius: 50%;
+
+  transition: background 0.2s ease;
 }
 
 /* Garis horizontal */
 
 .faq-smart-icon::before {
   content: "";
+
   position: absolute;
 
   width: 12px;
   height: 2px;
 
   background: var(--smart-purple);
-  border-radius: 2px;
+  border-radius: 999px;
+
+  transition: background 0.2s ease;
 }
 
-/* Garis vertikal = PLUS */
+/* Garis vertikal */
 
 .faq-smart-icon::after {
   content: "";
+
   position: absolute;
 
   width: 2px;
   height: 12px;
 
   background: var(--smart-purple);
-  border-radius: 2px;
+  border-radius: 999px;
 
-  transition: transform 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-/* Saat terbuka = MINUS */
+/* ==========================================
+   KONDISI FAQ TERBUKA
+========================================== */
 
 .faq-smart-item[open] .faq-smart-icon {
   background: var(--smart-purple);
 }
 
-.faq-smart-item[open] .faq-smart-icon::before,
-.faq-smart-item[open] .faq-smart-icon::after {
+.faq-smart-item[open] .faq-smart-icon::before {
   background: #ffffff;
 }
 
 .faq-smart-item[open] .faq-smart-icon::after {
   transform: rotate(90deg);
+  opacity: 0;
 }
 
 /* ==========================================
-   JAWABAN
+   JAWABAN FAQ
 ========================================== */
 
 .faq-smart-answer {
   padding: 15px 18px 18px;
-  border-top: 1px solid var(--smart-border);
+
+  border-top: 1px solid #eee4ef;
 }
 
 .faq-smart-answer p {
   margin: 0;
 
   color: var(--smart-text);
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.85;
+  line-height: 1.8;
+
+  letter-spacing: normal;
+  overflow-wrap: break-word;
+}
+
+.faq-smart-answer a {
+  color: var(--smart-purple);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+/* ==========================================
+   GELOMBANG MENUJU FOOTER
+========================================== */
+
+.faq-smart-wave {
+  position: absolute;
+
+  bottom: -1px;
+  left: 0;
+  right: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: var(--faq-wave-height);
+
+  pointer-events: none;
+}
+
+.faq-smart-wave path {
+  fill: var(--faq-wave-color);
 }
 
 /* ==========================================
    TABLET
 ========================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .faq-smart {
-    padding: 60px 20px 70px;
+    --faq-wave-height: 75px;
+  }
+
+  .faq-smart-list {
+    gap: 18px;
+  }
+
+  .faq-smart-column {
+    gap: 11px;
   }
 
   .faq-smart-question {
-    padding: 14px 16px;
+    padding: 13px 16px;
     font-size: 14px;
   }
 
@@ -244,14 +368,28 @@
 ========================================== */
 
 @media (max-width: 768px) {
+  .faq-smart {
+    --faq-wave-height: 55px;
+  }
+
   .faq-smart-list {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .faq-smart-column {
+    gap: 10px;
+  }
+
+  .faq-smart-item {
+    border-radius: 16px;
   }
 }
 
 @media (max-width: 640px) {
   .faq-smart {
-    padding: 50px 16px 60px;
+    padding-bottom:
+      calc(var(--faq-wave-height) + 25px);
   }
 
   .faq-smart-heading {
@@ -260,31 +398,26 @@
 
   .faq-smart-heading h2 {
     font-size: 24px;
-    letter-spacing: -0.3px;
+    line-height: 1.4;
   }
 
   .faq-smart-divider {
+    width: 50px;
     margin: 13px auto 12px;
   }
 
   .faq-smart-heading p {
     font-size: 13px;
-  }
-
-  .faq-smart-list {
-    gap: 9px;
-  }
-
-  .faq-smart-item {
-    border-radius: 10px;
+    line-height: 1.8;
   }
 
   .faq-smart-question {
-    min-height: 58px;
-    padding: 13px 14px;
+    min-height: 55px;
+
+    padding: 12px 14px;
     gap: 12px;
 
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.6;
   }
 
@@ -298,7 +431,7 @@
   }
 
   .faq-smart-answer p {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.8;
   }
 }
@@ -308,18 +441,18 @@
 ========================================== */
 
 @media (max-width: 380px) {
-  .faq-smart {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
   .faq-smart-question {
     padding: 12px;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .faq-smart-answer {
     padding: 12px;
+  }
+
+  .faq-smart-icon {
+    width: 26px;
+    height: 26px;
   }
 }
 
@@ -329,39 +462,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .faq-smart-item,
+  .faq-smart-icon,
+  .faq-smart-icon::before,
   .faq-smart-icon::after {
     transition: none;
   }
-}
-
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.faq-smart {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .faq-smart {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .faq-smart {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq-smart {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.faq-smart {
-  padding-top: var(--pkbm-section-pad);
 }

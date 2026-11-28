@@ -11,7 +11,7 @@
 
 .ketentuan-hs-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max);
   margin: 0 auto;
 }
 
@@ -71,18 +71,6 @@
   border-radius: 16px;
   padding: 28px 30px 32px;
   min-width: 0;
-
-  opacity: 0;
-  transform: translateY(18px);
-
-  transition:
-    opacity 0.65s ease,
-    transform 0.65s ease;
-}
-
-.ketentuan-hs-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* CARD KIRI */
@@ -98,7 +86,6 @@
 .ketentuan-hs-card--umum {
   background: #f8eaf1;
   border: 1px solid transparent;
-  transition-delay: 0.1s;
 }
 
 /* ==========================================
@@ -225,47 +212,161 @@
   }
 }
 
-/* ==========================================
-   REDUCED MOTION
-========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .ketentuan-hs-card {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
 /* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
 .ketentuan-hs {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .ketentuan-hs {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .ketentuan-hs {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ketentuan-hs {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+  padding-left: var(--pkbm-container-pad);
+  padding-right: var(--pkbm-container-pad);
 }
 
 /* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
 .ketentuan-hs {
   padding-top: var(--pkbm-section-pad);
   padding-bottom: var(--pkbm-section-pad);
+}
+
+/* =========================================
+   REVISI KETENTUAN BIAYA HOMESCHOOLING
+========================================= */
+
+.ketentuan-hs {
+  width: 100%;
+  padding: 32px var(--pkbm-container-pad) 40px;
+  background: #FAF0F7;
+  font-family: "Poppins", sans-serif;
+}
+
+.ketentuan-hs-container {
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
+  margin: 0 auto;
+}
+
+/* JUDUL SECTION */
+
+.ketentuan-hs-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ketentuan-hs-heading h2 {
+  margin: 0;
+  color: #92197B;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.ketentuan-hs-heading p {
+  max-width: 650px;
+  margin: 12px auto 0;
+  color: #584452;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.ketentuan-hs-line,
+.ketentuan-hs-heading-line {
+  background: #FCD757;
+}
+
+/* LAYOUT DUA KOLOM */
+
+.ketentuan-hs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+/* CARD KETENTUAN */
+
+.ketentuan-hs-card {
+  padding: 22px 26px;
+  background: rgba(255, 255, 255, 0.65);
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 5px 16px rgba(146, 25, 123, 0.06);
+}
+
+.ketentuan-hs-card:nth-child(2) {
+  background: #F8E3F1;
+  box-shadow: none;
+}
+
+.ketentuan-hs-card h3 {
+  margin: 0 0 14px;
+  color: #92197B;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* CHECKLIST */
+
+.ketentuan-hs-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ketentuan-hs-card li {
+  position: relative;
+  display: block;
+  padding-left: 27px;
+  color: #584452;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.ketentuan-hs-card li::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 7px;
+  height: 12px;
+  border-right: 3px solid #92197B;
+  border-bottom: 3px solid #92197B;
+  transform: rotate(45deg);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .ketentuan-hs {
+    padding-top: 26px;
+    padding-bottom: 30px;
+  }
+
+  .ketentuan-hs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .ketentuan-hs-card {
+    padding: 18px 20px;
+    border-radius: 18px;
+  }
+
+  .ketentuan-hs-card h3 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ketentuan-hs-heading h2 {
+    font-size: 26px;
+  }
+
+  .ketentuan-hs-heading p,
+  .ketentuan-hs-card li {
+    font-size: 13px;
+    line-height: 1.8;
+  }
 }

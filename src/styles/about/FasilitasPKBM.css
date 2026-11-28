@@ -1,0 +1,675 @@
+
+/* ========================================
+   FASILITAS PKBM ALFATIHAH
+   COMPACT INFINITE CAROUSEL
+======================================== */
+
+.fasilitas-pkbm {
+  --fasilitas-gap: 20px;
+  --fasilitas-per-view: 5;
+  --fasilitas-wave-h: clamp(35px, 4vw, 60px);
+
+  --fasilitas-bg: var(--pkbm-blush, #FFF5FA);
+  --fasilitas-footer-bg: var(--pkbm-blush, #FFF5FA);
+
+  position: relative;
+  isolation: isolate;
+
+  overflow-x: clip;
+
+  box-sizing: border-box;
+
+  width: 100%;
+
+  padding:
+    30px
+    clamp(32px, 5.5vw, 100px)
+    calc(var(--fasilitas-wave-h) + 20px);
+
+  background: var(--fasilitas-bg);
+
+  font-family: "Poppins", sans-serif;
+}
+
+.fasilitas-pkbm *,
+.fasilitas-pkbm *::before,
+.fasilitas-pkbm *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   CONTAINER
+   SAMA DENGAN TUTOR DAN PROGRAM KAMI
+======================================== */
+
+.fasilitas-pkbm-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1160px;
+  min-width: 0;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   JUDUL SECTION
+======================================== */
+
+.fasilitas-heading {
+  margin-bottom: 24px;
+
+  text-align: center;
+}
+
+.fasilitas-heading h2 {
+  margin: 0;
+
+  color: var(--pkbm-magenta, #92197B);
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* GARIS KUNING */
+
+.fasilitas-accent {
+  width: 55px;
+  height: 4px;
+
+  margin: 10px auto 0;
+
+  border-radius: 999px;
+
+  background: #FFC400;
+}
+
+/* ========================================
+   CAROUSEL
+======================================== */
+
+.fasilitas-carousel {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.fasilitas-carousel-main {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* ========================================
+   FRAME
+   MENCEGAH OVERFLOW HORIZONTAL
+======================================== */
+
+.fasilitas-frame {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  padding: 0;
+}
+
+/* ========================================
+   TRACK CAROUSEL
+======================================== */
+
+.fasilitas-track {
+  position: relative;
+
+  display: flex;
+  align-items: stretch;
+
+  gap: var(--fasilitas-gap);
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 8px 0 22px;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  overscroll-behavior-x: contain;
+
+  touch-action: pan-y;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.fasilitas-track::-webkit-scrollbar {
+  display: none;
+}
+
+.fasilitas-track:focus-visible {
+  outline: 2px solid #FFC400;
+  outline-offset: -2px;
+}
+
+/* ========================================
+   SLIDE
+   5 CARD DALAM SATU BARIS
+======================================== */
+
+.fasilitas-slide {
+  display: flex;
+
+  flex: 0 0 calc(
+    (
+      100% -
+      var(--fasilitas-gap) *
+      (var(--fasilitas-per-view) - 1)
+    ) / var(--fasilitas-per-view)
+  );
+
+  min-width: 0;
+
+  scroll-snap-align: start;
+}
+
+/* ========================================
+   CARD FASILITAS
+======================================== */
+
+.fasilitas-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 9px 9px 14px;
+
+  border: 1px solid #EEDCE9;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #FFFDFE 60%,
+    #FDF2F9 100%
+  );
+
+  box-shadow:
+    0 4px 0 #EBD0E5,
+    0 8px 14px rgba(167, 78, 146, 0.09);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.fasilitas-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 4px 0 #EBD0E5,
+    0 10px 18px rgba(167, 78, 146, 0.14);
+}
+
+/* ========================================
+   FOTO FASILITAS
+======================================== */
+
+.fasilitas-card-image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border-radius: 13px;
+
+  background: #F4E5F3;
+}
+
+.fasilitas-card-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+/* ========================================
+   JUDUL CARD
+   TIDAK DIPOTONG / LINE CLAMP
+======================================== */
+
+.fasilitas-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+
+  min-width: 0;
+
+  margin: 12px 3px 0;
+
+  color: #3D0F52;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+
+  text-align: center;
+
+  overflow-wrap: break-word;
+}
+
+/* ========================================
+   PANAH NAVIGASI
+======================================== */
+
+.fasilitas-nav {
+  position: absolute;
+
+  top: calc(50% - 7px);
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #FFFFFF;
+
+  color: #A74E92;
+
+  box-shadow:
+    0 4px 12px rgba(60, 20, 55, 0.18);
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fasilitas-nav svg {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+}
+
+/* POSISI PANAH */
+
+.fasilitas-nav.is-prev {
+  left: -19px;
+}
+
+.fasilitas-nav.is-next {
+  right: -19px;
+}
+
+/* HOVER */
+
+.fasilitas-nav:hover {
+  background: #FCD757;
+
+  color: #92197B;
+
+  transform:
+    translateY(-50%)
+    scale(1.06);
+}
+
+.fasilitas-nav:focus-visible {
+  outline: 3px solid #FFC400;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   PAGINATION
+   9 TITIK
+======================================== */
+
+.fasilitas-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 2px;
+
+  margin-top: 0;
+}
+
+.fasilitas-dot {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  width: 18px;
+  height: 24px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* BENTUK TITIK */
+
+.fasilitas-dot::before {
+  content: "";
+
+  display: block;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #E9B6D9;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* TITIK AKTIF */
+
+.fasilitas-dot.is-active::before {
+  background: #FFC400;
+
+  transform: scale(1.25);
+}
+
+.fasilitas-dot:hover::before {
+  background: #FCD757;
+}
+
+.fasilitas-dot:focus-visible {
+  outline: 2px solid #A74E92;
+  outline-offset: 1px;
+}
+
+/* ========================================
+   GELOMBANG BAWAH
+   MENUJU FOOTER
+======================================== */
+
+.fasilitas-wave-bottom {
+  position: absolute;
+
+  right: 0;
+  bottom: -1px;
+  left: 0;
+
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+  height: var(--fasilitas-wave-h);
+
+  pointer-events: none;
+}
+
+.fasilitas-wave-bottom path {
+  fill: var(--fasilitas-footer-bg);
+}
+
+/* ========================================
+   LAPTOP
+======================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .fasilitas-pkbm {
+    --fasilitas-per-view: 5;
+    --fasilitas-gap: 18px;
+
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .fasilitas-card {
+    padding: 8px 8px 12px;
+
+    border-radius: 18px;
+  }
+
+  .fasilitas-card-title {
+    font-size: 14px;
+  }
+
+  .fasilitas-nav {
+    width: 34px;
+    height: 34px;
+  }
+
+  .fasilitas-nav.is-prev {
+    left: -17px;
+  }
+
+  .fasilitas-nav.is-next {
+    right: -17px;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+
+  .fasilitas-pkbm {
+    --fasilitas-per-view: 4;
+    --fasilitas-gap: 16px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .fasilitas-pkbm-container {
+    max-width: 800px;
+  }
+
+  .fasilitas-card {
+    border-radius: 18px;
+  }
+
+  .fasilitas-card-title {
+    font-size: 14px;
+  }
+}
+
+/* TABLET SEDANG */
+
+@media (max-width: 900px) {
+
+  .fasilitas-pkbm {
+    --fasilitas-per-view: 3;
+  }
+}
+
+/* TABLET KECIL */
+
+@media (max-width: 700px) {
+
+  .fasilitas-pkbm {
+    --fasilitas-per-view: 2;
+    --fasilitas-gap: 16px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .fasilitas-pkbm {
+    --fasilitas-per-view: 2;
+    --fasilitas-gap: 12px;
+    --fasilitas-wave-h: 30px;
+
+    padding:
+      24px
+      24px
+      calc(var(--fasilitas-wave-h) + 12px);
+  }
+
+  .fasilitas-pkbm-container {
+    max-width: 420px;
+  }
+
+  /* JUDUL */
+
+  .fasilitas-heading {
+    margin-bottom: 18px;
+  }
+
+  .fasilitas-heading h2 {
+    font-size: 27px;
+  }
+
+  /* CARD */
+
+  .fasilitas-card {
+    padding: 7px 7px 12px;
+
+    border-radius: 15px;
+  }
+
+  .fasilitas-card-image {
+    aspect-ratio: 16 / 11;
+
+    border-radius: 10px;
+  }
+
+  .fasilitas-card-title {
+    margin: 10px 2px 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* PANAH */
+
+  .fasilitas-nav {
+    width: 30px;
+    height: 30px;
+  }
+
+  .fasilitas-nav svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .fasilitas-nav.is-prev {
+    left: -12px;
+  }
+
+  .fasilitas-nav.is-next {
+    right: -12px;
+  }
+
+  /* PAGINATION */
+
+  .fasilitas-dots {
+    gap: 0;
+  }
+
+  .fasilitas-dot {
+    width: 17px;
+    height: 24px;
+  }
+
+  .fasilitas-dot::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* ========================================
+   MOBILE KECIL
+======================================== */
+
+@media (max-width: 360px) {
+
+  .fasilitas-pkbm {
+    --fasilitas-gap: 10px;
+  }
+
+  .fasilitas-card-title {
+    font-size: 12px;
+  }
+
+  .fasilitas-card {
+    padding: 6px 6px 10px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fasilitas-track {
+    scroll-behavior: auto;
+  }
+
+  .fasilitas-card,
+  .fasilitas-nav,
+  .fasilitas-dot::before {
+    transition: none;
+  }
+
+  .fasilitas-card:hover {
+    transform: none;
+  }
+
+  .fasilitas-nav:hover {
+    transform: translateY(-50%);
+  }
+}

@@ -1,10 +1,8 @@
-
 ---
 import logoPKBM from "../assets/image/PKBM_icon.webp";
 import "../styles/layout/Header.css";
 
-const registrationUrl =
-  "/pendaftaran";
+const registrationUrl = "/pendaftaran";
 
 const programs = [
   {
@@ -23,21 +21,109 @@ const programs = [
     name: "Diaspora Qur'an Center",
     href: "/diaspora",
   },
+  {
+    name: "Pelatihan Keterampilan",
+    href: "/pelatihan-keterampilan",
+  },
 ];
 
-const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const tentangKami = [
+  {
+    name: "Visi & Misi",
+    href: "/tentang-kami#visi-misi-title",
+  },
+  {
+    name: "Tujuan",
+    href: "/tentang-kami#tujuan-title",
+  },
+  {
+    name: "Legalitas",
+    href: "/tentang-kami#legalitas-ijazah-title",
+  },
+  {
+    name: "Tutor",
+    href: "/tentang-kami#tutor-andalan-title",
+  },
+  {
+    name: "Fasilitas",
+    href: "/tentang-kami#fasilitas-pkbm-title",
+  },
+];
+
+const tamanBaca = [
+  {
+    name: "Formula Belajar Cerdas",
+    href: "/formula-belajar-cerdas",
+  },
+  {
+    name: "Modul Cerdas",
+    href: "/modul-cerdas",
+  },
+  {
+    name: "Berita Acara",
+    href: "/berita-acara",
+  },
+  {
+    name: "Artikel",
+    href: "/artikel",
+  },
+  {
+    name: "Cerita Pendek",
+    href: "/cerita-pendek",
+  },
+  {
+    name: "FAQ",
+    href: "/faq",
+  },
+];
+
+const galeri = [
+  {
+    name: "Foto",
+    href: "/galeri-foto",
+  },
+  {
+    name: "Video",
+    href: "/galeri-video",
+  },
+  {
+    name: "Testimoni",
+    href: "/testimoni",
+  },
+];
+
+const currentPath =
+  Astro.url.pathname.replace(/\/+$/, "") || "/";
 
 const isProgramPage =
   currentPath === "/program" ||
   currentPath.startsWith("/program/") ||
   programs.some((program) => currentPath === program.href);
+
+const isAboutPage =
+  currentPath === "/tentang-kami";
+
+const isTamanBacaPage =
+  currentPath === "/taman-baca" ||
+  tamanBaca.some(
+    (item) =>
+      currentPath === item.href ||
+      currentPath.startsWith(`${item.href}/`)
+  );
+
+const isGaleriPage =
+  currentPath === "/galeri";
 ---
 
 <header class="site-header">
   <div class="header-container">
 
     <!-- LOGO -->
-    <a href="/" class="header-logo" aria-label="PKBM Alfatihah - Beranda">
+    <a
+      href="/"
+      class="header-logo"
+      aria-label="PKBM Alfatihah - Beranda"
+    >
       <img
         src={logoPKBM.src}
         alt="PKBM Alfatihah"
@@ -48,33 +134,80 @@ const isProgramPage =
     </a>
 
     <!-- NAVIGASI DESKTOP -->
-    <nav class="desktop-nav" aria-label="Navigasi utama">
+    <nav
+      class="desktop-nav"
+      aria-label="Navigasi utama"
+    >
 
+      <!-- BERANDA -->
       <a
         href="/"
         data-scroll-menu="home"
-        class:list={["nav-link", { "is-active": currentPath === "/" }]}
-        aria-current={currentPath === "/" ? "page" : undefined}
+        class:list={[
+          "nav-link",
+          { "is-active": currentPath === "/" }
+        ]}
+        aria-current={
+          currentPath === "/" ? "page" : undefined
+        }
       >
         Beranda
       </a>
 
-      <a
-        href="/tentang-kami"
+      <!-- DROPDOWN TENTANG KAMI -->
+      <div
         data-scroll-menu="about"
         class:list={[
-          "nav-link",
-          { "is-active": currentPath === "/tentang-kami" },
+          "nav-dropdown",
+          { "is-active": isAboutPage }
         ]}
-        aria-current={currentPath === "/tentang-kami" ? "page" : undefined}
       >
-        Tentang Kami
-      </a>
+        <button
+          type="button"
+          class="dropdown-button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="about-dropdown"
+        >
+          Tentang Kami
+
+          <svg
+            class="dropdown-chevron"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="m3.5 6 4.5 4 4.5-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="about-dropdown"
+          class="dropdown-menu"
+          hidden
+        >
+          {tentangKami.map((item) => (
+            <a href={item.href}>
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
 
       <!-- DROPDOWN PROGRAM -->
       <div
         data-scroll-menu="program"
-        class:list={["nav-dropdown", { "is-active": isProgramPage }]}
+        class:list={[
+          "nav-dropdown",
+          { "is-active": isProgramPage }
+        ]}
       >
         <button
           type="button"
@@ -111,7 +244,9 @@ const isProgramPage =
             <a
               href={program.href}
               aria-current={
-                currentPath === program.href ? "page" : undefined
+                currentPath === program.href
+                  ? "page"
+                  : undefined
               }
             >
               {program.name}
@@ -120,11 +255,120 @@ const isProgramPage =
         </div>
       </div>
 
+      <!-- DROPDOWN TAMAN BACA -->
+      <div
+        data-scroll-menu="taman-baca"
+        class:list={[
+          "nav-dropdown",
+          { "is-active": isTamanBacaPage }
+        ]}
+      >
+        <button
+          type="button"
+          class="dropdown-button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="taman-baca-dropdown"
+        >
+          Taman Baca
+
+          <svg
+            class="dropdown-chevron"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="m3.5 6 4.5 4 4.5-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="taman-baca-dropdown"
+          class="dropdown-menu"
+          hidden
+        >
+          {tamanBaca.map((item) => (
+            <a
+              href={item.href}
+              aria-current={
+                currentPath === item.href
+                  ? "page"
+                  : undefined
+              }
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- DROPDOWN GALERI -->
+      <div
+        data-scroll-menu="galeri"
+        class:list={[
+          "nav-dropdown",
+          { "is-active": isGaleriPage }
+        ]}
+      >
+        <button
+          type="button"
+          class="dropdown-button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="galeri-dropdown"
+        >
+          Galeri
+
+          <svg
+            class="dropdown-chevron"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="m3.5 6 4.5 4 4.5-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="galeri-dropdown"
+          class="dropdown-menu"
+          hidden
+        >
+          {galeri.map((item) => (
+            <a href={item.href}>
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- KONTAK -->
       <a
         href="/kontak"
         data-scroll-menu="contact"
-        class:list={["nav-link", { "is-active": currentPath === "/kontak" }]}
-        aria-current={currentPath === "/kontak" ? "page" : undefined}
+        class:list={[
+          "nav-link",
+          { "is-active": currentPath === "/kontak" }
+        ]}
+        aria-current={
+          currentPath === "/kontak"
+            ? "page"
+            : undefined
+        }
       >
         Kontak
       </a>
@@ -150,7 +394,12 @@ const isProgramPage =
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
-      <span class="menu-icon" aria-hidden="true">☰</span>
+      <span
+        class="menu-icon"
+        aria-hidden="true"
+      >
+        ☰
+      </span>
     </button>
 
   </div>
@@ -162,42 +411,234 @@ const isProgramPage =
     aria-label="Navigasi mobile"
     hidden
   >
+
+    <!-- BERANDA -->
     <a
       href="/"
-      aria-current={currentPath === "/" ? "page" : undefined}
+      class="mobile-menu-link"
+      aria-current={
+        currentPath === "/" ? "page" : undefined
+      }
     >
       Beranda
     </a>
 
-    <a
-      href="/tentang-kami"
-      aria-current={currentPath === "/tentang-kami" ? "page" : undefined}
+    <!-- ACCORDION TENTANG KAMI -->
+    <div
+      class:list={[
+        "mobile-accordion",
+        { "is-active": isAboutPage }
+      ]}
+      data-mobile-accordion="about"
     >
-      Tentang Kami
-    </a>
-
-    <span class="mobile-menu-label">
-      PROGRAM
-    </span>
-
-    {programs.map((program) => (
-      <a
-        href={program.href}
-        aria-current={
-          currentPath === program.href ? "page" : undefined
-        }
+      <button
+        type="button"
+        class="mobile-accordion-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-about-panel"
       >
-        {program.name}
-      </a>
-    ))}
+        <span>Tentang Kami</span>
 
+        <svg
+          class="mobile-accordion-chevron"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="m3.5 6 4.5 4 4.5-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        id="mobile-about-panel"
+        class="mobile-accordion-panel"
+      >
+        <div class="mobile-accordion-panel-inner">
+          {tentangKami.map((item) => (
+            <a href={item.href}>
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDION PROGRAM -->
+    <div
+      class:list={[
+        "mobile-accordion",
+        { "is-active": isProgramPage }
+      ]}
+      data-mobile-accordion="program"
+    >
+      <button
+        type="button"
+        class="mobile-accordion-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-program-panel"
+      >
+        <span>Program</span>
+
+        <svg
+          class="mobile-accordion-chevron"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="m3.5 6 4.5 4 4.5-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        id="mobile-program-panel"
+        class="mobile-accordion-panel"
+      >
+        <div class="mobile-accordion-panel-inner">
+          {programs.map((program) => (
+            <a
+              href={program.href}
+              aria-current={
+                currentPath === program.href
+                  ? "page"
+                  : undefined
+              }
+            >
+              {program.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDION TAMAN BACA -->
+    <div
+      class:list={[
+        "mobile-accordion",
+        { "is-active": isTamanBacaPage }
+      ]}
+      data-mobile-accordion="taman-baca"
+    >
+      <button
+        type="button"
+        class="mobile-accordion-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-taman-baca-panel"
+      >
+        <span>Taman Baca</span>
+
+        <svg
+          class="mobile-accordion-chevron"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="m3.5 6 4.5 4 4.5-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        id="mobile-taman-baca-panel"
+        class="mobile-accordion-panel"
+      >
+        <div class="mobile-accordion-panel-inner">
+          {tamanBaca.map((item) => (
+            <a
+              href={item.href}
+              aria-current={
+                currentPath === item.href
+                  ? "page"
+                  : undefined
+              }
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDION GALERI -->
+    <div
+      class:list={[
+        "mobile-accordion",
+        { "is-active": isGaleriPage }
+      ]}
+      data-mobile-accordion="galeri"
+    >
+      <button
+        type="button"
+        class="mobile-accordion-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-galeri-panel"
+      >
+        <span>Galeri</span>
+
+        <svg
+          class="mobile-accordion-chevron"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="m3.5 6 4.5 4 4.5-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        id="mobile-galeri-panel"
+        class="mobile-accordion-panel"
+      >
+        <div class="mobile-accordion-panel-inner">
+          {galeri.map((item) => (
+            <a href={item.href}>
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- KONTAK -->
     <a
       href="/kontak"
-      aria-current={currentPath === "/kontak" ? "page" : undefined}
+      class="mobile-menu-link"
+      aria-current={
+        currentPath === "/kontak"
+          ? "page"
+          : undefined
+      }
     >
       Kontak
     </a>
 
+    <!-- DAFTAR -->
     <a
       href={registrationUrl}
       class="mobile-register"
@@ -206,31 +647,144 @@ const isProgramPage =
     >
       Daftar Sekarang ↗
     </a>
+
   </nav>
 </header>
 
 <script>
   const toggle =
-    document.querySelector<HTMLButtonElement>(".mobile-toggle");
+    document.querySelector<HTMLButtonElement>(
+      ".mobile-toggle"
+    );
 
   const mobileMenu =
-    document.querySelector<HTMLElement>(".mobile-menu");
+    document.querySelector<HTMLElement>(
+      ".mobile-menu"
+    );
 
   const menuIcon =
-    toggle?.querySelector<HTMLElement>(".menu-icon");
+    toggle?.querySelector<HTMLElement>(
+      ".menu-icon"
+    );
 
-  const dropdown =
-    document.querySelector<HTMLElement>(".nav-dropdown");
+  const dropdowns = Array.from(
+    document.querySelectorAll<HTMLElement>(
+      ".nav-dropdown"
+    )
+  ).map((dropdown) => ({
+    dropdown,
+    button:
+      dropdown.querySelector<HTMLButtonElement>(
+        ".dropdown-button"
+      ),
+    menu:
+      dropdown.querySelector<HTMLElement>(
+        ".dropdown-menu"
+      ),
+  }));
 
-  const dropdownButton =
-    dropdown?.querySelector<HTMLButtonElement>(".dropdown-button");
+  function closeDropdown(
+    entry: (typeof dropdowns)[number]
+  ) {
+    entry.dropdown.classList.remove("is-open");
 
-  const dropdownMenu =
-    dropdown?.querySelector<HTMLElement>(".dropdown-menu");
+    entry.button?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    if (entry.menu) {
+      entry.menu.hidden = true;
+    }
+  }
+
+  /* =========================================
+     MOBILE ACCORDION (SUBMENU)
+  ========================================= */
+
+  const accordions = Array.from(
+    document.querySelectorAll<HTMLElement>(
+      ".mobile-accordion"
+    )
+  ).map((accordion) => ({
+    accordion,
+    toggle:
+      accordion.querySelector<HTMLButtonElement>(
+        ".mobile-accordion-toggle"
+      ),
+    panel:
+      accordion.querySelector<HTMLElement>(
+        ".mobile-accordion-panel"
+      ),
+  }));
+
+  function closeAccordion(
+    entry: (typeof accordions)[number]
+  ) {
+    entry.accordion.classList.remove("is-open");
+
+    entry.toggle?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+  }
+
+  function closeAllAccordions() {
+    accordions.forEach(closeAccordion);
+  }
+
+  accordions.forEach((entry) => {
+    entry.toggle?.addEventListener("click", () => {
+      const isOpen =
+        entry.accordion.classList.contains(
+          "is-open"
+        );
+
+      // Tutup accordion lainnya (hanya satu yang terbuka).
+      accordions
+        .filter((other) => other !== entry)
+        .forEach(closeAccordion);
+
+      if (isOpen) {
+        closeAccordion(entry);
+      } else {
+        entry.accordion.classList.add("is-open");
+
+        entry.toggle?.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+      }
+    });
+
+    // Tutup navigasi mobile setelah submenu diklik.
+    entry.panel
+      ?.querySelectorAll("a[href]")
+      .forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMobileMenu();
+        });
+      });
+  });
 
   /* =========================================
      MOBILE MENU
   ========================================= */
+
+  function closeMobileMenu() {
+    if (!mobileMenu || !toggle) return;
+
+    mobileMenu.hidden = true;
+
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Buka menu");
+
+    if (menuIcon) {
+      menuIcon.textContent = "☰";
+    }
+
+    closeAllAccordions();
+  }
 
   toggle?.addEventListener("click", () => {
     if (!mobileMenu) return;
@@ -238,41 +792,64 @@ const isProgramPage =
     const isOpen =
       toggle.getAttribute("aria-expanded") === "true";
 
-    toggle.setAttribute(
-      "aria-expanded",
-      String(!isOpen)
-    );
+    if (isOpen) {
+      closeMobileMenu();
+      return;
+    }
 
-    toggle.setAttribute(
-      "aria-label",
-      isOpen ? "Buka menu" : "Tutup menu"
-    );
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Tutup menu");
 
-    mobileMenu.hidden = isOpen;
+    mobileMenu.hidden = false;
 
     if (menuIcon) {
-      menuIcon.textContent = isOpen ? "☰" : "✕";
+      menuIcon.textContent = "✕";
     }
   });
+
+  // Tutup navigasi mobile setelah link langsung (non-submenu) diklik.
+  mobileMenu
+    ?.querySelectorAll(
+      ":scope > a[href]"
+    )
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
 
   /* =========================================
      DESKTOP DROPDOWN
   ========================================= */
 
-  dropdownButton?.addEventListener("click", () => {
-    if (!dropdown || !dropdownButton) return;
+  dropdowns.forEach((entry) => {
+    entry.button?.addEventListener("click", () => {
+      const isOpen =
+        entry.dropdown.classList.toggle("is-open");
 
-    const isOpen =
-      dropdown.classList.toggle("is-open");
+      entry.button?.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
 
-    dropdownButton.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
+      if (entry.menu) {
+        entry.menu.hidden = !isOpen;
+      }
 
-    if (dropdownMenu) {
-      dropdownMenu.hidden = !isOpen;
-    }
+      // Tutup dropdown lainnya.
+      dropdowns
+        .filter((other) => other !== entry)
+        .forEach(closeDropdown);
+    });
+
+    // Tutup dropdown setelah link diklik.
+    entry.menu
+      ?.querySelectorAll("a[href]")
+      .forEach((link) => {
+        link.addEventListener("click", () => {
+          closeDropdown(entry);
+        });
+      });
   });
 
   /* =========================================
@@ -286,21 +863,12 @@ const isProgramPage =
       target instanceof Element &&
       target.closest("a[href]") !== null;
 
-    if (
-      target instanceof Node &&
-      dropdown &&
-      !dropdown.contains(target)
-    ) {
-      dropdown.classList.remove("is-open");
-
-      dropdownButton?.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      if (dropdownMenu) {
-        dropdownMenu.hidden = true;
-      }
+    if (target instanceof Node) {
+      dropdowns.forEach((entry) => {
+        if (!entry.dropdown.contains(target)) {
+          closeDropdown(entry);
+        }
+      });
     }
 
     if (
@@ -312,14 +880,7 @@ const isProgramPage =
       !toggle.contains(target) &&
       !mobileMenu.hidden
     ) {
-      mobileMenu.hidden = true;
-
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Buka menu");
-
-      if (menuIcon) {
-        menuIcon.textContent = "☰";
-      }
+      closeMobileMenu();
     }
   });
 
@@ -330,31 +891,21 @@ const isProgramPage =
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
 
-    if (dropdown?.classList.contains("is-open")) {
-      dropdown.classList.remove("is-open");
-
-      dropdownButton?.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      if (dropdownMenu) {
-        dropdownMenu.hidden = true;
+    dropdowns.forEach((entry) => {
+      if (
+        entry.dropdown.classList.contains("is-open")
+      ) {
+        closeDropdown(entry);
+        entry.button?.focus();
       }
+    });
 
-      dropdownButton?.focus();
-    }
-
-    if (mobileMenu && toggle && !mobileMenu.hidden) {
-      mobileMenu.hidden = true;
-
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Buka menu");
-
-      if (menuIcon) {
-        menuIcon.textContent = "☰";
-      }
-
+    if (
+      mobileMenu &&
+      toggle &&
+      !mobileMenu.hidden
+    ) {
+      closeMobileMenu();
       toggle.focus();
     }
   });

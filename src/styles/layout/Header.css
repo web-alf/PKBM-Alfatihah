@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(32px, 2.7vw, 36px);
+  gap: clamp(22px, 2vw, 28px);
   height: 100%;
   font-family: "Poppins", sans-serif;
 }
@@ -55,7 +55,7 @@
   padding: 0;
   color: var(--pkbm-magenta);
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
@@ -108,7 +108,8 @@
 .dropdown-button:focus-visible,
 .header-cta:focus-visible,
 .mobile-toggle:focus-visible,
-.mobile-menu a:focus-visible {
+.mobile-menu a:focus-visible,
+.mobile-accordion-toggle:focus-visible {
   outline: 2px solid var(--pkbm-gold);
   outline-offset: 4px;
 }
@@ -198,9 +199,9 @@
   gap: 8px;
   min-height: 52px;
   padding: 13px 25px;
-  border: 2px solid #A20077;
+  border: 2px solid #A74E92;
   border-radius: 12px;
-  background: #A20077;
+  background: #A74E92;
   color: #FFFFFF;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -246,7 +247,9 @@
 .mobile-menu {
   display: flex;
   flex-direction: column;
+  max-height: calc(100vh - 76px);
   padding: 12px 28px 24px;
+  overflow-y: auto;
   background: var(--pkbm-white);
   border-top: 1px solid var(--pkbm-border);
   box-shadow: 0 12px 20px rgba(var(--pkbm-plum-rgb), 0.06);
@@ -267,12 +270,72 @@
   color: var(--pkbm-plum);
 }
 
-.mobile-menu-label {
-  padding: 16px 8px 4px;
-  color: var(--pkbm-gold);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.1px;
+/* =========================================
+   ACCORDION SUBMENU MOBILE
+========================================= */
+
+.mobile-accordion {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--pkbm-border);
+}
+
+.mobile-accordion-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 8px;
+  background: transparent;
+  border: 0;
+  color: var(--pkbm-magenta);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mobile-accordion.is-active > .mobile-accordion-toggle,
+.mobile-accordion-toggle:hover {
+  color: var(--pkbm-plum);
+}
+
+.mobile-accordion-chevron {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  color: currentColor;
+  transition: transform 0.28s ease;
+}
+
+.mobile-accordion.is-open .mobile-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.mobile-accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.mobile-accordion.is-open .mobile-accordion-panel {
+  grid-template-rows: 1fr;
+}
+
+.mobile-accordion-panel-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mobile-accordion-panel-inner a {
+  padding: 10px 8px 10px 20px;
+  font-size: 12.5px;
+  font-weight: 500;
 }
 
 .mobile-register {
@@ -282,9 +345,9 @@
   margin-top: 12px;
   min-height: 52px;
   padding: 13px 25px !important;
-  border: 2px solid #A20077;
+  border: 2px solid #A74E92;
   border-radius: 12px;
-  background: #A20077;
+  background: #A74E92;
   color: #FFFFFF !important;
   font-size: 14px;
   font-weight: 700 !important;
@@ -347,7 +410,65 @@
   }
 
   .mobile-menu {
+    max-height: calc(100vh - 68px);
     padding: 10px 17px 20px;
+  }
+}
+
+/* Offset anchor scroll agar judul section tidak tertutup header sticky
+   saat diakses dari dropdown "Tentang Kami", "Taman Baca", dan "Galeri". */
+#visi-misi-title,
+#tujuan-title,
+#legalitas-ijazah-title,
+#tutor-andalan-title,
+#fasilitas-pkbm-title,
+#formula-belajar-cerdas-title,
+#modul-cerdas-title,
+#berita-acara-title,
+#artikel-title,
+#cerita-pendek-title,
+#faq-taman-baca-title,
+#galeri-foto-title,
+#galeri-video-title,
+#galeri-testimoni-title {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 1000px) {
+  #visi-misi-title,
+  #tujuan-title,
+  #legalitas-ijazah-title,
+  #tutor-andalan-title,
+  #fasilitas-pkbm-title,
+  #formula-belajar-cerdas-title,
+  #modul-cerdas-title,
+  #berita-acara-title,
+  #artikel-title,
+  #cerita-pendek-title,
+  #faq-taman-baca-title,
+  #galeri-foto-title,
+  #galeri-video-title,
+  #galeri-testimoni-title {
+    scroll-margin-top: 76px;
+  }
+}
+
+@media (max-width: 480px) {
+  #visi-misi-title,
+  #tujuan-title,
+  #legalitas-ijazah-title,
+  #tutor-andalan-title,
+  #fasilitas-pkbm-title,
+  #formula-belajar-cerdas-title,
+  #modul-cerdas-title,
+  #berita-acara-title,
+  #artikel-title,
+  #cerita-pendek-title,
+  #faq-taman-baca-title,
+  #galeri-foto-title,
+  #galeri-video-title,
+  #galeri-testimoni-title {
+    scroll-margin-top: 68px;
   }
 }
 
@@ -360,7 +481,9 @@
   .dropdown-menu,
   .dropdown-menu a,
   .header-cta,
-  .mobile-register {
+  .mobile-register,
+  .mobile-accordion-chevron,
+  .mobile-accordion-panel {
     transition: none;
   }
 }

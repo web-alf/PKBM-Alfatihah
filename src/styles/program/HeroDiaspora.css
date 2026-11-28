@@ -1,6 +1,8 @@
+
 /* ==========================================
    HERO DIASPORA QUR'AN CENTER
-   LAYOUT & PROPORSI MENGIKUTI HERO SMART LEARNING
+   TWO COLUMN - PLAYFUL EDUCATIONAL
+
    Navy  : #001C49
    Gold  : #D9A035
    Cream : #FFF9F5
@@ -11,68 +13,108 @@
   --diaspora-gold: #d9a035;
   --diaspora-gold-light: #f5d177;
   --diaspora-cream: #fff9f5;
-  --diaspora-muted: #786984;
+  --diaspora-muted: #344766;
+
+  --diaspora-wave-height: clamp(45px, 5vw, 85px);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
   width: 100%;
-  padding: 52px 24px 58px;
+
+  padding:
+    45px
+    var(--pkbm-container-pad, 40px)
+    calc(var(--diaspora-wave-height) + 25px);
+
   scroll-margin-top: 88px;
-  overflow: hidden;
 
   background: var(--diaspora-navy);
   color: #ffffff;
+
   font-family: "Poppins", sans-serif;
-  text-align: center;
 }
 
+/* RESET */
+
 .hero-diaspora,
-.hero-diaspora * {
+.hero-diaspora *,
+.hero-diaspora *::before,
+.hero-diaspora *::after {
   box-sizing: border-box;
 }
 
+/* ==========================================
+   CONTAINER UTAMA
+========================================== */
+
 .hero-diaspora-container {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
-  max-width: 1100px;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+
   align-items: center;
-  text-align: center;
+  gap: clamp(25px, 4vw, 65px);
 }
 
 /* ==========================================
-   LOGO
+   KONTEN KIRI
+========================================== */
+
+.hero-diaspora-content {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+
+  text-align: left;
+}
+
+/* ==========================================
+   LOGO PROGRAM
 ========================================== */
 
 .hero-diaspora-logo {
-  width: fit-content;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 12px;
-  padding: 8px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 6px 12px;
+  margin-bottom: 15px;
+
   background: #ffffff;
-  border: 1px solid #e6ebf5;
-  border-radius: 16px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  border-radius: 12px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .hero-diaspora-logo img {
   display: block;
+
   width: auto;
+  height: 55px;
   max-width: 100%;
-  height: 84px;
-  aspect-ratio: 1.52 / 1;
-  object-fit: cover;
+
+  object-fit: contain;
   object-position: center;
 }
 
 /* ==========================================
-   LABEL
+   LABEL PROGRAM
 ========================================== */
 
 .hero-diaspora-label {
@@ -80,58 +122,55 @@
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 18px;
-  padding: 6px 12px;
+  gap: 7px;
 
-  border: 1.5px solid var(--diaspora-gold);
+  padding: 6px 13px;
+  margin-bottom: 15px;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
   border-radius: 999px;
 
   color: #ffffff;
-  font-size: 10px;
+
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
+  line-height: 1.4;
+  letter-spacing: 0.35px;
+}
+
+.hero-diaspora-label svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+
+  color: var(--diaspora-gold-light);
 }
 
 /* ==========================================
-   JUDUL
+   JUDUL HERO
 ========================================== */
 
 .hero-diaspora h1 {
   width: 100%;
-  max-width: 1100px;
-  margin: 0;
+  margin: 0 0 17px;
 
-  color: #ffffff;
   font-family: "Poppins", sans-serif;
-  font-size: 48px;
+  font-size: clamp(36px, 4.2vw, 60px);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  text-align: center;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+
+  text-align: left;
 }
 
 .hero-diaspora-title-white {
+  display: block;
   color: #ffffff;
 }
 
 .hero-diaspora-title-gold {
-  display: inline-block;
-  color: #D9A035;
-}
-
-/* ==========================================
-   GARIS EMAS
-========================================== */
-
-.hero-diaspora-divider {
   display: block;
-  width: 65px;
-  height: 4px;
-  margin: 20px auto;
-
-  background: var(--diaspora-gold);
-  border-radius: 10px;
+  color: var(--diaspora-gold);
 }
 
 /* ==========================================
@@ -139,13 +178,20 @@
 ========================================== */
 
 .hero-diaspora-description {
-  max-width: 850px;
+  width: 100%;
+  max-width: 570px;
+
   margin: 0;
 
   color: #ffffff;
-  font-size: 15px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.9;
+  line-height: 1.8;
+  letter-spacing: normal;
+
+  text-align: left;
 }
 
 /* ==========================================
@@ -153,111 +199,127 @@
 ========================================== */
 
 .hero-diaspora-tagline {
-  max-width: 850px;
-  margin: 16px 0 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  column-gap: 8px;
+  row-gap: 4px;
+
+  width: 100%;
+  margin: 15px 0 0;
 
   color: var(--diaspora-gold-light);
-  font-size: 16px;
+
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.6;
 }
 
-.hero-diaspora-tagline span {
-  margin: 0 6px;
+.hero-diaspora-dot {
   color: var(--diaspora-gold);
 }
 
 /* ==========================================
-   BADGE PROMO
+   PROMO PENDAFTARAN
 ========================================== */
 
 .hero-diaspora-promo {
-  width: fit-content;
-  max-width: 640px;
-  margin-top: 16px;
-  padding: 16px 24px;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  width: fit-content;
+  max-width: 100%;
+
   gap: 12px;
 
+  margin-top: 20px;
+  padding: 12px 18px;
+
   background: var(--diaspora-cream);
-  border: 2px solid var(--diaspora-gold);
-  border-radius: 16px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  border: 1.5px solid var(--diaspora-gold);
+  border-radius: 15px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 
   text-align: left;
 }
 
 .hero-diaspora-promo-icon {
-  width: 56px;
-  height: 60px;
-  padding-right: 12px;
-  flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 43px;
+  height: 46px;
+  flex-shrink: 0;
+
+  padding-right: 10px;
+
   border-right: 1px solid #e7c78f;
-  color: #c88a24;
+
+  color: var(--diaspora-gold);
 }
 
 .hero-diaspora-promo-icon svg {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 .hero-diaspora-promo-content {
-  min-width: 0;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 7px;
-  text-align: left;
+
+  min-width: 0;
+  gap: 5px;
 }
 
 .hero-diaspora-promo-badge {
   display: inline-flex;
   align-items: center;
 
-  padding: 4px 10px;
+  padding: 3px 10px;
 
-  background: var(--diaspora-gold);
+  background: var(--diaspora-gold-light);
   border-radius: 999px;
 
   color: var(--diaspora-navy);
-  font-size: 12px;
+
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1.4;
-  white-space: nowrap;
+  line-height: 1.5;
 }
 
 .hero-diaspora-promo-prices {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 12px;
+
+  gap: 4px 12px;
 }
 
 .hero-diaspora-promo-prices strong {
   color: var(--diaspora-navy);
-  font-size: clamp(25px, 3vw, 36px);
+
+  font-size: clamp(24px, 2.5vw, 30px);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .hero-diaspora-promo-prices span {
   color: var(--diaspora-muted);
-  font-size: 14px;
+
+  font-size: 12px;
+  font-weight: 400;
+
   white-space: nowrap;
 }
 
 .hero-diaspora-promo-prices s {
-  text-decoration-color: #b83d54;
-  text-decoration-thickness: 2px;
+  text-decoration-color: #D9A035;
+  text-decoration-thickness: 1.5px;
 }
 
 /* ==========================================
@@ -267,29 +329,30 @@
 .hero-diaspora-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 14px;
 
+  gap: 12px;
   margin-top: 22px;
 }
 
 .hero-diaspora-btn {
-  min-height: 50px;
-  padding: 13px 25px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 
-  border: 2px solid transparent;
-  border-radius: 12px;
+  gap: 9px;
+
+  min-height: 48px;
+  padding: 12px 22px;
+
+  border: 1.5px solid transparent;
+  border-radius: 999px;
 
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.4;
+
   text-align: center;
   text-decoration: none;
 
@@ -300,13 +363,9 @@
 }
 
 .hero-diaspora-btn svg {
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
-}
-
-.hero-diaspora-btn:hover {
-  transform: translateY(-2px);
 }
 
 .hero-diaspora-btn-primary {
@@ -318,6 +377,7 @@
 .hero-diaspora-btn-primary:hover {
   background: var(--diaspora-gold);
   border-color: var(--diaspora-gold);
+  transform: translateY(-3px);
 }
 
 .hero-diaspora-btn-secondary {
@@ -329,6 +389,7 @@
 .hero-diaspora-btn-secondary:hover {
   background: #ffffff;
   color: var(--diaspora-navy);
+  transform: translateY(-3px);
 }
 
 .hero-diaspora-btn:focus-visible {
@@ -337,27 +398,298 @@
 }
 
 /* ==========================================
-   TABLET
+   VISUAL SEBELAH KANAN
 ========================================== */
 
-@media (max-width: 1000px) {
-  .hero-diaspora {
-    scroll-margin-top: 76px;
-  }
+.hero-diaspora-visual {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  min-height: 440px;
+  aspect-ratio: 1.04 / 1;
+
+  padding: 20px 25px 25px;
 }
 
-@media (max-width: 992px) {
-  .hero-diaspora {
-    padding: 48px 24px 54px;
+/* ==========================================
+   FRAME ORGANIK
+========================================== */
+
+.hero-diaspora-frame {
+  position: relative;
+  z-index: 3;
+
+  width: 96%;
+  aspect-ratio: 1.08 / 1;
+
+  padding: 7px;
+
+  background: #ffffff;
+
+  border-radius:
+    68% 32% 28% 34% /
+    42% 24% 58% 40%;
+
+  transform: rotate(-9deg);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.14),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hero-diaspora-frame-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+
+  background: var(--diaspora-gold-light);
+}
+
+/* ==========================================
+   FOTO SANTRI
+========================================== */
+
+.hero-diaspora-image {
+  position: absolute;
+  bottom: -1%;
+  left: 50%;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  transform:
+    translateX(-50%)
+    rotate(7deg)
+    scale(1.3);
+}
+
+/* ==========================================
+   ORNAMEN AWAN
+========================================== */
+
+.hero-diaspora-cloud {
+  position: absolute;
+  z-index: 2;
+
+  top: 3%;
+  left: -5%;
+
+  width: 22%;
+  height: auto;
+
+  filter: drop-shadow(
+    0 5px 5px rgba(0, 0, 0, 0.12)
+  );
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   ORNAMEN DAUN
+========================================== */
+
+.hero-diaspora-leaves {
+  position: absolute;
+  z-index: 1;
+
+  display: block;
+
+  width: 30%;
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+.hero-diaspora-leaves-left {
+  left: -1%;
+  bottom: 13%;
+
+  transform: rotate(-22deg);
+}
+
+.hero-diaspora-leaves-right {
+  right: -1%;
+  bottom: 12%;
+
+  transform:
+    scaleX(-1)
+    rotate(-15deg);
+}
+
+/* ==========================================
+   ORNAMEN BUKU
+========================================== */
+
+.hero-diaspora-books {
+  position: absolute;
+  z-index: 5;
+
+  left: -6%;
+  bottom: -4%;
+
+  display: block;
+
+  width: 40%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 8px 6px rgba(0, 0, 0, 0.15)
+  );
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   ORNAMEN AL-QUR'AN
+========================================== */
+
+.hero-diaspora-quran {
+  position: absolute;
+  z-index: 5;
+
+  right: -1%;
+  bottom: -1%;
+
+  display: block;
+
+  width: 31%;
+  height: auto;
+
+  object-fit: contain;
+
+  transform: rotate(6deg);
+
+  filter: drop-shadow(
+    0 8px 6px rgba(0, 0, 0, 0.15)
+  );
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   GELOMBANG BAWAH HERO
+========================================== */
+
+.hero-diaspora-wave {
+  position: absolute;
+  z-index: 1;
+
+  right: 0;
+  bottom: -1px;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: var(--diaspora-wave-height);
+
+  pointer-events: none;
+}
+
+.hero-diaspora-wave path {
+  fill: var(--diaspora-cream);
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .hero-diaspora-container {
+    gap: 25px;
   }
 
   .hero-diaspora h1 {
-    font-size: clamp(32px, 4.5vw, 40px);
+    font-size: clamp(38px, 4.2vw, 50px);
   }
 
-  .hero-diaspora-description {
-    font-size: 15px;
+  .hero-diaspora-visual {
+    min-height: 390px;
+    padding: 15px;
   }
+
+  .hero-diaspora-btn {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .hero-diaspora-tagline {
+    font-size: 11px;
+    column-gap: 6px;
+  }
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+  .hero-diaspora {
+    padding-top: 40px;
+    padding-bottom:
+      calc(var(--diaspora-wave-height) + 30px);
+
+    scroll-margin-top: 76px;
+  }
+
+  .hero-diaspora-container {
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(0, 0.9fr);
+
+    gap: 25px;
+  }
+
+  .hero-diaspora h1 {
+    font-size: clamp(32px, 4.5vw, 44px);
+    letter-spacing: -0.8px;
+  }
+
+  .hero-diaspora-visual {
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .hero-diaspora-frame {
+    width: 90%;
+    padding: 6px;
+  }
+
+  .hero-diaspora-tagline {
+    font-size: 11px;
+  }
+
+  .hero-diaspora-btn {
+    font-size: 12px;
+    padding: 11px 16px;
+  }
+
 }
 
 /* ==========================================
@@ -365,68 +697,135 @@
 ========================================== */
 
 @media (max-width: 768px) {
+
   .hero-diaspora {
-    padding: 46px 20px 54px;
+    --diaspora-wave-height: 45px;
+
+    padding-top: 35px;
+    padding-bottom:
+      calc(var(--diaspora-wave-height) + 25px);
+  }
+
+  .hero-diaspora-container {
+    grid-template-columns: 1fr;
+
+    max-width: 540px;
+
+    gap: 25px;
+  }
+
+  .hero-diaspora-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-diaspora-logo {
+    margin-bottom: 13px;
   }
 
   .hero-diaspora-logo img {
-    height: 68px;
+    height: 48px;
   }
 
   .hero-diaspora-label {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+
+  .hero-diaspora h1 {
+    font-size: clamp(36px, 8vw, 48px);
+    line-height: 1.12;
+    text-align: center;
+
     margin-bottom: 16px;
   }
 
-  .hero-diaspora h1 {
-    font-size: clamp(30px, 6vw, 40px);
-    letter-spacing: -0.6px;
-  }
-
-  .hero-diaspora-divider {
-    margin: 22px auto;
-  }
-
   .hero-diaspora-description {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.8;
+    text-align: center;
   }
 
   .hero-diaspora-tagline {
-    font-size: 15px;
+    justify-content: center;
+
+    font-size: 11px;
+
+    column-gap: 7px;
+    row-gap: 5px;
   }
 
   .hero-diaspora-promo {
-    max-width: 100%;
+    margin-top: 18px;
   }
 
   .hero-diaspora-actions {
+    justify-content: center;
+
     width: 100%;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 22px;
+    margin-top: 20px;
   }
 
   .hero-diaspora-btn {
-    width: 100%;
-    max-width: 350px;
-    min-height: 49px;
+    min-height: 46px;
   }
+
+  /* VISUAL */
+
+  .hero-diaspora-visual {
+    width: 100%;
+    max-width: 430px;
+
+    margin: 0 auto;
+    padding: 20px 15px 15px;
+
+    aspect-ratio: 1.08 / 1;
+  }
+
+  .hero-diaspora-frame {
+    width: 83%;
+    padding: 6px;
+  }
+
+  .hero-diaspora-cloud {
+    top: 3%;
+    left: 0;
+    width: 20%;
+  }
+
+  .hero-diaspora-books {
+    left: -4%;
+    bottom: -3%;
+    width: 37%;
+  }
+
+  .hero-diaspora-quran {
+    right: 0;
+    bottom: -1%;
+    width: 29%;
+  }
+
 }
 
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
 @media (max-width: 480px) {
+
   .hero-diaspora {
-    padding: 42px 18px 50px;
+    padding-top: 30px;
     scroll-margin-top: 68px;
   }
 
-  .hero-diaspora-label {
-    padding: 6px 10px;
-    font-size: 9px;
-    letter-spacing: 0.35px;
+  .hero-diaspora h1 {
+    font-size: clamp(32px, 9vw, 40px);
+    letter-spacing: -0.7px;
   }
 
-  .hero-diaspora h1 {
-    font-size: clamp(28px, 8vw, 34px);
+  .hero-diaspora-label {
+    font-size: 9px;
+    padding: 5px 10px;
   }
 
   .hero-diaspora-description {
@@ -434,46 +833,67 @@
   }
 
   .hero-diaspora-tagline {
-    font-size: 14px;
-  }
-
-  .hero-diaspora-tagline span {
-    margin: 0 3px;
+    font-size: 10px;
+    column-gap: 5px;
   }
 
   .hero-diaspora-promo {
-    padding: 14px 12px;
-    gap: 8px;
-    border-radius: 15px;
+    padding: 11px 12px;
+    gap: 9px;
   }
 
   .hero-diaspora-promo-icon {
-    width: 36px;
-    height: 44px;
-    padding-right: 6px;
+    width: 35px;
+    height: 40px;
+    padding-right: 7px;
   }
 
   .hero-diaspora-promo-icon svg {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
   }
 
   .hero-diaspora-promo-badge {
-    padding: 4px 8px;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .hero-diaspora-promo-prices strong {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .hero-diaspora-promo-prices span {
-    font-size: 12px;
+    font-size: 11px;
   }
+
+  .hero-diaspora-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-diaspora-btn {
+    width: 100%;
+    max-width: 310px;
+    font-size: 13px;
+  }
+
+  .hero-diaspora-visual {
+    max-width: 350px;
+  }
+
 }
 
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
   .hero-diaspora-btn {
     transition: none;
   }
+
+  .hero-diaspora-btn:hover {
+    transform: none;
+  }
+
 }

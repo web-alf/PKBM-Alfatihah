@@ -43,6 +43,15 @@ const daftarFAQ = [
       "Transfer Bank BSI No. Rek. 7266356026 a.n. PKBM Alfatihah, atau tunai langsung di PKBM. Mohon konfirmasi ke CS sebelum transfer.",
   },
 ];
+
+// Memisahkan FAQ menjadi dua kolom independen
+const faqKiri = daftarFAQ.filter(
+  (_, index) => index % 2 === 0
+);
+
+const faqKanan = daftarFAQ.filter(
+  (_, index) => index % 2 !== 0
+);
 ---
 
 <section
@@ -52,7 +61,7 @@ const daftarFAQ = [
 >
   <div class="faq-smart-container">
 
-    <!-- JUDUL -->
+    <!-- JUDUL SECTION -->
     <header class="faq-smart-heading">
       <h2 id="faq-smart-title">
         Pertanyaan yang Sering Diajukan
@@ -72,29 +81,87 @@ const daftarFAQ = [
     <!-- DAFTAR FAQ -->
     <div class="faq-smart-list">
 
-      {daftarFAQ.map((faq, index) => (
-        <details
-          class="faq-smart-item"
-          open={index === 0}
-        >
-          <summary class="faq-smart-question">
-            <span>{faq.pertanyaan}</span>
+      <!-- KOLOM KIRI -->
+      <div class="faq-smart-column">
 
-            <span
-              class="faq-smart-icon"
-              aria-hidden="true"
-            ></span>
-          </summary>
+        {faqKiri.map((faq) => (
+          <details
+            class="faq-smart-item"
+            name="faq-smart-accordion"
+          >
+            <summary class="faq-smart-question">
 
-          <div class="faq-smart-answer">
-            <p>
-              {faq.jawaban}
-            </p>
-          </div>
-        </details>
-      ))}
+              <span>{faq.pertanyaan}</span>
+
+              <span
+                class="faq-smart-icon"
+                aria-hidden="true"
+              ></span>
+
+            </summary>
+
+            <div class="faq-smart-answer">
+              <p>{faq.jawaban}</p>
+            </div>
+
+          </details>
+        ))}
+
+      </div>
+
+      <!-- KOLOM KANAN -->
+      <div class="faq-smart-column">
+
+        {faqKanan.map((faq) => (
+          <details
+            class="faq-smart-item"
+            name="faq-smart-accordion"
+          >
+            <summary class="faq-smart-question">
+
+              <span>{faq.pertanyaan}</span>
+
+              <span
+                class="faq-smart-icon"
+                aria-hidden="true"
+              ></span>
+
+            </summary>
+
+            <div class="faq-smart-answer">
+              <p>{faq.jawaban}</p>
+            </div>
+
+          </details>
+        ))}
+
+      </div>
 
     </div>
 
   </div>
+
+  <!-- GELOMBANG MENUJU FOOTER -->
+  <svg
+    class="faq-smart-wave"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="
+        M0 30
+        C120 5 240 90 360 75
+        C480 60 500 20 600 45
+        C700 70 740 95 840 65
+        C950 35 1000 15 1110 45
+        C1240 85 1320 65 1440 25
+        V120
+        H0
+        Z
+      "
+    />
+  </svg>
+
 </section>

@@ -2,6 +2,9 @@
 ---
 import "../styles/program/RincianBiayaHomeschooling.css";
 
+import bukuPensil from "../assets/image/Colorful Books and Pen Cup.png";
+import daunHijau from "../assets/image/Overlapping Green Leaf Bush.png";
+
 const rincianBiaya = [
   {
     nama: "Kelas Online / Daring",
@@ -128,143 +131,251 @@ const rincianBiaya = [
 <section
   class="rincian-hs"
   id="rincian-biaya-homeschooling"
+  aria-labelledby="rincian-hs-title"
 >
+
+  <!-- BANNER JUDUL BERGELOMBANG -->
+  <div class="rincian-hs-banner">
+
+    <svg
+      class="rincian-hs-banner-shape"
+      viewBox="0 0 1440 240"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 30
+           C180 -15 300 5 470 30
+           C650 58 760 -10 940 22
+           C1140 60 1280 -20 1440 25
+           L1440 205
+           C1260 170 1150 245 960 210
+           C780 175 650 240 470 210
+           C290 180 160 165 0 210
+           Z"
+      />
+    </svg>
+
+    <div class="rincian-hs-banner-inner">
+
+      <!-- ILUSTRASI KIRI -->
+      <img
+        class="rincian-hs-decor-books"
+        src={bukuPensil.src}
+        alt=""
+        loading="lazy"
+        aria-hidden="true"
+      />
+
+      <!-- AWAN KANAN -->
+      <svg
+        class="rincian-hs-cloud"
+        viewBox="0 0 160 80"
+        aria-hidden="true"
+      >
+        <path
+          d="M24 68
+             C-4 68 1 35 24 35
+             C30 35 36 38 40 42
+             C42 8 91 0 107 35
+             C137 21 160 45 153 60
+             C150 67 143 68 133 68
+             Z"
+          fill="currentColor"
+        />
+      </svg>
+
+      <!-- ILUSTRASI DAUN KANAN -->
+      <img
+        class="rincian-hs-decor-leaves"
+        src={daunHijau.src}
+        alt=""
+        loading="lazy"
+        aria-hidden="true"
+      />
+
+      <!-- JUDUL -->
+      <div class="rincian-hs-heading">
+        <h2 id="rincian-hs-title">
+          Rincian Biaya Homeschooling
+        </h2>
+
+        <span
+          class="rincian-hs-heading-line"
+          aria-hidden="true"
+        ></span>
+
+        <p>
+          Informasi lengkap biaya pendaftaran dan
+          pembelajaran untuk setiap pilihan kelas.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAFTAR KELAS -->
   <div class="rincian-hs-container">
-
-    <!-- JUDUL SECTION -->
-    <div class="rincian-hs-heading">
-      <h2>Rincian Biaya Homeschooling</h2>
-      <span class="rincian-hs-heading-line"></span>
-      <p>
-        Informasi lengkap biaya pendaftaran dan
-        pembelajaran untuk setiap pilihan kelas.
-      </p>
-    </div>
-
-    <!-- DAFTAR KELAS -->
     <div class="rincian-hs-list">
-      {
-        rincianBiaya.map((kelas, index) => (
-          <article class="rincian-hs-item">
 
-            <!-- NAMA KELAS -->
-            <div class="rincian-hs-class-heading">
-              <div class="rincian-hs-number">
-                {String(index + 1).padStart(2, "0")}
-              </div>
+      {rincianBiaya.map((kelas, index) => (
+        <article class="rincian-hs-item">
 
-              <div class="rincian-hs-class-title">
-                <h3>{kelas.nama}</h3>
+          <!-- NAMA KELAS -->
+          <div class="rincian-hs-class-heading">
 
-                {kelas.lokasi && (
-                  <p>{kelas.lokasi}</p>
+            <div class="rincian-hs-number" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                {index === 0 && (
+                  <>
+                    <rect x="4" y="3" width="16" height="13" rx="2" />
+                    <path d="M2 21h20l-2-5H4l-2 5Z" />
+                    <path d="M9 19h6" />
+                  </>
                 )}
-              </div>
-            </div>
 
-            <!-- DUA KOLOM RINCIAN -->
-            <div class="rincian-hs-columns">
-
-              <!-- PENDAFTARAN -->
-              <div class="rincian-hs-column">
-                <div class="rincian-hs-column-heading">
-                  <span class="rincian-hs-label">
-                    PENDAFTARAN (SEKALI)
-                  </span>
-
-                  <h4 class="rincian-hs-total-registration">
-                    {kelas.pendaftaran}
-                  </h4>
-                </div>
-
-                <div class="rincian-hs-rows">
-                  {kelas.biayaPendaftaran.map((biaya) => (
-                    <div class="rincian-hs-row">
-                      <span>{biaya.label}</span>
-                      <strong>{biaya.harga}</strong>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <!-- SPP BULANAN -->
-              <div class="rincian-hs-column">
-                <div class="rincian-hs-column-heading">
-                  <span class="rincian-hs-label">
-                    SPP / BULAN
-                  </span>
-
-                  <h4>{kelas.spp}</h4>
-                </div>
-
-                <div class="rincian-hs-rows">
-                  {kelas.biayaSPP.map((biaya) => (
-                    <div class="rincian-hs-row">
-                      <span>{biaya.label}</span>
-                      <strong>{biaya.harga}</strong>
-                    </div>
-                  ))}
-                </div>
-
-                {kelas.catatan && (
-                  <p class="rincian-hs-note">
-                    {kelas.catatan}
-                  </p>
+                {index === 1 && (
+                  <>
+                    <path d="m2 9 10-6 10 6" />
+                    <path d="M4 9v12h16V9" />
+                    <path d="M10 21v-6h4v6" />
+                    <path d="M7 12h1M16 12h1M12 7v3" />
+                  </>
                 )}
-              </div>
 
+                {index === 2 && (
+                  <>
+                    <path d="m2 11 10-9 10 9" />
+                    <path d="M5 10v11h14V10" />
+                    <path d="M10 21v-7h4v7" />
+                  </>
+                )}
+
+                {index === 3 && (
+                  <>
+                    <path d="M12 6c-3-3-7-3-10-2v15c4-1 7-1 10 2" />
+                    <path d="M12 6c3-3 7-3 10-2v15c-4-1-7-1-10 2" />
+                    <path d="M12 6v15" />
+                  </>
+                )}
+              </svg>
             </div>
 
-            <!-- UJIAN DAN IJAZAH -->
-            <div class="rincian-hs-extra">
-              <div class="rincian-hs-extra-item">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="4" y="3" width="16" height="18" rx="2" />
-                  <path d="M8 8h8M8 12h8M8 16h4" />
-                </svg>
+            <div class="rincian-hs-class-title">
+              <h3>{kelas.nama}</h3>
 
-                <span>Ujian / semester</span>
-                <strong>{kelas.ujian}</strong>
+              {kelas.lokasi && (
+                <p>{kelas.lokasi}</p>
+              )}
+            </div>
+
+          </div>
+
+          <!-- RINCIAN BIAYA -->
+          <div class="rincian-hs-columns">
+
+            <!-- PENDAFTARAN -->
+            <div class="rincian-hs-column">
+              <div class="rincian-hs-column-heading">
+                <span class="rincian-hs-label">
+                  PENDAFTARAN (SEKALI)
+                </span>
+
+                <h4 class="rincian-hs-total-registration">
+                  {kelas.pendaftaran}
+                </h4>
               </div>
 
-              <div class="rincian-hs-extra-item">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m2 10 10-5 10 5-10 5-10-5Z" />
-                  <path d="M6 12v5c3 2 9 2 12 0v-5" />
-                  <path d="M22 10v6" />
-                </svg>
-
-                <span>Ijazah</span>
-                <strong>{kelas.ijazah}</strong>
+              <div class="rincian-hs-rows">
+                {kelas.biayaPendaftaran.map((biaya) => (
+                  <div class="rincian-hs-row">
+                    <span>{biaya.label}</span>
+                    <strong>{biaya.harga}</strong>
+                  </div>
+                ))}
               </div>
             </div>
 
-          </article>
-        ))
-      }
+            <!-- SPP BULANAN -->
+            <div class="rincian-hs-column">
+              <div class="rincian-hs-column-heading">
+                <span class="rincian-hs-label">
+                  SPP / BULAN
+                </span>
+
+                <h4>{kelas.spp}</h4>
+              </div>
+
+              <div class="rincian-hs-rows">
+                {kelas.biayaSPP.map((biaya) => (
+                  <div class="rincian-hs-row">
+                    <span>{biaya.label}</span>
+                    <strong>{biaya.harga}</strong>
+                  </div>
+                ))}
+              </div>
+
+              {kelas.catatan && (
+                <p class="rincian-hs-note">
+                  {kelas.catatan}
+                </p>
+              )}
+            </div>
+
+          </div>
+
+          <!-- UJIAN DAN IJAZAH -->
+          <div class="rincian-hs-extra">
+
+            <div class="rincian-hs-extra-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="3" width="16" height="18" rx="2" />
+                <path d="M8 8h8M8 12h8M8 16h4" />
+              </svg>
+
+              <span>Ujian / semester</span>
+              <strong>{kelas.ujian}</strong>
+            </div>
+
+            <div class="rincian-hs-extra-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m2 10 10-5 10 5-10 5-10-5Z" />
+                <path d="M6 12v5c3 2 9 2 12 0v-5" />
+                <path d="M22 10v6" />
+              </svg>
+
+              <span>Ijazah</span>
+              <strong>{kelas.ijazah}</strong>
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
     </div>
-
   </div>
 </section>

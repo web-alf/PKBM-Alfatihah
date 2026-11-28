@@ -1,3 +1,4 @@
+
 ---
 import "../styles/program/FAQHomeschooling.css";
 
@@ -33,6 +34,17 @@ const daftarFAQ = [
       "Biaya dapat berubah sewaktu-waktu sesuai kebijakan PKBM Al-Fatihah. Rincian biaya selalu dikomunikasikan kepada Ayah/Bunda sebelum program dimulai.",
   },
 ];
+
+// MEMISAHKAN KOLOM KIRI DAN KANAN
+const faqColumns = [
+  daftarFAQ
+    .map((item, index) => ({ ...item, index }))
+    .filter((item) => item.index % 2 === 0),
+
+  daftarFAQ
+    .map((item, index) => ({ ...item, index }))
+    .filter((item) => item.index % 2 !== 0),
+];
 ---
 
 <section
@@ -40,91 +52,178 @@ const daftarFAQ = [
   aria-labelledby="faq-homeschooling-title"
 >
   <div class="faq-homeschooling-container">
+
+    <!-- JUDUL SECTION -->
     <header class="faq-homeschooling-heading">
       <h2 id="faq-homeschooling-title">
         Pertanyaan yang Sering Diajukan
       </h2>
 
-      <span class="faq-homeschooling-line" aria-hidden="true"></span>
+      <span
+        class="faq-homeschooling-line"
+        aria-hidden="true"
+      ></span>
 
       <p>
         Temukan jawaban atas pertanyaan umum seputar program Homeschooling PKBM Al-Fatihah.
       </p>
     </header>
 
+    <!-- DUA KOLOM FAQ INDEPENDEN -->
     <div class="faq-homeschooling-list">
-      {daftarFAQ.map((item, index) => {
-        const questionId = `faq-homeschooling-question-${index + 1}`;
-        const answerId = `faq-homeschooling-answer-${index + 1}`;
-        const isOpen = index === 0;
 
-        return (
-          <article class="faq-homeschooling-item">
-            <h3 class="faq-homeschooling-question-heading">
-              <button
-                id={questionId}
-                class="faq-homeschooling-question"
-                type="button"
-                aria-expanded={isOpen ? "true" : "false"}
-                aria-controls={answerId}
-              >
-                <span>{item.pertanyaan}</span>
+      {faqColumns.map((column) => (
+        <div class="faq-homeschooling-column">
 
-                <span class="faq-homeschooling-icon" aria-hidden="true">
-                  <span class="faq-homeschooling-plus">+</span>
-                  <span class="faq-homeschooling-minus">−</span>
-                </span>
-              </button>
-            </h3>
+          {column.map((item) => {
+            const questionId =
+              `faq-homeschooling-question-${item.index + 1}`;
 
-            <div
-              id={answerId}
-              class:list={[
-                "faq-homeschooling-answer",
-                isOpen && "is-open",
-              ]}
-              role="region"
-              aria-labelledby={questionId}
-              aria-hidden={isOpen ? "false" : "true"}
-              inert={!isOpen}
-            >
-              <div class="faq-homeschooling-answer-inner">
-                <p>{item.jawaban}</p>
-              </div>
-            </div>
-          </article>
-        );
-      })}
+            const answerId =
+              `faq-homeschooling-answer-${item.index + 1}`;
+
+            const isOpen = false;
+
+            return (
+              <article class="faq-homeschooling-item">
+
+                <h3 class="faq-homeschooling-question-heading">
+                  <button
+                    id={questionId}
+                    class="faq-homeschooling-question"
+                    type="button"
+                    aria-expanded={isOpen ? "true" : "false"}
+                    aria-controls={answerId}
+                  >
+                    <span>{item.pertanyaan}</span>
+
+                    <span
+                      class="faq-homeschooling-icon"
+                      aria-hidden="true"
+                    >
+                      <span class="faq-homeschooling-plus">
+                        +
+                      </span>
+
+                      <span class="faq-homeschooling-minus">
+                        −
+                      </span>
+                    </span>
+                  </button>
+                </h3>
+
+                <div
+                  id={answerId}
+                  class:list={[
+                    "faq-homeschooling-answer",
+                    isOpen && "is-open",
+                  ]}
+                  role="region"
+                  aria-labelledby={questionId}
+                  aria-hidden={isOpen ? "false" : "true"}
+                  inert={!isOpen}
+                >
+                  <div class="faq-homeschooling-answer-inner">
+                    <p>{item.jawaban}</p>
+                  </div>
+                </div>
+
+              </article>
+            );
+          })}
+
+        </div>
+      ))}
+
     </div>
   </div>
+
+  <!-- GELOMBANG BAWAH MENUJU FOOTER -->
+  <svg
+    class="faq-homeschooling-wave"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0 35
+         C160 75 280 85 440 48
+         C600 10 690 38 820 60
+         C950 82 1040 38 1170 55
+         C1290 72 1370 38 1440 25
+         V100 H0 Z"
+    />
+  </svg>
+
 </section>
 
 <script>
   document.querySelectorAll(".faq-homeschooling").forEach((section) => {
-    const buttons = Array.from(
-      section.querySelectorAll(".faq-homeschooling-question"),
+
+    const columns = section.querySelectorAll(
+      ".faq-homeschooling-column"
     );
 
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const shouldOpen = button.getAttribute("aria-expanded") !== "true";
+    columns.forEach((column) => {
 
-        buttons.forEach((item) => {
-          const isOpen = item === button && shouldOpen;
-          const answerId = item.getAttribute("aria-controls");
-          const answer = answerId
-            ? section.querySelector(`#${answerId}`)
-            : null;
+      const buttons = Array.from(
+        column.querySelectorAll(
+          ".faq-homeschooling-question"
+        )
+      );
 
-          item.setAttribute("aria-expanded", String(isOpen));
+      buttons.forEach((button) => {
 
-          if (answer instanceof HTMLElement) {
-            answer.classList.toggle("is-open", isOpen);
-            answer.setAttribute("aria-hidden", String(!isOpen));
-            answer.toggleAttribute("inert", !isOpen);
-          }
+        button.addEventListener("click", () => {
+
+          const shouldOpen =
+            button.getAttribute("aria-expanded") !== "true";
+
+          // HANYA MENGATUR FAQ DALAM KOLOM YANG SAMA
+          buttons.forEach((item) => {
+
+            const isOpen =
+              item === button && shouldOpen;
+
+            const answerId =
+              item.getAttribute("aria-controls");
+
+            const answer = answerId
+              ? section.querySelector(`#${answerId}`)
+              : null;
+
+            item.setAttribute(
+              "aria-expanded",
+              String(isOpen)
+            );
+
+            if (answer instanceof HTMLElement) {
+
+              answer.classList.toggle(
+                "is-open",
+                isOpen
+              );
+
+              answer.setAttribute(
+                "aria-hidden",
+                String(!isOpen)
+              );
+
+              answer.toggleAttribute(
+                "inert",
+                !isOpen
+              );
+
+            }
+
+          });
+
         });
+
       });
+
     });
+
   });
 </script>

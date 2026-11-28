@@ -1,7 +1,7 @@
 
 /* ==========================================
    KEUNGGULAN DIASPORA QUR'AN CENTER
-   PREVIEW 2 - ICON CIRCLE NO CARD
+   WHITE CARD - COLORFUL 3D STYLE ICON
 
    Navy  : #001C49
    Gold  : #D9A035
@@ -16,21 +16,31 @@
   --diaspora-text: #344766;
   --diaspora-muted: #596579;
 
+  position: relative;
   width: 100%;
-  padding: 65px 20px 75px;
+
+  padding: 45px
+    var(--pkbm-container-pad, 24px)
+    var(--pkbm-section-pad, 75px);
 
   background: var(--diaspora-cream);
   font-family: "Poppins", sans-serif;
 }
 
 .keunggulan-diaspora,
-.keunggulan-diaspora * {
+.keunggulan-diaspora *,
+.keunggulan-diaspora *::before,
+.keunggulan-diaspora *::after {
   box-sizing: border-box;
 }
 
+/* ==========================================
+   CONTAINER
+========================================== */
+
 .keunggulan-diaspora-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
@@ -39,7 +49,7 @@
 ========================================== */
 
 .keunggulan-diaspora-heading {
-  margin: 0 0 45px;
+  margin: 0 0 32px;
   text-align: center;
 }
 
@@ -47,6 +57,7 @@
   margin: 0;
 
   color: var(--diaspora-navy);
+  font-family: "Poppins", sans-serif;
   font-size: clamp(24px, 3vw, 34px);
   font-weight: 700;
   line-height: 1.4;
@@ -70,108 +81,175 @@
 .keunggulan-diaspora-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 45px;
-  align-items: start;
+  grid-auto-rows: 1fr;
+
+  gap: 22px;
+  align-items: stretch;
 }
 
 /* ==========================================
-   ITEM TANPA CARD
+   WHITE CARD
 ========================================== */
 
 .keunggulan-diaspora-item {
+  position: relative;
+
+  width: 100%;
   min-width: 0;
+
+  padding: 20px 24px 26px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #ffffff 60%,
+    #FFF9F5 100%
+  );
+
+  border: 1px solid rgba(0, 28, 73, 0.035);
+  border-radius: 24px;
+
   text-align: center;
-}
 
-/* ==========================================
-   IKON LINGKARAN
-========================================== */
-
-.keunggulan-diaspora-icon {
-  width: 78px;
-  height: 78px;
-  flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 22px;
-
-  background: var(--diaspora-navy);
-  color: var(--diaspora-gold);
-
-  border-radius: 50%;
+  box-shadow:
+    0 4px 8px rgba(0, 28, 73, 0.035),
+    0 9px 20px rgba(0, 28, 73, 0.07);
 
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
-.keunggulan-diaspora-icon svg {
-  width: 35px;
-  height: 35px;
-}
-
-.keunggulan-diaspora-item:hover .keunggulan-diaspora-icon {
+.keunggulan-diaspora-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 28, 73, 0.16);
+
+  box-shadow:
+    0 6px 12px rgba(0, 28, 73, 0.045),
+    0 12px 26px rgba(0, 28, 73, 0.10);
 }
 
 /* ==========================================
-   JUDUL ITEM
+   IKON WARNA - TANPA LINGKARAN
+========================================== */
+
+.keunggulan-diaspora-icon {
+  width: 100px;
+  height: 85px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 12px;
+
+  background: transparent;
+  border-radius: 0;
+
+  transition: transform 0.25s ease;
+}
+
+.keunggulan-diaspora-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 3px 3px rgba(0, 28, 73, 0.08)
+  );
+}
+
+.keunggulan-diaspora-item:hover
+.keunggulan-diaspora-icon {
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   JUDUL CARD
 ========================================== */
 
 .keunggulan-diaspora-item h3 {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 
   color: var(--diaspora-navy);
+  font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 1.45;
+
+  text-align: center;
 }
 
 /* ==========================================
-   DESKRIPSI ITEM
+   DESKRIPSI CARD
 ========================================== */
 
 .keunggulan-diaspora-item p {
+  width: 100%;
   max-width: 350px;
   margin: 0;
 
   color: var(--diaspora-muted);
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.85;
+  line-height: 1.8;
+  letter-spacing: normal;
+
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .keunggulan-diaspora-grid {
+    gap: 18px;
+  }
+
+  .keunggulan-diaspora-item {
+    padding: 20px 20px 24px;
+    border-radius: 22px;
+  }
+
+  .keunggulan-diaspora-item h3 {
+    font-size: 18px;
+  }
+
 }
 
 /* ==========================================
    TABLET
 ========================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+
   .keunggulan-diaspora {
-    padding: 60px 20px 70px;
+    padding-top: 40px;
   }
 
   .keunggulan-diaspora-grid {
-    gap: 25px;
+    gap: 16px;
+  }
+
+  .keunggulan-diaspora-item {
+    padding: 18px 16px 22px;
+    border-radius: 20px;
   }
 
   .keunggulan-diaspora-icon {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 18px;
-  }
-
-  .keunggulan-diaspora-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 90px;
+    height: 76px;
+    margin-bottom: 12px;
   }
 
   .keunggulan-diaspora-item h3 {
@@ -179,8 +257,30 @@
   }
 
   .keunggulan-diaspora-item p {
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.8;
   }
+
+}
+
+/* ==========================================
+   SMALL TABLET
+========================================== */
+
+@media (min-width: 641px) and (max-width: 800px) {
+
+  .keunggulan-diaspora-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+  }
+
+  .keunggulan-diaspora-item:last-child {
+    grid-column: 1 / -1;
+    width: calc((100% - 20px) / 2);
+    justify-self: center;
+  }
+
 }
 
 /* ==========================================
@@ -188,17 +288,19 @@
 ========================================== */
 
 @media (max-width: 640px) {
+
   .keunggulan-diaspora {
-    padding: 50px 16px 60px;
+    padding-top: 30px;
   }
 
   .keunggulan-diaspora-heading {
-    margin-bottom: 35px;
+    margin-bottom: 26px;
   }
 
   .keunggulan-diaspora-heading h2 {
     font-size: 24px;
     letter-spacing: -0.3px;
+    line-height: 1.4;
   }
 
   .keunggulan-diaspora-divider {
@@ -207,18 +309,19 @@
 
   .keunggulan-diaspora-grid {
     grid-template-columns: 1fr;
-    gap: 38px;
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .keunggulan-diaspora-item {
+    padding: 22px 22px 25px;
+    border-radius: 20px;
   }
 
   .keunggulan-diaspora-icon {
-    width: 68px;
-    height: 68px;
-    margin-bottom: 16px;
-  }
-
-  .keunggulan-diaspora-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 88px;
+    height: 75px;
+    margin-bottom: 10px;
   }
 
   .keunggulan-diaspora-item h3 {
@@ -231,6 +334,7 @@
     font-size: 13px;
     line-height: 1.8;
   }
+
 }
 
 /* ==========================================
@@ -238,18 +342,20 @@
 ========================================== */
 
 @media (max-width: 380px) {
-  .keunggulan-diaspora {
-    padding-left: 14px;
-    padding-right: 14px;
+
+  .keunggulan-diaspora-item {
+    padding: 20px 16px 22px;
   }
 
   .keunggulan-diaspora-item h3 {
     font-size: 16px;
   }
 
-  .keunggulan-diaspora-item p {
-    font-size: 12px;
+  .keunggulan-diaspora-icon {
+    width: 80px;
+    height: 68px;
   }
+
 }
 
 /* ==========================================
@@ -257,39 +363,16 @@
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
+  .keunggulan-diaspora-item,
   .keunggulan-diaspora-icon {
     transition: none;
   }
-}
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.keunggulan-diaspora {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .keunggulan-diaspora {
-    padding-left: 20px;
-    padding-right: 20px;
+  .keunggulan-diaspora-item:hover,
+  .keunggulan-diaspora-item:hover
+  .keunggulan-diaspora-icon {
+    transform: none;
   }
-}
 
-@media (max-width: 768px) {
-  .keunggulan-diaspora {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .keunggulan-diaspora {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.keunggulan-diaspora {
-  padding-bottom: var(--pkbm-section-pad);
 }

@@ -1,0 +1,146 @@
+---
+// Ilustrasi Visi: dua buku gendut (ungu bawah, kuning atas) + toga ungu bertali emas + daun, gaya soft 3D.
+// Jika aset transparan `src/assets/image/visi-books-toga.webp` ditambahkan, gambar itu otomatis dipakai
+// menggantikan SVG fallback di bawah.
+const { class: className = "" } = Astro.props;
+
+const assets = import.meta.glob("../assets/image/visi-books-toga.webp", {
+  eager: true,
+  import: "default",
+}) as Record<string, { src: string; width: number; height: number }>;
+const asset = Object.values(assets)[0];
+---
+
+{asset ? (
+  <img
+    class:list={["buku-wisuda", className]}
+    src={asset.src}
+    width={asset.width}
+    height={asset.height}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+  />
+) : (
+  <svg
+    class:list={["buku-wisuda", className]}
+    viewBox="0 0 236 222"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <defs>
+      <path id="bw-leaf" d="M0 0C6 -24 44 -26 60 0C44 26 6 24 0 0Z"></path>
+      <path id="bw-leaf-hl" d="M8 -6C18 -14 34 -14 44 -8C34 -10 18 -9 8 -6Z"></path>
+      <linearGradient id="bw-leaf-a" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8EDC87"></stop>
+        <stop offset="1" stop-color="#2F8F4E"></stop>
+      </linearGradient>
+      <linearGradient id="bw-leaf-b" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#6FCB78"></stop>
+        <stop offset="1" stop-color="#25794A"></stop>
+      </linearGradient>
+      <radialGradient id="bw-ground" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#92197B" stop-opacity="0.34"></stop>
+        <stop offset="1" stop-color="#92197B" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient id="bw-contact" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#3E1370" stop-opacity="0.5"></stop>
+        <stop offset="1" stop-color="#3E1370" stop-opacity="0"></stop>
+      </radialGradient>
+      <linearGradient id="bw-pages" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFFBF0"></stop>
+        <stop offset="0.55" stop-color="#FBEFD6"></stop>
+        <stop offset="1" stop-color="#EBD7B2"></stop>
+      </linearGradient>
+
+      <linearGradient id="bw-pu-top" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#C4A0F7"></stop>
+        <stop offset="1" stop-color="#8F55D8"></stop>
+      </linearGradient>
+      <linearGradient id="bw-pu-base" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8446CC"></stop>
+        <stop offset="1" stop-color="#5E2A9E"></stop>
+      </linearGradient>
+      <linearGradient id="bw-pu-spine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#5E2A9E"></stop>
+        <stop offset="0.45" stop-color="#A06BE8"></stop>
+        <stop offset="1" stop-color="#7A3FC0"></stop>
+      </linearGradient>
+
+      <linearGradient id="bw-ye-top" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFE98F"></stop>
+        <stop offset="1" stop-color="#FFC400"></stop>
+      </linearGradient>
+      <linearGradient id="bw-ye-base" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F7B600"></stop>
+        <stop offset="1" stop-color="#C98600"></stop>
+      </linearGradient>
+      <linearGradient id="bw-ye-spine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#D99A00"></stop>
+        <stop offset="0.45" stop-color="#FFE58F"></stop>
+        <stop offset="1" stop-color="#F2B100"></stop>
+      </linearGradient>
+
+      <linearGradient id="bw-cap-top" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#B68AF2"></stop>
+        <stop offset="1" stop-color="#6F34B8"></stop>
+      </linearGradient>
+      <linearGradient id="bw-cap-side" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#5E2A9E"></stop>
+        <stop offset="1" stop-color="#3F1A75"></stop>
+      </linearGradient>
+      <linearGradient id="bw-cap-base" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#4A2088"></stop>
+        <stop offset="0.5" stop-color="#7A3FC0"></stop>
+        <stop offset="1" stop-color="#4A2088"></stop>
+      </linearGradient>
+    </defs>
+
+    <ellipse cx="116" cy="210" rx="100" ry="10" fill="url(#bw-ground)"></ellipse>
+
+    <g>
+      <use href="#bw-leaf" fill="url(#bw-leaf-b)" transform="translate(178 196) rotate(-112) scale(0.95)"></use>
+      <use href="#bw-leaf" fill="url(#bw-leaf-a)" transform="translate(184 198) rotate(-75) scale(1.15)"></use>
+      <use href="#bw-leaf-hl" fill="#FFFFFF" fill-opacity="0.35" transform="translate(184 198) rotate(-75) scale(1.15)"></use>
+      <use href="#bw-leaf" fill="url(#bw-leaf-b)" transform="translate(186 200) rotate(-38) scale(1.05)"></use>
+      <use href="#bw-leaf-hl" fill="#FFFFFF" fill-opacity="0.3" transform="translate(186 200) rotate(-38) scale(1.05)"></use>
+      <use href="#bw-leaf" fill="url(#bw-leaf-a)" transform="translate(186 202) rotate(-8) scale(0.8)"></use>
+    </g>
+
+    <g transform="translate(14 60)">
+      <g transform="rotate(2 96 115)">
+        <rect x="12" y="78" width="168" height="22" rx="11" fill="url(#bw-pu-top)"></rect>
+        <rect x="30" y="94" width="142" height="36" rx="10" fill="url(#bw-pages)"></rect>
+        <path d="M44 103H160M44 111H160M44 119H160" stroke="#DCC79E" stroke-opacity="0.45" stroke-width="1.2" stroke-linecap="round"></path>
+        <rect x="12" y="124" width="168" height="24" rx="12" fill="url(#bw-pu-base)"></rect>
+        <rect x="6" y="78" width="46" height="70" rx="23" fill="url(#bw-pu-spine)"></rect>
+        <path d="M18 92Q18 86 26 84" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round" fill="none"></path>
+        <path d="M44 84H150" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round"></path>
+      </g>
+
+      <ellipse cx="102" cy="80" rx="64" ry="6" fill="url(#bw-contact)"></ellipse>
+
+      <g transform="rotate(-4 102 54)">
+        <rect x="32" y="22" width="140" height="19" rx="9.5" fill="url(#bw-ye-top)"></rect>
+        <rect x="48" y="36" width="116" height="28" rx="9" fill="url(#bw-pages)"></rect>
+        <path d="M60 44H150M60 51H150M60 58H150" stroke="#DCC79E" stroke-opacity="0.45" stroke-width="1.2" stroke-linecap="round"></path>
+        <rect x="32" y="58" width="140" height="20" rx="10" fill="url(#bw-ye-base)"></rect>
+        <rect x="26" y="22" width="40" height="56" rx="20" fill="url(#bw-ye-spine)"></rect>
+        <path d="M37 35Q37 29 44 27" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="3.5" stroke-linecap="round" fill="none"></path>
+        <path d="M62 27H140" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3.5" stroke-linecap="round"></path>
+      </g>
+    </g>
+
+    <g stroke-linejoin="round" stroke-linecap="round">
+      <path d="M82 62V76C82 91 150 91 150 76V62Z" fill="url(#bw-cap-base)" stroke="#4A2088" stroke-width="2"></path>
+      <path d="M40 48L116 74L192 48V57L116 83L40 57Z" fill="url(#bw-cap-side)" stroke="#3F1A75" stroke-width="4"></path>
+      <path d="M116 20L192 48L116 74L40 48Z" fill="url(#bw-cap-top)" stroke="#8A52D2" stroke-width="4"></path>
+      <path d="M52 46L112 26" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="3.5" fill="none"></path>
+      <path d="M116 48C150 50 178 52 187 60V86" stroke="#FFC400" stroke-width="3.2" fill="none"></path>
+      <circle cx="116" cy="48" r="5.5" fill="#FFC400" stroke="#D99A00" stroke-width="1.2"></circle>
+      <rect x="182" y="84" width="10" height="20" rx="5" fill="#FFC400" stroke="#C98600" stroke-width="1.2"></rect>
+      <path d="M185 88V100" stroke="#FFF2B0" stroke-width="2" fill="none"></path>
+    </g>
+  </svg>
+)}

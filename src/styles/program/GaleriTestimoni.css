@@ -1,0 +1,1130 @@
+/* =========================================
+   GALERI TESTIMONI PKBM ALFATIHAH
+========================================= */
+
+.galeri-testimoni {
+  --gt-purple: #a74e92;
+  --gt-magenta: #92197b;
+  --gt-yellow: #fcd757;
+  --gt-cream: #fff9f5;
+  --gt-pink: #f8d5eb;
+  --gt-text: #34405b;
+  --gt-border: #f0e2eb;
+
+  position: relative;
+
+  width: 100%;
+  padding: 75px clamp(32px, 5.5vw, 100px) 85px;
+
+  background: var(--gt-cream);
+  font-family: "Poppins", Arial, sans-serif;
+
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.galeri-testimoni *,
+.galeri-testimoni *::before,
+.galeri-testimoni *::after {
+  box-sizing: border-box;
+}
+
+.galeri-testimoni [hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   BACKGROUND DECORATION
+========================================= */
+
+.galeri-testimoni::before {
+  content: "";
+  position: absolute;
+
+  top: -190px;
+  left: -150px;
+
+  width: 420px;
+  height: 350px;
+
+  background: var(--gt-pink);
+  border-radius: 40% 60% 65% 35%;
+  transform: rotate(-25deg);
+
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.galeri-testimoni::after {
+  content: "";
+  position: absolute;
+
+  top: -220px;
+  right: -170px;
+
+  width: 420px;
+  height: 380px;
+
+  background: var(--gt-pink);
+  border-radius: 65% 35% 40% 60%;
+
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.gt-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.gt-heading {
+  max-width: 850px;
+  margin: 0 auto 42px;
+
+  text-align: center;
+}
+
+.gt-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  margin-bottom: 15px;
+  padding: 8px 17px;
+
+  background: var(--gt-pink);
+  color: var(--gt-magenta);
+
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gt-badge svg {
+  width: 19px;
+  height: 19px;
+}
+
+.gt-heading h2 {
+  margin: 0;
+
+  color: var(--gt-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.35;
+
+  scroll-margin-top: 110px;
+}
+
+.gt-divider {
+  width: 55px;
+  height: 4px;
+
+  margin: 16px auto 20px;
+
+  background: var(--gt-yellow);
+  border-radius: 50px;
+}
+
+.gt-heading p {
+  max-width: 680px;
+  margin: 0 auto;
+
+  color: var(--gt-text);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.gt-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.65fr);
+
+  align-items: stretch;
+  gap: 30px;
+
+  width: 100%;
+}
+
+/* =========================================
+   PHOTO PANEL
+========================================= */
+
+.gt-photo-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  padding: 25px 22px 20px;
+
+  background: linear-gradient(
+    145deg,
+    #fcebf6 0%,
+    #fff3fa 100%
+  );
+
+  border: 1px solid #f4ddeb;
+  border-radius: 26px;
+
+  overflow: hidden;
+}
+
+.gt-photo-heading {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 20px;
+
+  color: var(--gt-magenta);
+  font-size: 18px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+/* ORGANIC SHAPE BEHIND PHOTO */
+
+.gt-photo-decoration {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 82%;
+  height: 65%;
+
+  background: #efc6e5;
+
+  border-radius: 48% 52% 35% 65% /
+    50% 35% 65% 50%;
+
+  transform: translate(-50%, -45%) rotate(-12deg);
+
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* =========================================
+   QUOTE DECORATION
+========================================= */
+
+.gt-quote {
+  position: absolute;
+  z-index: 3;
+
+  top: 65px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 53px;
+  height: 53px;
+
+  background: var(--gt-magenta);
+  color: #ffffff;
+
+  border: 4px solid #ffffff;
+  border-radius: 50% 50% 50% 15%;
+
+  box-shadow: 0 5px 15px rgba(117, 25, 79, 0.15);
+
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+.gt-quote svg {
+  width: 25px;
+  height: 25px;
+}
+
+/* =========================================
+   ORIGINAL TESTIMONI PHOTO
+========================================= */
+
+.gt-photo-button {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 245px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+
+  cursor: zoom-in;
+}
+
+.gt-photo {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 12px 14px rgba(75, 20, 60, 0.14)
+  );
+
+  transition: transform 0.35s ease;
+}
+
+.gt-photo-button:hover .gt-photo {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.gt-photo-caption {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+  margin-top: 17px;
+
+  color: #875476;
+  font-size: 11px;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+.gt-photo-caption svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* =========================================
+   VIDEO PANEL
+========================================= */
+
+.gt-video-panel {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding-left: 26px;
+
+  border-left: 2px solid #efd5e7;
+}
+
+.gt-video-heading {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 19px;
+
+  background: #f9e1f1;
+  color: var(--gt-magenta);
+
+  border-radius: 50px;
+}
+
+.gt-video-heading h3 {
+  margin: 0;
+
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.gt-video-heading-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.gt-video-heading-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =========================================
+   VIDEO GRID
+========================================= */
+
+.gt-video-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  flex: 1;
+  gap: 18px;
+}
+
+/* =========================================
+   VIDEO CARD
+========================================= */
+
+.gt-video-card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--gt-border);
+  border-radius: 20px;
+
+  box-shadow: 0 5px 18px rgba(117, 25, 79, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gt-video-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 25px rgba(117, 25, 79, 0.12);
+}
+
+/* =========================================
+   VIDEO PREVIEW
+========================================= */
+
+.gt-video-preview {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+
+  background: linear-gradient(
+    135deg,
+    #b66aa4,
+    #853473
+  );
+
+  border: 0;
+  border-radius: 13px;
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gt-preview-wave {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.gt-video-thumbnail {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  transition: transform 0.4s ease;
+}
+
+.gt-video-preview:hover .gt-video-thumbnail {
+  transform: scale(1.04);
+}
+
+.gt-video-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(45, 14, 40, 0.18);
+
+  transition: background 0.3s ease;
+}
+
+.gt-video-preview:hover .gt-video-overlay {
+  background: rgba(45, 14, 40, 0.3);
+}
+
+/* =========================================
+   PLATFORM LABEL
+========================================= */
+
+.gt-platform {
+  position: absolute;
+  z-index: 2;
+
+  top: 9px;
+  left: 9px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+  padding: 6px 10px;
+
+  background: rgba(35, 15, 30, 0.8);
+  color: #ffffff;
+
+  border-radius: 50px;
+
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.gt-platform svg {
+  width: 18px;
+  height: 16px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   PLAY ICON
+========================================= */
+
+.gt-play-icon {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 53px;
+  height: 53px;
+
+  background: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+
+  backdrop-filter: blur(4px);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.gt-play-icon svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 3px;
+}
+
+.gt-video-preview:hover .gt-play-icon {
+  background: var(--gt-magenta);
+  transform: scale(1.12);
+}
+
+/* =========================================
+   VIDEO CARD BODY
+========================================= */
+
+.gt-video-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex: 1;
+  gap: 8px;
+
+  padding: 12px 5px 4px;
+}
+
+.gt-video-body h4 {
+  margin: 0;
+
+  color: var(--gt-magenta);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.gt-external-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  background: #fae8f4;
+  color: var(--gt-magenta);
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.gt-external-link svg {
+  width: 15px;
+  height: 15px;
+}
+
+.gt-external-link:hover {
+  background: var(--gt-purple);
+  color: #ffffff;
+}
+
+/* =========================================
+   VIDEO MODAL
+========================================= */
+
+.gt-modal {
+  position: fixed;
+  inset: 0;
+
+  width: min(850px, calc(100% - 40px));
+  max-height: 90dvh;
+
+  margin: auto;
+  padding: 0;
+
+  background: #ffffff;
+
+  border: 0;
+  border-radius: 22px;
+
+  overflow: auto;
+
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+.gt-modal::backdrop,
+.gt-photo-modal::backdrop {
+  background: rgba(35, 12, 31, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.gt-modal[open],
+.gt-photo-modal[open] {
+  animation: gt-modal-enter 0.25s ease;
+}
+
+@keyframes gt-modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gt-modal-inner {
+  padding: 20px;
+}
+
+.gt-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.gt-modal-header h3 {
+  margin: 0;
+
+  color: var(--gt-magenta);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* CLOSE BUTTON */
+
+.gt-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 35px;
+  height: 35px;
+
+  background: #f9e5f2;
+  color: var(--gt-magenta);
+
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.gt-modal-close:hover {
+  background: var(--gt-magenta);
+  color: #ffffff;
+}
+
+.gt-modal-close svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* VIDEO PLAYER */
+
+.gt-modal-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  background: #181818;
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+.gt-modal-player iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+.gt-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  padding-top: 15px;
+}
+
+.gt-modal-footer a {
+  color: var(--gt-magenta);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gt-modal-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   PHOTO LIGHTBOX
+========================================= */
+
+.gt-photo-modal {
+  position: fixed;
+  inset: 0;
+
+  width: fit-content;
+  max-width: calc(100% - 30px);
+  max-height: 94dvh;
+
+  margin: auto;
+  padding: 0;
+
+  background: #ffffff;
+
+  border: 0;
+  border-radius: 20px;
+
+  overflow: auto;
+}
+
+.gt-photo-modal-inner {
+  position: relative;
+  padding: 45px 18px 18px;
+}
+
+.gt-photo-close {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+}
+
+.gt-photo-full {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 78dvh;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.galeri-testimoni button:focus-visible,
+.galeri-testimoni a:focus-visible {
+  outline: 3px solid var(--gt-purple);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .galeri-testimoni {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .gt-layout {
+    gap: 24px;
+  }
+
+  .gt-video-panel {
+    padding-left: 22px;
+  }
+
+  .gt-video-grid {
+    gap: 15px;
+  }
+
+  .gt-photo-button {
+    max-width: 220px;
+  }
+
+  .gt-video-body h4 {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .galeri-testimoni {
+    padding: 60px 40px 70px;
+  }
+
+  .gt-container {
+    max-width: 800px;
+  }
+
+  .gt-layout {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.5fr);
+
+    gap: 20px;
+  }
+
+  .gt-photo-panel {
+    padding: 20px 15px;
+  }
+
+  .gt-photo-button {
+    max-width: 210px;
+  }
+
+  .gt-video-panel {
+    padding-left: 18px;
+  }
+
+  .gt-video-heading {
+    padding: 9px 14px;
+  }
+
+  .gt-video-heading h3 {
+    font-size: 16px;
+  }
+
+  .gt-video-grid {
+    gap: 12px;
+  }
+
+  .gt-video-card {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .gt-video-body h4 {
+    font-size: 13px;
+  }
+
+  .gt-platform {
+    font-size: 9px;
+    padding: 5px 7px;
+  }
+
+  .gt-play-icon {
+    width: 43px;
+    height: 43px;
+  }
+}
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .gt-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .gt-photo-panel {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+
+    padding: 25px 20px;
+  }
+
+  .gt-photo-button {
+    max-width: 235px;
+  }
+
+  .gt-video-panel {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .gt-video-heading {
+    align-self: center;
+  }
+
+  .gt-video-grid {
+    gap: 16px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .galeri-testimoni {
+    padding: 45px 24px 55px;
+  }
+
+  .gt-container {
+    max-width: 420px;
+  }
+
+  .gt-heading {
+    margin-bottom: 28px;
+  }
+
+  .gt-heading h2 {
+    font-size: 27px;
+    line-height: 1.35;
+  }
+
+  .gt-heading p {
+    font-size: 13px;
+  }
+
+  .gt-badge {
+    font-size: 11px;
+    padding: 7px 13px;
+  }
+
+  .gt-layout {
+    gap: 30px;
+  }
+
+  .gt-photo-panel {
+    max-width: 320px;
+
+    padding: 22px 18px 18px;
+    border-radius: 22px;
+  }
+
+  .gt-photo-heading {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .gt-photo-button {
+    max-width: 205px;
+  }
+
+  .gt-photo {
+    max-height: 400px;
+  }
+
+  .gt-quote {
+    top: 60px;
+    right: 18px;
+
+    width: 45px;
+    height: 45px;
+  }
+
+  .gt-quote svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .gt-video-heading {
+    gap: 7px;
+    padding: 10px 14px;
+    margin-bottom: 17px;
+  }
+
+  .gt-video-heading h3 {
+    font-size: 16px;
+  }
+
+  .gt-video-heading-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gt-video-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 11px;
+  }
+
+  .gt-video-card {
+    padding: 6px;
+    border-radius: 14px;
+  }
+
+  .gt-video-preview {
+    border-radius: 9px;
+  }
+
+  .gt-platform {
+    top: 5px;
+    left: 5px;
+
+    gap: 4px;
+    padding: 4px 6px;
+
+    font-size: 8px;
+  }
+
+  .gt-platform svg {
+    width: 13px;
+    height: 12px;
+  }
+
+  .gt-play-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .gt-play-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gt-video-body {
+    gap: 3px;
+    padding: 9px 2px 3px;
+  }
+
+  .gt-video-body h4 {
+    font-size: 11px;
+  }
+
+  .gt-external-link {
+    width: 23px;
+    height: 23px;
+  }
+
+  .gt-external-link svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .gt-modal {
+    width: calc(100% - 24px);
+    border-radius: 16px;
+  }
+
+  .gt-modal-inner {
+    padding: 12px;
+  }
+
+  .gt-modal-header h3 {
+    font-size: 15px;
+  }
+
+  .galeri-testimoni::before,
+  .galeri-testimoni::after {
+    opacity: 0.3;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .galeri-testimoni *,
+  .galeri-testimoni *::before,
+  .galeri-testimoni *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

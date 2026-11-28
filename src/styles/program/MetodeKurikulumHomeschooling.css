@@ -1,12 +1,21 @@
-
 /* =========================================
    METODE & KURIKULUM HOMESCHOOLING
 ========================================= */
 
 .hk-section {
+  --hk-purple: #92197B;
+  --hk-yellow: #FCD757;
+  --hk-bg: #FCF2F8;
+
+  position: relative;
+  isolation: isolate;
+
   width: 100%;
-  padding: 64px 24px;
-  background: #FFF9F5;
+  padding: 22px clamp(32px, 5.5vw, 100px) 40px;
+
+  overflow: visible;
+  background: var(--hk-bg);
+
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
@@ -18,143 +27,276 @@
 }
 
 .hk-container {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
 /* =========================================
-   PBL
+   SAMBUNGAN BACKGROUND HERO
+========================================= */
+
+.homeschooling-hero {
+  position: relative;
+}
+
+.homeschooling-hero-wave {
+  display: block;
+  bottom: -1px;
+  background: transparent;
+  fill: #FCF2F8;
+}
+
+.homeschooling-hero-wave path {
+  fill: #FCF2F8;
+}
+
+/* =========================================
+   PROJECT BASED LEARNING
 ========================================= */
 
 .hk-pbl {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
+/* HEADING */
+
 .hk-heading {
+  margin-bottom: 0;
   text-align: center;
-  margin-bottom: 28px;
 }
 
 .hk-heading h2 {
   margin: 0;
-  color: #92197B;
-  font-size: clamp(24px, 3vw, 34px);
+
+  color: var(--pkbm-magenta, #92197B);
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 800;
   line-height: 1.3;
 }
 
 .hk-heading-line {
-  width: 58px;
+  width: 55px;
   height: 4px;
-  margin: 16px auto;
-  border-radius: 10px;
-  background: #D9A035;
+  margin: 12px auto 0;
+
+  border-radius: 999px;
+  background: #FCD757;
 }
 
-.hk-heading p {
-  margin: 0;
-  color: #654B5D;
-  font-size: 15px;
-  line-height: 1.8;
-}
+/* =========================================
+   LAYOUT PBL TANPA CARD
+========================================= */
 
-/* SATU CARD PUTIH */
+.hk-pbl-layout {
+  display: grid;
+  grid-template-columns: 25% minmax(0, 1fr);
 
-.hk-pbl-card {
+  align-items: center;
+  gap: 28px;
+
   width: 100%;
-  padding: 24px 28px;
-  background: #FFFFFF;
-  border: 1px solid #F0CFE0;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(117, 25, 79, 0.035);
+  margin-top: -12px;
 }
 
-/* GRID MANFAAT */
+/* =========================================
+   ILUSTRASI LAMPU DAN BUKU
+========================================= */
+
+.hk-pbl-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.hk-pbl-illustration img {
+  display: block;
+
+  width: 100%;
+  max-width: 245px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   KONTEN PBL
+========================================= */
+
+.hk-pbl-content {
+  min-width: 0;
+  padding: 12px 0 0;
+}
+
+.hk-pbl-description {
+  max-width: 650px;
+  margin: 0 0 18px;
+
+  color: var(--pkbm-text-muted, #654B5D);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
+}
+
+/* =========================================
+   GRID MANFAAT PBL
+========================================= */
 
 .hk-pbl-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 28px;
-  row-gap: 16px;
+  grid-template-columns: 42% minmax(0, 1fr);
+
+  column-gap: 24px;
+  row-gap: 12px;
+
+  margin: 0;
+  padding: 0;
 
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .hk-pbl-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
 
-  color: #75194F;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.6;
+  gap: 10px;
+  min-width: 0;
+
+  color: #42323C;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  overflow-wrap: break-word;
 }
 
-/* CENTANG BULAT MAGENTA */
+/* =========================================
+   IKON CENTANG
+========================================= */
 
 .hk-check {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 18px;
 
-  width: 18px;
-  height: 18px;
-  margin-top: 3px;
+  flex: 0 0 23px;
 
-  background: #A00080;
-  color: #FFFFFF;
+  width: 23px;
+  height: 23px;
+
   border-radius: 50%;
+
+  background: #92197B;
+  color: #FFFFFF;
 }
 
 .hk-check svg {
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
 }
 
 /* =========================================
-   KURIKULUM
+   PANEL KURIKULUM
 ========================================= */
 
 .hk-kurikulum {
-  padding: 34px;
+  position: relative;
+
+  padding: 24px 28px 24px 190px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
   background: #92197B;
-  border-radius: 18px;
+  color: #FFFFFF;
+
+  box-shadow: 0 8px 20px rgba(117, 25, 79, 0.08);
 }
 
+/* =========================================
+   GAMBAR AL-QUR'AN DAN REHAL
+========================================= */
+
+.hk-kurikulum::before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 22px;
+
+  width: 145px;
+  height: 145px;
+
+  background-image:
+    url("../../assets/image/Open Book on Wooden Stand.webp");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* =========================================
+   HEADING KURIKULUM
+========================================= */
+
 .hk-kurikulum-heading {
-  margin-bottom: 26px;
-  text-align: center;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 .hk-kurikulum-heading h2 {
-  margin: 0 0 12px;
-  color: #FFE0A3;
-  font-size: clamp(21px, 2.4vw, 26px);
-  font-weight: 800;
-  line-height: 1.35;
+  margin: 0 0 5px;
+
+  color: #FCD757;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .hk-kurikulum-heading p {
   margin: 0;
+
   color: #FFFFFF;
-  font-size: 15px;
-  line-height: 1.7;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
 }
 
-/* TIGA KOTAK MAUVE */
+/* =========================================
+   GRID MATA PELAJARAN
+========================================= */
 
 .hk-kurikulum-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+
+  gap: 16px;
 
   margin: 0;
   padding: 0;
+
   list-style: none;
 }
 
@@ -163,39 +305,202 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 52px;
-  padding: 8px 16px;
+  gap: 10px;
 
-  background: #B34B95;
-  border: 1px solid #FFE0A3;
-  border-radius: 12px;
+  min-width: 0;
+  min-height: 46px;
 
+  padding: 10px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+
+  background: #A74E92;
   color: #FFFFFF;
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
   text-align: center;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hk-kurikulum-item:hover {
+  background: #B85CA2;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   IKON MATA PELAJARAN
+========================================= */
+
+.hk-kurikulum-item::before {
+  content: "";
+
+  display: block;
+  flex: 0 0 22px;
+
+  width: 22px;
+  height: 22px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* TAHFIDZ QUR'AN */
+
+.hk-kurikulum-item:nth-child(1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6Q7 2 2 5V19Q7 16 12 20Q17 16 22 19V5Q17 2 12 6ZM12 6V20M5 8L9 9M5 12L9 13M15 9L19 8M15 13L19 12'/%3E%3C/svg%3E");
+}
+
+/* BAHASA ARAB */
+
+.hk-kurikulum-item:nth-child(2)::before {
+  content: "عربي";
+
+  width: auto;
+  height: auto;
+  flex-basis: auto;
+
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* BAHASA INGGRIS */
+
+.hk-kurikulum-item:nth-child(3)::before {
+  content: "Aa";
+
+  width: auto;
+  height: auto;
+  flex-basis: auto;
+
+  color: #FFFFFF;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .hk-section {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .hk-kurikulum {
+    padding-left: 165px;
+  }
+
+  .hk-kurikulum::before {
+    width: 125px;
+    height: 125px;
+  }
+
+  .hk-kurikulum-grid {
+    gap: 12px;
+  }
 }
 
 /* =========================================
    TABLET
 ========================================= */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+
   .hk-section {
-    padding: 54px 24px;
+    padding: 22px 40px 40px;
   }
 
-  .hk-pbl-card {
-    padding: 24px;
+  .hk-container {
+    max-width: 800px;
+  }
+
+  .hk-pbl-layout {
+    grid-template-columns: 26% minmax(0, 1fr);
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .hk-pbl-illustration img {
+    max-width: 210px;
   }
 
   .hk-kurikulum {
-    padding: 28px;
+    padding: 22px 20px 22px 145px;
+  }
+
+  .hk-kurikulum::before {
+    left: 15px;
+    width: 115px;
+    height: 115px;
   }
 
   .hk-kurikulum-grid {
+    gap: 10px;
+  }
+
+  .hk-kurikulum-item {
+    gap: 6px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   TABLET KECIL
+========================================= */
+
+@media (max-width: 768px) {
+
+  .hk-container {
+    max-width: 600px;
+  }
+
+  .hk-pbl-list {
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
+  }
+
+  .hk-pbl-description {
+    margin-bottom: 18px;
+  }
+
+  .hk-kurikulum {
+    padding: 24px;
+  }
+
+  .hk-kurikulum::before {
+    position: static;
+    display: block;
+
+    width: 130px;
+    height: 120px;
+
+    margin: 0 auto 12px;
+    transform: none;
+  }
+
+  .hk-kurikulum-heading {
+    text-align: center;
+  }
+
+  .hk-kurikulum-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .hk-kurikulum-item {
+    font-size: 14px;
   }
 }
 
@@ -203,68 +508,80 @@
    MOBILE
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+
   .hk-section {
-    padding: 44px 20px;
+    padding: 24px 24px 35px;
   }
 
-  .hk-heading {
-    margin-bottom: 22px;
-  }
-
-  .hk-heading p,
-  .hk-kurikulum-heading p {
-    font-size: 14px;
-  }
-
-  .hk-pbl-card {
-    padding: 20px;
-  }
-
-  .hk-pbl-list {
-    grid-template-columns: 1fr;
-    row-gap: 16px;
-  }
-
-  .hk-pbl-item {
-    font-size: 14px;
-  }
-
-  .hk-kurikulum {
-    padding: 26px 20px;
-  }
-
-  .hk-kurikulum-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-}
-
-/* =========================================
-   MOBILE KECIL
-========================================= */
-
-@media (max-width: 480px) {
-  .hk-section {
-    padding: 38px 16px;
+  .hk-container {
+    max-width: 420px;
   }
 
   .hk-heading h2 {
-    font-size: 24px;
+    font-size: 27px;
   }
 
-  .hk-pbl-card {
-    padding: 20px;
+  .hk-pbl {
+    margin-bottom: 24px;
+  }
+
+  .hk-pbl-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .hk-pbl-illustration img {
+    max-width: 175px;
+  }
+
+  .hk-pbl-content {
+    padding: 0;
+  }
+
+  .hk-pbl-description {
+    margin-bottom: 18px;
+
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  .hk-pbl-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
 
   .hk-pbl-item {
     gap: 10px;
     font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .hk-check {
+    flex-basis: 23px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .hk-check svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .hk-kurikulum {
+    padding: 20px 18px;
+    border-radius: 18px;
   }
 
   .hk-kurikulum-heading h2 {
-    font-size: 21px;
+    font-size: 20px;
+  }
+
+  .hk-kurikulum-heading p {
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .hk-kurikulum-item {
@@ -272,34 +589,68 @@
   }
 }
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.hk-section {
-  padding-left: 24px;
-  padding-right: 24px;
-}
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
-@media (max-width: 992px) {
-  .hk-section {
-    padding-left: 20px;
-    padding-right: 20px;
+@media (prefers-reduced-motion: reduce) {
+
+  .hk-kurikulum-item {
+    transition: none;
+  }
+
+  .hk-kurikulum-item:hover {
+    transform: none;
   }
 }
+/* =========================================
+   REVISI JARAK JUDUL DAN KONTEN PBL
+========================================= */
 
-@media (max-width: 768px) {
-  .hk-section {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
+.hk-heading {
+  margin-bottom: 0;
 }
 
-@media (max-width: 480px) {
-  .hk-section {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+.hk-heading-line {
+  margin: 10px auto 0;
 }
 
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.hk-section {
-  padding-bottom: var(--pkbm-section-pad);
+.hk-pbl-layout {
+  margin-top: 0;
+  align-items: start;
+  gap: 28px;
+}
+
+.hk-pbl-illustration {
+  align-self: start;
+  margin-top: -15px;
+}
+
+.hk-pbl-content {
+  padding-top: 12px;
+}
+
+.hk-pbl-description {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hk-pbl-list {
+  row-gap: 12px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hk-pbl-layout {
+    margin-top: 12px;
+    gap: 10px;
+  }
+
+  .hk-pbl-illustration {
+    margin-top: 0;
+  }
+
+  .hk-pbl-content {
+    padding-top: 0;
+  }
 }

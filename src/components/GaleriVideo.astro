@@ -1,0 +1,476 @@
+---
+import "../styles/program/GaleriVideo.css";
+
+import {
+  galeriVideo,
+  videoCategories,
+} from "../data/galeri-video";
+---
+
+<section
+  class="galeri-video"
+  aria-labelledby="galeri-video-title"
+>
+  <div class="galeri-video-container">
+
+    <!-- HEADING -->
+    <header class="galeri-video-heading">
+
+      <span class="galeri-video-badge">
+        Galeri PKBM Alfatihah
+      </span>
+
+      <h2 id="galeri-video-title">
+        Galeri Video
+      </h2>
+
+      <div
+        class="galeri-video-divider"
+        aria-hidden="true"
+      ></div>
+
+      <p>
+        Intip berbagai kegiatan, cerita, dan pengalaman
+        belajar santri PKBM Alfatihah.
+      </p>
+
+    </header>
+
+    <!-- FILTER KATEGORI -->
+    <div
+      class="galeri-video-tabs"
+      role="group"
+      aria-label="Kategori video"
+    >
+
+      {videoCategories.map((category, index) => (
+        <button
+          type="button"
+          class:list={[
+            "galeri-video-tab",
+            { "is-active": index === 0 },
+          ]}
+          data-video-tab={category.id}
+          aria-pressed={index === 0 ? "true" : "false"}
+        >
+          <span>{category.name}</span>
+
+          <span class="galeri-video-count">
+            {category.count}
+          </span>
+        </button>
+      ))}
+
+    </div>
+
+    <!-- DAFTAR VIDEO -->
+    <div class="galeri-video-grid">
+
+      {galeriVideo.map((video, index) => (
+        <article
+          class="galeri-video-card"
+          data-video-card
+          data-category={video.category}
+          hidden={video.category !== "genuk"}
+        >
+
+          <!-- VIDEO PREVIEW -->
+          <button
+            type="button"
+            class="galeri-video-preview"
+            data-video-play
+            data-url={video.embedUrl}
+            data-original-url={video.url}
+            data-title={video.title}
+            aria-label={`Putar ${video.title}`}
+          >
+
+            <!-- THUMBNAIL -->
+            <img
+              src={`https://drive.google.com/thumbnail?id=${video.id}&sz=w800`}
+              alt=""
+              class="galeri-video-thumbnail"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <!-- OVERLAY -->
+            <span class="galeri-video-overlay"></span>
+
+            <!-- NOMOR VIDEO -->
+            <span class="galeri-video-number">
+              {String(
+                video.category === "genuk"
+                  ? index + 1
+                  : index - 2
+              ).padStart(2, "0")}
+            </span>
+
+            <!-- PLAY ICON -->
+            <span class="galeri-video-play-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+
+          </button>
+
+          <!-- CARD CONTENT -->
+          <div class="galeri-video-body">
+
+            <span class="galeri-video-category">
+              {video.category === "genuk"
+                ? "PKBM Cabang Genuk"
+                : "Video Santri dari Tutor"}
+            </span>
+
+            <h3>{video.title}</h3>
+
+            <div class="galeri-video-footer">
+
+              <button
+                type="button"
+                class="galeri-video-watch"
+                data-video-play
+                data-url={video.embedUrl}
+                data-original-url={video.url}
+                data-title={video.title}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="m10 8 6 4-6 4z" />
+                </svg>
+
+                Tonton Video
+              </button>
+
+              <a
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="galeri-video-external"
+                aria-label={`Buka ${video.title} di Google Drive`}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M13 5h6v6" />
+                  <path d="m19 5-9 9" />
+                  <path d="M19 13v6H5V5h6" />
+                </svg>
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+
+    <!-- LOAD MORE -->
+    <div class="galeri-video-more-wrapper">
+
+      <button
+        type="button"
+        class="galeri-video-more"
+        data-video-more
+        hidden
+      >
+        Lihat Video Lainnya
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+
+      <p
+        class="galeri-video-status"
+        data-video-status
+        aria-live="polite"
+      >
+        Menampilkan 3 dari 3 video
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL VIDEO -->
+  <dialog
+    class="galeri-video-modal"
+    data-video-modal
+    aria-labelledby="galeri-video-modal-title"
+  >
+
+    <div class="galeri-video-modal-inner">
+
+      <div class="galeri-video-modal-header">
+
+        <h3 id="galeri-video-modal-title" data-modal-title>
+          Video Santri
+        </h3>
+
+        <button
+          type="button"
+          class="galeri-video-modal-close"
+          data-modal-close
+          aria-label="Tutup video"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+
+      </div>
+
+      <div class="galeri-video-player">
+
+        <iframe
+          data-modal-iframe
+          title="Pemutar video santri"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+
+      </div>
+
+      <div class="galeri-video-modal-footer">
+
+        <a
+          data-modal-link
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buka di Google Drive ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+</section>
+
+<script>
+  const section =
+    document.querySelector<HTMLElement>(".galeri-video");
+
+  if (section) {
+    const tabs = Array.from(
+      section.querySelectorAll<HTMLButtonElement>(
+        "[data-video-tab]"
+      )
+    );
+
+    const cards = Array.from(
+      section.querySelectorAll<HTMLElement>(
+        "[data-video-card]"
+      )
+    );
+
+    const moreButton =
+      section.querySelector<HTMLButtonElement>(
+        "[data-video-more]"
+      );
+
+    const status =
+      section.querySelector<HTMLElement>(
+        "[data-video-status]"
+      );
+
+    let activeCategory = "genuk";
+    let visibleCount = 6;
+
+    // FILTER VIDEO
+    function renderVideos() {
+      const filtered = cards.filter(
+        (card) =>
+          card.dataset.category === activeCategory
+      );
+
+      cards.forEach((card) => {
+        card.hidden = true;
+      });
+
+      filtered
+        .slice(0, visibleCount)
+        .forEach((card) => {
+          card.hidden = false;
+        });
+
+      if (moreButton) {
+        moreButton.hidden =
+          filtered.length <= visibleCount;
+      }
+
+      if (status) {
+        status.textContent =
+          `Menampilkan ${Math.min(
+            visibleCount,
+            filtered.length
+          )} dari ${filtered.length} video`;
+      }
+    }
+
+    // TAB KATEGORI
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        activeCategory =
+          tab.dataset.videoTab || "genuk";
+
+        visibleCount = 6;
+
+        tabs.forEach((item) => {
+          const isActive = item === tab;
+
+          item.classList.toggle(
+            "is-active",
+            isActive
+          );
+
+          item.setAttribute(
+            "aria-pressed",
+            String(isActive)
+          );
+        });
+
+        renderVideos();
+      });
+    });
+
+    // LOAD MORE
+    moreButton?.addEventListener("click", () => {
+      visibleCount += 6;
+      renderVideos();
+    });
+
+    // THUMBNAIL FALLBACK
+    section
+      .querySelectorAll<HTMLImageElement>(
+        ".galeri-video-thumbnail"
+      )
+      .forEach((image) => {
+        const hideImage = () => {
+          image.hidden = true;
+        };
+
+        image.addEventListener("error", hideImage);
+
+        if (
+          image.complete &&
+          image.naturalWidth === 0
+        ) {
+          hideImage();
+        }
+      });
+
+    // MODAL
+    const modal =
+      section.querySelector<HTMLDialogElement>(
+        "[data-video-modal]"
+      );
+
+    const iframe =
+      section.querySelector<HTMLIFrameElement>(
+        "[data-modal-iframe]"
+      );
+
+    const modalTitle =
+      section.querySelector<HTMLElement>(
+        "[data-modal-title]"
+      );
+
+    const modalLink =
+      section.querySelector<HTMLAnchorElement>(
+        "[data-modal-link]"
+      );
+
+    const closeButton =
+      section.querySelector<HTMLButtonElement>(
+        "[data-modal-close]"
+      );
+
+    let previousFocus: HTMLElement | null = null;
+
+    section
+      .querySelectorAll<HTMLButtonElement>(
+        "[data-video-play]"
+      )
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!modal || !iframe) return;
+
+          previousFocus = button;
+
+          iframe.src = button.dataset.url || "";
+          iframe.title =
+            button.dataset.title || "Video Santri";
+
+          if (modalTitle) {
+            modalTitle.textContent =
+              button.dataset.title || "Video Santri";
+          }
+
+          if (modalLink) {
+            modalLink.href =
+              button.dataset.originalUrl || "";
+          }
+
+          modal.showModal();
+        });
+      });
+
+    // TUTUP MODAL
+    closeButton?.addEventListener("click", () => {
+      modal?.close();
+    });
+
+    modal?.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.close();
+      }
+    });
+
+    // HENTIKAN VIDEO KETIKA MODAL DITUTUP
+    modal?.addEventListener("close", () => {
+      iframe?.removeAttribute("src");
+      previousFocus?.focus();
+    });
+
+    renderVideos();
+  }
+</script>

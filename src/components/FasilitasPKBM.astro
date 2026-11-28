@@ -1,0 +1,562 @@
+
+---
+import "../styles/about/FasilitasPKBM.css";
+
+import fasilitas1 from "../assets/image/DSC07790-1_11zon.webp";
+import fasilitas2 from "../assets/image/DSC05942_11zon.webp";
+import fasilitas3 from "../assets/image/MAS-AJI-LAGI-EDIT-VIDEO-2_11zon-1536x1152.webp";
+import fasilitas4 from "../assets/image/DSC07788_11zon.webp";
+import fasilitas5 from "../assets/image/DSC07794_11zon.webp";
+import fasilitas6 from "../assets/image/IMG_3278_11zon.webp";
+import fasilitas7 from "../assets/image/DSC09412_11zon.webp";
+import fasilitas8 from "../assets/image/9_11zon.webp";
+import fasilitas9 from "../assets/image/5_5_11zon.webp";
+
+const fasilitas = [
+  {
+    src: fasilitas1,
+    title: "Ruang Kelas Nyaman & Kondusif",
+    position: "center",
+  },
+  {
+    src: fasilitas2,
+    title: "Ruang Belajar Ber-AC",
+    position: "center",
+  },
+  {
+    src: fasilitas3,
+    title: "Sarana Bahan Ajar dan Multimedia",
+    position: "center",
+  },
+  {
+    src: fasilitas4,
+    title: "Area Konsumsi & Pendukung Belajar",
+    position: "center",
+  },
+  {
+    src: fasilitas5,
+    title: "Ruang Praktik Komputer & Digital",
+    position: "center",
+  },
+  {
+    src: fasilitas6,
+    title: "Studio Kreativitas dan Multimedia",
+    position: "center 30%",
+  },
+  {
+    src: fasilitas7,
+    title: "Kegiatan Outdoor & Kebersamaan",
+    position: "center 40%",
+  },
+  {
+    src: fasilitas8,
+    title: "Ruang Kerja & Bimbingan Belajar",
+    position: "center 30%",
+  },
+  {
+    src: fasilitas9,
+    title: "Ruang Diskusi Kolaboratif",
+    position: "center 35%",
+  },
+];
+
+// TIGA SET UNTUK INFINITE CAROUSEL
+
+const carouselFasilitas = [
+  ...fasilitas,
+  ...fasilitas,
+  ...fasilitas,
+];
+---
+
+<section
+  class="fasilitas-pkbm"
+  aria-labelledby="fasilitas-pkbm-title"
+>
+
+  <div class="fasilitas-pkbm-container">
+
+    <!-- JUDUL -->
+
+    <div class="fasilitas-heading">
+
+      <h2 id="fasilitas-pkbm-title">
+        Fasilitas
+      </h2>
+
+      <div class="fasilitas-accent"></div>
+
+    </div>
+
+    <!-- CAROUSEL -->
+
+    <div
+      class="fasilitas-carousel"
+      data-carousel
+      data-count={fasilitas.length}
+      aria-roledescription="carousel"
+      aria-label="Fasilitas PKBM Alfatihah"
+    >
+
+      <div class="fasilitas-carousel-main">
+
+        <div class="fasilitas-frame">
+
+          <div
+            class="fasilitas-track"
+            data-track
+            tabindex="0"
+            aria-label="Daftar fasilitas PKBM Alfatihah"
+          >
+
+            {carouselFasilitas.map((item, index) => (
+
+              <div
+                class="fasilitas-slide"
+                role="group"
+                aria-label={`Fasilitas ${(index % fasilitas.length) + 1} dari ${fasilitas.length}`}
+              >
+
+                <article class="fasilitas-card">
+
+                  <div class="fasilitas-card-image">
+
+                    <img
+                      src={item.src.src}
+                      width={item.src.width}
+                      height={item.src.height}
+                      alt={item.title}
+                      style={`object-position: ${item.position};`}
+                      loading={
+                        index >= fasilitas.length &&
+                        index < fasilitas.length + 5
+                          ? "eager"
+                          : "lazy"
+                      }
+                      decoding="async"
+                      draggable="false"
+                    />
+
+                  </div>
+
+                  <h3 class="fasilitas-card-title">
+                    {item.title}
+                  </h3>
+
+                </article>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+        <!-- PANAH KIRI -->
+
+        <button
+          type="button"
+          class="fasilitas-nav is-prev"
+          data-prev
+          aria-label="Fasilitas sebelumnya"
+        >
+
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 4L6 10L12 16" />
+          </svg>
+
+        </button>
+
+        <!-- PANAH KANAN -->
+
+        <button
+          type="button"
+          class="fasilitas-nav is-next"
+          data-next
+          aria-label="Fasilitas berikutnya"
+        >
+
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M8 4L14 10L8 16" />
+          </svg>
+
+        </button>
+
+      </div>
+
+      <!-- PAGINATION 9 TITIK -->
+
+      <div
+        class="fasilitas-dots"
+        aria-label="Navigasi fasilitas"
+      >
+
+        {fasilitas.map((_, index) => (
+
+          <button
+            type="button"
+            class:list={[
+              "fasilitas-dot",
+              { "is-active": index === 0 },
+            ]}
+            data-dot={index}
+            aria-label={`Tampilkan fasilitas ${index + 1}`}
+            aria-current={index === 0 ? "true" : "false"}
+          />
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- GELOMBANG BAWAH MENUJU FOOTER -->
+
+  <svg
+    class="fasilitas-wave-bottom"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+
+    <path
+      d="
+        M0 45
+        C180 15 300 20 480 42
+        C660 64 780 66 960 42
+        C1140 18 1280 20 1440 45
+        V100
+        H0
+        Z
+      "
+    />
+
+  </svg>
+
+</section>
+
+<script>
+
+  function initFasilitasCarousel() {
+
+    document
+      .querySelectorAll<HTMLElement>(
+        ".fasilitas-carousel[data-carousel]"
+      )
+      .forEach((root) => {
+
+        if (root.dataset.initialized === "true") {
+          return;
+        }
+
+        const track =
+          root.querySelector<HTMLElement>("[data-track]");
+
+        const slides = Array.from(
+          root.querySelectorAll<HTMLElement>(".fasilitas-slide")
+        );
+
+        const dots = Array.from(
+          root.querySelectorAll<HTMLButtonElement>("[data-dot]")
+        );
+
+        const prev =
+          root.querySelector<HTMLButtonElement>("[data-prev]");
+
+        const next =
+          root.querySelector<HTMLButtonElement>("[data-next]");
+
+        const count = Number(root.dataset.count);
+
+        if (!track || !count || slides.length < 2) {
+          return;
+        }
+
+        root.dataset.initialized = "true";
+
+        let activeIndex = 0;
+        let physicalIndex = count;
+        let isMoving = false;
+
+        let scrollTimer: number | undefined;
+
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
+
+        // LEBAR SATU CARD TERMASUK GAP
+
+        const getStep = () => {
+
+          return (
+            slides[1].getBoundingClientRect().left -
+            slides[0].getBoundingClientRect().left
+          );
+
+        };
+
+        // NORMALISASI INDEX
+
+        const normalize = (index: number) => {
+
+          return ((index % count) + count) % count;
+
+        };
+
+        // UPDATE DOT AKTIF
+
+        const updateDots = (index: number) => {
+
+          activeIndex = normalize(index);
+
+          dots.forEach((dot, i) => {
+
+            const active = i === activeIndex;
+
+            dot.classList.toggle("is-active", active);
+
+            dot.setAttribute(
+              "aria-current",
+              String(active)
+            );
+
+          });
+
+        };
+
+        // PINDAH TANPA ANIMASI
+
+        const jumpTo = (index: number) => {
+
+          const oldBehavior = track.style.scrollBehavior;
+          const oldSnap = track.style.scrollSnapType;
+
+          track.style.scrollBehavior = "auto";
+          track.style.scrollSnapType = "none";
+
+          track.scrollLeft = index * getStep();
+
+          track.style.scrollBehavior = oldBehavior;
+          track.style.scrollSnapType = oldSnap;
+
+          physicalIndex = index;
+
+        };
+
+        // RESET LOOP
+
+        const finishScroll = () => {
+
+          const step = getStep();
+
+          if (!step) return;
+
+          physicalIndex = Math.round(
+            track.scrollLeft / step
+          );
+
+          const logicalIndex = normalize(physicalIndex);
+
+          if (
+            physicalIndex < count ||
+            physicalIndex >= count * 2
+          ) {
+
+            jumpTo(count + logicalIndex);
+
+          }
+
+          isMoving = false;
+
+          updateDots(logicalIndex);
+
+        };
+
+        // GESER CAROUSEL
+
+        const moveTo = (index: number) => {
+
+          isMoving = true;
+
+          updateDots(index);
+
+          track.scrollTo({
+            left: index * getStep(),
+            behavior: reducedMotion.matches
+              ? "instant"
+              : "smooth",
+          });
+
+          window.clearTimeout(scrollTimer);
+
+          scrollTimer = window.setTimeout(
+            finishScroll,
+            reducedMotion.matches ? 30 : 500
+          );
+
+        };
+
+        // PANAH GESER SATU CARD
+
+        const moveOne = (direction: number) => {
+
+          if (isMoving) return;
+
+          moveTo(physicalIndex + direction);
+
+        };
+
+        // KLIK PAGINATION
+
+        const goToFasilitas = (index: number) => {
+
+          if (isMoving) {
+
+            jumpTo(count + activeIndex);
+
+            isMoving = false;
+
+          }
+
+          const candidates = [
+            index,
+            index + count,
+            index + count * 2,
+          ];
+
+          const maxScroll =
+            track.scrollWidth - track.clientWidth;
+
+          const validCandidates = candidates.filter(
+            (candidate) =>
+              candidate * getStep() <= maxScroll + 2
+          );
+
+          const nearest = validCandidates.reduce(
+            (best, candidate) =>
+              Math.abs(candidate - physicalIndex) <
+              Math.abs(best - physicalIndex)
+                ? candidate
+                : best,
+            count + index
+          );
+
+          moveTo(nearest);
+
+        };
+
+        prev?.addEventListener("click", () => {
+          moveOne(-1);
+        });
+
+        next?.addEventListener("click", () => {
+          moveOne(1);
+        });
+
+        dots.forEach((dot, index) => {
+
+          dot.addEventListener("click", () => {
+            goToFasilitas(index);
+          });
+
+        });
+
+        // SWIPE MANUAL
+
+        track.addEventListener(
+          "scroll",
+          () => {
+
+            if (!isMoving && getStep()) {
+
+              updateDots(
+                Math.round(track.scrollLeft / getStep())
+              );
+
+            }
+
+            window.clearTimeout(scrollTimer);
+
+            scrollTimer = window.setTimeout(
+              finishScroll,
+              150
+            );
+
+          },
+          { passive: true }
+        );
+
+        // KEYBOARD
+
+        track.addEventListener("keydown", (event) => {
+
+          if (event.key === "ArrowLeft") {
+
+            event.preventDefault();
+
+            moveOne(-1);
+
+          }
+
+          if (event.key === "ArrowRight") {
+
+            event.preventDefault();
+
+            moveOne(1);
+
+          }
+
+        });
+
+        // RESPONSIVE
+
+        const resizeObserver = new ResizeObserver(() => {
+
+          window.clearTimeout(scrollTimer);
+
+          jumpTo(count + activeIndex);
+
+          isMoving = false;
+
+        });
+
+        resizeObserver.observe(track);
+
+        // POSISI AWAL
+
+        jumpTo(count);
+
+        updateDots(0);
+
+      });
+
+  }
+
+  initFasilitasCarousel();
+
+  document.addEventListener(
+    "astro:page-load",
+    initFasilitasCarousel
+  );
+
+</script>

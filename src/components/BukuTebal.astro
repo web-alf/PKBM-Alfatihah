@@ -1,0 +1,80 @@
+---
+// Varian buku soft 3D yang lebih gendut: peach (kecil, atas) di atas ungu (besar, bawah).
+// Dipakai di halaman Tentang Kami; BukuTumpuk.astro tetap dipakai Beranda.
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class:list={["buku-tumpuk", className]}
+  viewBox="0 6 192 156"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <radialGradient id="bt-ground" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#92197B" stop-opacity="0.34"></stop>
+      <stop offset="1" stop-color="#92197B" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id="bt-contact" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#3E1370" stop-opacity="0.5"></stop>
+      <stop offset="1" stop-color="#3E1370" stop-opacity="0"></stop>
+    </radialGradient>
+    <linearGradient id="bt-pages" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFBF0"></stop>
+      <stop offset="0.55" stop-color="#FBEFD6"></stop>
+      <stop offset="1" stop-color="#EBD7B2"></stop>
+    </linearGradient>
+
+    <linearGradient id="bt-pu-top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C4A0F7"></stop>
+      <stop offset="1" stop-color="#8F55D8"></stop>
+    </linearGradient>
+    <linearGradient id="bt-pu-base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8446CC"></stop>
+      <stop offset="1" stop-color="#5E2A9E"></stop>
+    </linearGradient>
+    <linearGradient id="bt-pu-spine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5E2A9E"></stop>
+      <stop offset="0.45" stop-color="#A06BE8"></stop>
+      <stop offset="1" stop-color="#7A3FC0"></stop>
+    </linearGradient>
+
+    <linearGradient id="bt-pe-top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD6B8"></stop>
+      <stop offset="1" stop-color="#F7A072"></stop>
+    </linearGradient>
+    <linearGradient id="bt-pe-base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F08D5F"></stop>
+      <stop offset="1" stop-color="#CC6C40"></stop>
+    </linearGradient>
+    <linearGradient id="bt-pe-spine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D8703F"></stop>
+      <stop offset="0.45" stop-color="#FFB890"></stop>
+      <stop offset="1" stop-color="#EE8F5E"></stop>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="96" cy="150" rx="84" ry="9" fill="url(#bt-ground)"></ellipse>
+
+  <g transform="rotate(2 96 115)">
+    <rect x="12" y="78" width="168" height="22" rx="11" fill="url(#bt-pu-top)"></rect>
+    <rect x="30" y="94" width="142" height="36" rx="10" fill="url(#bt-pages)"></rect>
+    <path d="M44 103H160M44 111H160M44 119H160" stroke="#DCC79E" stroke-opacity="0.45" stroke-width="1.2" stroke-linecap="round"></path>
+    <rect x="12" y="124" width="168" height="24" rx="12" fill="url(#bt-pu-base)"></rect>
+    <rect x="6" y="78" width="46" height="70" rx="23" fill="url(#bt-pu-spine)"></rect>
+    <path d="M18 92Q18 86 26 84" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round" fill="none"></path>
+    <path d="M44 84H150" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round"></path>
+  </g>
+
+  <ellipse cx="102" cy="80" rx="64" ry="6" fill="url(#bt-contact)"></ellipse>
+
+  <g transform="rotate(-4 102 54)">
+    <rect x="32" y="22" width="140" height="19" rx="9.5" fill="url(#bt-pe-top)"></rect>
+    <rect x="48" y="36" width="116" height="28" rx="9" fill="url(#bt-pages)"></rect>
+    <path d="M60 44H150M60 51H150M60 58H150" stroke="#DCC79E" stroke-opacity="0.45" stroke-width="1.2" stroke-linecap="round"></path>
+    <rect x="32" y="58" width="140" height="20" rx="10" fill="url(#bt-pe-base)"></rect>
+    <rect x="26" y="22" width="40" height="56" rx="20" fill="url(#bt-pe-spine)"></rect>
+    <path d="M37 35Q37 29 44 27" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="3.5" stroke-linecap="round" fill="none"></path>
+    <path d="M62 27H140" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3.5" stroke-linecap="round"></path>
+  </g>
+</svg>

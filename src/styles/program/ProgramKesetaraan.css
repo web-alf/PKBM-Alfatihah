@@ -1,195 +1,246 @@
 
 /* =========================================
-   PROGRAM KESETARAAN PKBM ALFATIHAH
+   HERO PROGRAM KESETARAAN PKBM ALFATIHAH
 ========================================= */
 
 .program-kesetaraan {
+  --kesetaraan-bg: #92197B;
+  --kesetaraan-yellow: #FCD757;
+  --kesetaraan-wave-h: clamp(40px, 5vw, 75px);
+
   position: relative;
+  isolation: isolate;
+
   display: flex;
   align-items: center;
-  height: auto;
+
+  width: 100%;
   min-height: 0;
-  padding: 52px 24px 58px;
+
+  padding:
+    65px
+    clamp(32px, 5.5vw, 100px)
+    calc(var(--kesetaraan-wave-h) + 45px);
+
   overflow: hidden;
-  background: #92197B;
+
+  background: var(--kesetaraan-bg);
   color: #FFFFFF;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.program-kesetaraan *,
+.program-kesetaraan *::before,
+.program-kesetaraan *::after {
   box-sizing: border-box;
 }
 
-/* CONTAINER */
+/* =========================================
+   CONTAINER
+========================================= */
 
 .program-kesetaraan-container {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns:
+    minmax(0, 48fr)
+    minmax(0, 52fr);
+
   align-items: center;
-  gap: 0;
+  gap: clamp(28px, 4vw, 60px);
+
+  width: 100%;
+  max-width: 1160px;
+
+  margin: 0 auto;
 }
+
+/* =========================================
+   KONTEN KIRI
+========================================= */
 
 .program-kesetaraan-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
   min-width: 0;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+
+  text-align: left;
 }
 
-.program-kesetaraan-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto 18px;
-}
-
-/* LABEL DAN BADGE */
+/* =========================================
+   LABEL DAN BADGE
+========================================= */
 
 .program-kesetaraan-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
+
+  gap: 8px;
+
   width: 100%;
-  margin-top: 12px;
+
+  margin: 0 0 16px;
 }
 
 .program-kesetaraan-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  max-width: 100%;
-  padding: 6px 12px;
-  border: 1px solid #FFE0A3;
-  border-radius: 50px;
-  color: #FFE0A3;
-  font-family: "Poppins", sans-serif;
+
+  padding: 7px 13px;
+
+  border: 1px solid #FFE8A0;
+  border-radius: 999px;
+
+  background: var(--kesetaraan-yellow);
+  color: #4A0B45;
+
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.6px;
-  line-height: 1.2;
-  text-align: center;
-  box-sizing: border-box;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
 }
 
 .program-kesetaraan-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  max-width: 100%;
-  margin-top: 0;
+
+  gap: 5px;
+
   padding: 6px 12px;
-  border: 1px solid rgba(117, 25, 79, 0.14);
-  border-radius: 50px;
-  background: #FFE0A3;
-  color: #75194F;
-  font-family: "Poppins", sans-serif;
-  font-size: 10px;
+
+  border: 1px solid #FFFFFF;
+  border-radius: 999px;
+
+  background: #FFF1F8;
+  color: #92197B;
+
+  font-size: 11px;
   font-weight: 700;
-  line-height: 1.2;
-  box-sizing: border-box;
+  line-height: 1.4;
 }
 
 .program-kesetaraan-badge svg {
+  flex-shrink: 0;
+
   width: 14px;
   height: 14px;
-  flex-shrink: 0;
 }
 
-.program-kesetaraan-logo-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 230px;
-  height: 110px;
-  padding: 12px;
-  box-sizing: border-box;
-  border-radius: 16px;
-  background: #FFFFFF;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.program-kesetaraan-logo-card img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* JUDUL */
+/* =========================================
+   JUDUL HERO
+========================================= */
 
 .program-kesetaraan h1 {
   width: 100%;
-  max-width: 1000px;
-  margin: 0;
+
+  margin: 0 0 18px;
+
+  color: #FFFFFF;
 
   font-family: "Poppins", sans-serif;
-  font-size: 48px;
+  font-size: clamp(34px, 3.5vw, 48px);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  color: #FFFFFF;
-  text-align: center;
+  line-height: 1.18;
+  letter-spacing: -0.8px;
+
+  text-align: left;
 }
+
+/* PKBM ALFATIHAH WARNA KUNING */
 
 .program-kesetaraan h1 span {
   display: block;
-  color: #D9A035;
+
+  color: #FCD757;
 }
 
-/* GARIS */
-
-.program-kesetaraan-line {
-  width: 68px;
-  height: 4px;
-  margin: 20px auto;
-  border-radius: 10px;
-  background: #FFFFFF;
-}
-
-/* DESKRIPSI */
+/* =========================================
+   DESKRIPSI
+========================================= */
 
 .program-kesetaraan-description {
   width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
+  max-width: 530px;
+
+  margin: 0;
+
+  color: #FFFFFF;
 
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.9;
-  color: #FFFFFF;
-  text-align: center;
+  line-height: 1.8;
+  letter-spacing: normal;
+
+  text-align: left;
 }
 
-/* TAGLINE */
+/* =========================================
+   TAGLINE
+========================================= */
 
 .program-kesetaraan-tagline {
-  margin: 16px 0 0;
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 15px 0 0;
+
+  color: #FCD757;
 
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
-  color: #FFE0A3;
-  text-align: center;
+
+  text-align: left;
 }
 
-/* TOMBOL */
+.program-kesetaraan-check {
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  width: 19px;
+  height: 19px;
+
+  border-radius: 50%;
+
+  background: #FCD757;
+  color: #FFFFFF;
+}
+
+.program-kesetaraan-check svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* =========================================
+   TOMBOL
+========================================= */
 
 .program-kesetaraan-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 14px;
+
+  gap: 12px;
+
+  width: 100%;
+
   margin-top: 22px;
 }
 
@@ -197,41 +248,55 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 
-  min-height: 52px;
-  padding: 13px 22px;
-  box-sizing: border-box;
+  gap: 7px;
 
-  border: 2px solid transparent;
-  border-radius: 12px;
+  min-height: 44px;
+
+  padding: 11px 17px;
+
+  border: 1.5px solid transparent;
+  border-radius: 999px;
 
   font-family: "Poppins", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.4;
+
+  text-align: center;
   text-decoration: none;
 
   transition:
     background 0.25s ease,
     color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.25s ease;
+}
+
+.program-kesetaraan-btn svg {
+  flex-shrink: 0;
+
+  width: 15px;
+  height: 15px;
+}
+
+.program-kesetaraan-btn .program-kesetaraan-wa {
+  width: 18px;
+  height: 18px;
 }
 
 /* TOMBOL DAFTAR */
 
 .program-kesetaraan-btn-primary {
-  background: #D9A035;
-  border-color: #D9A035;
-  color: #75194F;
+  background: #FCD757;
+  border-color: #FCD757;
+  color: #4A0B45;
 }
 
 .program-kesetaraan-btn-primary:hover {
-  background: #E8B64F;
-  border-color: #E8B64F;
-  color: #75194F;
+  background: #FFE48A;
+  border-color: #FFE48A;
+  color: #4A0B45;
+
   transform: translateY(-3px);
 }
 
@@ -245,103 +310,331 @@
 
 .program-kesetaraan-btn-outline:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: #FFFFFF;
   color: #FFFFFF;
+
   transform: translateY(-3px);
 }
 
 .program-kesetaraan-btn:focus-visible {
-  outline: 3px solid #FFE0A3;
+  outline: 3px solid #FCD757;
   outline-offset: 4px;
 }
 
-/* TABLET */
+/* =========================================
+   VISUAL KANAN
+========================================= */
 
-@media (max-width: 992px) {
+.program-kesetaraan-visual {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 10px 10px 20px;
+}
+
+/* =========================================
+   BINGKAI FOTO ASIMETRIS
+========================================= */
+
+.program-kesetaraan-photo-frame {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  aspect-ratio: 1.18 / 1;
+
+  overflow: hidden;
+
+  border: 8px solid #FFFFFF;
+
+  border-radius:
+    32% 17% 27% 16% /
+    32% 19% 26% 19%;
+
+  background: #FFFFFF;
+
+  transform: rotate(-4deg);
+
+  box-shadow:
+    0 10px 28px rgba(60, 10, 50, 0.18);
+}
+
+.program-kesetaraan-photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 40% center;
+
+  transform: rotate(4deg) scale(1.1);
+}
+
+/* =========================================
+   PETIK KUNING
+========================================= */
+
+.program-kesetaraan-petik {
+  position: absolute;
+  z-index: 3;
+
+  top: -12px;
+  left: -10px;
+
+  width: clamp(45px, 5.5vw, 76px);
+  height: auto;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   DEKORASI DAUN
+========================================= */
+
+.program-kesetaraan-daun {
+  position: absolute;
+  z-index: 3;
+
+  right: -10px;
+  bottom: 40px;
+
+  display: block;
+
+  width: clamp(80px, 11vw, 155px);
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================
+   DEKORASI BUKU
+========================================= */
+
+.program-kesetaraan-buku {
+  position: absolute;
+  z-index: 4;
+
+  right: -12px;
+  bottom: -15px;
+
+  display: block;
+
+  width: clamp(140px, 19vw, 245px);
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================
+   GELOMBANG BAWAH
+   SATU LAPIS
+========================================= */
+
+.program-kesetaraan-wave {
+  position: absolute;
+
+  right: 0;
+  bottom: -1px;
+  left: 0;
+
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+  height: var(--kesetaraan-wave-h);
+
+  pointer-events: none;
+}
+
+.program-kesetaraan-wave path {
+  fill: var(--pkbm-cream, #FCF7F2);
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
   .program-kesetaraan {
-    min-height: auto;
-    padding: 48px 24px 54px;
+    padding-left: 42px;
+    padding-right: 42px;
   }
 
   .program-kesetaraan-container {
-    max-width: 900px;
+    gap: 32px;
   }
 
   .program-kesetaraan h1 {
-    font-size: clamp(32px, 4.5vw, 40px);
+    font-size: 39px;
+  }
+
+  .program-kesetaraan-btn {
+    padding: 11px 14px;
+    font-size: 11px;
+  }
+
+  .program-kesetaraan-buku {
+    width: 190px;
   }
 }
 
-/* MOBILE */
+/* =========================================
+   TABLET
+========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+
   .program-kesetaraan {
-    padding: 46px 20px 54px;
+    padding:
+      50px
+      40px
+      calc(var(--kesetaraan-wave-h) + 35px);
   }
 
   .program-kesetaraan-container {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .program-kesetaraan-visual {
-    margin-bottom: 16px;
-  }
-
-  .program-kesetaraan-meta {
-    gap: 8px;
-  }
-
-  .program-kesetaraan-logo-card {
-    width: 190px;
-    height: 95px;
+    max-width: 800px;
+    gap: 26px;
   }
 
   .program-kesetaraan h1 {
-    font-size: clamp(30px, 6vw, 40px);
-    letter-spacing: -0.6px;
+    font-size: clamp(30px, 4vw, 38px);
   }
 
-  .program-kesetaraan-line {
-    margin: 22px auto;
+  .program-kesetaraan-btn {
+    font-size: 11px;
+    padding: 10px 14px;
+  }
+
+  .program-kesetaraan-photo-frame {
+    border-width: 6px;
+  }
+
+  .program-kesetaraan-buku {
+    width: 160px;
+  }
+
+  .program-kesetaraan-daun {
+    width: 105px;
+  }
+}
+
+/* =========================================
+   TABLET KECIL
+========================================= */
+
+@media (max-width: 800px) {
+
+  .program-kesetaraan-container {
+    grid-template-columns: minmax(0, 1fr);
+
+    max-width: 600px;
+
+    gap: 38px;
+  }
+
+  .program-kesetaraan-content {
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .program-kesetaraan-meta {
+    justify-content: center;
+  }
+
+  .program-kesetaraan h1 {
+    text-align: center;
   }
 
   .program-kesetaraan-description {
-    font-size: 14px;
-    line-height: 1.8;
+    text-align: center;
   }
 
   .program-kesetaraan-tagline {
-    font-size: 15px;
+    justify-content: center;
+    text-align: center;
   }
 
   .program-kesetaraan-actions {
     justify-content: center;
   }
 
-}
+  .program-kesetaraan-visual {
+    max-width: 480px;
 
-/* MOBILE KECIL */
-
-@media (max-width: 480px) {
-  .program-kesetaraan {
-    padding: 42px 18px 50px;
+    margin: 0 auto;
   }
 
-  .program-kesetaraan-badge {
-    padding: 6px 10px;
-    font-size: 9px;
-    letter-spacing: 0.15px;
+  .program-kesetaraan-photo-frame {
+    aspect-ratio: 1.35 / 1;
+  }
+
+  .program-kesetaraan-buku {
+    width: 180px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .program-kesetaraan {
+    --kesetaraan-wave-h: 38px;
+
+    padding:
+      36px
+      24px
+      calc(var(--kesetaraan-wave-h) + 30px);
+  }
+
+  .program-kesetaraan-container {
+    max-width: 420px;
+
+    gap: 32px;
+  }
+
+  .program-kesetaraan-meta {
+    gap: 6px;
+
+    margin-bottom: 14px;
   }
 
   .program-kesetaraan-label {
     padding: 6px 10px;
+
     font-size: 9px;
-    letter-spacing: 0.35px;
+  }
+
+  .program-kesetaraan-badge {
+    padding: 5px 10px;
+
+    font-size: 10px;
   }
 
   .program-kesetaraan h1 {
-    font-size: clamp(28px, 8vw, 34px);
+    margin-bottom: 14px;
+
+    font-size: clamp(28px, 7vw, 35px);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
   }
 
   .program-kesetaraan-description {
@@ -350,26 +643,85 @@
   }
 
   .program-kesetaraan-tagline {
-    font-size: 14px;
+    font-size: 13px;
+
+    margin-top: 14px;
   }
+
+  .program-kesetaraan-actions {
+    gap: 10px;
+
+    margin-top: 18px;
+  }
+
+  .program-kesetaraan-btn {
+    min-height: 42px;
+
+    padding: 10px 13px;
+
+    font-size: 11px;
+  }
+
+  .program-kesetaraan-visual {
+    padding: 8px 8px 15px;
+  }
+
+  .program-kesetaraan-photo-frame {
+    aspect-ratio: 1.25 / 1;
+
+    border-width: 5px;
+  }
+
+  .program-kesetaraan-petik {
+    top: -8px;
+    left: -5px;
+
+    width: 48px;
+  }
+
+  .program-kesetaraan-buku {
+    right: -8px;
+    bottom: -10px;
+
+    width: 135px;
+  }
+
+  .program-kesetaraan-daun {
+    right: -8px;
+    bottom: 28px;
+
+    width: 85px;
+  }
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 380px) {
 
   .program-kesetaraan-actions {
     flex-direction: column;
     align-items: stretch;
-    width: min(100%, 360px);
-    margin-right: auto;
-    margin-left: auto;
+
+    max-width: 300px;
   }
 
   .program-kesetaraan-btn {
     width: 100%;
   }
 
+  .program-kesetaraan-tagline {
+    font-size: 12px;
+  }
 }
 
-/* REDUCED MOTION */
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .program-kesetaraan-btn {
     transition: none;
   }

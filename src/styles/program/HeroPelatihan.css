@@ -1,0 +1,362 @@
+/* ==========================================
+   HERO PELATIHAN KETERAMPILAN
+   Magenta : #A74E92
+   Yellow  : #FCD757
+   Cream   : #FFF9F5
+========================================== */
+
+.hero-pelatihan {
+  --pelatihan-bg: #a74e92;
+  --pelatihan-yellow: #fcd757;
+  --pelatihan-cream: #fff9f5;
+  --pelatihan-white: #ffffff;
+  --pelatihan-dark: #4a0b45;
+  --pelatihan-wave-h: clamp(40px, 5vw, 75px);
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  padding:
+    65px
+    var(--pkbm-container-pad, 40px)
+    calc(var(--pelatihan-wave-h) + 45px);
+
+  background: var(--pelatihan-bg);
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-pelatihan,
+.hero-pelatihan * {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.hero-pelatihan-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  align-items: center;
+  gap: 48px;
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.hero-pelatihan-content {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  color: var(--pelatihan-white);
+}
+
+.hero-pelatihan-label {
+  display: block;
+  margin-bottom: 12px;
+
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.hero-pelatihan-content h1 {
+  margin: 0 0 20px;
+
+  color: #ffffff;
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.8px;
+}
+
+/* ==========================================
+   TAGLINE KUNING
+========================================== */
+
+.hero-pelatihan-tagline {
+  display: inline-block;
+
+  margin-bottom: 20px;
+  padding: 10px 22px;
+
+  background: var(--pelatihan-yellow);
+  border-radius: 999px;
+
+  color: var(--pelatihan-dark);
+  font-size: clamp(14px, 1.5vw, 19px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   PARAGRAF
+========================================== */
+
+.hero-pelatihan-content p {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
+}
+
+.hero-pelatihan-content p strong {
+  color: var(--pelatihan-yellow);
+  font-weight: 700;
+}
+
+/* ==========================================
+   VISUAL FOTO
+========================================== */
+
+.hero-pelatihan-visual {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 22px 16px 26px;
+}
+
+/* ==========================================
+   LAPISAN PUTIH BELAKANG
+   MIRING KE KIRI
+========================================== */
+
+.hero-pelatihan-photo-back {
+  position: absolute;
+  z-index: 0;
+
+  top: 7%;
+  left: 5%;
+
+  width: 91%;
+  height: 87%;
+
+  background: var(--pelatihan-cream);
+
+  border-radius: 44px 52px 46px 52px;
+
+  transform: rotate(-4deg);
+
+  box-shadow: 0 10px 25px rgba(74, 11, 69, 0.08);
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   BINGKAI FOTO UTAMA
+   MIRING KE KANAN
+========================================== */
+
+.hero-pelatihan-photo-frame {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 7px solid #ffffff;
+
+  border-radius: 38px 48px 38px 48px;
+
+  transform: rotate(3deg);
+
+  box-shadow:
+    0 8px 16px rgba(74, 11, 69, 0.12),
+    0 18px 35px rgba(74, 11, 69, 0.14);
+}
+
+.hero-pelatihan-photo-frame img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: inherit;
+}
+
+/* ==========================================
+   WAVE BAWAH
+========================================== */
+
+.hero-pelatihan-wave {
+  position: absolute;
+  z-index: 1;
+
+  bottom: -1px;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: var(--pelatihan-wave-h);
+
+  pointer-events: none;
+}
+
+.hero-pelatihan-wave path {
+  fill: var(--pelatihan-cream);
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .hero-pelatihan-container {
+    gap: 35px;
+  }
+
+  .hero-pelatihan-photo-frame {
+    border-width: 6px;
+    border-radius: 32px 42px 32px 42px;
+  }
+
+  .hero-pelatihan-photo-back {
+    border-radius: 38px 46px 38px 46px;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+  .hero-pelatihan {
+    padding-top: 55px;
+    padding-bottom: calc(var(--pelatihan-wave-h) + 40px);
+  }
+
+  .hero-pelatihan-container {
+    gap: 28px;
+  }
+
+  .hero-pelatihan-content h1 {
+    font-size: clamp(30px, 4vw, 42px);
+  }
+
+  .hero-pelatihan-tagline {
+    padding: 9px 16px;
+    font-size: 14px;
+  }
+
+  .hero-pelatihan-visual {
+    padding: 18px 10px 22px;
+  }
+
+  .hero-pelatihan-photo-frame {
+    border-width: 6px;
+    border-radius: 28px 38px 28px 38px;
+  }
+
+  .hero-pelatihan-photo-back {
+    border-radius: 34px 42px 34px 42px;
+  }
+}
+
+/* ==========================================
+   TABLET PORTRAIT
+========================================== */
+
+@media (max-width: 768px) {
+  .hero-pelatihan-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 600px;
+  }
+
+  .hero-pelatihan-content {
+    text-align: center;
+  }
+
+  .hero-pelatihan-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-pelatihan-visual {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 20px 18px 25px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .hero-pelatihan {
+    padding:
+      40px
+      var(--pkbm-container-pad, 24px)
+      calc(var(--pelatihan-wave-h) + 30px);
+  }
+
+  .hero-pelatihan-container {
+    max-width: 420px;
+    gap: 20px;
+  }
+
+  .hero-pelatihan-label {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .hero-pelatihan-content h1 {
+    margin-bottom: 16px;
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.15;
+  }
+
+  .hero-pelatihan-tagline {
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .hero-pelatihan-content p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .hero-pelatihan-visual {
+    padding: 15px 12px 20px;
+  }
+
+  .hero-pelatihan-photo-frame {
+    border-width: 5px;
+    border-radius: 24px 32px 24px 32px;
+    transform: rotate(3deg);
+  }
+
+  .hero-pelatihan-photo-back {
+    top: 6%;
+    left: 4%;
+
+    width: 92%;
+    height: 89%;
+
+    border-radius: 28px 36px 28px 36px;
+    transform: rotate(-4deg);
+  }
+}

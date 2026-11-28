@@ -1,122 +1,236 @@
-
 /* =========================================
-   PROMO DIASPORA - MODERN PRICING
+   PROMO & DISKON DIASPORA
+   BANNER NAVY-GOLD (ACUAN: PROMO SMART LEARNING)
 ========================================= */
 
 .promo-diaspora {
+  --diaspora-promo-navy: #001c49;
+  --diaspora-promo-navy-deep: #00132f;
+  --diaspora-promo-gold: #d9a035;
+  --diaspora-promo-gold-light: #f5d177;
+  --diaspora-promo-cream: #fff9f5;
+
+  position: relative;
   width: 100%;
-  padding: 65px 20px;
-  background: #fff9f5;
+
+  background: var(--diaspora-promo-cream);
+
+  padding:
+    var(--pkbm-section-pad, 65px)
+    var(--pkbm-container-pad, 24px);
+
   font-family: "Poppins", sans-serif;
 }
 
 .promo-diaspora,
-.promo-diaspora * {
+.promo-diaspora *,
+.promo-diaspora *::before,
+.promo-diaspora *::after {
   box-sizing: border-box;
 }
 
 .promo-diaspora-container {
-  max-width: 1200px;
+  position: relative;
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
-.promo-diaspora-box {
+/* JUDUL SECTION */
+
+.promo-diaspora-heading {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.promo-diaspora-heading h2 {
+  margin: 0;
+
+  color: var(--diaspora-promo-navy);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.promo-diaspora-divider {
+  display: block;
+
+  width: 55px;
+  height: 4px;
+
+  margin: 16px auto 0;
+
+  background: var(--diaspora-promo-gold);
+  border-radius: 999px;
+}
+
+/* BANNER PROMO UTAMA */
+
+.promo-diaspora-main {
+  position: relative;
+  isolation: isolate;
+
   width: 100%;
-  padding: 32px 30px;
+  min-height: 155px;
+
+  padding: 22px 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    #1c3f72 0%,
+    #0c2a5c 45%,
+    var(--diaspora-promo-navy) 100%
+  );
+
+  border: 1px solid rgba(245, 209, 119, 0.2);
+  border-radius: 28px;
+
+  box-shadow:
+    0 5px 8px rgba(0, 28, 73, 0.1),
+    0 10px 24px rgba(0, 28, 73, 0.16);
+
+  text-align: center;
+}
+
+/* Efek cahaya halus pada banner */
+
+.promo-diaspora-main::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(245, 209, 119, 0.18),
+    transparent 65%
+  );
+
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* KONTEN UTAMA PROMO */
+
+.promo-diaspora-main-content {
+  position: relative;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
 
-  background: #fff9f5;
-  border: 1px solid #d9a035;
-  border-radius: 20px;
-  text-align: center;
+  width: 100%;
+  min-width: 0;
+  gap: 10px;
 }
 
-.promo-diaspora-box h2 {
-  margin: 0;
-  color: #001c49;
-  font-size: clamp(24px, 3vw, 34px);
+/* BADGE DISKON */
+
+.promo-diaspora-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px 5px 10px;
+
+  background: linear-gradient(135deg, var(--diaspora-promo-gold-light) 0%, var(--diaspora-promo-gold) 100%);
+  border: 1px solid #b5801f;
+  border-radius: 99px;
+  box-shadow: 0 3px 8px rgba(217, 160, 53, 0.35);
+
+  color: var(--diaspora-promo-navy);
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
 }
 
-/* PRICE */
+.promo-diaspora-badge svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--diaspora-promo-navy);
+}
+
+/* HARGA LAMA DAN HARGA BARU */
 
 .promo-diaspora-prices {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 18px;
+
+  gap: 6px 20px;
 }
 
 .promo-diaspora-old-price {
-  color: #64748b;
-  font-size: 20px;
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-}
+  color: #bfc9dd;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600;
+  line-height: 1.4;
 
-.promo-diaspora-prices svg {
-  width: 27px;
-  height: 27px;
-  color: #d9a035;
+  text-decoration: line-through;
+  text-decoration-color: var(--diaspora-promo-gold-light);
+  text-decoration-thickness: 2px;
+
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .promo-diaspora-new-price {
-  color: #001c49;
-  font-size: clamp(36px, 4.6vw, 52px);
-  font-weight: 800;
-  line-height: 1.15;
-}
-
-/* BADGE */
-
-.promo-diaspora-badge {
-  display: inline-block;
-  padding: 7px 20px;
-
-  background: #001c49;
-  border-radius: 99px;
-
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
-/* NOTE */
+/* KETERANGAN SYARAT */
 
 .promo-diaspora-note {
-  max-width: 650px;
   margin: 0;
 
-  color: #64748b;
-  font-size: 13px;
-  line-height: 1.8;
+  color: #d9e0ee;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
-/* BUTTON */
+/* TOMBOL WHATSAPP */
 
 .promo-diaspora-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 
-  margin-top: 2px;
-  padding: 12px 26px;
+  margin-top: 4px;
+  padding: 10px 22px;
 
-  background: #001c49;
-  border: 1px solid #001c49;
+  background: var(--diaspora-promo-gold-light);
+  border: 1px solid var(--diaspora-promo-gold);
   border-radius: 10px;
 
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
+  color: var(--diaspora-promo-navy);
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 
   transition:
     background 0.2s ease,
@@ -124,81 +238,221 @@
 }
 
 .promo-diaspora-button svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .promo-diaspora-button:hover {
-  background: #12376b;
+  background: var(--diaspora-promo-gold);
   transform: translateY(-2px);
 }
 
 .promo-diaspora-button:focus-visible {
-  outline: 3px solid #d9a035;
+  outline: 3px solid var(--diaspora-promo-gold-light);
   outline-offset: 4px;
+}
+
+/* ILUSTRASI MEGAFON (KIRI) */
+
+.promo-diaspora-megaphone {
+  position: absolute;
+  z-index: 1;
+
+  left: 4%;
+  top: 50%;
+
+  width: clamp(140px, 16vw, 195px);
+
+  transform: translateY(-50%) rotate(-5deg);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.promo-diaspora-megaphone svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+
+  filter: drop-shadow(0 5px 5px rgba(0, 10, 25, 0.25));
+}
+
+/* ORNAMEN DISKON: PERSEN, BINTANG, CONFETTI (KANAN) */
+
+.promo-diaspora-confetti {
+  position: absolute;
+  z-index: 1;
+
+  right: 5%;
+  top: 50%;
+
+  width: clamp(100px, 12vw, 150px);
+
+  transform: translateY(-50%) rotate(8deg);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.promo-diaspora-confetti svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* LAPTOP */
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .promo-diaspora-main {
+    padding: 22px 155px;
+  }
+
+  .promo-diaspora-megaphone {
+    left: 2%;
+    width: 160px;
+  }
+
+  .promo-diaspora-confetti {
+    right: 3%;
+    width: 120px;
+  }
 }
 
 /* TABLET */
 
 @media (max-width: 900px) {
-  .promo-diaspora {
-    padding: 55px 20px;
+  .promo-diaspora-main {
+    min-height: 155px;
+    padding: 22px 120px;
+    border-radius: 24px;
   }
 
-  .promo-diaspora-box {
-    padding: 28px 24px;
+  .promo-diaspora-megaphone {
+    left: 1%;
+    width: 130px;
+  }
+
+  .promo-diaspora-confetti {
+    right: 2%;
+    width: 100px;
+  }
+
+  .promo-diaspora-prices {
+    gap: 4px 14px;
+  }
+
+  .promo-diaspora-old-price {
+    font-size: 19px;
+  }
+
+  .promo-diaspora-new-price {
+    font-size: 34px;
   }
 }
 
 /* MOBILE */
 
 @media (max-width: 640px) {
-  .promo-diaspora {
-    padding: 50px 16px;
+  .promo-diaspora-heading {
+    margin-bottom: 25px;
   }
 
-  .promo-diaspora-box {
-    padding: 26px 16px;
-    gap: 12px;
-    border-radius: 15px;
-  }
-
-  .promo-diaspora-box h2 {
+  .promo-diaspora-heading h2 {
     font-size: 24px;
   }
 
-  .promo-diaspora-prices {
-    gap: 10px;
+  .promo-diaspora-divider {
+    width: 50px;
+    margin-top: 14px;
   }
 
-  .promo-diaspora-old-price {
-    font-size: 17px;
+  .promo-diaspora-main {
+    min-height: 0;
+
+    padding: 85px 18px 24px;
+
+    border-radius: 22px;
   }
 
-  .promo-diaspora-prices svg {
-    width: 20px;
-    height: 20px;
+  .promo-diaspora-main-content {
+    gap: 8px;
   }
 
-  .promo-diaspora-new-price {
-    font-size: 34px;
+  /* Megafon di atas konten */
+
+  .promo-diaspora-megaphone {
+    width: 100px;
+
+    top: -15px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(-8deg);
+  }
+
+  /* Ornamen diskon di sudut kanan */
+
+  .promo-diaspora-confetti {
+    top: 8px;
+    right: 5px;
+
+    width: 65px;
+
+    transform: rotate(8deg);
+    opacity: 0.9;
   }
 
   .promo-diaspora-badge {
-    padding: 7px 14px;
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  .promo-diaspora-prices {
+    gap: 4px 10px;
+  }
+
+  .promo-diaspora-old-price {
+    font-size: 16px;
+  }
+
+  .promo-diaspora-new-price {
+    font-size: 30px;
+    letter-spacing: -0.6px;
   }
 
   .promo-diaspora-note {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .promo-diaspora-button {
-    width: 100%;
-    padding: 13px 18px;
-    font-size: 13px;
+    padding: 9px 18px;
+    font-size: 12px;
   }
 }
+
+/* MOBILE KECIL */
+
+@media (max-width: 380px) {
+  .promo-diaspora-main {
+    padding: 80px 12px 22px;
+  }
+
+  .promo-diaspora-prices {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .promo-diaspora-new-price {
+    font-size: 30px;
+  }
+
+  .promo-diaspora-old-price {
+    font-size: 15px;
+  }
+}
+
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
   .promo-diaspora-button {
@@ -208,33 +462,16 @@
 
 /* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
 .promo-diaspora {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: var(--pkbm-container-pad);
+  padding-right: var(--pkbm-container-pad);
 }
 
-@media (max-width: 992px) {
-  .promo-diaspora {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .promo-diaspora {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .promo-diaspora {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
+/* JARAK-ANTARSECTION: section Promo dirapatkan ke Harga di atasnya (bg menyatu tanpa divider) */
 .promo-diaspora {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
+  padding-top: 8px;
+  padding-bottom: 28px;
+}
+
+.promo-diaspora-heading {
+  margin-bottom: 28px;
 }

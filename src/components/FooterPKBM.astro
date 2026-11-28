@@ -3,6 +3,7 @@ import logoPKBM from "../assets/image/PKBM_icon.webp";
 import "../styles/FooterPKBM.css";
 
 const whatsappUrl = "https://wa.me/6285319485269";
+const whatsappLabel = "+62 853-1948-5269";
 const email = "alfatihahhomeschooling@gmail.com";
 const alamat = "PKBM Alfatihah Semarang, Jawa Tengah";
 
@@ -19,8 +20,10 @@ const programs = [
   { name: "Kejar Paket A, B & C", href: "/program-kesetaraan" },
   { name: "Alfatihah Homeschooling", href: "/homeschooling" },
   { name: "Alfatihah Smart Learning", href: "/smart-learning" },
-  { name: "Diaspora Qur’an Center", href: "/diaspora" },
+  { name: "Diaspora Qur\u2019an Center", href: "/diaspora" },
 ];
+
+const chevronPath = "M9 6l6 6-6 6";
 ---
 
 <footer class="footer-pkbm">
@@ -46,13 +49,14 @@ const programs = [
 
       <nav class="footer-pkbm-col" aria-labelledby="footer-nav-title">
         <h2 id="footer-nav-title">Navigasi</h2>
-        <ul>
+        <ul class="footer-pkbm-links">
           {navigasi.map((item) => (
             <li>
               <a
                 href={item.href}
                 aria-current={item.href === currentPath ? "page" : undefined}
               >
+                <svg class="footer-pkbm-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={chevronPath} /></svg>
                 {item.name}
               </a>
             </li>
@@ -60,12 +64,15 @@ const programs = [
         </ul>
       </nav>
 
-      <nav class="footer-pkbm-col footer-pkbm-program" aria-labelledby="footer-program-title">
+      <nav class="footer-pkbm-col" aria-labelledby="footer-program-title">
         <h2 id="footer-program-title">Program</h2>
-        <ul>
+        <ul class="footer-pkbm-links">
           {programs.map((program) => (
             <li>
-              <a href={program.href}>{program.name}</a>
+              <a href={program.href}>
+                <svg class="footer-pkbm-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={chevronPath} /></svg>
+                {program.name}
+              </a>
             </li>
           ))}
         </ul>
@@ -73,39 +80,36 @@ const programs = [
 
       <div class="footer-pkbm-col footer-pkbm-contact">
         <h2>Kontak</h2>
-        <dl>
-          <div>
-            <dt>WhatsApp CS</dt>
-            <dd>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                +62 853-1948-5269
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt>Email</dt>
-            <dd>
-              <a href={`mailto:${email}`}>{email}</a>
-            </dd>
-          </div>
-          <div>
-            <dt>Alamat</dt>
-            <dd>{alamat}</dd>
-          </div>
-        </dl>
+        <ul class="footer-pkbm-info">
+          <li>
+            <svg class="footer-pkbm-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z" /><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.5-1.8-2.3-1.2-1 .8c-1-.4-1.9-1.3-2.3-2.3l.8-1L10.9 7 9 8.5z" /></svg>
+            <span class="footer-pkbm-sr">WhatsApp CS:</span>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">{whatsappLabel}</a>
+          </li>
+          <li>
+            <svg class="footer-pkbm-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="M4 7.5l8 6 8-6" /></svg>
+            <span class="footer-pkbm-sr">Email:</span>
+            <a href={`mailto:${email}`}>{email}</a>
+          </li>
+          <li>
+            <svg class="footer-pkbm-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-11.5a7 7 0 0 0-14 0C5 14.9 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></svg>
+            <span class="footer-pkbm-sr">Alamat:</span>
+            <span>{alamat}</span>
+          </li>
+        </ul>
         <a href="/kontak" class="footer-pkbm-more">
           Lihat Informasi Selengkapnya
-          <span aria-hidden="true">→</span>
+          <svg class="footer-pkbm-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={chevronPath} /></svg>
         </a>
       </div>
     </div>
 
     <p class="footer-pkbm-text">
-      <span class="footer-pkbm-item">© 2026 PKBM Alfatihah Semarang</span>
-      <span class="footer-pkbm-separator" aria-hidden="true">·</span>
-      <span class="footer-pkbm-item">Yayasan Pendidikan Modern Alfatihah</span>
-      <span class="footer-pkbm-separator" aria-hidden="true">·</span>
-      <span class="footer-pkbm-item">Jazakumullahu Khayran Katsiran</span>
+      <span>&copy; 2026 PKBM Alfatihah. All Rights Reserved.</span>
+      <span class="footer-pkbm-separator" aria-hidden="true"></span>
+      <span>Pusat Kegiatan Belajar Masyarakat</span>
+      <span class="footer-pkbm-separator" aria-hidden="true"></span>
+      <span>Terakreditasi A</span>
     </p>
   </div>
 </footer>

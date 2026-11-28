@@ -1,0 +1,28 @@
+---
+// Tiga petik kuning: bentuk & warna sama dengan ornamen Hero (versi kanan).
+// side="left" otomatis di-mirror lewat CSS.
+const { side = "right", class: className = "" } = Astro.props;
+const rays = [
+  { x: 0, y: -80, rotate: 8, scaleY: 0.98 },
+  { x: 46, y: -48, rotate: 40, scaleY: 1.02 },
+  { x: 68, y: 0, rotate: 64, scaleY: 0.72 },
+];
+const rayPath =
+  "M-8 2C-11 -22 -15 -46 -13 -58C-11 -68 11 -68 13 -58C15 -46 10 -22 8 2C7 9 -7 9 -8 2Z";
+---
+
+<svg
+  class:list={["petik-kuning", `is-${side}`, className]}
+  viewBox="-16 -152 148 164"
+  aria-hidden="true"
+  focusable="false"
+>
+  <g fill="#FFC400">
+    {rays.map((r) => (
+      <path
+        d={rayPath}
+        transform={`translate(${r.x} ${r.y}) rotate(${r.rotate}) scale(1 ${r.scaleY})`}
+      />
+    ))}
+  </g>
+</svg>

@@ -10,6 +10,10 @@ const daftarPilar = [
       "Perbaikan bacaan Al-Qur'an sesuai tajwid dan makharijul huruf.",
     capaian:
       "Capaian: bacaan sesuai tajwid, siap melanjutkan ke Tahfidz.",
+    infoJudul: "Sasaran peserta",
+    infoDeskripsi:
+      "Anak-anak hingga dewasa, seluruh jenjang, termasuk pemula yang belum memulai Tahsin.",
+    ikon: "tahsin",
   },
   {
     nomor: "02",
@@ -18,6 +22,10 @@ const daftarPilar = [
       "Bimbingan menghafal Al-Qur'an dengan metode talaqqi dan muraja'ah terjadwal.",
     capaian:
       "Capaian: target hafalan (per juz/halaman) tercapai bertahap.",
+    infoJudul: "Jalur belajar",
+    infoDeskripsi:
+      "Kedua pilar dapat diambil terpisah maupun berurutan",
+    ikon: "tahfidz",
   },
 ];
 ---
@@ -34,6 +42,7 @@ const daftarPilar = [
       <h2 id="pilar-diaspora-title">
         Apa saja yang bisa dipelajari?
       </h2>
+
       <span
         class="pilar-diaspora-divider"
         aria-hidden="true"
@@ -42,54 +51,335 @@ const daftarPilar = [
 
     <!-- DUA PILAR PEMBELAJARAN -->
     <div class="pilar-diaspora-grid">
+
       {daftarPilar.map((pilar) => (
         <article class="pilar-diaspora-item">
 
-          <div class="pilar-diaspora-item-heading">
-            <span
-              class="pilar-diaspora-number"
-              aria-hidden="true"
-            >
-              {pilar.nomor}
-            </span>
+          <!-- ILUSTRASI -->
+          <div class="pilar-diaspora-illustration" aria-hidden="true">
 
-            <h3>{pilar.judul}</h3>
+            <!-- ILUSTRASI TAHSIN -->
+            {pilar.ikon === "tahsin" && (
+              <svg viewBox="0 0 180 160" fill="none">
+
+                <defs>
+                  <linearGradient id="pilar-tahsin-purple" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1C3F72" />
+                    <stop offset="100%" stop-color="#001C49" />
+                  </linearGradient>
+
+                  <linearGradient id="pilar-tahsin-gold" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F5D177" />
+                    <stop offset="100%" stop-color="#D9A035" />
+                  </linearGradient>
+
+                  <linearGradient id="pilar-tahsin-page" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFFDF5" />
+                    <stop offset="100%" stop-color="#F2DEB3" />
+                  </linearGradient>
+
+                  <linearGradient id="pilar-tahsin-wood" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#D9A035" />
+                    <stop offset="100%" stop-color="#B5801F" />
+                  </linearGradient>
+
+                  <radialGradient id="pilar-tahsin-bg">
+                    <stop offset="0%" stop-color="#FFF9F5" />
+                    <stop offset="100%" stop-color="#F2DEB3" />
+                  </radialGradient>
+                </defs>
+
+                <!-- BACKGROUND LEMBUT -->
+                <ellipse
+                  cx="90" cy="83" rx="81" ry="62"
+                  fill="url(#pilar-tahsin-bg)"
+                  opacity=".8"
+                />
+
+                <ellipse
+                  cx="90" cy="142" rx="62" ry="8"
+                  fill="#001C49" opacity=".12"
+                />
+
+                <!-- REHAL KAYU -->
+                <path
+                  d="M34 88L145 129L132 145L21 103Z"
+                  fill="#B5801F"
+                />
+
+                <path
+                  d="M34 82L145 123L132 139L21 97Z"
+                  fill="url(#pilar-tahsin-wood)"
+                />
+
+                <path
+                  d="M146 88L35 129L48 145L159 103Z"
+                  fill="#B5801F"
+                />
+
+                <path
+                  d="M146 82L35 123L48 139L159 97Z"
+                  fill="url(#pilar-tahsin-wood)"
+                />
+
+                <!-- SAMPUL -->
+                <path
+                  d="M15 36Q52 22 90 60Q128 22 165 36L151 99Q119 92 90 118Q61 92 29 99Z"
+                  fill="#001C49"
+                />
+
+                <path
+                  d="M15 29Q52 15 90 53Q128 15 165 29L151 92Q119 85 90 111Q61 85 29 92Z"
+                  fill="url(#pilar-tahsin-purple)"
+                />
+
+                <!-- TEPI EMAS -->
+                <path
+                  d="M24 27Q58 19 90 52Q122 19 156 27L145 86Q117 80 90 104Q63 80 35 86Z"
+                  fill="url(#pilar-tahsin-gold)"
+                />
+
+                <!-- HALAMAN KIRI -->
+                <path
+                  d="M32 20Q62 20 90 48V97Q63 75 40 79Z"
+                  fill="url(#pilar-tahsin-page)"
+                  stroke="#E3AE48"
+                  stroke-width="1.5"
+                />
+
+                <!-- HALAMAN KANAN -->
+                <path
+                  d="M148 20Q118 20 90 48V97Q117 75 140 79Z"
+                  fill="url(#pilar-tahsin-page)"
+                  stroke="#E3AE48"
+                  stroke-width="1.5"
+                />
+
+                <!-- DETAIL HALAMAN -->
+                <g
+                  stroke="#DAA136"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M42 32Q62 34 81 49" />
+                  <path d="M43 41Q62 43 81 58" />
+                  <path d="M44 50Q63 52 81 67" />
+                  <path d="M45 59Q64 61 81 76" />
+
+                  <path d="M138 32Q118 34 99 49" />
+                  <path d="M137 41Q118 43 99 58" />
+                  <path d="M136 50Q117 52 99 67" />
+                  <path d="M135 59Q116 61 99 76" />
+                </g>
+
+                <path
+                  d="M90 48V97"
+                  stroke="#D49B32"
+                  stroke-width="2"
+                />
+
+              </svg>
+            )}
+
+            <!-- ILUSTRASI TAHFIDZ -->
+            {pilar.ikon === "tahfidz" && (
+              <svg viewBox="0 0 180 160" fill="none">
+
+                <defs>
+                  <linearGradient id="pilar-tahfidz-cover" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1C3F72" />
+                    <stop offset="45%" stop-color="#12376B" />
+                    <stop offset="100%" stop-color="#001C49" />
+                  </linearGradient>
+
+                  <linearGradient id="pilar-tahfidz-gold" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F5D177" />
+                    <stop offset="100%" stop-color="#D9A035" />
+                  </linearGradient>
+
+                  <linearGradient id="pilar-tahfidz-page" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFFAE9" />
+                    <stop offset="100%" stop-color="#E7D3AA" />
+                  </linearGradient>
+
+                  <radialGradient id="pilar-tahfidz-bg">
+                    <stop offset="0%" stop-color="#FFF9F5" />
+                    <stop offset="100%" stop-color="#F2DEB3" />
+                  </radialGradient>
+                </defs>
+
+                <!-- BACKGROUND LEMBUT -->
+                <ellipse
+                  cx="90" cy="83" rx="81" ry="62"
+                  fill="url(#pilar-tahfidz-bg)"
+                  opacity=".8"
+                />
+
+                <ellipse
+                  cx="90" cy="143" rx="63" ry="8"
+                  fill="#001C49" opacity=".12"
+                />
+
+                <g transform="rotate(12 90 80)">
+
+                  <!-- SAMPUL BAWAH -->
+                  <rect
+                    x="38" y="26"
+                    width="105" height="116"
+                    rx="9"
+                    fill="#001C49"
+                  />
+
+                  <!-- HALAMAN BUKU -->
+                  <rect
+                    x="44" y="24"
+                    width="94" height="109"
+                    rx="6"
+                    fill="url(#pilar-tahfidz-page)"
+                  />
+
+                  <g
+                    stroke="#E1AC45"
+                    stroke-width="1"
+                    opacity=".8"
+                  >
+                    <path d="M48 120H135" />
+                    <path d="M48 124H135" />
+                    <path d="M48 128H135" />
+                  </g>
+
+                  <!-- SAMPUL ATAS -->
+                  <rect
+                    x="33" y="13"
+                    width="110" height="109"
+                    rx="9"
+                    fill="url(#pilar-tahfidz-cover)"
+                    stroke="#001C49"
+                    stroke-width="2"
+                  />
+
+                  <!-- PUNGGUNG BUKU -->
+                  <rect
+                    x="33" y="13"
+                    width="13" height="109"
+                    rx="5"
+                    fill="#001C49"
+                  />
+
+                  <!-- BINGKAI EMAS -->
+                  <rect
+                    x="49" y="23"
+                    width="84" height="89"
+                    rx="4"
+                    stroke="url(#pilar-tahfidz-gold)"
+                    stroke-width="2"
+                  />
+
+                  <rect
+                    x="54" y="28"
+                    width="74" height="79"
+                    rx="3"
+                    stroke="#E5B04B"
+                    stroke-width="1"
+                  />
+
+                  <!-- ORNAMEN TENGAH -->
+                  <path
+                    d="M91 38L99 49L113 52L109 66L113 80L99 83L91 96L83 83L69 80L73 66L69 52L83 49Z"
+                    fill="#12376B"
+                    stroke="#F5D177"
+                    stroke-width="2"
+                  />
+
+                  <path
+                    d="M91 48L108 66L91 85L74 66Z"
+                    stroke="#F5D177"
+                    stroke-width="1.5"
+                  />
+
+                  <circle
+                    cx="91" cy="66" r="11"
+                    stroke="#F5D177"
+                    stroke-width="1.5"
+                  />
+
+                  <!-- DETAIL SUDUT -->
+                  <g
+                    stroke="#F5D177"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  >
+                    <path d="M58 42V32H68" />
+                    <path d="M114 32H124V42" />
+                    <path d="M58 93V103H68" />
+                    <path d="M114 103H124V93" />
+                  </g>
+
+                  <!-- PEMBATAS BUKU -->
+                  <path
+                    d="M105 122H117V149L111 143L105 149Z"
+                    fill="url(#pilar-tahfidz-gold)"
+                  />
+
+                </g>
+
+              </svg>
+            )}
+
           </div>
 
-          <span
-            class="pilar-diaspora-item-line"
-            aria-hidden="true"
-          ></span>
+          <!-- KONTEN PILAR -->
+          <div class="pilar-diaspora-content">
 
-          <p class="pilar-diaspora-description">
-            {pilar.deskripsi}
-          </p>
+            <!-- NOMOR DAN JUDUL -->
+            <div class="pilar-diaspora-item-heading">
 
-          <p class="pilar-diaspora-capaian">
-            {pilar.capaian}
-          </p>
+              <span
+                class="pilar-diaspora-number"
+                aria-hidden="true"
+              >
+                {pilar.nomor}
+              </span>
+
+              <h3>{pilar.judul}</h3>
+
+            </div>
+
+            <span
+              class="pilar-diaspora-item-line"
+              aria-hidden="true"
+            ></span>
+
+            <!-- DESKRIPSI -->
+            <p class="pilar-diaspora-description">
+              {pilar.deskripsi}
+            </p>
+
+            <!-- CAPAIAN -->
+            <p class="pilar-diaspora-capaian">
+              {pilar.capaian}
+            </p>
+
+            <!-- INFORMASI TAMBAHAN -->
+            <div class="pilar-diaspora-info-item">
+
+              <h4>{pilar.infoJudul}</h4>
+
+              <p>
+                {pilar.ikon === "tahfidz" && (
+                  <strong>Tahsin → Tahfidz. </strong>
+                )}
+
+                {pilar.infoDeskripsi}
+              </p>
+
+            </div>
+
+          </div>
 
         </article>
       ))}
-    </div>
 
-    <!-- INFORMASI TAMBAHAN -->
-    <div class="pilar-diaspora-info">
-      <div class="pilar-diaspora-info-item">
-        <h3>Sasaran peserta</h3>
-        <p>
-          Anak-anak hingga dewasa, seluruh jenjang,
-          termasuk pemula yang belum memulai Tahsin.
-        </p>
-      </div>
-
-      <div class="pilar-diaspora-info-item">
-        <h3>Jalur belajar</h3>
-        <p>
-          <strong>Tahsin → Tahfidz.</strong>
-          Kedua pilar dapat diambil terpisah maupun berurutan
-        </p>
-      </div>
     </div>
 
   </div>

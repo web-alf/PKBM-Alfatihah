@@ -1,0 +1,33 @@
+---
+// Dua buku tebal (peach di atas, ungu di bawah), gaya soft 3D cartoon.
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class:list={["buku-tumpuk", className]}
+  viewBox="0 10 170 120"
+  aria-hidden="true"
+  focusable="false"
+>
+  <ellipse cx="85" cy="121" rx="72" ry="7" fill="#75194F" opacity="0.18"></ellipse>
+
+  <g transform="rotate(3 85 100)">
+    <rect x="6" y="88" width="150" height="22" rx="11" fill="#7A3FC0"></rect>
+    <rect x="22" y="74" width="134" height="28" rx="10" fill="#FFF1D6"></rect>
+    <path d="M36 84H146M36 92H146" stroke="#EAD5AE" stroke-width="2" stroke-linecap="round"></path>
+    <rect x="6" y="62" width="150" height="24" rx="12" fill="#9B5FE0"></rect>
+    <path d="M40 70H120" stroke="#B993F0" stroke-width="4" stroke-linecap="round"></path>
+    <rect x="4" y="62" width="30" height="48" rx="15" fill="#8A4DD0"></rect>
+    <path d="M13 74V98" stroke="#A774E8" stroke-width="4" stroke-linecap="round"></path>
+  </g>
+
+  <g transform="rotate(-5 80 50)">
+    <rect x="16" y="46" width="128" height="20" rx="10" fill="#F2976A"></rect>
+    <rect x="30" y="34" width="116" height="24" rx="9" fill="#FFF1D6"></rect>
+    <path d="M42 42H136M42 50H136" stroke="#EAD5AE" stroke-width="2" stroke-linecap="round"></path>
+    <rect x="16" y="22" width="128" height="20" rx="10" fill="#FFB98C"></rect>
+    <path d="M44 29H112" stroke="#FFD2B2" stroke-width="4" stroke-linecap="round"></path>
+    <rect x="14" y="22" width="28" height="44" rx="14" fill="#F2976A"></rect>
+    <path d="M22 32V54" stroke="#FFB98C" stroke-width="4" stroke-linecap="round"></path>
+  </g>
+</svg>

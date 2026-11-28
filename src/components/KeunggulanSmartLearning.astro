@@ -31,57 +31,417 @@ const keunggulan = [
 >
   <div class="keunggulan-smart-container">
 
+    <!-- JUDUL SECTION -->
     <div class="keunggulan-smart-heading">
       <h2 id="keunggulan-smart-title">
         Kenapa memilih Alfatihah Smart Learning?
       </h2>
-      <span class="keunggulan-smart-line" aria-hidden="true"></span>
+
+      <span
+        class="keunggulan-smart-line"
+        aria-hidden="true"
+      ></span>
     </div>
 
+    <!-- GRID CARD -->
     <div class="keunggulan-smart-grid">
+
+      <!-- DEKORASI KUNING KIRI -->
+      <svg
+        class="keunggulan-smart-petik keunggulan-smart-petik-left"
+        viewBox="0 0 50 50"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 28L19 34 M15 10L27 23 M34 5L37 19"
+          stroke="#FFC400"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+      </svg>
+
+      <!-- DEKORASI KUNING KANAN -->
+      <svg
+        class="keunggulan-smart-petik keunggulan-smart-petik-right"
+        viewBox="0 0 50 50"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 28L19 34 M15 10L27 23 M34 5L37 19"
+          stroke="#FFC400"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+      </svg>
+
       {keunggulan.map((item) => (
         <article class="keunggulan-smart-card">
 
-          <div class="keunggulan-smart-icon" aria-hidden="true">
+          <div
+            class="keunggulan-smart-icon"
+            aria-hidden="true"
+          >
+
+            <!-- ILUSTRASI TOGA -->
             {item.icon === "graduation" && (
-              <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="1.7"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="m2 9 10-5 10 5-10 5L2 9Z" />
-                <path d="M6 11v5c3.5 3 8.5 3 12 0v-5" />
-                <path d="M22 9v7" />
+              <svg viewBox="0 0 120 100" fill="none">
+                <defs>
+                  <linearGradient
+                    id="smart-cap-top"
+                    x1="20" y1="10"
+                    x2="90" y2="65"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#D9B5FF" />
+                    <stop offset="0.5" stop-color="#A56AEB" />
+                    <stop offset="1" stop-color="#7133B7" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="smart-cap-bottom"
+                    x1="30" y1="40"
+                    x2="80" y2="85"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#A35DE8" />
+                    <stop offset="1" stop-color="#54218F" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="smart-cap-gold"
+                    x1="85" y1="35"
+                    x2="100" y2="85"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FFE78A" />
+                    <stop offset="1" stop-color="#D9A035" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse
+                  cx="60" cy="86"
+                  rx="38" ry="6"
+                  fill="#3C1E66"
+                  opacity=".09"
+                />
+
+                <path
+                  d="M31 43V65C31 77 47 83 60 83C74 83 89 77 89 65V43Z"
+                  fill="url(#smart-cap-bottom)"
+                />
+
+                <path
+                  d="M31 63C46 75 72 78 89 63V68C89 79 73 85 60 85C46 85 31 78 31 68Z"
+                  fill="#53208D"
+                />
+
+                <path
+                  d="M7 34L57 14Q60 13 64 14L113 34Q117 37 112 41L64 61Q60 63 56 61L8 41Q3 38 7 34Z"
+                  fill="#6232A0"
+                />
+
+                <path
+                  d="M8 30L57 10Q60 9 64 10L112 30Q117 33 112 36L64 56Q60 58 56 56L8 36Q3 33 8 30Z"
+                  fill="url(#smart-cap-top)"
+                  stroke="#8550BF"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M15 31L59 13L101 30"
+                  stroke="#F1DDFF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  opacity=".7"
+                />
+
+                <ellipse
+                  cx="60" cy="33"
+                  rx="6" ry="4"
+                  fill="#FFE27A"
+                />
+
+                <path
+                  d="M64 33L100 46V66"
+                  stroke="#FCD757"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <rect
+                  x="95" y="62"
+                  width="10" height="20"
+                  rx="4"
+                  fill="url(#smart-cap-gold)"
+                />
               </svg>
             )}
 
+            <!-- ILUSTRASI MASJID -->
             {item.icon === "islamic" && (
-              <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="1.7"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 20V11c0-4 3.5-6 8-9 4.5 3 8 5 8 9v9" />
-                <path d="M2 20h20" />
-                <path d="M10 20v-5a2 2 0 0 1 4 0v5" />
-                <path d="M12 2V1" />
+              <svg viewBox="0 0 120 100" fill="none">
+                <defs>
+                  <linearGradient
+                    id="smart-mosque-wall"
+                    x1="25" y1="35"
+                    x2="95" y2="90"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FFF8E7" />
+                    <stop offset="1" stop-color="#E9C9F5" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="smart-mosque-dome"
+                    x1="35" y1="20"
+                    x2="85" y2="60"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#D9B5FF" />
+                    <stop offset="1" stop-color="#7836BC" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="smart-mosque-door"
+                    x1="45" y1="55"
+                    x2="75" y2="90"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FFD977" />
+                    <stop offset="1" stop-color="#D9A035" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse
+                  cx="60" cy="92"
+                  rx="43" ry="5"
+                  fill="#3C1E66"
+                  opacity=".09"
+                />
+
+                <rect
+                  x="25" y="45"
+                  width="70" height="44"
+                  rx="5"
+                  fill="url(#smart-mosque-wall)"
+                  stroke="#A16BD1"
+                  stroke-width="2"
+                />
+
+                <path
+                  d="M25 45C25 32 43 28 60 15C77 28 95 32 95 45Z"
+                  fill="url(#smart-mosque-dome)"
+                  stroke="#7836BC"
+                  stroke-width="2"
+                />
+
+                <path
+                  d="M35 39C40 31 51 28 60 21"
+                  stroke="#EAD4FF"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+
+                <rect
+                  x="21" y="43"
+                  width="78" height="7"
+                  rx="3"
+                  fill="#8141BF"
+                />
+
+                <path
+                  d="M49 88V70Q49 59 60 55Q71 59 71 70V88Z"
+                  fill="url(#smart-mosque-door)"
+                  stroke="#B47B32"
+                  stroke-width="2"
+                />
+
+                <path
+                  d="M60 65V87"
+                  stroke="#FFF1C1"
+                  stroke-width="2"
+                />
+
+                <rect
+                  x="32" y="58"
+                  width="10" height="17"
+                  rx="5"
+                  fill="#B681E6"
+                />
+
+                <rect
+                  x="78" y="58"
+                  width="10" height="17"
+                  rx="5"
+                  fill="#B681E6"
+                />
+
+                <rect
+                  x="16" y="39"
+                  width="10" height="50"
+                  rx="3"
+                  fill="#D4B2EF"
+                />
+
+                <rect
+                  x="94" y="39"
+                  width="10" height="50"
+                  rx="3"
+                  fill="#D4B2EF"
+                />
+
+                <path
+                  d="M13 40L21 27L29 40Z"
+                  fill="#8141BF"
+                />
+
+                <path
+                  d="M91 40L99 27L107 40Z"
+                  fill="#8141BF"
+                />
+
+                <path
+                  d="M61 1C52 2 49 13 57 17C64 21 72 15 72 10C64 15 57 8 61 1Z"
+                  fill="#FCD757"
+                  stroke="#D9A035"
+                  stroke-width="1"
+                />
+
+                <rect
+                  x="12" y="87"
+                  width="96" height="6"
+                  rx="3"
+                  fill="#8545BF"
+                />
               </svg>
             )}
 
+            <!-- ILUSTRASI LAPTOP -->
             {item.icon === "laptop" && (
-              <svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="1.7"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="4" width="16" height="12" rx="1.5" />
-                <path d="M2 20h20l-2-4H4l-2 4Z" />
-                <path d="M9 10h6" />
-                <path d="M12 7v6" />
+              <svg viewBox="0 0 120 100" fill="none">
+                <defs>
+                  <linearGradient
+                    id="smart-laptop-frame"
+                    x1="20" y1="15"
+                    x2="100" y2="80"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#D6A9FF" />
+                    <stop offset="0.5" stop-color="#A35DE8" />
+                    <stop offset="1" stop-color="#592397" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="smart-laptop-screen"
+                    x1="30" y1="20"
+                    x2="90" y2="65"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#F6DCFF" />
+                    <stop offset="1" stop-color="#BC8CEB" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="smart-laptop-base"
+                    x1="15" y1="70"
+                    x2="105" y2="90"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#B87BF2" />
+                    <stop offset="1" stop-color="#7133B7" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse
+                  cx="60" cy="91"
+                  rx="49" ry="5"
+                  fill="#3C1E66"
+                  opacity=".09"
+                />
+
+                <rect
+                  x="19" y="12"
+                  width="82" height="61"
+                  rx="8"
+                  fill="url(#smart-laptop-frame)"
+                  stroke="#7133B7"
+                  stroke-width="2"
+                />
+
+                <rect
+                  x="26" y="19"
+                  width="68" height="46"
+                  rx="3"
+                  fill="url(#smart-laptop-screen)"
+                />
+
+                <path
+                  d="M29 23H72L42 62H29Z"
+                  fill="#FFFFFF"
+                  opacity=".22"
+                />
+
+                <circle
+                  cx="60" cy="15.5"
+                  r="1.5"
+                  fill="#F4E4FF"
+                />
+
+                <rect
+                  x="45" y="28"
+                  width="30" height="28"
+                  rx="7"
+                  fill="#F9D36D"
+                  stroke="#D9A035"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M56 34L67 42L56 50Z"
+                  fill="#FFFFFF"
+                  stroke="#D9A035"
+                  stroke-width="1"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M19 72H101L112 85Q114 90 108 91H12Q6 90 8 85Z"
+                  fill="url(#smart-laptop-base)"
+                  stroke="#7133B7"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M8 85H112V88Q112 92 106 92H14Q8 92 8 88Z"
+                  fill="#592397"
+                />
+
+                <path
+                  d="M28 75H92L97 80H23Z"
+                  fill="#DAB8F9"
+                />
+
+                <rect
+                  x="48" y="82"
+                  width="24" height="4"
+                  rx="2"
+                  fill="#E8D1FF"
+                />
               </svg>
             )}
+
           </div>
 
           <h3>{item.judul}</h3>
+
           <p>{item.deskripsi}</p>
 
         </article>
       ))}
-    </div>
 
+    </div>
   </div>
 </section>

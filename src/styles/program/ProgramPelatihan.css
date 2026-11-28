@@ -1,0 +1,599 @@
+/* ==========================================
+   PROGRAM PELATIHAN KETERAMPILAN
+   PKBM ALFATIHAH
+
+   Ungu utama : #A74E92
+   Magenta    : #92197B
+   Soft Pink  : #F8D9EE
+   Cream      : #FFF9F5
+   Kuning     : #FCD757
+========================================== */
+
+.program-pelatihan {
+  --pelatihan-primary: #a74e92;
+  --pelatihan-magenta: #92197b;
+  --pelatihan-pink: #f8d9ee;
+  --pelatihan-cream: #fff9f5;
+  --pelatihan-yellow: #fcd757;
+  --pelatihan-text: #35233e;
+
+  position: relative;
+  width: 100%;
+
+  padding:
+    var(--pkbm-section-pad, 75px)
+    var(--pkbm-container-pad, 40px);
+
+  background: var(--pelatihan-cream);
+  font-family: "Poppins", sans-serif;
+}
+
+.program-pelatihan,
+.program-pelatihan * {
+  box-sizing: border-box;
+}
+
+.program-pelatihan-container {
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
+  margin: 0 auto;
+}
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.program-pelatihan-heading {
+  max-width: 900px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.program-pelatihan-heading-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 22px;
+  margin-bottom: 15px;
+
+  background: var(--pelatihan-pink);
+  border-radius: 999px;
+
+  color: var(--pelatihan-magenta);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.program-pelatihan-heading h2 {
+  margin: 0;
+
+  color: var(--pelatihan-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.program-pelatihan-divider {
+  display: block;
+
+  width: 60px;
+  height: 4px;
+  margin: 20px auto 0;
+
+  background: #ffc400;
+  border-radius: 999px;
+}
+
+/* ==========================================
+   GRID 2 KOLOM
+========================================== */
+
+.program-pelatihan-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  align-items: stretch;
+
+  column-gap: 28px;
+  row-gap: 32px;
+}
+
+/* ==========================================
+   CARD PROGRAM
+========================================== */
+
+.program-pelatihan-card {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 12px;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #fffcfd 65%,
+    #fdf6fa 100%
+  );
+
+  border: 1px solid #efdfeb;
+  border-radius: 26px;
+
+  box-shadow:
+    0 4px 8px rgba(74, 11, 69, 0.025),
+    0 10px 25px rgba(74, 11, 69, 0.075);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.program-pelatihan-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #dcb4d2;
+
+  box-shadow:
+    0 8px 16px rgba(74, 11, 69, 0.04),
+    0 16px 30px rgba(74, 11, 69, 0.1);
+}
+
+/* ==========================================
+   FOTO DAN VIDEO
+========================================== */
+
+.program-pelatihan-media {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #f1e3ef;
+  border-radius: 19px;
+}
+
+.program-pelatihan-media img,
+.program-pelatihan-media iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  border-radius: inherit;
+}
+
+.program-pelatihan-media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.program-pelatihan-card--desain-grafis
+.program-pelatihan-media img {
+  object-position: center 45%;
+}
+
+.program-pelatihan-card--advertising
+.program-pelatihan-media img {
+  object-position: center;
+}
+
+.program-pelatihan-card--public-speaking
+.program-pelatihan-media img {
+  object-position: center 40%;
+}
+
+.program-pelatihan-card--hidroponik
+.program-pelatihan-media {
+  background: #23192a;
+}
+
+/* ==========================================
+   ISI CARD
+========================================== */
+
+.program-pelatihan-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  min-width: 0;
+  padding: 0 15px 25px;
+}
+
+/* ==========================================
+   LABEL PROGRAM
+   SEDIKIT OVERLAP DENGAN FOTO
+========================================== */
+
+.program-pelatihan-label {
+  position: relative;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+
+  gap: 10px;
+
+  max-width: 100%;
+
+  margin-top: -20px;
+  margin-bottom: 18px;
+
+  padding: 7px 19px 7px 12px;
+
+  background: linear-gradient(
+    135deg,
+    #fce7f5,
+    #f8cce9
+  );
+
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+
+  color: var(--pelatihan-magenta);
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  box-shadow: 0 4px 10px rgba(146, 25, 123, 0.06);
+}
+
+.program-pelatihan-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+}
+
+.program-pelatihan-icon svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================
+   JUDUL CARD
+========================================== */
+
+.program-pelatihan-content h3 {
+  margin: 0 0 14px;
+
+  color: var(--pelatihan-magenta);
+
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.4;
+
+  overflow-wrap: break-word;
+}
+
+/* ==========================================
+   KALIMAT PEMBUKA
+========================================== */
+
+.program-pelatihan-intro {
+  margin: 0 0 14px;
+
+  color: var(--pelatihan-text);
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   CHECKLIST
+========================================== */
+
+.program-pelatihan-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.program-pelatihan-list li {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  min-width: 0;
+
+  color: var(--pelatihan-text);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.program-pelatihan-list li > span:last-child {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* ==========================================
+   IKON CENTANG KUNING
+========================================== */
+
+.program-pelatihan-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 21px;
+  height: 21px;
+
+  margin-top: 2px;
+
+  flex-shrink: 0;
+
+  background: linear-gradient(
+    145deg,
+    #ffe88d,
+    #ffc400
+  );
+
+  border-radius: 50%;
+
+  color: #4a0b45;
+}
+
+.program-pelatihan-check svg {
+  display: block;
+
+  width: 13px;
+  height: 13px;
+}
+
+/* ==========================================
+   ORNAMEN PINK SUDUT KANAN BAWAH
+========================================== */
+
+.program-pelatihan-card-ornament {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  z-index: 0;
+
+  width: 145px;
+  height: auto;
+
+  opacity: 0.75;
+
+  pointer-events: none;
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .program-pelatihan-grid {
+    column-gap: 24px;
+    row-gap: 28px;
+  }
+
+  .program-pelatihan-content {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .program-pelatihan-content h3 {
+    font-size: 22px;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+  .program-pelatihan-heading {
+    margin-bottom: 34px;
+  }
+
+  .program-pelatihan-grid {
+    column-gap: 20px;
+    row-gap: 26px;
+  }
+
+  .program-pelatihan-card {
+    padding: 10px;
+    border-radius: 23px;
+  }
+
+  .program-pelatihan-media {
+    border-radius: 16px;
+  }
+
+  .program-pelatihan-content {
+    padding: 0 10px 22px;
+  }
+
+  .program-pelatihan-label {
+    gap: 7px;
+
+    padding: 6px 13px 6px 9px;
+    margin-bottom: 15px;
+
+    font-size: 13px;
+  }
+
+  .program-pelatihan-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .program-pelatihan-content h3 {
+    font-size: 20px;
+  }
+
+  .program-pelatihan-list {
+    gap: 11px;
+  }
+}
+
+/* ==========================================
+   TABLET KECIL DAN MOBILE
+   1 KOLOM
+========================================== */
+
+@media (max-width: 768px) {
+  .program-pelatihan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .program-pelatihan-card {
+    padding: 12px;
+  }
+
+  .program-pelatihan-content {
+    padding: 0 14px 24px;
+  }
+
+  .program-pelatihan-content h3 {
+    font-size: 23px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .program-pelatihan-heading {
+    margin-bottom: 30px;
+  }
+
+  .program-pelatihan-heading-badge {
+    padding: 5px 18px;
+    margin-bottom: 12px;
+
+    font-size: 12px;
+  }
+
+  .program-pelatihan-heading h2 {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  .program-pelatihan-divider {
+    width: 50px;
+    margin-top: 16px;
+  }
+
+  .program-pelatihan-grid {
+    gap: 24px;
+  }
+
+  .program-pelatihan-card {
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .program-pelatihan-media {
+    aspect-ratio: 16 / 10;
+    border-radius: 15px;
+  }
+
+  .program-pelatihan-content {
+    padding: 0 10px 22px;
+  }
+
+  .program-pelatihan-label {
+    margin-top: -17px;
+    margin-bottom: 15px;
+
+    font-size: 12px;
+  }
+
+  .program-pelatihan-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .program-pelatihan-content h3 {
+    margin-bottom: 12px;
+
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .program-pelatihan-intro {
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+
+  .program-pelatihan-list {
+    gap: 10px;
+  }
+
+  .program-pelatihan-list li {
+    gap: 9px;
+
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .program-pelatihan-check {
+    width: 19px;
+    height: 19px;
+  }
+
+  .program-pelatihan-check svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .program-pelatihan-card-ornament {
+    width: 110px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .program-pelatihan-card {
+    transition: none;
+  }
+
+  .program-pelatihan-card:hover {
+    transform: none;
+  }
+}

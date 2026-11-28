@@ -1,0 +1,18 @@
+---
+// Centang magenta sederhana, ujung membulat. Warna lewat CSS (currentColor).
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class:list={["ikon-centang", className]}
+  viewBox="0 0 20 20"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="M4 10.5L8.2 14.7L16 5.5" />
+</svg>

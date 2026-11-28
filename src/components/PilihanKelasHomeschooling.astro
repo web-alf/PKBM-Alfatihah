@@ -1,6 +1,6 @@
-
 ---
 import "../styles/program/PilihanKelasHomeschooling.css";
+import gambarTas from "../assets/image/Purple Backpack and Colorful Books.webp";
 
 const pilihanKelas = [
   {
@@ -8,30 +8,35 @@ const pilihanKelas = [
     deskripsi:
       "Belajar via Zoom Meeting atau Google Meet, interaksi langsung dengan tutor.",
     harga: "Rp450.000/bulan",
+    ikon: "online",
   },
   {
     nama: "Siswa ke Lembaga",
     deskripsi:
       "Offline, tatap muka di PKBM Al-Fatihah. Wilayah Semarang Timur.",
     harga: "Rp500.000/bulan",
+    ikon: "sekolah",
   },
   {
     nama: "Tutor ke Rumah",
     deskripsi:
       "Offline, tutor datang ke rumah santri. Wilayah Semarang Timur.",
     harga: "Mulai Rp500.000/bulan",
+    ikon: "rumah",
   },
   {
     nama: "Kelas Mandiri",
     deskripsi:
       "Belajar dengan modul dan lembar kerja, didukung tutor sesuai program.",
     harga: "Rp325.000/bulan",
+    ikon: "buku",
   },
   {
     nama: "Paket Study Group",
     deskripsi:
       "Belajar berkelompok 2–5 siswa, online atau offline. Makin ramai, makin hemat.",
     harga: null,
+    ikon: "grup",
   },
 ];
 ---
@@ -40,6 +45,23 @@ const pilihanKelas = [
   class="pilihan-kelas-section"
   aria-labelledby="pilihan-kelas-title"
 >
+
+  <!-- GELOMBANG ATAS -->
+  <svg
+    class="pilihan-kelas-wave pilihan-kelas-wave-top"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 45
+         C180 0 290 12 450 40
+         C620 68 760 5 940 20
+         C1120 35 1260 85 1440 35
+         V0 H0 Z"
+    />
+  </svg>
+
   <div class="pilihan-kelas-container">
 
     <!-- JUDUL SECTION -->
@@ -54,28 +76,240 @@ const pilihanKelas = [
       ></div>
     </div>
 
-    <!-- SATU CARD UNTUK LIMA PILIHAN KELAS -->
-    <div class="pilihan-kelas-card">
-      {pilihanKelas.map((kelas) => (
-        <div class="pilihan-kelas-item">
+    <!-- LAYOUT UTAMA -->
+    <div class="pilihan-kelas-layout">
 
-          <div class="pilihan-kelas-item-header">
-            <h3>{kelas.nama}</h3>
+      <!-- ILUSTRASI TAS DAN BUKU -->
+      <div class="pilihan-kelas-illustration">
+        <img
+          src={gambarTas.src}
+          width={gambarTas.width}
+          height={gambarTas.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
 
+      <!-- DAFTAR PILIHAN KELAS -->
+      <div class="pilihan-kelas-card">
+
+        {pilihanKelas.map((kelas) => (
+          <article class="pilihan-kelas-item">
+
+            <!-- IKON -->
+            <div
+              class:list={[
+                "pilihan-kelas-icon",
+                `pilihan-kelas-icon--${kelas.ikon}`,
+              ]}
+              aria-hidden="true"
+            >
+
+              {kelas.ikon === "online" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <rect
+                    x="8" y="7"
+                    width="32" height="25"
+                    rx="3"
+                    fill="#92197B"
+                  />
+                  <rect
+                    x="11" y="10"
+                    width="26" height="19"
+                    rx="1"
+                    fill="#F3D8F1"
+                  />
+                  <path
+                    d="M5 34H43L46 40H2L5 34Z"
+                    fill="#A74E92"
+                  />
+                  <rect
+                    x="18" y="35"
+                    width="12" height="2"
+                    rx="1"
+                    fill="#FFFFFF"
+                  />
+                </svg>
+              )}
+
+              {kelas.ikon === "sekolah" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M5 21H43V43H5Z"
+                    fill="#FCD757"
+                  />
+                  <path
+                    d="M2 21L24 5L46 21H2Z"
+                    fill="#F48A49"
+                  />
+                  <path
+                    d="M17 16H31V43H17Z"
+                    fill="#FFB95A"
+                  />
+                  <rect
+                    x="21" y="31"
+                    width="6" height="12"
+                    fill="#A74E92"
+                  />
+                  <rect
+                    x="8" y="26"
+                    width="6" height="7"
+                    rx="1"
+                    fill="#FFFFFF"
+                  />
+                  <rect
+                    x="34" y="26"
+                    width="6" height="7"
+                    rx="1"
+                    fill="#FFFFFF"
+                  />
+                  <circle
+                    cx="24" cy="21"
+                    r="4"
+                    fill="#FFFFFF"
+                  />
+                  <path
+                    d="M24 1V7M24 1H34L31 4H24"
+                    stroke="#E65A78"
+                    stroke-width="2"
+                  />
+                </svg>
+              )}
+
+              {kelas.ikon === "rumah" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M8 21L24 8L40 21V43H8V21Z"
+                    fill="#FCD757"
+                  />
+                  <path
+                    d="M3 23L24 4L45 23"
+                    stroke="#F07854"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="19" y="28"
+                    width="10" height="15"
+                    rx="2"
+                    fill="#A74E92"
+                  />
+                  <rect
+                    x="12" y="23"
+                    width="6" height="7"
+                    rx="1"
+                    fill="#FFFFFF"
+                  />
+                  <rect
+                    x="31" y="23"
+                    width="6" height="7"
+                    rx="1"
+                    fill="#FFFFFF"
+                  />
+                </svg>
+              )}
+
+              {kelas.ikon === "buku" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M24 12C17 6 9 6 3 9V37C11 34 18 35 24 41V12Z"
+                    fill="#A74E92"
+                  />
+                  <path
+                    d="M24 12C31 6 39 6 45 9V37C37 34 30 35 24 41V12Z"
+                    fill="#D48AC6"
+                  />
+                  <path
+                    d="M24 13V41"
+                    stroke="#92197B"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M8 16L18 19M8 23L18 26M30 19L40 16M30 26L40 23"
+                    stroke="#FFFFFF"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )}
+
+              {kelas.ikon === "grup" && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle
+                    cx="10" cy="15"
+                    r="6"
+                    fill="#C66BB6"
+                  />
+                  <circle
+                    cx="38" cy="15"
+                    r="6"
+                    fill="#C66BB6"
+                  />
+                  <path
+                    d="M1 38V29C1 23 5 21 10 21C15 21 19 25 19 30V38H1Z"
+                    fill="#C66BB6"
+                  />
+                  <path
+                    d="M29 38V30C29 25 33 21 38 21C43 21 47 23 47 29V38H29Z"
+                    fill="#C66BB6"
+                  />
+                  <circle
+                    cx="24" cy="12"
+                    r="8"
+                    fill="#92197B"
+                  />
+                  <path
+                    d="M12 42V31C12 24 17 21 24 21C31 21 36 24 36 31V42H12Z"
+                    fill="#92197B"
+                    stroke="#FFFFFF"
+                    stroke-width="2"
+                  />
+                </svg>
+              )}
+
+            </div>
+
+            <!-- NAMA DAN DESKRIPSI -->
+            <div class="pilihan-kelas-content">
+              <h3>{kelas.nama}</h3>
+
+              <p class="pilihan-kelas-deskripsi">
+                {kelas.deskripsi}
+              </p>
+            </div>
+
+            <!-- HARGA -->
             {kelas.harga && (
               <span class="pilihan-kelas-harga">
                 {kelas.harga}
               </span>
             )}
-          </div>
 
-          <p class="pilihan-kelas-deskripsi">
-            {kelas.deskripsi}
-          </p>
+          </article>
+        ))}
 
-        </div>
-      ))}
+      </div>
+
     </div>
 
   </div>
+
+  <!-- GELOMBANG BAWAH -->
+  <svg
+    class="pilihan-kelas-wave pilihan-kelas-wave-bottom"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 48
+         C170 90 320 85 500 45
+         C680 5 800 15 960 40
+         C1150 70 1290 85 1440 38
+         V100 H0 Z"
+    />
+  </svg>
+
 </section>

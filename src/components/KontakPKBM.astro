@@ -6,6 +6,11 @@ const email = "alfatihahhomeschooling@gmail.com";
 const alamat =
   "PKBM Alfatihah Semarang, Jl. Ngablak Indah II No. 24A, Bangetayu Kulon, Kec. Genuk, Kota Semarang, Jawa Tengah 50115.";
 const nomorRekening = "7266356026";
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent(alamat);
+const mapsEmbedUrl =
+  "https://www.google.com/maps?q=" + encodeURIComponent(alamat) + "&output=embed";
 
 // Ikon outline (gaya Lucide)
 const icons = {
@@ -76,6 +81,21 @@ const icons = {
             <div class="kontak-page-body">
               <span class="kontak-page-label">Alamat</span>
               <span class="kontak-page-value">{alamat}</span>
+              <div class="kontak-page-map">
+                <iframe
+                  src={mapsEmbedUrl}
+                  title="Peta lokasi PKBM Alfatihah Semarang"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  tabindex="-1"></iframe>
+                <a
+                  class="kontak-page-map-link"
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Buka lokasi PKBM Alfatihah Semarang di Google Maps"
+                ></a>
+              </div>
             </div>
           </li>
         </ul>

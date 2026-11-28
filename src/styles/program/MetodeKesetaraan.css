@@ -1,12 +1,20 @@
-
 /* =========================================
    METODE PEMBELAJARAN KESETARAAN
 ========================================= */
 
 .metode-kesetaraan {
+  --metode-purple: #92197B;
+  --metode-yellow: #FCD757;
+
+  position: relative;
+  isolation: isolate;
+
   width: 100%;
-  padding: 57px 24px 85px;
-  background: #FFF9F5;
+  padding: 40px clamp(32px, 5.5vw, 100px) 45px;
+
+  overflow: hidden;
+
+  background: var(--pkbm-cream, #FCF7F2);
   font-family: "Poppins", sans-serif;
 }
 
@@ -18,56 +26,104 @@
 
 .metode-kesetaraan-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
-/* HEADING */
+/* =========================================
+   HEADING
+========================================= */
 
 .metode-kesetaraan-heading {
+  margin-bottom: 32px;
   text-align: center;
-  margin-bottom: 36px;
 }
 
 .metode-kesetaraan-heading h2 {
   margin: 0;
-  color: #82165F;
-  font-size: clamp(27px, 3vw, 40px);
+
+  color: var(--pkbm-magenta, #92197B);
+
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 800;
   line-height: 1.3;
 }
 
 .metode-kesetaraan-line {
-  width: 65px;
+  width: 55px;
   height: 4px;
-  margin: 17px auto 0;
-  background: #D9A035;
-  border-radius: 10px;
+
+  margin: 16px auto 0;
+
+  border-radius: 999px;
+  background: #FFC400;
 }
 
-/* GRID */
+/* =========================================
+   GRID CARD
+========================================= */
 
 .metode-kesetaraan-grid {
+  position: relative;
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+
   align-items: stretch;
+  gap: 22px;
 }
 
-/* CARD */
+/* =========================================
+   PETIK KUNING POJOK KANAN
+========================================= */
+
+.metode-kesetaraan-grid::after {
+  content: "";
+
+  position: absolute;
+
+  top: -38px;
+  right: -25px;
+
+  width: 44px;
+  height: 46px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M12 5L8 20M32 12L21 25M45 32L30 36' fill='none' stroke='%23FCD757' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   CARD METODE BELAJAR
+========================================= */
 
 .metode-kesetaraan-card {
-  min-width: 0;
-  min-height: 260px;
-  padding: 30px;
-  background: #FFFFFF;
-  border: 1px solid #EBD5E2;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(75, 22, 60, 0.06);
+  position: relative;
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+
+  grid-template-columns: 90px minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+
+  column-gap: 16px;
+
+  min-width: 0;
+  min-height: 0;
+
+  padding: 24px;
+
+  border: 1px solid #F1E1EC;
+  border-radius: 22px;
+
+  background: #FFFFFF;
+
+  box-shadow:
+    0 5px 8px rgba(117, 25, 79, 0.04),
+    0 10px 22px rgba(117, 25, 79, 0.08);
 
   transition:
     transform 0.25s ease,
@@ -78,128 +134,278 @@
 /* CARD TENGAH */
 
 .metode-kesetaraan-card:nth-child(2) {
-  background: #F9EAF2;
+  background: #F9EAF5;
 }
 
 /* HOVER */
 
 .metode-kesetaraan-card:hover {
   transform: translateY(-4px);
-  border-color: #92197B;
-  box-shadow: 0 14px 30px rgba(75, 22, 60, 0.12);
+
+  border-color: #D8A8CF;
+
+  box-shadow:
+    0 12px 28px rgba(117, 25, 79, 0.13);
 }
 
-/* NOMOR */
+/* =========================================
+   IKON METODE PEMBELAJARAN
+========================================= */
+
+.metode-kesetaraan-card::before {
+  content: "";
+
+  display: block;
+
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  align-self: center;
+
+  width: 90px;
+  height: 80px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* =========================================
+   IKON ONLINE - LAPTOP
+========================================= */
+
+.metode-kesetaraan-card:nth-child(1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%237CE7FF'/%3E%3Cstop offset='1' stop-color='%234D8CE9'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23E16AE5'/%3E%3Cstop offset='1' stop-color='%23852FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='50' cy='76' rx='45' ry='5' fill='%23DAB7E8' opacity='.5'/%3E%3Crect x='12' y='15' width='76' height='52' rx='7' fill='url(%23b)'/%3E%3Crect x='18' y='21' width='64' height='40' rx='3' fill='url(%23a)'/%3E%3Cpath d='M44 32L44 51L61 41.5Z' fill='%23FFF0AD'/%3E%3Cpath d='M12 67H88L97 74Q97 78 90 78H10Q3 78 3 74Z' fill='%23B45AD4'/%3E%3Cpath d='M39 68H61L64 72H36Z' fill='%23EBC8F5'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   IKON OFFLINE - GEDUNG SEKOLAH
+========================================= */
+
+.metode-kesetaraan-card:nth-child(2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cellipse cx='50' cy='81' rx='45' ry='5' fill='%23E7BEDD' opacity='.6'/%3E%3Cpath d='M50 4V23' stroke='%23B76B38' stroke-width='3'/%3E%3Cpath d='M51 4L69 9L51 15Z' fill='%23F57A38'/%3E%3Crect x='9' y='44' width='82' height='35' rx='2' fill='%23FFD16A'/%3E%3Cpath d='M4 45L24 28L44 45ZM56 45L76 28L96 45Z' fill='%23F58C35'/%3E%3Crect x='32' y='29' width='36' height='50' fill='%23FFDF88'/%3E%3Cpath d='M27 31L50 12L73 31Z' fill='%23F29B36'/%3E%3Ccircle cx='50' cy='37' r='8' fill='%23FFFFFF'/%3E%3Cpath d='M50 32V37L54 40' fill='none' stroke='%23A97036' stroke-width='2' stroke-linecap='round'/%3E%3Crect x='15' y='51' width='10' height='13' rx='1' fill='%235ABFE8'/%3E%3Crect x='75' y='51' width='10' height='13' rx='1' fill='%235ABFE8'/%3E%3Crect x='43' y='54' width='14' height='25' rx='6' fill='%23C67B37'/%3E%3Crect x='15' y='69' width='10' height='7' fill='%235ABFE8'/%3E%3Crect x='75' y='69' width='10' height='7' fill='%235ABFE8'/%3E%3Crect x='5' y='79' width='90' height='5' rx='2' fill='%23E8AC49'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   IKON MANDIRI - ANAK MEMBACA
+========================================= */
+
+.metode-kesetaraan-card:nth-child(3)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cellipse cx='50' cy='83' rx='36' ry='4' fill='%23E5C6E4' opacity='.5'/%3E%3Cpath d='M26 61Q27 44 50 44Q73 44 74 61V80H26Z' fill='%235CA9E7'/%3E%3Crect x='43' y='40' width='14' height='13' rx='5' fill='%23F0B47D'/%3E%3Ccircle cx='50' cy='29' r='20' fill='%23F9C899'/%3E%3Cpath d='M30 29Q23 7 45 5Q73 1 72 29L64 22Q50 26 39 16L33 31Z' fill='%23382D31'/%3E%3Ccircle cx='43' cy='30' r='1.8' fill='%23382D31'/%3E%3Ccircle cx='57' cy='30' r='1.8' fill='%23382D31'/%3E%3Cpath d='M45 37Q50 42 55 37' fill='none' stroke='%23BD725C' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M15 49L50 60L85 49V76L50 87L15 76Z' fill='%23E7A52C'/%3E%3Cpath d='M17 45Q34 43 50 57V83Q33 72 17 73Z' fill='%23FFCF4B'/%3E%3Cpath d='M50 57Q66 43 83 45V73Q67 72 50 83Z' fill='%23FFE078'/%3E%3Cpath d='M50 58V83' stroke='%23E7AA30' stroke-width='2'/%3E%3Crect x='10' y='59' width='13' height='10' rx='5' fill='%23F9C899'/%3E%3Crect x='77' y='59' width='13' height='10' rx='5' fill='%23F9C899'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   NOMOR BULAT
+========================================= */
 
 .metode-kesetaraan-number {
+  grid-column: 2;
+  grid-row: 1;
+
+  justify-self: start;
+  align-self: end;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
 
-  background: #82165F;
-  color: #FFFFFF;
+  margin: 0 0 7px;
 
   border-radius: 50%;
-  font-size: 19px;
-  font-weight: 800;
 
-  margin-bottom: 22px;
+  background: #92197B;
+  color: #FFFFFF;
+
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
 }
 
-/* JUDUL CARD */
+/* =========================================
+   JUDUL CARD
+========================================= */
 
 .metode-kesetaraan-card h3 {
-  margin: 0 0 14px;
-  color: #82165F;
-  font-size: 23px;
+  grid-column: 2;
+  grid-row: 2;
+
+  align-self: start;
+
+  min-width: 0;
+  margin: 0;
+
+  color: #92197B;
+
+  font-size: clamp(18px, 1.7vw, 23px);
   font-weight: 700;
   line-height: 1.4;
+
+  overflow-wrap: break-word;
 }
 
-/* DESKRIPSI */
+/* =========================================
+   DESKRIPSI CARD
+========================================= */
 
 .metode-kesetaraan-card p {
-  margin: 0;
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  margin: 16px 0 0;
+
   color: #42323C;
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
+  font-weight: 400;
   line-height: 1.8;
+
+  letter-spacing: normal;
+  text-align: left;
+
+  overflow-wrap: break-word;
 }
 
-/* TABLET */
+/* =========================================
+   LAPTOP
+========================================= */
 
-@media (max-width: 992px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
+
   .metode-kesetaraan {
-    padding: 47px 24px 70px;
+    padding-left: 42px;
+    padding-right: 42px;
   }
 
   .metode-kesetaraan-grid {
-    gap: 16px;
+    gap: 18px;
   }
 
   .metode-kesetaraan-card {
-    padding: 24px;
-    min-height: 250px;
+    grid-template-columns: 72px minmax(0, 1fr);
+
+    column-gap: 12px;
+    padding: 22px;
+  }
+
+  .metode-kesetaraan-card::before {
+    width: 72px;
+    height: 72px;
   }
 
   .metode-kesetaraan-card h3 {
-    font-size: 20px;
+    font-size: 19px;
   }
 }
 
-/* MOBILE */
+/* =========================================
+   TABLET
+========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+
   .metode-kesetaraan {
-    padding: 42px 24px 65px;
+    padding: 35px 40px 40px;
   }
 
-  .metode-kesetaraan-heading {
-    margin-bottom: 28px;
+  .metode-kesetaraan-container {
+    max-width: 800px;
   }
 
   .metode-kesetaraan-grid {
-    grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .metode-kesetaraan-card {
-    min-height: auto;
-    padding: 24px;
+    grid-template-columns: 60px minmax(0, 1fr);
+
+    column-gap: 10px;
+    padding: 20px 16px;
+  }
+
+  .metode-kesetaraan-card::before {
+    width: 60px;
+    height: 65px;
+  }
+
+  .metode-kesetaraan-card h3 {
+    font-size: 17px;
   }
 
   .metode-kesetaraan-number {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-    margin-bottom: 16px;
+    width: 27px;
+    height: 27px;
+
+    font-size: 13px;
+  }
+
+  .metode-kesetaraan-card p {
+    margin-top: 14px;
+  }
+}
+
+/* =========================================
+   TABLET KECIL
+========================================= */
+
+@media (max-width: 768px) {
+
+  .metode-kesetaraan-container {
+    max-width: 600px;
+  }
+
+  .metode-kesetaraan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .metode-kesetaraan-grid::after {
+    display: none;
+  }
+
+  .metode-kesetaraan-card {
+    grid-template-columns: 85px minmax(0, 1fr);
+
+    column-gap: 16px;
+    padding: 22px;
+  }
+
+  .metode-kesetaraan-card::before {
+    width: 80px;
+    height: 80px;
   }
 
   .metode-kesetaraan-card h3 {
     font-size: 21px;
-    margin-bottom: 10px;
   }
 
-  .metode-kesetaraan-card p {
+  .metode-kesetaraan-number {
+    width: 30px;
+    height: 30px;
+
     font-size: 14px;
   }
 }
 
-@media (max-width: 640px) {
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
   .metode-kesetaraan {
-    padding-right: 16px;
-    padding-left: 16px;
+    padding: 28px 24px 35px;
   }
-}
 
-/* MOBILE KECIL */
+  .metode-kesetaraan-container {
+    max-width: 420px;
+  }
 
-@media (max-width: 480px) {
-  .metode-kesetaraan {
-    padding: 37px 16px 55px;
+  .metode-kesetaraan-heading {
+    margin-bottom: 26px;
   }
 
   .metode-kesetaraan-heading h2 {
@@ -207,17 +413,61 @@
   }
 
   .metode-kesetaraan-card {
-    padding: 22px;
+    grid-template-columns: 75px minmax(0, 1fr);
+
+    column-gap: 14px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+  }
+
+  .metode-kesetaraan-card::before {
+    width: 75px;
+    height: 72px;
   }
 
   .metode-kesetaraan-card h3 {
     font-size: 20px;
   }
+
+  .metode-kesetaraan-card p {
+    margin-top: 12px;
+
+    font-size: 13px;
+    line-height: 1.8;
+  }
 }
 
-/* AKSESIBILITAS */
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 360px) {
+
+  .metode-kesetaraan-card {
+    grid-template-columns: 60px minmax(0, 1fr);
+
+    column-gap: 10px;
+    padding: 18px;
+  }
+
+  .metode-kesetaraan-card::before {
+    width: 60px;
+    height: 65px;
+  }
+
+  .metode-kesetaraan-card h3 {
+    font-size: 18px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .metode-kesetaraan-card {
     transition: none;
   }
@@ -225,37 +475,4 @@
   .metode-kesetaraan-card:hover {
     transform: none;
   }
-}
-
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.metode-kesetaraan {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .metode-kesetaraan {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .metode-kesetaraan {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .metode-kesetaraan {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.metode-kesetaraan {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

@@ -1,74 +1,470 @@
-
 ---
 import "../styles/home/Hero.css";
+import heroImage from "../assets/image/gambarhero-clean.webp";
 
-const registrationUrl =
-  "/pendaftaran";
-
+const registrationUrl = "/pendaftaran";
 const whatsappUrl = "https://wa.me/6285319485269";
+
+// Tumpukan buku (koordinat mengikuti viewBox gambar 1535x1024).
+// Urutan: bawah → atas. Ubah x / y / w / h / warna untuk menyesuaikan.
+const bookStack = {
+  originX: 905, // titik putar & kaki kiri tumpukan
+  originY: 988, // garis dasar tumpukan di atas alas ungu
+  tilt: -4, // miring mengikuti tepi alas
+  scale: 0.92, // skala tumpukan terhadap titik kaki kiri
+  books: [
+    { id: "pink", x: 896, y: 904, w: 458, h: 84, d: 28, base: "#EE6AA7", light: "#FBA9CC", dark: "#BF3F85" },
+    { id: "purple", x: 922, y: 846, w: 424, h: 58, d: 25, base: "#8C5AD6", light: "#B992F2", dark: "#6439AE" },
+    { id: "yellow", x: 990, y: 802, w: 272, h: 48, d: 22, base: "#F7C20F", light: "#FFE36B", dark: "#D69A00" },
+  ],
+};
 ---
 
 <section class="pkbm-hero" aria-labelledby="hero-title">
-  <div class="pkbm-hero-container">
 
-    <div class="pkbm-hero-badge">
-      <span class="pkbm-badge-dot"></span>
-      PKBM ALFATIHAH SEMARANG · TERAKREDITASI A
+  <!-- AWAN -->
+  <svg class="pkbm-hero-cloud" viewBox="0 0 120 52" aria-hidden="true">
+    <defs>
+      <linearGradient id="hero-cloud-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#EFD6F6" />
+        <stop offset="100%" stop-color="#D3ACEB" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M10 49
+         C-2 49 -1 36 10 34
+         C12 24 26 20 33 27
+         C36 10 56 4 69 13
+         C75 17 78 22 79 26
+         C87 20 100 23 102 33
+         C113 33 119 46 108 49Z"
+      fill="url(#hero-cloud-grad)"
+    />
+  </svg>
+
+  <div class="pkbm-hero-stage">
+
+    <div class="pkbm-hero-container">
+
+      <!-- GAMBAR ANAK-ANAK -->
+      <div class="pkbm-hero-visual">
+
+        <img
+          class="pkbm-hero-image"
+          src={heroImage.src}
+          width={heroImage.width}
+          height={heroImage.height}
+          alt="Tiga anak membaca buku bersama di PKBM Alfatihah"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+
+        <!-- TIGA PETIK KUNING: bentuk & warna mengikuti ornamen bawaan gambar -->
+        <svg
+          class="pkbm-hero-rays"
+          viewBox="0 0 1535 1024"
+          aria-hidden="true"
+        >
+          <defs>
+            <path
+              id="hero-ray"
+              d="M-8 2
+                 C-11 -22 -15 -46 -13 -58
+                 C-11 -68 11 -68 13 -58
+                 C15 -46 10 -22 8 2
+                 C7 9 -7 9 -8 2Z"
+            />
+          </defs>
+          <g fill="#F8C30D">
+            <use href="#hero-ray" transform="translate(1146 216) rotate(8) scale(1 .98)" />
+            <use href="#hero-ray" transform="translate(1192 248) rotate(40) scale(1 1.02)" />
+            <use href="#hero-ray" transform="translate(1214 296) rotate(64) scale(1 .72)" />
+          </g>
+        </svg>
+
+        <!-- TUMPUKAN BUKU: menutupi kaki anak kanan, ikut skala gambar -->
+        <svg
+          class="pkbm-hero-books"
+          viewBox="0 0 1535 1024"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="book-pages" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFF8E4" />
+              <stop offset="100%" stop-color="#EFD9AC" />
+            </linearGradient>
+            <filter id="book-shadow-blur" x="-20%" y="-100%" width="140%" height="300%">
+              <feGaussianBlur stdDeviation="7" />
+            </filter>
+            {bookStack.books.map((b) => (
+              <linearGradient id={`book-${b.id}-top`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color={b.light} />
+                <stop offset="100%" stop-color={b.base} />
+              </linearGradient>
+              <linearGradient id={`book-${b.id}-side`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color={b.base} />
+                <stop offset="100%" stop-color={b.dark} />
+              </linearGradient>
+            ))}
+          </defs>
+
+          <g transform={`rotate(${bookStack.tilt} ${bookStack.originX} ${bookStack.originY}) translate(${bookStack.originX} ${bookStack.originY}) scale(${bookStack.scale}) translate(${-bookStack.originX} ${-bookStack.originY})`}>
+
+            <!-- bayangan di atas alas ungu -->
+            <ellipse
+              cx={bookStack.originX + 175}
+              cy={bookStack.originY + 4}
+              rx="205"
+              ry="13"
+              fill="#4B1A86"
+              opacity=".45"
+              filter="url(#book-shadow-blur)"
+            />
+
+            {bookStack.books.map((b) => (
+              <g>
+                <!-- bayangan lembut buku di bawahnya -->
+                <rect x={b.x + 6} y={b.y + b.h - 2} width={b.w - 12} height="7" rx="3.5" fill="#000" opacity=".12" />
+
+                <!-- halaman -->
+                <rect x={b.x + 8} y={b.y + 4} width={b.w - 12} height={b.h - 8} rx="6" fill="url(#book-pages)" />
+                <g stroke="#DDBF8A" stroke-width="1.4" stroke-linecap="round" opacity=".75">
+                  <line x1={b.x + 40} y1={b.y + b.h * 0.38} x2={b.x + b.w - 14} y2={b.y + b.h * 0.38} />
+                  <line x1={b.x + 40} y1={b.y + b.h * 0.62} x2={b.x + b.w - 14} y2={b.y + b.h * 0.62} />
+                </g>
+
+                <!-- sampul bawah -->
+                <rect x={b.x} y={b.y + b.h - 8} width={b.w} height="8" rx="4" fill={b.dark} />
+
+                <!-- punggung buku -->
+                <rect x={b.x} y={b.y} width="26" height={b.h} rx="16" fill={`url(#book-${b.id}-side)`} />
+
+                <!-- sampul atas (tampak dari atas) -->
+                <path
+                  d={`M${b.x + 12} ${b.y + 3} H${b.x + b.w - 6} L${b.x + b.w + 8} ${b.y - b.d} H${b.x + 24} Z`}
+                  fill={`url(#book-${b.id}-top)`}
+                  stroke={b.base}
+                  stroke-width="6"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d={`M${b.x + 34} ${b.y - b.d + 5} H${b.x + b.w * 0.6}`}
+                  stroke="#fff"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  opacity=".45"
+                />
+              </g>
+            ))}
+
+          </g>
+        </svg>
+
+      </div>
+
+      <!-- KONTEN KANAN -->
+      <div class="pkbm-hero-content">
+
+        <!-- BADGE AKREDITASI -->
+        <div class="pkbm-hero-badge">
+
+          <svg class="pkbm-badge-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 14L5 23L10 20L12 22L14 14Z" fill="#FCD757" />
+            <path d="M13 14L15 22L18 20L21 22L17 13Z" fill="#FCD757" />
+            <path
+              d="M12 1.8
+                 L14.3 3.4
+                 L17.1 3.2
+                 L18.3 5.7
+                 L20.8 6.9
+                 L20.6 9.7
+                 L22.2 12
+                 L20.6 14.3
+                 L20.8 17.1
+                 L18.3 18.3
+                 L17.1 20.8
+                 L14.3 20.6
+                 L12 22.2
+                 L9.7 20.6
+                 L6.9 20.8
+                 L5.7 18.3
+                 L3.2 17.1
+                 L3.4 14.3
+                 L1.8 12
+                 L3.4 9.7
+                 L3.2 6.9
+                 L5.7 5.7
+                 L6.9 3.2
+                 L9.7 3.4Z"
+              fill="#FCD757"
+              transform="translate(2 0) scale(.83)"
+            />
+            <circle cx="12" cy="10" r="4" fill="#84247E" />
+          </svg>
+
+          PKBM ALFATIHAH SEMARANG · TERAKREDITASI A
+
+        </div>
+
+        <!-- JUDUL -->
+        <h1 id="hero-title">
+          Apa itu PKBM Alfatihah?
+        </h1>
+
+        <!-- TAGLINE: dua stiker kuning berbentuk busur (∩) yang saling menumpuk -->
+        <div class="pkbm-hero-tagline">
+
+          <span class="pkbm-sr-only">
+            Solusi Pendidikan Fleksibel, Kredibel & Islami
+          </span>
+
+          <svg
+            class="pkbm-hero-tagline-svg"
+            viewBox="0 0 600 142"
+            aria-hidden="true"
+          >
+            <defs>
+              <path id="tagline-line-1" d="M44 56 Q300 32 556 56" />
+              <path id="tagline-line-2" d="M138 99 Q300 75 462 99" />
+            </defs>
+
+            <path
+              class="pkbm-tagline-shape"
+              d="M38 22
+                 Q300 -2 562 22
+                 C596 26 600 66 570 78
+                 Q300 54 30 78
+                 C0 66 4 26 38 22Z"
+            />
+
+            <path
+              class="pkbm-tagline-shape"
+              d="M134 64
+                 Q300 40 466 64
+                 C498 68 502 110 472 122
+                 Q300 98 128 122
+                 C98 110 102 68 134 64Z"
+            />
+
+<text class="pkbm-tagline-text" text-anchor="middle">
+              <textPath href="#tagline-line-1" startOffset="50%">Solusi Pendidikan Fleksibel,</textPath>
+            </text>
+
+            <text class="pkbm-tagline-text" text-anchor="middle">
+              <textPath href="#tagline-line-2" startOffset="50%">Kredibel &amp; Islami</textPath>
+            </text>
+          </svg>
+
+        </div>
+
+        <!-- DESKRIPSI -->
+        <p class="pkbm-hero-description">
+          PKBM Alfatihah adalah tempat belajar untuk semua orang,
+          tanpa memandang usia atau latar belakang.
+          Bagi yang sedang mengejar ijazah lewat Paket A, B, atau C,
+          ingin belajar lewat homeschooling, atau membutuhkan les privat,
+          PKBM Alfatihah menyediakan sistem pembelajaran yang fleksibel:
+          belajar kapan saja dan di mana saja, dengan bekal nilai-nilai
+          Islami dan akhlak Qur'ani.
+        </p>
+
+        <!-- TOMBOL CTA -->
+        <div class="pkbm-hero-actions">
+
+          <a
+            href={registrationUrl}
+            class="pkbm-hero-btn pkbm-hero-btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Daftar Sekarang
+
+            <svg class="pkbm-btn-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 5L16 12L9 19" />
+            </svg>
+          </a>
+
+          <a
+            href={whatsappUrl}
+            class="pkbm-hero-btn pkbm-hero-btn-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="pkbm-btn-wa" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 3.2
+                   A8.7 8.7 0 0 0 4.5 16.3
+                   L3.3 20.7
+                   L7.8 19.5
+                   A8.7 8.7 0 1 0 12 3.2Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9.2 7.9
+                   C8.9 7.9 8.6 8.1 8.4 8.5
+                   C7.9 9.5 8.3 10.8 9.3 12.2
+                   C10.4 13.7 11.8 14.7 13.2 15.1
+                   C14.1 15.3 14.8 15 15.1 14.3
+                   C15.2 14 15 13.8 14.7 13.6
+                   L13.2 12.8
+                   L12.5 13.5
+                   C11 13 10 12 9.5 11
+                   L10.2 10.2
+                   L9.2 7.9Z"
+                fill="currentColor"
+              />
+            </svg>
+
+            Konsultasi via WhatsApp
+
+            <svg class="pkbm-btn-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 5L16 12L9 19" />
+            </svg>
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <h1 id="hero-title">
-      Apa itu PKBM Alfatihah?
-      <span>Solusi Pendidikan Fleksibel, Kredibel & Islami</span>
-    </h1>
 
-    <div class="pkbm-hero-line"></div>
-
-    <p class="pkbm-hero-description">
-      <span class="pkbm-hero-copy-line">
-        PKBM Alfatihah adalah tempat belajar untuk semua orang, tanpa memandang usia atau latar belakang.
-      </span>{" "}
-      <span class="pkbm-hero-copy-line">
-        Bagi yang sedang mengejar ijazah lewat Paket A, B, atau C, ingin belajar lewat homeschooling,
-      </span>{" "}
-      <span class="pkbm-hero-copy-line">
-        atau membutuhkan les privat, PKBM Alfatihah menyediakan sistem pembelajaran yang fleksibel:
-      </span>{" "}
-      <span class="pkbm-hero-copy-line">
-        belajar kapan saja dan di mana saja, dengan bekal nilai-nilai Islami dan akhlak Qur'ani.
-      </span>
-    </p>
-
-    <div class="pkbm-hero-actions">
-      <a
-        href={registrationUrl}
-        class="pkbm-hero-btn pkbm-hero-btn-primary"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Daftar Sekarang
-        <span aria-hidden="true">↗</span>
-      </a>
-
-      <a
-        href={whatsappUrl}
-        class="pkbm-hero-btn pkbm-hero-btn-outline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Konsultasi via WhatsApp
-        <span aria-hidden="true">↗</span>
-      </a>
-    </div>
 
   </div>
 
-  <div
-    class="pkbm-hero-glow pkbm-hero-glow-left"
-    aria-hidden="true"
-  ></div>
+  <!-- PESAWAT KERTAS & LINTASAN -->
+  <svg class="pkbm-hero-plane" viewBox="0 0 300 90" aria-hidden="true">
+    <path
+      class="pkbm-plane-trail"
+      d="M46 12
+         C54 52 90 74 124 70
+         C160 67 166 44 144 42
+         C124 41 120 62 150 68
+         C196 74 232 44 258 22"
+    />
+    <g transform="translate(278 16) rotate(-14)">
+      <path d="M26 0 L-24 -13 L-8 3Z" fill="#FFFFFF" />
+      <path d="M26 0 L-8 3 L-14 14Z" fill="#F3E7FA" />
+      <path d="M-24 -13 L-8 3 L-14 14 L-10 2Z" fill="#D9BBEE" />
+    </g>
+  </svg>
 
-  <div
-    class="pkbm-hero-glow pkbm-hero-glow-right"
+  <!-- ILUSTRASI MASJID -->
+  <svg class="pkbm-hero-mosque" viewBox="0 0 300 220" aria-hidden="true">
+    <defs>
+      <radialGradient id="mq-dome" cx="38%" cy="28%" r="78%">
+        <stop offset="0%" stop-color="#FFF7F0" />
+        <stop offset="45%" stop-color="#F9DDCC" />
+        <stop offset="100%" stop-color="#E4B29C" />
+      </radialGradient>
+      <linearGradient id="mq-body" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#FFF3E7" />
+        <stop offset="55%" stop-color="#F6D9C7" />
+        <stop offset="100%" stop-color="#E8BBA6" />
+      </linearGradient>
+      <linearGradient id="mq-band" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#F7D8C6" />
+        <stop offset="100%" stop-color="#E6B7A2" />
+      </linearGradient>
+      <linearGradient id="mq-gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#F6D77A" />
+        <stop offset="100%" stop-color="#D9A23C" />
+      </linearGradient>
+      <linearGradient id="mq-leaf" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#9BCB62" />
+        <stop offset="100%" stop-color="#4E8E3A" />
+      </linearGradient>
+      <path id="mq-lf" d="M0 0C-12 -10 -13 -32 0 -48C13 -32 12 -10 0 0Z" />
+      <linearGradient id="mq-leaf-light" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#B8DE7C" />
+        <stop offset="100%" stop-color="#7DB650" />
+      </linearGradient>
+      <linearGradient id="mq-leaf-dark" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6FA944" />
+        <stop offset="100%" stop-color="#3F7A33" />
+      </linearGradient>
+    </defs>
+
+    <!-- bush belakang kanan -->
+    <ellipse cx="268" cy="146" rx="32" ry="36" fill="url(#mq-leaf-dark)" />
+
+    <!-- menara kecil -->
+    <rect x="106" y="143" width="20" height="62" rx="3" fill="url(#mq-body)" />
+    <rect x="102" y="141" width="28" height="5" rx="2.5" fill="url(#mq-band)" />
+    <path d="M104 141 C104 129 109 126 116 126 C123 126 128 129 128 141Z" fill="url(#mq-dome)" />
+    <rect x="115" y="117" width="2" height="10" fill="url(#mq-gold)" />
+    <circle cx="116" cy="116" r="2.4" fill="url(#mq-gold)" />
+    <rect x="112" y="156" width="8" height="13" rx="4" fill="#E2B09A" />
+
+    <!-- menara tinggi -->
+    <rect x="145" y="113" width="24" height="86" rx="3" fill="url(#mq-body)" />
+    <rect x="141" y="111" width="32" height="5" rx="2.5" fill="url(#mq-band)" />
+    <rect x="143" y="150" width="28" height="4" rx="2" fill="url(#mq-band)" />
+    <path d="M143 111 C143 97 150 93 157 93 C164 93 171 97 171 111Z" fill="url(#mq-dome)" />
+    <rect x="156" y="82" width="2" height="12" fill="url(#mq-gold)" />
+    <circle cx="157" cy="81" r="2.6" fill="url(#mq-gold)" />
+    <rect x="152" y="126" width="9" height="16" rx="4.5" fill="#E2B09A" />
+    <rect x="152" y="162" width="9" height="16" rx="4.5" fill="#E2B09A" />
+
+    <!-- bangunan utama -->
+    <rect x="176" y="148" width="116" height="52" rx="4" fill="url(#mq-body)" />
+    <rect x="186" y="116" width="94" height="36" rx="3" fill="url(#mq-body)" />
+    <rect x="184" y="112" width="98" height="9" rx="4.5" fill="url(#mq-band)" />
+    <path d="M222 190 V170 Q232 154 242 170 V190Z" fill="#E2B09A" />
+    <path d="M200 140 V132 Q205 125 210 132 V140Z" fill="#E2B09A" />
+    <path d="M256 140 V132 Q261 125 266 132 V140Z" fill="#E2B09A" />
+
+    <!-- kubah utama -->
+    <path
+      d="M190 112
+         C186 74 208 58 234 58
+         C260 58 282 74 278 112Z"
+      fill="url(#mq-dome)"
+    />
+    <path d="M192 105 H276" stroke="#E8BDA8" stroke-width="3" stroke-linecap="round" fill="none" />
+    <rect x="230" y="50" width="8" height="10" fill="url(#mq-gold)" />
+    <circle cx="234" cy="47" r="7" fill="url(#mq-dome)" />
+    <circle cx="234" cy="38" r="4.4" fill="url(#mq-dome)" />
+    <path d="M234 26 L236.4 34 H231.6Z" fill="url(#mq-gold)" />
+
+    <!-- dedaunan: samping lebih tinggi, semak depan lebih rendah -->
+    <use href="#mq-lf" transform="translate(294 200) rotate(14) scale(1.5)" fill="url(#mq-leaf-dark)" />
+    <use href="#mq-lf" transform="translate(282 200) rotate(-14) scale(1.35)" fill="url(#mq-leaf)" />
+    <use href="#mq-lf" transform="translate(98 206) rotate(-22) scale(1.25)" fill="url(#mq-leaf-dark)" />
+    <use href="#mq-lf" transform="translate(84 210) rotate(-48) scale(1.05)" fill="url(#mq-leaf)" />
+    <use href="#mq-lf" transform="translate(266 198) rotate(26) scale(1.05)" fill="url(#mq-leaf)" />
+    <use href="#mq-lf" transform="translate(236 200) rotate(-18) scale(1)" fill="url(#mq-leaf-dark)" />
+    <use href="#mq-lf" transform="translate(206 200) rotate(22) scale(1)" fill="url(#mq-leaf)" />
+    <use href="#mq-lf" transform="translate(178 202) rotate(-28) scale(.95)" fill="url(#mq-leaf-dark)" />
+    <use href="#mq-lf" transform="translate(150 206) rotate(14) scale(.95)" fill="url(#mq-leaf)" />
+    <use href="#mq-lf" transform="translate(120 208) rotate(-32) scale(.95)" fill="url(#mq-leaf-dark)" />
+    <use href="#mq-lf" transform="translate(278 206) rotate(-38) scale(1)" fill="url(#mq-leaf-light)" />
+    <use href="#mq-lf" transform="translate(250 208) rotate(34) scale(.9)" fill="url(#mq-leaf-light)" />
+    <use href="#mq-lf" transform="translate(224 208) rotate(-42) scale(.85)" fill="url(#mq-leaf-light)" />
+    <use href="#mq-lf" transform="translate(196 210) rotate(12) scale(.85)" fill="url(#mq-leaf-light)" />
+    <use href="#mq-lf" transform="translate(166 212) rotate(-18) scale(.8)" fill="url(#mq-leaf-light)" />
+    <use href="#mq-lf" transform="translate(136 212) rotate(30) scale(.8)" fill="url(#mq-leaf-light)" />
+    <use href="#mq-lf" transform="translate(108 214) rotate(-12) scale(.75)" fill="url(#mq-leaf-light)" />  </svg>
+
+  <!-- GELOMBANG: satu path, warna = background section Program -->
+  <svg
+    class="pkbm-wave"
+    viewBox="0 0 1440 200"
+    preserveAspectRatio="none"
     aria-hidden="true"
-  ></div>
+  >
+    <path
+      d="M0 166
+         C110 152 220 154 340 164
+         C480 176 620 184 780 182
+         C930 180 1050 164 1170 160
+         C1290 156 1370 160 1440 150
+         V200 H0Z"
+    />
+  </svg>
+
 </section>

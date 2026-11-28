@@ -1,13 +1,31 @@
+/* ==========================================
+   PENDAFTARAN DIASPORA QUR'AN CENTER
+   COMPACT CARD TIMELINE
 
-/* =========================================
-   PENDAFTARAN DIASPORA
-   HORIZONTAL TIMELINE - CONCEPT B
-========================================= */
+   Navy       : #001C49
+   Cream Gold : #F5D177
+   Gold       : #D9A035
+   Background : #FFF9F5
+========================================== */
 
 .pendaftaran-diaspora {
+  --pd-navy: #001c49;
+  --pd-gold: #f5d177;
+  --pd-gold-dark: #d9a035;
+  --pd-cream: #fff9f5;
+  --pd-white: #ffffff;
+
+  --step-gap: 20px;
+  --step-number-size: 44px;
+
+  position: relative;
   width: 100%;
-  padding: 75px 20px 85px;
-  background: #ffffff;
+
+  padding:
+    var(--pkbm-section-pad, 45px)
+    var(--pkbm-container-pad, 24px);
+
+  background: var(--pd-cream);
   font-family: "Poppins", sans-serif;
 }
 
@@ -16,164 +34,414 @@
   box-sizing: border-box;
 }
 
+/* ==========================================
+   CONTAINER
+========================================== */
+
 .pendaftaran-diaspora-container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
-/* HEADING */
+/* ==========================================
+   HEADING
+========================================== */
 
 .pendaftaran-diaspora-heading {
+  margin-bottom: 30px;
   text-align: center;
-  margin-bottom: 48px;
 }
 
 .pendaftaran-diaspora-heading h2 {
   margin: 0;
-  color: #001c49;
+
+  color: var(--pd-navy);
+
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.4;
 }
 
 .pendaftaran-diaspora-divider {
   display: block;
-  width: 60px;
-  height: 3px;
-  margin: 15px auto 18px;
-  background: #d9a035;
-  border-radius: 99px;
+
+  width: 55px;
+  height: 4px;
+
+  margin: 15px auto 12px;
+
+  background: var(--pd-gold-dark);
+  border-radius: 999px;
 }
 
 .pendaftaran-diaspora-heading p {
   margin: 0;
-  color: #344766;
-  font-size: 15px;
+
+  color: var(--pd-navy);
+
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.8;
 }
 
-/* TIMELINE */
+/* ==========================================
+   TIMELINE
+========================================== */
 
 .pendaftaran-diaspora-timeline {
   position: relative;
 
-  --step-gap: 20px;
-
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+
   gap: var(--step-gap);
 
   margin: 0;
   padding: 0;
+
   list-style: none;
 }
 
-/* CONNECTOR LINE */
+/* GARIS PENGHUBUNG */
 
 .pendaftaran-diaspora-timeline::before {
   content: "";
+
   position: absolute;
   z-index: 0;
 
-  top: 23px;
+  top: calc(var(--step-number-size) / 2 - 1.5px);
+
   left: calc((100% - 4 * var(--step-gap)) / 10);
   right: calc((100% - 4 * var(--step-gap)) / 10);
 
-  border-top: 2px dashed #d9a035;
+  height: 3px;
+
+  background: var(--pd-gold-dark);
+  border-radius: 999px;
+
+  pointer-events: none;
 }
+
+/* ==========================================
+   STEP
+========================================== */
 
 .pendaftaran-diaspora-step {
   position: relative;
   z-index: 1;
 
-  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+
+  min-width: 0;
 
   text-align: center;
 }
 
-/* NUMBER CIRCLE */
+/* ==========================================
+   NOMOR LINGKARAN
+========================================== */
 
 .pendaftaran-diaspora-number {
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #001c49;
-  border: 2px solid #d9a035;
+  width: var(--step-number-size);
+  height: var(--step-number-size);
+
+  flex-shrink: 0;
+
+  margin-bottom: -7px;
+
+  background: var(--pd-navy);
+  color: var(--pd-gold);
+
+  border: 3px solid var(--pd-white);
   border-radius: 50%;
 
-  color: #f3cb7c;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1;
+
+  box-shadow: 0 3px 7px rgba(0, 28, 73, 0.12);
 }
 
-/* STEP TEXT */
+/* ==========================================
+   CARD COMPACT
+========================================== */
 
 .pendaftaran-diaspora-step-content {
+  position: relative;
+
+  display: grid;
+
+  grid-template-rows:
+    58px
+    42px
+    1fr
+    auto;
+
+  justify-items: center;
+  align-items: start;
+
+  flex: 1;
+
   width: 100%;
-  max-width: 190px;
   min-width: 0;
+
+  /* Tidak menggunakan min-height besar */
+  min-height: 0;
+
+  padding: 20px 12px 17px;
+
+  row-gap: 8px;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 70%,
+    #fcf8f2 100%
+  );
+
+  border: 1px solid rgba(217, 160, 53, 0.1);
+  border-radius: 24px;
+
+  box-shadow:
+    0 4px 8px rgba(0, 28, 73, 0.025),
+    0 9px 20px rgba(0, 28, 73, 0.075);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.pendaftaran-diaspora-step-content p {
+.pendaftaran-diaspora-step-content:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--pd-gold);
+
+  box-shadow:
+    0 5px 10px rgba(0, 28, 73, 0.04),
+    0 12px 24px rgba(0, 28, 73, 0.09);
+}
+
+/* ==========================================
+   IKON
+========================================== */
+
+.pendaftaran-diaspora-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
   margin: 0;
-  color: #344766;
-  font-size: 13px;
-  line-height: 1.7;
+
+  flex-shrink: 0;
+}
+
+.pendaftaran-diaspora-icon svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 2px 2px rgba(0, 28, 73, 0.06)
+  );
+}
+
+/* ==========================================
+   JUDUL CARD
+========================================== */
+
+.pendaftaran-diaspora-step-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+
+  color: var(--pd-navy);
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+/* ==========================================
+   DESKRIPSI
+========================================== */
+
+.pendaftaran-diaspora-description {
+  width: 100%;
+
+  margin: 0;
+
+  color: var(--pd-navy);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+
+  text-align: center;
   overflow-wrap: break-word;
 }
 
-.pendaftaran-diaspora-step-content a {
-  color: #001c49;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: #d9a035;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+/* ==========================================
+   LINK
+========================================== */
+
+.pendaftaran-diaspora-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  align-self: end;
+
+  margin-top: 5px;
+
+  color: var(--pd-navy);
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
 }
 
-.pendaftaran-diaspora-step-content a:hover {
-  color: #b78322;
+.pendaftaran-diaspora-link svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.pendaftaran-diaspora-step-content a:focus-visible {
-  outline: 2px solid #d9a035;
-  outline-offset: 3px;
+.pendaftaran-diaspora-link:hover {
+  color: #a5751e;
 }
 
-/* TABLET */
+.pendaftaran-diaspora-link:hover svg {
+  transform: translateX(3px);
+}
 
-@media (max-width: 900px) {
+.pendaftaran-diaspora-link:focus-visible {
+  outline: 2px solid var(--pd-gold-dark);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
   .pendaftaran-diaspora {
-    padding: 60px 20px 70px;
+    --step-gap: 14px;
+    --step-number-size: 42px;
   }
 
-  .pendaftaran-diaspora-timeline {
-    --step-gap: 10px;
+  .pendaftaran-diaspora-step-content {
+    padding: 19px 10px 15px;
+
+    border-radius: 21px;
+
+    grid-template-rows:
+      55px
+      40px
+      1fr
+      auto;
+
+    row-gap: 7px;
   }
 
-  .pendaftaran-diaspora-step-content p {
+  .pendaftaran-diaspora-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .pendaftaran-diaspora-step-title {
+    font-size: 14px;
+  }
+
+  .pendaftaran-diaspora-description {
+    font-size: 13px;
+  }
+
+  .pendaftaran-diaspora-link {
     font-size: 12px;
   }
 }
 
-/* MOBILE - VERTICAL TIMELINE */
+/* ==========================================
+   TABLET - 3 + 2 CARD
+========================================== */
+
+@media (max-width: 1024px) {
+  .pendaftaran-diaspora {
+    --step-gap: 18px;
+  }
+
+  .pendaftaran-diaspora-timeline {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    column-gap: var(--step-gap);
+    row-gap: 22px;
+  }
+
+  .pendaftaran-diaspora-timeline::before {
+    display: none;
+  }
+
+  .pendaftaran-diaspora-step {
+    grid-column: span 2;
+  }
+
+  .pendaftaran-diaspora-step:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .pendaftaran-diaspora-step:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .pendaftaran-diaspora-step-content {
+    padding: 20px 14px 16px;
+  }
+}
+
+/* ==========================================
+   MOBILE - CARD HORIZONTAL
+   TIMELINE VERTIKAL
+========================================== */
 
 @media (max-width: 640px) {
   .pendaftaran-diaspora {
-    padding: 55px 16px 65px;
+    --step-number-size: 36px;
   }
 
   .pendaftaran-diaspora-heading {
-    margin-bottom: 35px;
+    margin-bottom: 23px;
   }
 
   .pendaftaran-diaspora-heading h2 {
@@ -185,77 +453,150 @@
   }
 
   .pendaftaran-diaspora-timeline {
-    grid-template-columns: 1fr;
-    --step-gap: 0px;
-    gap: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+
+    gap: 12px;
+
+    max-width: 420px;
+    margin: 0 auto;
   }
+
+  /* GARIS VERTIKAL */
 
   .pendaftaran-diaspora-timeline::before {
-    top: 20px;
-    bottom: 20px;
-    left: 23px;
-    right: auto;
-    border-top: none;
-    border-left: 2px dashed #d9a035;
+    display: none;
   }
 
-  .pendaftaran-diaspora-step {
+  .pendaftaran-diaspora-step:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    top: 36px;
+    bottom: -36px;
+    left: calc(var(--step-number-size) / 2 - 1.5px);
+
+    width: 3px;
+
+    background: var(--pd-gold-dark);
+    pointer-events: none;
+  }
+
+  .pendaftaran-diaspora-step,
+  .pendaftaran-diaspora-step:nth-child(4),
+  .pendaftaran-diaspora-step:nth-child(5) {
+    grid-column: auto;
+
     flex-direction: row;
     align-items: flex-start;
-    gap: 17px;
 
-    padding-bottom: 28px;
-    text-align: left;
-  }
-
-  .pendaftaran-diaspora-step:last-child {
-    padding-bottom: 0;
+    gap: 10px;
   }
 
   .pendaftaran-diaspora-number {
+    margin-top: 18px;
+    margin-bottom: 0;
+
+    font-size: 15px;
+  }
+
+  /* IKON DI KIRI, TEKS DI KANAN */
+
+  .pendaftaran-diaspora-step-content {
+    flex: 1;
+
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+
+    column-gap: 12px;
+    row-gap: 5px;
+
+    justify-items: start;
+
+    padding: 16px 13px;
+
+    border-radius: 18px;
+  }
+
+  .pendaftaran-diaspora-icon {
+    grid-column: 1;
+    grid-row: 1 / 4;
+
+    align-self: center;
+
     width: 48px;
     height: 48px;
   }
 
-  .pendaftaran-diaspora-step-content {
-    max-width: none;
-    padding-top: 10px;
+  .pendaftaran-diaspora-step-title {
+    grid-column: 2;
+    grid-row: 1;
+
+    display: block;
+
+    font-size: 14px;
+    text-align: left;
   }
 
-  .pendaftaran-diaspora-step-content p {
+  .pendaftaran-diaspora-description {
+    grid-column: 2;
+    grid-row: 2;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    text-align: left;
+  }
+
+  .pendaftaran-diaspora-link {
+    grid-column: 2;
+    grid-row: 3;
+
+    justify-content: flex-start;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+  .pendaftaran-diaspora-step {
+    gap: 8px;
+  }
+
+  .pendaftaran-diaspora-step-content {
+    grid-template-columns: 40px minmax(0, 1fr);
+
+    column-gap: 9px;
+
+    padding: 14px 11px;
+  }
+
+  .pendaftaran-diaspora-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pendaftaran-diaspora-step-title {
     font-size: 13px;
   }
 }
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.pendaftaran-diaspora {
-  padding-left: 24px;
-  padding-right: 24px;
-}
+/* ==========================================
+   REDUCED MOTION
+========================================== */
 
-@media (max-width: 992px) {
-  .pendaftaran-diaspora {
-    padding-left: 20px;
-    padding-right: 20px;
+@media (prefers-reduced-motion: reduce) {
+  .pendaftaran-diaspora-step-content,
+  .pendaftaran-diaspora-link,
+  .pendaftaran-diaspora-link svg {
+    transition: none;
   }
-}
-
-@media (max-width: 768px) {
-  .pendaftaran-diaspora {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .pendaftaran-diaspora {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.pendaftaran-diaspora {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

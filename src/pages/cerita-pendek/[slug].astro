@@ -1,0 +1,170 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { ceritaPendek } from "../../data/cerita-pendek";
+import "../../styles/program/DetailCeritaPendek.css";
+
+export function getStaticPaths() {
+  return ceritaPendek.map((cerita) => ({
+    params: {
+      slug: cerita.slug,
+    },
+    props: {
+      cerita,
+    },
+  }));
+}
+
+const { cerita } = Astro.props;
+
+const relatedStories = ceritaPendek.filter(
+  (item) => item.slug !== cerita.slug
+);
+---
+
+<MainLayout title={`${cerita.title} | PKBM Alfatihah`}>
+  <section class="detail-cerita">
+    <div class="detail-cerita-container">
+
+      <!-- TOMBOL KEMBALI -->
+      <a
+        href="/cerita-pendek"
+        class="detail-cerita-back"
+      >
+        ← Kembali ke Cerita Pendek
+      </a>
+
+      <div class="detail-cerita-layout">
+
+        <!-- KONTEN UTAMA -->
+        <article class="detail-cerita-article">
+
+          <header class="detail-cerita-heading">
+
+            <span class="detail-cerita-badge">
+              {cerita.category}
+            </span>
+
+            <h1>{cerita.title}</h1>
+
+            <div class="detail-cerita-divider"></div>
+
+            <time
+              class="detail-cerita-date"
+              datetime={cerita.dateISO}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="16"
+                  rx="2"
+                />
+                <path d="M16 3v4M8 3v4M3 10h18" />
+              </svg>
+
+              {cerita.date}
+            </time>
+
+          </header>
+
+          <!-- SELURUH GAMBAR KOMIK -->
+          <div class="detail-cerita-images">
+
+            {cerita.images.map((gambar, index) => (
+              <figure class="detail-cerita-figure">
+
+                <Image
+                  src={gambar}
+                  alt={`${cerita.title} - Gambar ${index + 1}`}
+                  class="detail-cerita-image"
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+
+              </figure>
+            ))}
+
+          </div>
+
+          <!-- NAVIGASI BAWAH -->
+          <div class="detail-cerita-bottom">
+
+            <a href="/cerita-pendek">
+              ← Kembali ke Daftar Cerita
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR CERITA LAINNYA -->
+        <aside class="detail-cerita-sidebar">
+
+          <header class="detail-cerita-sidebar-heading">
+
+            <span>Taman Baca</span>
+
+            <h2>Cerita Lainnya</h2>
+
+            <div class="detail-cerita-divider"></div>
+
+          </header>
+
+          <div class="detail-cerita-related-list">
+
+            {relatedStories.map((item) => (
+              <a
+                href={`/cerita-pendek/${item.slug}`}
+                class="detail-cerita-related-card"
+              >
+
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  class="detail-cerita-related-image"
+                  loading="lazy"
+                />
+
+                <div class="detail-cerita-related-body">
+
+                  <span class="detail-cerita-related-category">
+                    {item.category}
+                  </span>
+
+                  <h3>{item.title}</h3>
+
+                  <time datetime={item.dateISO}>
+                    {item.date}
+                  </time>
+
+                  <span class="detail-cerita-related-link">
+                    Baca Selengkapnya →
+                  </span>
+
+                </div>
+
+              </a>
+            ))}
+
+          </div>
+
+          <a
+            href="/cerita-pendek"
+            class="detail-cerita-all"
+          >
+            Lihat Semua Cerita →
+          </a>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</MainLayout>

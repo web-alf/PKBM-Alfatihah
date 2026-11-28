@@ -1,32 +1,45 @@
 
 ---
 import tentangKamiImage from "../assets/image/tentang-kami.webp";
+import bukuFotoImage from "../assets/image/Stacked Orange and Purple Books.png";
+
+import daunVisiImage from "../assets/image/Overlapping Green Leaves with Soft Shadow.png";
+import bukuVisiImage from "../assets/image/Glossy Graduation Books and Leaves.png";
+
+import PetikKuning from "./PetikKuning.astro";
+import IkonMisi from "./IkonMisi.astro";
+
 import "../styles/about/TentangKami.css";
 
 const { profilOnly = false } = Astro.props;
 
 const misi = [
   {
+    icon: "quran",
     title: "Membentuk generasi Qur'ani",
     description:
       "melalui penanaman nilai-nilai Islam, pembiasaan ibadah, serta pengembangan kemampuan Tahfidz Al-Qur'an untuk menghasilkan peserta didik yang beriman, bertakwa kepada Allah SWT, dan berakhlak mulia.",
   },
   {
+    icon: "ide",
     title: "Menyelenggarakan pendidikan yang bermutu dan inovatif",
     description:
       "melalui pembelajaran yang kreatif, adaptif, dan berpusat pada peserta didik guna mengembangkan kompetensi akademik maupun nonakademik.",
   },
   {
+    icon: "laptop",
     title: "Mengembangkan kecakapan hidup dan keterampilan digital",
     description:
       "untuk membentuk peserta didik yang mandiri, bernalar kritis, kreatif, produktif, dan mampu menghadapi tantangan perkembangan zaman.",
   },
   {
+    icon: "komunitas",
     title: "Menanamkan karakter berkebhinekaan global",
     description:
       "melalui penguatan sikap toleransi, penghargaan terhadap keberagaman, kecintaan terhadap budaya lokal, serta semangat gotong royong.",
   },
   {
+    icon: "tumbuh",
     title: "Mengembangkan potensi dan kemandirian peserta didik",
     description:
       "melalui program pendidikan kesetaraan, homeschooling, dan pembelajaran keterampilan yang sesuai dengan kebutuhan serta potensi masing-masing peserta didik.",
@@ -36,22 +49,42 @@ const misi = [
 
 <div class="tentang-kami">
 
-  <!-- BAGIAN 1: PROFIL -->
+  <!-- =====================================
+       BAGIAN 1: PROFIL
+  ====================================== -->
+
   <section
     id="tentang-kami"
-    class:list={["tentang-profil", { "is-home": profilOnly }]}
+    class:list={[
+      "tentang-profil",
+      "is-decor",
+      { "is-home": profilOnly }
+    ]}
     aria-labelledby="profil-title"
   >
     <div class="tentang-container">
 
       <div class="tentang-profil-heading">
-        <h2 id="profil-title">Apa itu PKBM Alfatihah?</h2>
+
+        <h2 id="profil-title">
+          Apa itu PKBM Alfatihah?
+        </h2>
+
         <div class="tentang-profil-accent"></div>
+
       </div>
 
       <div class="tentang-profil-grid">
 
-        <div class:list={["tentang-profil-content", { "is-home": profilOnly }]}>
+        <!-- KONTEN KIRI -->
+
+        <div
+          class:list={[
+            "tentang-profil-content",
+            { "is-home": profilOnly }
+          ]}
+        >
+
           <p>
             PKBM Alfatihah adalah tempat belajar yang terbuka untuk
             semua orang, tanpa memandang usia atau latar belakang.
@@ -73,15 +106,23 @@ const misi = [
           )}
 
           {profilOnly && (
-            <a href="/tentang-kami" class="tentang-profil-cta">
+            <a
+              href="/tentang-kami"
+              class="tentang-profil-cta"
+            >
               Kenali Kami Lebih Dekat
               <span aria-hidden="true">↗</span>
             </a>
           )}
+
         </div>
 
-        <div class="tentang-profil-visual">
+        <!-- FOTO KANAN -->
+
+        <div class="tentang-profil-visual is-decor">
+
           <div class="tentang-image-frame">
+
             <img
               src={tentangKamiImage.src}
               width={tentangKamiImage.width}
@@ -90,78 +131,188 @@ const misi = [
               loading="eager"
               decoding="async"
             />
+
           </div>
-          <div class="tentang-image-border" aria-hidden="true"></div>
+
+          <PetikKuning
+            side="right"
+            class="petik-foto-kanan"
+          />
+
+          <img
+            src={bukuFotoImage.src}
+            width={bukuFotoImage.width}
+            height={bukuFotoImage.height}
+            class="buku-foto"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            draggable="false"
+          />
+
         </div>
 
       </div>
     </div>
+
+    <!-- GELOMBANG BAWAH -->
+
+    <svg
+      class="tentang-profil-wave"
+      viewBox="0 0 1440 120"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M0 54 C220 78 430 100 700 86 C960 72 1180 28 1440 42 V120 H0Z"
+      />
+    </svg>
+
   </section>
 
-  <!-- BAGIAN 2: VISI & MISI -->
+  <!-- =====================================
+       BAGIAN 2: VISI & MISI
+  ====================================== -->
+
   {!profilOnly && (
-  <section class="tentang-visi-misi" aria-labelledby="visi-misi-title">
-    <div class="tentang-container">
+    <section
+      class="tentang-visi-misi"
+      aria-labelledby="visi-misi-title"
+    >
 
-      <div class="tentang-section-heading">
-        <h2 id="visi-misi-title">
-          Visi & Misi PKBM Al-Fatihah
-        </h2>
+      <div class="tentang-container">
 
-        <div class="tentang-accent tentang-accent-center"></div>
-      </div>
+        <!-- JUDUL -->
 
-      <div class="tentang-visi-misi-grid">
-        <article class="tentang-card tentang-card-visi">
-          <div class="tentang-card-heading">
-            <span class="tentang-card-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="12" cy="12" r="1" />
-              </svg>
-            </span>
+        <div class="tentang-section-heading">
 
-            <h3>Visi Kami</h3>
-          </div>
+          <h2 id="visi-misi-title">
+            Visi & Misi PKBM Alfatihah
+          </h2>
 
-          <p class="tentang-visi-text">
-            "Terwujudnya PKBM Al-Fatihah sebagai lembaga pendidikan
-            nonformal yang unggul dalam membentuk generasi Qur'ani,
-            berakhlak mulia, kompeten, mandiri, kreatif, dan
-            berwawasan kebhinekaan global."
-          </p>
-        </article>
+          <div class="tentang-accent tentang-accent-center"></div>
 
-        <section class="tentang-misi-section" aria-labelledby="misi-title">
-          <h3 id="misi-title" class="tentang-misi-section-title">
+        </div>
+
+        <!-- =====================================
+             VISI KAMI
+        ====================================== -->
+
+        <div class="visi-wrap">
+
+          <!-- PETIK KUNING -->
+
+          <PetikKuning
+            side="left"
+            class="petik-visi"
+          />
+
+          <!-- KARTU VISI -->
+
+          <article class="visi-card">
+
+            <!-- PANEL UNGU -->
+
+            <div class="visi-card-label">
+
+              <span class="visi-card-icon">
+                <IkonMisi name="target" />
+              </span>
+
+              <h3>Visi Kami</h3>
+
+            </div>
+
+            <!-- PANEL PUTIH -->
+
+            <p class="visi-card-text">
+              “Terwujudnya PKBM Al-Fatihah sebagai lembaga pendidikan
+              nonformal yang unggul dalam membentuk generasi Qur'ani,
+              berakhlak mulia, kompeten, mandiri, kreatif, dan
+              berwawasan kebhinekaan global.”
+            </p>
+
+          </article>
+
+          <!-- DEKORASI DAUN PNG -->
+
+          <img
+            src={daunVisiImage.src}
+            width={daunVisiImage.width}
+            height={daunVisiImage.height}
+            class="daun-visi"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+          />
+
+          <!-- DEKORASI BUKU WISUDA PNG -->
+
+          <img
+            src={bukuVisiImage.src}
+            width={bukuVisiImage.width}
+            height={bukuVisiImage.height}
+            class="buku-visi"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+          />
+
+        </div>
+
+        <!-- =====================================
+             MISI KAMI
+        ====================================== -->
+
+        <section
+          class="tentang-misi-section"
+          aria-labelledby="misi-title"
+        >
+
+          <h3
+            id="misi-title"
+            class="tentang-misi-section-title"
+          >
             Misi Kami
           </h3>
 
           <div class="tentang-misi-grid">
+
             {misi.map((item, index) => (
-              <article class="tentang-misi-card">
-                <div class="tentang-misi-card-heading">
-                  <span class="tentang-misi-number" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h4>{item.title}</h4>
-                </div>
+              <article
+                class={`tentang-misi-card is-${item.icon}`}
+              >
+
+                <span
+                  class="tentang-misi-number"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="tentang-misi-icon">
+                  <IkonMisi name={item.icon} />
+                </span>
+
+                <h4>{item.title}</h4>
+
                 <p>{item.description}</p>
+
               </article>
             ))}
+
           </div>
+
         </section>
+
       </div>
-    </div>
-  </section>
+
+    </section>
   )}
 
 </div>

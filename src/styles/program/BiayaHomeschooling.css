@@ -1,232 +1,490 @@
-
 /* ======================================
    HOMESCHOOLING - RINGKASAN BIAYA
 ====================================== */
 
 .biaya-hs {
+  --biaya-columns:
+    minmax(0, 1.5fr)
+    minmax(0, 1.25fr)
+    minmax(0, 0.8fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1.3fr);
+
+  position: relative;
   width: 100%;
-  padding: 85px 24px;
-  background: #fff9f5;
+
+  padding:
+    var(--pkbm-section-pad, 60px)
+    var(--pkbm-container-pad, 24px);
+
+  background: #FFF9F5;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.biaya-hs * {
+.biaya-hs *,
+.biaya-hs *::before,
+.biaya-hs *::after {
   box-sizing: border-box;
 }
 
 .biaya-hs-container {
-  max-width: 1200px;
+  position: relative;
+  width: 100%;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
-/* HEADING */
+/* ======================================
+   HEADING
+====================================== */
 
 .biaya-hs-heading {
   text-align: center;
-  margin-bottom: 38px;
+  margin-bottom: 24px;
 }
 
 .biaya-hs-heading h2 {
   margin: 0;
-  color: #92197b;
+  color: #92197B;
   font-size: clamp(26px, 3vw, 36px);
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .biaya-hs-line {
   display: block;
-  width: 60px;
+  width: 55px;
   height: 4px;
   margin: 16px auto 0;
-  background: #d9a035;
-  border-radius: 20px;
+  background: #FCD757;
+  border-radius: 999px;
 }
 
-/* MAIN CARD */
+/* ======================================
+   TABEL UTAMA
+====================================== */
 
 .biaya-hs-card {
-  background: #ffffff;
-  border: 1px solid #f0cfe0;
-  border-radius: 20px;
-  padding: 12px 32px;
-  box-shadow: 0 8px 30px rgba(117, 25, 79, 0.04);
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: var(--biaya-columns);
+  grid-template-rows: 48px repeat(5, auto);
+
+  width: 100%;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-/* EACH CLASS */
+/* BACKGROUND KOLOM SPP */
 
-.biaya-hs-item {
-  padding: 26px 0;
+.biaya-hs-card::before {
+  content: "";
+
+  grid-column: 5;
+  grid-row: 1 / 7;
+
+  position: relative;
+  z-index: -1;
+
+  background: #F8E0F0;
+  border-radius: 18px;
 }
 
-.biaya-hs-item:not(:last-child) {
-  border-bottom: 1px solid #f0dce8;
-}
+/* HEADER PROGRAM KELAS */
 
-.biaya-hs-top {
+.biaya-hs-card::after {
+  content: "Program Kelas";
+
+  grid-column: 1;
+  grid-row: 1;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 20px;
+
+  padding: 12px 14px;
+
+  color: #4A0B45;
+  font-size: 13px;
+  font-weight: 700;
 }
 
+/* ======================================
+   BARIS DATA
+====================================== */
+
+.biaya-hs-item {
+  position: relative;
+
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: var(--biaya-columns);
+  grid-template-columns: subgrid;
+
+  align-items: stretch;
+
+  padding: 0;
+  border-bottom: 1px solid #EED5E6;
+}
+
+.biaya-hs-item:nth-child(1) {
+  grid-row: 2;
+  border-top: 1px solid #EED5E6;
+}
+
+.biaya-hs-item:nth-child(2) {
+  grid-row: 3;
+}
+
+.biaya-hs-item:nth-child(3) {
+  grid-row: 4;
+}
+
+.biaya-hs-item:nth-child(4) {
+  grid-row: 5;
+}
+
+.biaya-hs-item:nth-child(5) {
+  grid-row: 6;
+}
+
+.biaya-hs-item:last-child {
+  border-bottom: none;
+}
+
+.biaya-hs-top,
+.biaya-hs-details {
+  display: contents;
+}
+
+/* ======================================
+   NAMA PROGRAM KELAS
+====================================== */
+
 .biaya-hs-class {
-  flex: 1;
+  grid-column: 1;
+  grid-row: 1;
+
+  display: flex;
+  align-items: center;
+
   min-width: 0;
+  padding: 16px 14px;
 }
 
 .biaya-hs-class h3 {
   margin: 0;
-  color: #92197b;
-  font-size: 18px;
+
+  color: #92197B;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.5;
 }
 
-/* MONTHLY PRICE */
-
-.biaya-hs-price {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  text-align: right;
-}
-
-.biaya-hs-price-label {
-  color: #8b7180;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.biaya-hs-price strong {
-  color: #92197b;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-/* OTHER FEES */
-
-.biaya-hs-details {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 20px;
-}
+/* ======================================
+   KOLOM BIAYA
+====================================== */
 
 .biaya-hs-detail {
+  grid-row: 1;
+
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  align-items: center;
+  justify-content: center;
+
   min-width: 0;
+  padding: 16px 14px;
+  text-align: center;
+}
+
+.biaya-hs-detail:nth-child(1) {
+  grid-column: 2;
+}
+
+.biaya-hs-detail:nth-child(2) {
+  grid-column: 3;
+}
+
+.biaya-hs-detail:nth-child(3) {
+  grid-column: 4;
 }
 
 .biaya-hs-detail span {
-  color: #927c8a;
-  font-size: 12px;
-  font-weight: 400;
+  color: #76596B;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 5px;
 }
 
 .biaya-hs-detail strong {
-  color: #584452;
+  color: #382C35;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-/* FOOTNOTES */
+/* ======================================
+   KOLOM SPP PER BULAN
+====================================== */
+
+.biaya-hs-price {
+  grid-column: 5;
+  grid-row: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+  min-width: 0;
+  padding: 16px 14px;
+
+  text-align: center;
+}
+
+.biaya-hs-price-label {
+  color: #92197B;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.biaya-hs-price strong {
+  color: #92197B;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* ======================================
+   HEADER TABEL DESKTOP
+====================================== */
+
+@media (min-width: 769px) {
+
+  /* Hilangkan label berulang secara visual */
+
+  .biaya-hs-detail span,
+  .biaya-hs-price-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .biaya-hs-item:first-child .biaya-hs-detail,
+  .biaya-hs-item:first-child .biaya-hs-price {
+    position: relative;
+  }
+
+  .biaya-hs-item:first-child .biaya-hs-detail::before,
+  .biaya-hs-item:first-child .biaya-hs-price::before {
+    position: absolute;
+
+    top: -49px;
+    left: 0;
+    right: 0;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px;
+
+    color: #4A0B45;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .biaya-hs-item:first-child
+  .biaya-hs-detail:nth-child(1)::before {
+    content: "Pendaftaran (sekali)";
+  }
+
+  .biaya-hs-item:first-child
+  .biaya-hs-detail:nth-child(2)::before {
+    content: "Ujian / semester";
+  }
+
+  .biaya-hs-item:first-child
+  .biaya-hs-detail:nth-child(3)::before {
+    content: "Ijazah";
+  }
+
+  .biaya-hs-item:first-child
+  .biaya-hs-price::before {
+    content: "SPP / bulan";
+    color: #92197B;
+  }
+}
+
+/* ======================================
+   CATATAN BIAYA
+====================================== */
 
 .biaya-hs-notes {
-  margin-top: 22px;
-  padding: 0 5px;
+  margin-top: 20px;
+  padding: 0 14px;
 }
 
 .biaya-hs-notes p {
-  margin: 0 0 9px;
-  color: #805d70;
+  margin: 0 0 7px;
+
+  color: #805D70;
   font-size: 12px;
+  font-weight: 400;
   line-height: 1.8;
 }
 
-/* TABLET */
-@media (max-width: 768px) {
+.biaya-hs-notes p:last-child {
+  margin-bottom: 0;
+}
+
+/* ======================================
+   LAPTOP
+====================================== */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
   .biaya-hs {
-    padding: 65px 20px;
+    --biaya-columns:
+      minmax(0, 1.4fr)
+      minmax(0, 1.2fr)
+      minmax(0, 0.8fr)
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
   }
 
-  .biaya-hs-card {
-    padding: 8px 22px;
-    border-radius: 16px;
-  }
-
-  .biaya-hs-item {
-    padding: 23px 0;
-  }
-
-  .biaya-hs-details {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+  .biaya-hs-class,
+  .biaya-hs-detail,
+  .biaya-hs-price {
+    padding: 16px 10px;
   }
 
   .biaya-hs-class h3 {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .biaya-hs-detail strong {
+    font-size: 13px;
   }
 
   .biaya-hs-price strong {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 
-/* MOBILE */
+/* ======================================
+   TABLET & MOBILE
+====================================== */
 
-@media (max-width: 480px) {
-  .biaya-hs {
-    padding: 55px 16px;
-  }
+@media (max-width: 768px) {
 
   .biaya-hs-heading {
-    margin-bottom: 28px;
-  }
-
-  .biaya-hs-heading h2 {
-    font-size: 25px;
+    margin-bottom: 24px;
   }
 
   .biaya-hs-card {
-    padding: 5px 18px;
-    border-radius: 15px;
+    display: block;
+  }
+
+  .biaya-hs-card::before,
+  .biaya-hs-card::after {
+    display: none;
   }
 
   .biaya-hs-item {
-    padding: 22px 0;
+    display: block;
+    padding: 18px 0;
+    border-bottom: 1px solid #EED5E6;
+  }
+
+  .biaya-hs-item:first-child {
+    padding-top: 0;
+    border-top: none;
   }
 
   .biaya-hs-top {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
+  }
+
+  .biaya-hs-class {
+    flex: 1;
+    padding: 0;
   }
 
   .biaya-hs-class h3 {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .biaya-hs-price {
-    align-items: flex-start;
-    text-align: left;
-    gap: 3px;
+    flex: 0 1 auto;
+    max-width: 48%;
+
+    align-items: flex-end;
+    padding: 10px 12px;
+
+    background: #F8E0F0;
+    border-radius: 12px;
+    text-align: right;
   }
 
   .biaya-hs-price strong {
-    font-size: 18px;
+    font-size: 15px;
+  }
+
+  .biaya-hs-price-label {
+    font-size: 10px;
   }
 
   .biaya-hs-details {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 12px;
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1.4fr)
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    gap: 12px;
+  }
+
+  .biaya-hs-detail {
+    display: flex;
+    grid-column: auto;
+    grid-row: auto;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 0;
+    text-align: left;
+  }
+
+  .biaya-hs-detail:nth-child(n) {
+    grid-column: auto;
   }
 
   .biaya-hs-detail span {
@@ -239,48 +497,48 @@
 
   .biaya-hs-notes {
     margin-top: 18px;
+    padding: 0;
   }
 
   .biaya-hs-notes p {
     font-size: 11px;
-    line-height: 1.8;
   }
 }
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.biaya-hs {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .biaya-hs {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .biaya-hs {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
+/* ======================================
+   MOBILE KECIL
+====================================== */
 
 @media (max-width: 480px) {
-  .biaya-hs {
-    padding-left: 15px;
-    padding-right: 15px;
+
+  .biaya-hs-heading h2 {
+    font-size: 25px;
   }
-}
 
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.biaya-hs {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
-}
+  .biaya-hs-heading {
+    margin-bottom: 24px;
+  }
 
-/* JARAK-ANTARSECTION: margin bawah paragraf terakhir tidak menambah jarak */
-.biaya-hs-notes p:last-child {
-  margin-bottom: 0;
+  .biaya-hs-class h3 {
+    font-size: 14px;
+  }
+
+  .biaya-hs-price {
+    padding: 8px 10px;
+  }
+
+  .biaya-hs-price strong {
+    font-size: 13px;
+  }
+
+  .biaya-hs-details {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .biaya-hs-detail:first-child {
+    grid-column: 1 / -1;
+  }
 }

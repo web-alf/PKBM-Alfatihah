@@ -1,4 +1,3 @@
-
 ---
 import "../styles/program/PilarBelajarSmartLearning.css";
 
@@ -48,7 +47,11 @@ const pilar = [
       <h2 id="pilar-smart-title">
         Apa saja yang bisa dipelajari?
       </h2>
-      <span class="pilar-smart-divider" aria-hidden="true"></span>
+
+      <span
+        class="pilar-smart-divider"
+        aria-hidden="true"
+      ></span>
     </div>
 
     <!-- LIMA PILAR -->
@@ -58,78 +61,373 @@ const pilar = [
 
           <div class="pilar-smart-icon" aria-hidden="true">
 
+            <!-- ACADEMIC: BUKU -->
             {item.icon === "academic" && (
-              <svg viewBox="0 0 48 48" fill="none">
-                <path d="M24 11c-6-4-12-4-18-2v26c6-2 12-2 18 2V11Z"
-                  stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-                <path d="M24 11c6-4 12-4 18-2v26c-6-2-12-2-18 2V11Z"
-                  stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-                <path d="M10 15c4-1 7-.5 10 1M10 21c4-1 7-.5 10 1M28 16c3-1.5 6-2 10-1M28 22c3-1.5 6-2 10-1"
-                  stroke="#D9A035" stroke-width="1.8"
-                  stroke-linecap="round" />
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="academic-cover" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#D884F4" />
+                    <stop offset="1" stop-color="#7130AC" />
+                  </linearGradient>
+
+                  <linearGradient id="academic-page" x1="0" y1="0" x2="0" y2="1">
+                    <stop stop-color="#FFFDF6" />
+                    <stop offset="1" stop-color="#FFE4AC" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse cx="40" cy="68" rx="28" ry="4"
+                  fill="#3C1E66" opacity=".12" />
+
+                <path
+                  d="M8 19Q24 13 40 24Q56 13 72 19V63Q56 57 40 67Q24 57 8 63Z"
+                  fill="#65258E"
+                />
+
+                <path
+                  d="M8 14Q24 8 40 19Q56 8 72 14V58Q56 52 40 62Q24 52 8 58Z"
+                  fill="url(#academic-cover)"
+                  stroke="#7130AC"
+                  stroke-width="2"
+                />
+
+                <path
+                  d="M13 12Q27 8 40 19V56Q27 46 13 50Z"
+                  fill="url(#academic-page)"
+                  stroke="#D9A035"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M67 12Q53 8 40 19V56Q53 46 67 50Z"
+                  fill="url(#academic-page)"
+                  stroke="#D9A035"
+                  stroke-width="1.5"
+                />
+
+                <path d="M40 19V56"
+                  stroke="#D9A035"
+                  stroke-width="2" />
+
+                <path
+                  d="M19 22Q27 21 34 26
+                     M19 30Q27 29 34 34
+                     M19 38Q27 37 34 42
+                     M46 26Q53 21 61 22
+                     M46 34Q53 29 61 30
+                     M46 42Q53 37 61 38"
+                  stroke="#A74E92"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+
+                <path d="M51 14V33L56 29L61 33V12"
+                  fill="#D9A035" />
               </svg>
             )}
 
+            <!-- TAHFIDZ: AL-QUR'AN DAN REHAL -->
             {item.icon === "tahfidz" && (
-              <svg viewBox="0 0 48 48" fill="none">
-                <path d="M6 12c6-2 12-1 18 4 6-5 12-6 18-4v20c-6-2-12-1-18 4-6-5-12-6-18-4V12Z"
-                  stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-                <path d="M24 16v20M10 18c4-1 7 0 10 2M28 20c3-2 6-3 10-2"
-                  stroke="#D9A035" stroke-width="1.8"
-                  stroke-linecap="round" />
-                <path d="M5 37h38" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" />
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="tahfidz-purple" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#D79AF8" />
+                    <stop offset="1" stop-color="#7130AC" />
+                  </linearGradient>
+
+                  <linearGradient id="tahfidz-gold" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#FFE5A1" />
+                    <stop offset="1" stop-color="#D9A035" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse cx="40" cy="69" rx="27" ry="4"
+                  fill="#3C1E66" opacity=".12" />
+
+                <!-- Rehal -->
+                <path
+                  d="M18 47L61 69L67 61L24 39Z"
+                  fill="#65258E"
+                />
+
+                <path
+                  d="M62 47L19 69L13 61L56 39Z"
+                  fill="#65258E"
+                />
+
+                <path
+                  d="M18 43L61 65L67 57L24 35Z"
+                  fill="url(#tahfidz-purple)"
+                />
+
+                <path
+                  d="M62 43L19 65L13 57L56 35Z"
+                  fill="url(#tahfidz-purple)"
+                />
+
+                <!-- Sampul -->
+                <path
+                  d="M7 20Q24 13 40 27Q56 13 73 20L68 49Q53 45 40 56Q27 45 12 49Z"
+                  fill="#7130AC"
+                  stroke="#3C1E66"
+                  stroke-width="2"
+                />
+
+                <!-- Halaman -->
+                <path
+                  d="M11 15Q26 11 40 23V50Q26 39 15 43Z"
+                  fill="url(#tahfidz-gold)"
+                  stroke="#D9A035"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M69 15Q54 11 40 23V50Q54 39 65 43Z"
+                  fill="url(#tahfidz-gold)"
+                  stroke="#D9A035"
+                  stroke-width="1.5"
+                />
+
+                <path d="M40 23V50"
+                  stroke="#A66B24"
+                  stroke-width="2" />
+
+                <path
+                  d="M25 21L31 28L25 35L19 28Z
+                     M55 21L61 28L55 35L49 28Z"
+                  fill="#FFF9F5"
+                  stroke="#A74E92"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M19 38L32 42M48 42L61 38"
+                  stroke="#A74E92"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             )}
 
+            <!-- TAHSIN: MASJID -->
             {item.icon === "tahsin" && (
-              <svg viewBox="0 0 48 48" fill="none">
-                <path d="M8 36V24c0-9 7-14 16-19 9 5 16 10 16 19v12"
-                  stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-                <path d="M5 36h38M12 40h24"
-                  stroke="#D9A035" stroke-width="2"
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="tahsin-dome" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#E3B4FF" />
+                    <stop offset=".5" stop-color="#A96BE1" />
+                    <stop offset="1" stop-color="#7130AC" />
+                  </linearGradient>
+
+                  <linearGradient id="tahsin-wall" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#FFF3FB" />
+                    <stop offset="1" stop-color="#D7B0EF" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse cx="40" cy="69" rx="27" ry="4"
+                  fill="#3C1E66" opacity=".12" />
+
+                <!-- Bulan sabit -->
+                <path
+                  d="M42 3A10 10 0 1 0 52 15A8 8 0 0 1 42 3Z"
+                  fill="#FFD17B"
+                  stroke="#D9A035"
+                  stroke-width="1"
+                />
+
+                <path d="M40 18V23"
+                  stroke="#D9A035"
+                  stroke-width="2.5" />
+
+                <!-- Bangunan -->
+                <rect x="18" y="39" width="44" height="27" rx="2"
+                  fill="url(#tahsin-wall)" />
+
+                <!-- Kubah -->
+                <path
+                  d="M15 39Q15 32 40 20Q65 32 65 39Z"
+                  fill="url(#tahsin-dome)"
+                  stroke="#7130AC"
+                  stroke-width="2"
+                />
+
+                <path d="M22 34Q27 28 39 24"
+                  stroke="#F1D5FF"
+                  stroke-width="2"
                   stroke-linecap="round" />
-                <path d="M24 5V2"
-                  stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" />
-                <path d="M20 36v-8a4 4 0 0 1 8 0v8"
-                  stroke="currentColor" stroke-width="2" />
+
+                <!-- Menara -->
+                <rect x="8" y="35" width="9" height="31"
+                  fill="#C8A1EA" />
+
+                <rect x="63" y="35" width="9" height="31"
+                  fill="#C8A1EA" />
+
+                <path d="M5 36L12.5 24L20 36Z"
+                  fill="#8D43BF" />
+
+                <path d="M60 36L67.5 24L75 36Z"
+                  fill="#8D43BF" />
+
+                <!-- Pintu -->
+                <path
+                  d="M31 66V52Q40 37 49 52V66Z"
+                  fill="#FFD17B"
+                  stroke="#D9A035"
+                  stroke-width="1.5"
+                />
+
+                <path d="M40 48V66"
+                  stroke="#D9A035"
+                  stroke-width="1.5" />
+
+                <!-- Jendela -->
+                <rect x="22" y="46" width="6" height="12" rx="3"
+                  fill="#A96BE1" />
+
+                <rect x="52" y="46" width="6" height="12" rx="3"
+                  fill="#A96BE1" />
+
+                <rect x="5" y="65" width="70" height="5" rx="2.5"
+                  fill="#7130AC" />
               </svg>
             )}
 
+            <!-- ENGLISH: SPEECH BUBBLE -->
             {item.icon === "english" && (
-              <svg viewBox="0 0 48 48" fill="none">
-                <path d="M22 9C12 9 5 15 5 23c0 4 2 7 5 10l-2 7 9-4c2 .5 4 .7 5 .7 10 0 17-6 17-14S32 9 22 9Z"
-                  stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-                <path d="M30 15c8 1 13 6 13 13 0 3-1 6-4 8l1 6-7-3"
-                  stroke="#D9A035" stroke-width="2"
-                  stroke-linejoin="round" />
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="english-back" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#D9A9FF" />
+                    <stop offset="1" stop-color="#8243BD" />
+                  </linearGradient>
+
+                  <linearGradient id="english-front" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#F0A5E3" />
+                    <stop offset="1" stop-color="#A74E92" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse cx="40" cy="69" rx="25" ry="4"
+                  fill="#3C1E66" opacity=".12" />
+
+                <!-- Bubble belakang -->
+                <path
+                  d="M46 25C62 25 73 35 73 47C73 54 69 59 64 62L66 70L54 64C37 66 27 58 27 46C27 34 35 25 46 25Z"
+                  fill="url(#english-back)"
+                  stroke="#7130AC"
+                  stroke-width="2"
+                />
+
+                <!-- Bubble utama -->
+                <path
+                  d="M34 12C51 12 63 22 63 36C63 50 50 60 34 60L20 68L22 57C12 53 6 45 6 36C6 22 17 12 34 12Z"
+                  fill="url(#english-front)"
+                  stroke="#92197B"
+                  stroke-width="2"
+                />
+
+                <!-- Bagian putih -->
+                <path
+                  d="M34 18C47 18 57 26 57 36C57 46 47 53 34 53C21 53 12 46 12 36C12 26 21 18 34 18Z"
+                  fill="#FFF9F5"
+                />
+
+                <circle cx="23" cy="36" r="3.5" fill="#A74E92" />
+                <circle cx="34" cy="36" r="3.5" fill="#D9A035" />
+                <circle cx="45" cy="36" r="3.5" fill="#A74E92" />
+
+                <path d="M16 25Q23 18 34 18"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                  stroke-linecap="round" />
               </svg>
             )}
 
+            <!-- AI: MICROCHIP -->
             {item.icon === "ai" && (
-              <svg viewBox="0 0 48 48" fill="none">
-                <rect x="11" y="11" width="26" height="26" rx="4"
-                  stroke="currentColor" stroke-width="2" />
-                <path d="M17 3v8M24 3v8M31 3v8M17 37v8M24 37v8M31 37v8M3 17h8M3 24h8M3 31h8M37 17h8M37 24h8M37 31h8"
-                  stroke="#D9A035" stroke-width="2"
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="ai-chip" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#E2A5F7" />
+                    <stop offset="1" stop-color="#8243BD" />
+                  </linearGradient>
+
+                  <linearGradient id="ai-center" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#FFE5A1" />
+                    <stop offset="1" stop-color="#D9A035" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse cx="40" cy="72" rx="25" ry="4"
+                  fill="#3C1E66" opacity=".12" />
+
+                <!-- Kaki chip -->
+                <g stroke="#A74E92"
+                  stroke-width="4"
+                  stroke-linecap="round">
+                  <path d="M25 7V18M40 7V18M55 7V18" />
+                  <path d="M25 62V73M40 62V73M55 62V73" />
+                  <path d="M7 25H18M7 40H18M7 55H18" />
+                  <path d="M62 25H73M62 40H73M62 55H73" />
+                </g>
+
+                <g fill="#FFD17B">
+                  <circle cx="25" cy="7" r="2.5" />
+                  <circle cx="40" cy="7" r="2.5" />
+                  <circle cx="55" cy="7" r="2.5" />
+                  <circle cx="25" cy="73" r="2.5" />
+                  <circle cx="40" cy="73" r="2.5" />
+                  <circle cx="55" cy="73" r="2.5" />
+                  <circle cx="7" cy="25" r="2.5" />
+                  <circle cx="7" cy="40" r="2.5" />
+                  <circle cx="7" cy="55" r="2.5" />
+                  <circle cx="73" cy="25" r="2.5" />
+                  <circle cx="73" cy="40" r="2.5" />
+                  <circle cx="73" cy="55" r="2.5" />
+                </g>
+
+                <!-- Badan chip -->
+                <rect x="16" y="19" width="48" height="48" rx="9"
+                  fill="#7130AC" />
+
+                <rect x="16" y="15" width="48" height="48" rx="9"
+                  fill="url(#ai-chip)"
+                  stroke="#7130AC"
+                  stroke-width="2" />
+
+                <rect x="21" y="20" width="38" height="38" rx="6"
+                  stroke="#F4D5FF"
+                  stroke-width="1.5" />
+
+                <!-- Bagian tengah -->
+                <rect x="26" y="25" width="28" height="28" rx="5"
+                  fill="url(#ai-center)"
+                  stroke="#D9A035"
+                  stroke-width="1.5" />
+
+                <text
+                  x="40"
+                  y="45"
+                  text-anchor="middle"
+                  fill="#3C1E66"
+                  font-size="19"
+                  font-weight="800"
+                  font-family="Arial, sans-serif"
+                >AI</text>
+
+                <path d="M22 27V23H28"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
                   stroke-linecap="round" />
-                <text x="24" y="29" text-anchor="middle"
-                  fill="currentColor" font-size="14"
-                  font-weight="700" font-family="Arial, sans-serif">
-                  AI
-                </text>
               </svg>
             )}
 
           </div>
 
           <h3>{item.judul}</h3>
+
           <p>{item.deskripsi}</p>
 
         </article>

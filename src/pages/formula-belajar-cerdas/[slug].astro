@@ -1,0 +1,164 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { formulaBelajar } from "../../data/formula-belajar";
+import "../../styles/program/DetailFormulaBelajar.css";
+
+export function getStaticPaths() {
+  return formulaBelajar.map((article) => ({
+    params: {
+      slug: article.slug,
+    },
+    props: {
+      article,
+    },
+  }));
+}
+
+const { article } = Astro.props;
+
+const relatedArticles = formulaBelajar.filter(
+  (item) => item.slug !== article.slug
+);
+---
+
+<MainLayout
+  title={`${article.title} | PKBM Alfatihah`}
+  description={article.excerpt}
+>
+  <section class="detail-formula">
+    <div class="detail-formula-container">
+
+      <!-- TOMBOL KEMBALI -->
+      <a
+        href="/formula-belajar-cerdas"
+        class="detail-formula-back"
+      >
+        ← Kembali ke Formula Belajar Cerdas
+      </a>
+
+      <div class="detail-formula-layout">
+
+        <!-- ARTIKEL UTAMA -->
+        <article class="detail-formula-article">
+
+          <!-- JUDUL ARTIKEL -->
+          <header class="detail-formula-heading">
+
+            <span class="detail-formula-badge">
+              {article.category}
+            </span>
+
+            <h1>{article.title}</h1>
+
+            <div class="detail-formula-divider"></div>
+
+            <div class="detail-formula-meta">
+
+              <span>{article.author}</span>
+
+              <span class="detail-formula-dot"></span>
+
+              <time datetime={article.dateISO}>
+                {article.date}
+              </time>
+
+            </div>
+
+          </header>
+
+          <!-- GAMBAR ARTIKEL -->
+          <Image
+            src={article.image}
+            alt={article.title}
+            class="detail-formula-image"
+            loading="eager"
+          />
+
+          <!-- ISI ARTIKEL -->
+          <div class="detail-formula-content">
+            <Fragment set:html={article.content} />
+          </div>
+
+          <!-- PENULIS DAN EDITOR -->
+          <div class="detail-formula-credit">
+
+            <p>
+              <strong>Penulis:</strong>
+              {article.writer}
+            </p>
+
+            <p>
+              <strong>Editor:</strong>
+              {article.editor}
+            </p>
+
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR ARTIKEL LAINNYA -->
+        <aside class="detail-formula-sidebar">
+
+          <div class="detail-sidebar-heading">
+
+            <span>Formula Belajar Cerdas</span>
+
+            <h2>Artikel Lainnya</h2>
+
+            <div class="detail-formula-divider"></div>
+
+          </div>
+
+          <div class="detail-related-list">
+
+            {relatedArticles.map((item) => (
+              <a
+                href={`/formula-belajar-cerdas/${item.slug}`}
+                class="detail-related-card"
+              >
+
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  class="detail-related-image"
+                  loading="lazy"
+                />
+
+                <div class="detail-related-body">
+
+                  <span class="detail-related-category">
+                    {item.topic}
+                  </span>
+
+                  <h3>{item.title}</h3>
+
+                  <time datetime={item.dateISO}>
+                    {item.date}
+                  </time>
+
+                  <span class="detail-related-link">
+                    Baca Selengkapnya →
+                  </span>
+
+                </div>
+
+              </a>
+            ))}
+
+          </div>
+
+          <a
+            href="/formula-belajar-cerdas"
+            class="detail-all-articles"
+          >
+            Lihat Semua Artikel →
+          </a>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+</MainLayout>

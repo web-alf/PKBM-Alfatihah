@@ -1,7 +1,11 @@
 
 ---
 import { Image } from "astro:assets";
-import smartLearningImage from "../assets/image/smartlearning.webp";
+
+import smartLearningImage from "../assets/image/tutordatangkerumah.webp";
+import booksImage from "../assets/image/Colorful Stacked Books with Green Leaves.webp";
+import leavesImage from "../assets/image/Overlapping Green Leaf Bush.png";
+
 import "../styles/program/HeroSmartLearning.css";
 
 const whatsappUrl = "https://wa.me/6285319485269";
@@ -10,123 +14,196 @@ const whatsappUrl = "https://wa.me/6285319485269";
 <section class="smart-hero" id="smart-learning">
   <div class="smart-hero-container">
 
-    <!-- GAMBAR BAGIAN ATAS -->
-    <div class="smart-hero-image">
-      <Image
-        src={smartLearningImage}
-        alt="Alfatihah Smart Learning"
-        class="smart-hero-logo"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </div>
+    <!-- KONTEN KIRI -->
+    <div class="smart-hero-content">
 
-    <!-- BADGE PROGRAM -->
-    <div class="smart-hero-badges">
-      <span class="smart-hero-program-badge">
-        PROGRAM LES PRIVAT
-      </span>
-    </div>
+      <!-- BADGE PROGRAM -->
+      <div class="smart-hero-badges">
+        <span class="smart-hero-program-badge">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m2 10 10-5 10 5-10 5-10-5Z" />
+            <path d="M6 12v5c3 2 9 2 12 0v-5" />
+            <path d="M22 10v6" />
+          </svg>
 
-    <!-- JUDUL -->
-    <h1 class="smart-hero-title">
-      Alfatihah
-      <span>Smart Learning</span>
-    </h1>
-
-    <div class="smart-hero-divider" aria-hidden="true"></div>
-
-    <!-- DESKRIPSI -->
-    <p class="smart-hero-description">
-      Alfatihah Smart Learning adalah layanan les privat dari
-      PKBM Alfatihah Semarang dengan tutor pilihan: dari akademik,
-      Tahfidz, hingga English &amp; AI, dengan harga ramah untuk
-      keluarga. Belajar bisa di PKBM, secara online, atau tutor
-      datang ke rumah.
-    </p>
-
-    <!-- TAGLINE -->
-    <p class="smart-hero-tagline">
-      Personalized Learning
-      <span>•</span>
-      Islamic Values
-      <span>•</span>
-      Future Skills
-    </p>
-
-    <!-- PROMO PENDAFTARAN -->
-    <div class="smart-hero-promo">
-      <div class="smart-hero-promo-icon" aria-hidden="true">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1-.6-1.4V4a1 1 0 0 1 1-1h8a2 2 0 0 1 1.4.6l7.4 7a2 2 0 0 1 0 2.8Z"
-          />
-          <circle cx="7.5" cy="7.5" r="1.2" />
-        </svg>
+          PROGRAM LES PRIVAT
+        </span>
       </div>
 
-      <div class="smart-hero-promo-content">
-        <p class="smart-hero-promo-heading">
-          Diskon pendaftaran 50%
-        </p>
+      <!-- JUDUL -->
+      <h1 class="smart-hero-title">
+        Alfatihah
+        <span>Smart Learning</span>
+      </h1>
 
-        <div class="smart-hero-promo-prices">
-          <strong class="smart-hero-promo-price">
-            Rp150.000
-          </strong>
+      <!-- DESKRIPSI -->
+      <p class="smart-hero-description">
+        Alfatihah Smart Learning adalah layanan les privat dari
+        PKBM Alfatihah Semarang dengan tutor pilihan: dari akademik,
+        Tahfidz, hingga English &amp; AI, dengan harga ramah untuk
+        keluarga. Belajar bisa di PKBM, secara online, atau tutor
+        datang ke rumah.
+      </p>
 
-          <span class="smart-hero-promo-normal">
-            normal <del>Rp300.000</del>
-          </span>
+      <!-- TAGLINE -->
+      <p class="smart-hero-tagline">
+        <span class="smart-hero-tag">Personalized Learning</span>
+        <span class="smart-hero-tag-dot">•</span>
+        <span class="smart-hero-tag">Islamic Values</span>
+        <span class="smart-hero-tag-dot">•</span>
+        <span class="smart-hero-tag">Future Skills</span>
+      </p>
+
+      <!-- PROMO PENDAFTARAN -->
+      <div class="smart-hero-promo">
+        <div class="smart-hero-promo-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1-.6-1.4V4a1 1 0 0 1 1-1h8a2 2 0 0 1 1.4.6l7.4 7a2 2 0 0 1 0 2.8Z"
+            />
+            <circle cx="7.5" cy="7.5" r="1.2" />
+          </svg>
         </div>
 
-        <p class="smart-hero-promo-note">
-          Berlaku sampai kuota terpenuhi
-        </p>
+        <div class="smart-hero-promo-content">
+          <p class="smart-hero-promo-heading">
+            Diskon pendaftaran 50%
+          </p>
+
+          <div class="smart-hero-promo-prices">
+            <strong class="smart-hero-promo-price">
+              Rp150.000
+            </strong>
+
+            <span class="smart-hero-promo-normal">
+              normal <del>Rp300.000</del>
+            </span>
+          </div>
+
+          <p class="smart-hero-promo-note">
+            Berlaku sampai kuota terpenuhi
+          </p>
+        </div>
       </div>
+
+      <!-- TOMBOL CTA -->
+      <div class="smart-hero-actions">
+        <a
+          href={whatsappUrl}
+          class="smart-hero-button smart-hero-button-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"
+            />
+            <path d="M8.5 8.5c.3 3 3 5.7 6 6l1.5-1.5 2 1" />
+          </svg>
+
+          Konsultasi via WhatsApp
+        </a>
+
+        <a
+          href="#harga"
+          class="smart-hero-button smart-hero-button-outline"
+        >
+          Lihat Harga
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
     </div>
 
-    <!-- TOMBOL CTA -->
-    <div class="smart-hero-actions">
-      <a
-        href={whatsappUrl}
-        class="smart-hero-button smart-hero-button-primary"
-        target="_blank"
-        rel="noopener noreferrer"
+    <!-- VISUAL KANAN -->
+    <div class="smart-hero-visual">
+
+      <!-- AWAN -->
+      <svg
+        class="smart-hero-cloud"
+        viewBox="0 0 150 70"
+        aria-hidden="true"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path
-            d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"
+        <path
+          d="M23 61C10 61 4 53 4 43C4 32 14 23 26 23C31 23 36 25 40 28C44 12 58 4 73 4C91 4 104 16 108 31C113 27 120 25 127 27C140 29 147 39 147 49C147 57 140 61 130 61Z"
+          fill="currentColor"
+        />
+      </svg>
+
+      <!-- DAUN BELAKANG FOTO -->
+      <Image
+        src={leavesImage}
+        alt=""
+        class="smart-hero-leaves"
+        aria-hidden="true"
+        loading="eager"
+      />
+
+      <!-- BINGKAI FOTO -->
+      <div class="smart-hero-image-frame">
+        <div class="smart-hero-image-inner">
+          <Image
+            src={smartLearningImage}
+            alt="Alfatihah Smart Learning"
+            class="smart-hero-photo"
+            loading="eager"
+            fetchpriority="high"
           />
-          <path d="M8.5 8.5c.3 3 3 5.7 6 6l1.5-1.5 2 1" />
-        </svg>
+        </div>
+      </div>
 
-        Konsultasi via WhatsApp
-      </a>
+      <!-- BUKU DEPAN FOTO -->
+      <Image
+        src={booksImage}
+        alt=""
+        class="smart-hero-books"
+        aria-hidden="true"
+        loading="eager"
+      />
 
-      <a
-        href="#harga"
-        class="smart-hero-button smart-hero-button-outline"
-      >
-        Lihat Harga
-        <span aria-hidden="true">↓</span>
-      </a>
     </div>
 
   </div>
+
+  <!-- GELOMBANG BAWAH HERO -->
+  <svg
+    class="smart-hero-wave"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0 44
+         C160 80 260 104 420 83
+         C570 64 680 103 830 81
+         C990 57 1080 30 1220 54
+         C1320 72 1380 38 1440 35
+         V120 H0 Z"
+    />
+  </svg>
+
 </section>

@@ -1,0 +1,373 @@
+/* SECTION LEGALITAS: Legalitas Ijazah + Legalitas PKBM Alfatihah */
+
+.legalitas-section {
+  --legalitas-magenta: #92197b;
+  --legalitas-text: var(--pkbm-text-muted, #51434c);
+  --legalitas-pink: #f6dcec;
+  --legalitas-shadow: 0 10px 26px rgba(146, 25, 123, 0.14);
+  padding: 0 var(--pkbm-container-pad) 80px;
+  background: var(--pkbm-blush, #fff5fa);
+  font-family: "Poppins", sans-serif;
+  color: var(--legalitas-text);
+}
+
+.legalitas-layout {
+  display: grid;
+  grid-template-columns: 42fr auto 58fr;
+  column-gap: clamp(24px, 3.5vw, 48px);
+  align-items: stretch;
+}
+
+.legalitas-divider {
+  width: 1px;
+  background: var(--legalitas-pink);
+}
+
+.legalitas-col p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+/* Judul rata kiri + garis kuning */
+
+.legalitas-title {
+  margin: 0;
+  color: var(--pkbm-magenta, #a20077);
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.legalitas-accent {
+  width: 55px;
+  height: 4px;
+  margin: 14px 0 20px;
+  border-radius: 10px;
+  background: #ffc400;
+}
+
+/* Kejar Paket */
+
+.paket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paket-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 16px 10px 14px;
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fff0f8 100%);
+  box-shadow: var(--legalitas-shadow);
+  text-align: center;
+}
+
+.paket-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 6px;
+  color: var(--legalitas-magenta);
+}
+
+.paket-card strong {
+  color: var(--legalitas-text);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.paket-card span {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Daftar legalitas + carousel */
+
+.legalitas-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(210px, 40%, 270px);
+  gap: clamp(20px, 2.5vw, 32px);
+  align-items: start;
+}
+
+.legalitas-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legalitas-list li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.legalitas-check {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-top: 0.25em;
+  border-radius: 50%;
+  background: var(--legalitas-magenta);
+  color: #ffffff;
+}
+
+.legalitas-check .ikon-centang {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Carousel */
+
+.legalitas-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.legalitas-frame {
+  padding: 8px;
+  border: 2px solid #ffd9c2;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: var(--legalitas-shadow);
+}
+
+.legalitas-track {
+  display: flex;
+  overflow-x: hidden;
+  border-radius: 12px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  touch-action: pan-y;
+}
+
+.legalitas-track::-webkit-scrollbar {
+  display: none;
+}
+
+.legalitas-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  aspect-ratio: 1240 / 1753;
+}
+
+.legalitas-open {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.legalitas-open img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.legalitas-carousel .petik-kuning.legalitas-petik {
+  position: absolute;
+  top: -34px;
+  right: -16px;
+  bottom: auto;
+  left: auto;
+  width: 42px;
+  height: auto;
+  transform: none;
+  pointer-events: none;
+}
+
+.legalitas-nav {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--legalitas-pink);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--legalitas-magenta);
+  box-shadow: 0 4px 12px rgba(146, 25, 123, 0.18);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.legalitas-nav svg {
+  width: 16px;
+  height: 16px;
+}
+
+.legalitas-nav.is-prev {
+  left: -14px;
+}
+
+.legalitas-nav.is-next {
+  right: -14px;
+}
+
+.legalitas-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.legalitas-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--legalitas-pink);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.legalitas-dot.is-active {
+  background: var(--legalitas-magenta);
+}
+
+/* Lightbox */
+
+.legalitas-modal {
+  max-width: min(92vw, 720px);
+  max-height: 92vh;
+  margin: auto;
+  padding: 10px;
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+  overflow: visible;
+}
+
+.legalitas-modal::backdrop {
+  background: rgba(60, 20, 55, 0.7);
+}
+
+.legalitas-modal img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(92vh - 20px);
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.legalitas-modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--legalitas-magenta);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.legalitas-modal-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Tablet: kolom kanan menumpuk daftar di atas carousel */
+
+@media (max-width: 1100px) {
+  .legalitas-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .legalitas-carousel {
+    max-width: 260px;
+    margin: 8px auto 0;
+  }
+}
+
+/* Satu kolom */
+
+@media (max-width: 860px) {
+  .legalitas-layout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 44px;
+  }
+
+  .legalitas-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .legalitas-section {
+    padding: 0 var(--pkbm-container-pad) 64px;
+  }
+
+  .legalitas-col p,
+  .legalitas-list li {
+    font-size: 14px;
+  }
+
+  .paket-grid {
+    gap: 8px;
+  }
+
+  .paket-card {
+    padding: 14px 6px 12px;
+    border-radius: 16px;
+  }
+
+  .paket-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .paket-card strong {
+    font-size: 13px;
+  }
+
+  .paket-card span {
+    font-size: 12px;
+  }
+
+  .legalitas-carousel .petik-kuning.legalitas-petik {
+    right: -10px;
+    width: 36px;
+  }
+
+  .legalitas-nav.is-prev {
+    left: -10px;
+  }
+
+  .legalitas-nav.is-next {
+    right: -10px;
+  }
+}

@@ -2,6 +2,10 @@
 ---
 import "../styles/program/StudyGroupHomeschooling.css";
 
+import peopleImage from "../assets/image/Layered Magenta People Icon.webp";
+import booksImage from "../assets/image/Colorful Stacked Books with Green Leaves.webp";
+import clipboardImage from "../assets/image/Vibrant 3D Clipboard Checklist Icon.webp";
+
 const kelompok = [
   {
     siswa: "2 Siswa",
@@ -63,27 +67,93 @@ const biayaLainnya = [
 <section
   class="study-hs"
   id="study-group-homeschooling"
+  aria-labelledby="study-hs-title"
 >
-  <div class="study-hs-container">
 
-    <!-- JUDUL SECTION -->
-    <div class="study-hs-heading">
-      <h2>Study Group</h2>
+  <!-- BANNER JUDUL BERGELOMBANG -->
+  <div class="study-hs-banner">
 
-      <span class="study-hs-heading-line"></span>
+    <!-- GELOMBANG ATAS -->
+    <svg
+      class="study-hs-wave study-hs-wave-top"
+      viewBox="0 0 1440 80"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 0 H1440 V35
+        C1280 0 1160 12 1010 35
+        C830 65 730 5 560 20
+        C380 42 280 65 150 30
+        C90 15 40 20 0 35 Z"
+      />
+    </svg>
 
-      <p>
-        Belajar berkelompok dalam satu kelas, lebih
-        interaktif dan kolaboratif. Online via Zoom,
-        atau offline di lokasi yang disepakati
-        peserta dan tutor.
-      </p>
+    <div class="study-hs-banner-inner">
+
+      <!-- DEKORASI KIRI -->
+      <img
+        class="study-hs-people"
+        src={peopleImage.src}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+
+      <!-- JUDUL DAN DESKRIPSI -->
+      <div class="study-hs-heading">
+        <h2 id="study-hs-title">
+          Study Group
+        </h2>
+
+        <span
+          class="study-hs-heading-line"
+          aria-hidden="true"
+        ></span>
+
+        <p>
+          Belajar berkelompok dalam satu kelas, lebih
+          interaktif dan kolaboratif. Online via Zoom,
+          atau offline di lokasi yang disepakati
+          peserta dan tutor.
+        </p>
+      </div>
+
+      <!-- DEKORASI KANAN -->
+      <img
+        class="study-hs-books"
+        src={booksImage.src}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+
     </div>
 
-    <!-- KONTEN UTAMA -->
+    <!-- GELOMBANG BAWAH -->
+    <svg
+      class="study-hs-wave study-hs-wave-bottom"
+      viewBox="0 0 1440 80"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 35
+        C180 70 300 5 480 30
+        C660 55 790 70 960 35
+        C1140 0 1280 65 1440 25
+        V80 H0 Z"
+      />
+    </svg>
+
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <div class="study-hs-container">
+
     <div class="study-hs-content">
 
-      <!-- GRAFIK PERSENTASE -->
+      <!-- DIAGRAM BATANG -->
       <div class="study-hs-chart-section">
 
         <div class="study-hs-chart-heading">
@@ -93,6 +163,7 @@ const biayaLainnya = [
 
         <div
           class="study-hs-chart"
+          role="img"
           aria-label="Perbandingan biaya Study Group: 2 siswa membayar 75 persen, 3 siswa 62 persen, 4 siswa 54 persen, dan 5 siswa 48 persen dari biaya individu."
         >
           {
@@ -112,6 +183,7 @@ const biayaLainnya = [
                   style={`--bar-height: ${item.persen}%; --bar-delay: ${index * 0.12}s`}
                 >
                   <div class="study-hs-bar-content">
+
                     <strong class="study-hs-percent">
                       {item.persen}%
                     </strong>
@@ -119,6 +191,7 @@ const biayaLainnya = [
                     <span class="study-hs-bar-caption">
                       dari biaya individu
                     </span>
+
                   </div>
                 </div>
 
@@ -131,78 +204,161 @@ const biayaLainnya = [
 
       <!-- RINCIAN BIAYA -->
       <div class="study-hs-fees">
+
         <h3 class="study-hs-fees-heading">
           Rincian Biaya Study Group
         </h3>
 
-        <div class="study-hs-fee-cards">
-          <!-- PENDAFTARAN -->
-          <div class="study-hs-detail">
-            <h4>Biaya Pendaftaran</h4>
+        <div class="study-hs-fees-layout">
 
-            <div class="study-hs-divider"></div>
+          <div class="study-hs-fee-cards">
 
-            <div class="study-hs-fee-list">
-              {
-                biayaPendaftaran.map((biaya) => (
-                  <div class="study-hs-fee-row">
-                    <span>{biaya.label}</span>
-                    <strong>{biaya.harga}</strong>
-                  </div>
-                ))
-              }
+            <!-- BIAYA PENDAFTARAN -->
+            <div class="study-hs-detail">
+
+              <div class="study-hs-detail-heading">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="5" y="4" width="14" height="17" rx="2"/>
+                  <path d="M9 4V2h6v2M9 9h6M9 13h6M9 17h4"/>
+                </svg>
+
+                <h4>Biaya Pendaftaran</h4>
+
+              </div>
+
+              <div class="study-hs-divider"></div>
+
+              <div class="study-hs-fee-list">
+                {
+                  biayaPendaftaran.map((biaya) => (
+                    <div class="study-hs-fee-row">
+                      <span>{biaya.label}</span>
+                      <strong>{biaya.harga}</strong>
+                    </div>
+                  ))
+                }
+              </div>
+
+              <p class="study-hs-registration-note">
+                SPP bulan pertama menyesuaikan
+                jumlah peserta.
+              </p>
+
             </div>
 
-            <p class="study-hs-registration-note">
-              SPP bulan pertama menyesuaikan
-              jumlah peserta.
-            </p>
-          </div>
+            <!-- BIAYA LAINNYA -->
+            <div class="study-hs-detail">
 
-          <!-- BIAYA LAINNYA -->
-          <div class="study-hs-detail">
-            <h4>Biaya Lainnya</h4>
+              <div class="study-hs-detail-heading">
 
-            <div class="study-hs-divider"></div>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="7" width="18" height="14" rx="2"/>
+                  <path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"/>
+                </svg>
 
-            <div class="study-hs-fee-list">
-              {
-                biayaLainnya.map((biaya) => (
-                  <div class="study-hs-fee-row">
-                    <span>{biaya.label}</span>
-                    <strong>{biaya.harga}</strong>
-                  </div>
-                ))
-              }
+                <h4>Biaya Lainnya</h4>
+
+              </div>
+
+              <div class="study-hs-divider"></div>
+
+              <div class="study-hs-fee-list">
+                {
+                  biayaLainnya.map((biaya) => (
+                    <div class="study-hs-fee-row">
+                      <span>{biaya.label}</span>
+                      <strong>{biaya.harga}</strong>
+                    </div>
+                  ))
+                }
+              </div>
+
             </div>
+
           </div>
+
+          <!-- DEKORASI CLIPBOARD -->
+          <div class="study-hs-clipboard-wrap">
+            <img
+              class="study-hs-clipboard"
+              src={clipboardImage.src}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
         </div>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 <script>
-  const chart = document.querySelector(
-    "#study-group-homeschooling .study-hs-chart",
-  );
+  function initStudyChart() {
+    const chart = document.querySelector(
+      "#study-group-homeschooling .study-hs-chart"
+    );
 
-  if (chart instanceof HTMLElement) {
+    if (!(chart instanceof HTMLElement)) return;
+
+    if (chart.dataset.initialized === "true") return;
+
+    chart.dataset.initialized = "true";
+
     if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          chart.classList.add("is-visible");
-          observer.unobserve(chart);
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+
+            chart.classList.add("is-visible");
+
+            observer.unobserve(chart);
+
+          }
+        },
+        {
+          threshold: 0.2,
         }
-      }, {
-        threshold: 0.2,
-      });
+      );
+
+      chart.classList.add("is-animated");
 
       observer.observe(chart);
+
     } else {
+
       chart.classList.add("is-visible");
+
     }
   }
+
+  initStudyChart();
+
+  document.addEventListener(
+    "astro:page-load",
+    initStudyChart
+  );
 </script>

@@ -1,0 +1,157 @@
+---
+import { Image } from "astro:assets";
+import { formulaBelajar } from "../data/formula-belajar";
+import { ceritaPendek } from "../data/cerita-pendek";
+import "../styles/program/BeritaAcara.css";
+
+// =========================================
+// DATA FORMULA BELAJAR CERDAS
+// =========================================
+
+const formulaPosts = formulaBelajar.map((item) => ({
+  ...item,
+  href: `/formula-belajar-cerdas/${item.slug}`,
+}));
+
+// =========================================
+// DATA CERITA PENDEK
+// =========================================
+
+const ceritaPosts = ceritaPendek.map((item) => ({
+  ...item,
+  href: `/cerita-pendek/${item.slug}`,
+}));
+
+// =========================================
+// GABUNGKAN DATA DAN URUTKAN TANGGAL
+// =========================================
+
+const beritaAcara = [
+  ...formulaPosts,
+  ...ceritaPosts,
+].sort((a, b) => b.dateISO.localeCompare(a.dateISO));
+---
+
+<section
+  class="berita-acara"
+  aria-labelledby="berita-acara-title"
+>
+  <div class="berita-acara-container">
+
+    <!-- HEADING -->
+    <header class="berita-acara-heading">
+
+      <h1 id="berita-acara-title">
+        Berita Acara
+      </h1>
+
+      <div class="berita-acara-divider"></div>
+
+      <p>
+        Kumpulan laporan kegiatan, dokumentasi, dan
+        informasi terbaru dari PKBM Alfatihah.
+      </p>
+
+    </header>
+
+    <!-- GRID BERITA -->
+    <div class="berita-acara-grid">
+
+      {beritaAcara.map((berita) => (
+        <article class="berita-card">
+
+          <!-- GAMBAR -->
+          <div class="berita-card-media">
+
+            <a
+              href={berita.href}
+              class="berita-card-image-link"
+              aria-label={berita.title}
+            >
+              <Image
+                src={berita.image}
+                alt={berita.title}
+                class="berita-card-image"
+                loading="lazy"
+              />
+            </a>
+
+            <!-- KATEGORI -->
+            <span class="berita-card-category">
+              {berita.category}
+            </span>
+
+          </div>
+
+          <!-- KONTEN -->
+          <div class="berita-card-body">
+
+            <!-- JUDUL -->
+            <h2 class="berita-card-title">
+              <a href={berita.href}>
+                {berita.title}
+              </a>
+            </h2>
+
+            <!-- TANGGAL -->
+            <time
+              class="berita-card-date"
+              datetime={berita.dateISO}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="16"
+                  rx="2"
+                />
+                <path d="M16 3v4M8 3v4M3 10h18" />
+              </svg>
+
+              {berita.date}
+
+            </time>
+
+            <!-- TOMBOL -->
+            <div class="berita-card-footer">
+
+              <a
+                href={berita.href}
+                class="berita-card-button"
+              >
+                Baca Selengkapnya
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+
+  </div>
+</section>

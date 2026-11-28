@@ -1,0 +1,248 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { artikel } from "../../data/artikel";
+import "../../styles/program/DetailArtikel.css";
+
+export function getStaticPaths() {
+  return artikel.map((item) => ({
+    params: {
+      slug: item.slug,
+    },
+    props: {
+      article: item,
+    },
+  }));
+}
+
+const { article } = Astro.props;
+
+const relatedArticles = artikel.filter(
+  (item) => item.slug !== article.slug
+);
+---
+
+<MainLayout
+  title={`${article.title} | PKBM Alfatihah`}
+  description={article.excerpt}
+>
+
+  <section class="detail-artikel">
+    <div class="detail-artikel-container">
+
+      <!-- TOMBOL KEMBALI -->
+      <a href="/artikel" class="detail-artikel-back">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+
+        Kembali ke Artikel
+
+      </a>
+
+      <div class="detail-artikel-layout">
+
+        <!-- ARTIKEL UTAMA -->
+        <article class="detail-artikel-main">
+
+          <!-- HEADING -->
+          <header class="detail-artikel-heading">
+
+            <span class="detail-artikel-badge">
+              {article.category}
+            </span>
+
+            <h1>{article.title}</h1>
+
+            <div class="detail-artikel-divider"></div>
+
+            <!-- AUTHOR DAN TANGGAL -->
+            <div class="detail-artikel-meta">
+
+              <span>
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21v-2a8 8 0 0 1 16 0v2" />
+                </svg>
+
+                {article.author}
+
+              </span>
+
+              <time datetime={article.dateISO}>
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="16"
+                    rx="2"
+                  />
+                  <path d="M16 3v4M8 3v4M3 10h18" />
+                </svg>
+
+                {article.date}
+
+              </time>
+
+            </div>
+
+          </header>
+
+          <!-- GAMBAR UTAMA -->
+          <figure class="detail-artikel-figure">
+
+            <Image
+              src={article.image}
+              alt={article.title}
+              class="detail-artikel-image"
+              loading="eager"
+            />
+
+          </figure>
+
+          <!-- ISI ARTIKEL -->
+          <div class="detail-artikel-content">
+            <Fragment set:html={article.content} />
+          </div>
+
+          <!-- PENULIS DAN EDITOR -->
+          <div class="detail-artikel-credit">
+
+            <p>
+              <strong>Penulis:</strong>
+              {article.writer}
+            </p>
+
+            <p>
+              <strong>Editor:</strong>
+              {article.editor}
+            </p>
+
+          </div>
+
+          <!-- NAVIGASI BAWAH -->
+          <div class="detail-artikel-bottom">
+
+            <a href="/artikel">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+
+              Kembali ke Daftar Artikel
+
+            </a>
+
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside
+          class="detail-artikel-sidebar"
+          aria-labelledby="artikel-lainnya-title"
+        >
+
+          <div class="detail-artikel-sidebar-heading">
+
+            <span>Taman Baca</span>
+
+            <h2 id="artikel-lainnya-title">
+              Artikel Lainnya
+            </h2>
+
+            <div class="detail-artikel-sidebar-divider"></div>
+
+          </div>
+
+          <div class="detail-artikel-related-list">
+
+            {relatedArticles.map((item) => (
+              <a
+                href={`/artikel/${item.slug}`}
+                class="detail-artikel-related-card"
+              >
+
+                <div class="detail-artikel-related-media">
+
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    class="detail-artikel-related-image"
+                    loading="lazy"
+                  />
+
+                </div>
+
+                <div class="detail-artikel-related-body">
+
+                  <span class="detail-artikel-related-category">
+                    {item.category}
+                  </span>
+
+                  <h3>{item.title}</h3>
+
+                  <time datetime={item.dateISO}>
+                    {item.date}
+                  </time>
+
+                  <span class="detail-artikel-related-link">
+                    Baca Selengkapnya →
+
+                  </span>
+
+                </div>
+
+              </a>
+            ))}
+
+          </div>
+
+          <a href="/artikel" class="detail-artikel-all">
+            Lihat Semua Artikel →
+          </a>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+</MainLayout>

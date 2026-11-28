@@ -1,31 +1,64 @@
 
 /* =====================================
    PROGRAM KAMI - PKBM ALFATIHAH
-   ===================================== */
+   COMPACT SOFT SHIELD DESIGN
+===================================== */
 
 .program-kami {
+  --program-wave-h: clamp(60px, 8vw, 120px);
+
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  box-sizing: border-box;
+
   width: 100%;
-  padding: 85px 24px 100px;
+
+  padding:
+    85px
+    clamp(32px, 5.5vw, 100px)
+    calc(var(--program-wave-h) + 56px);
+
   background: var(--pkbm-cream);
+
   font-family: "Poppins", sans-serif;
 }
 
+.program-kami *,
+.program-kami *::before,
+.program-kami *::after {
+  box-sizing: border-box;
+}
+
+/* =====================================
+   CONTAINER
+===================================== */
+
 .program-kami-container {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
-  max-width: 1240px;
+  max-width: 1160px;
+
   margin: 0 auto;
 }
 
-/* JUDUL SECTION */
+/* =====================================
+   JUDUL SECTION
+===================================== */
 
 .program-kami-heading {
-  margin-bottom: 42px;
+  margin-bottom: 36px;
+
   text-align: center;
 }
 
 .program-kami-heading h2 {
   margin: 0;
+
   color: var(--pkbm-magenta);
+
   font-size: clamp(26px, 3vw, 38px);
   font-weight: 800;
   line-height: 1.3;
@@ -34,117 +67,346 @@
 .program-kami-heading-line {
   width: 55px;
   height: 4px;
+
   margin: 20px auto 0;
-  border-radius: 10px;
-  background: var(--pkbm-gold);
+
+  border-radius: 999px;
+
+  background: #FFC400;
 }
 
-/* GRID 4 KARTU */
+/* =====================================
+   GRID PROGRAM
+===================================== */
 
 .program-kami-grid {
   display: grid;
+
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 20px;
+  grid-auto-rows: auto;
+
+  align-items: stretch;
+
+  gap: 24px;
 }
 
-/* KARTU */
+/* =====================================
+   CARD PROGRAM
+   TANPA TINGGI MINIMUM
+===================================== */
 
 .program-kami-card {
+  --card-pastel: #F4E5F3;
+  --card-accent: #A74E92;
+  --card-dark: #92197B;
+  --card-divider: #D6AAD1;
+  --card-bottom: #BD65B5;
+
+  /* Bentuk perisai dengan ujung bawah tumpul */
+
+  --shield-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M12 0 H88 Q100 0 100 8 V86 Q100 91 90 93 L65 98 Q50 102 35 98 L10 93 Q0 91 0 86 V8 Q0 0 12 0 Z' fill='white'/%3E%3C/svg%3E");
+
+  position: relative;
+  isolation: isolate;
+
   display: flex;
   flex-direction: column;
+
   min-width: 0;
-  min-height: 280px;
-  padding: 23px 19px 18px;
-  border: 1px solid var(--pkbm-border);
-  border-radius: 16px;
-  background: #FFFFFF;
-  box-shadow: 0 6px 22px rgba(var(--pkbm-plum-rgb), 0.06);
+  min-height: 0;
+
+  padding: 10px 10px 32px;
+
+  border: none;
+  border-radius: 0;
+
+  background: transparent;
+  box-shadow: none;
+
+  filter: drop-shadow(
+    0 7px 12px rgba(74, 11, 69, 0.08)
+  );
+
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    filter 0.25s ease;
 }
+
+/* =====================================
+   PKBM DAN HOMESCHOOLING
+   MAGENTA - WARNA SAMA
+===================================== */
+
+.program-kami-card--paket,
+.program-kami-card--homeschooling {
+  --card-pastel: #F4E5F3;
+  --card-accent: #A74E92;
+  --card-dark: #92197B;
+  --card-divider: #D6AAD1;
+  --card-bottom: #BD65B5;
+}
+
+/* =====================================
+   SMART LEARNING
+   UNGU
+===================================== */
+
+.program-kami-card--smart {
+  --card-pastel: #EDE8FA;
+  --card-accent: #7545AC;
+  --card-dark: #48216E;
+  --card-divider: #BDA6DF;
+  --card-bottom: #9462CA;
+}
+
+/* =====================================
+   DIASPORA
+   BIRU NAVY
+===================================== */
+
+.program-kami-card--diaspora {
+  --card-pastel: #E8F0FA;
+  --card-accent: #24578E;
+  --card-dark: #082C59;
+  --card-divider: #A4BFDD;
+  --card-bottom: #648FC1;
+}
+
+/* =====================================
+   LAPISAN WARNA BAWAH PERISAI
+===================================== */
+
+.program-kami-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -2;
+
+  background: var(--card-bottom);
+
+  -webkit-mask:
+    var(--shield-shape)
+    center / 100% 100% no-repeat;
+
+  mask:
+    var(--shield-shape)
+    center / 100% 100% no-repeat;
+
+  transform: translateY(5px);
+
+  pointer-events: none;
+}
+
+/* =====================================
+   LAPISAN PUTIH CARD
+===================================== */
+
+.program-kami-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  background: #FFFFFF;
+
+  -webkit-mask:
+    var(--shield-shape)
+    center / 100% 100% no-repeat;
+
+  mask:
+    var(--shield-shape)
+    center / 100% 100% no-repeat;
+
+  pointer-events: none;
+}
+
+/* =====================================
+   HOVER CARD
+===================================== */
 
 .program-kami-card:hover {
-  transform: translateY(-3px);
-  border-color: #92197B;
-  background: #FFFFFF;
-  box-shadow: 0 10px 24px rgba(var(--pkbm-plum-rgb), 0.09);
+  transform: translateY(-4px);
+
+  filter: drop-shadow(
+    0 12px 16px rgba(74, 11, 69, 0.12)
+  );
 }
 
-/* LOGO DAN JUDUL */
+/* =====================================
+   AREA LOGO
+   LEBIH COMPACT
+===================================== */
 
 .program-kami-card-header {
+  position: relative;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  text-align: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 92px;
+
+  padding: 10px 12px;
+
+  border-radius: 20px;
+
+  background: var(--card-pastel);
 }
+
+/* =====================================
+   LOGO ASLI
+===================================== */
 
 .program-kami-logo {
   display: block;
+
+  flex-shrink: 0;
+
   width: 100%;
   max-width: 190px;
-  height: 82px;
-  flex-shrink: 0;
-  background: transparent;
+  height: 72px;
+
   object-fit: contain;
   object-position: center;
+
+  background: transparent;
 }
+
+/* =====================================
+   ISI CARD
+===================================== */
+
+.program-kami-card-body {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 14px 6px 0;
+}
+
+/* =====================================
+   JUDUL PROGRAM
+===================================== */
 
 .program-kami-card h3 {
-  margin: 0;
-  color: #92197B;
-  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 52px;
+
+  margin: 0 0 10px;
+
+  color: var(--card-dark);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.35;
+
   text-align: center;
 }
 
-/* DESKRIPSI */
+/* GARIS AKSEN BAWAH JUDUL */
+
+.program-kami-card h3::after {
+  content: "";
+
+  display: block;
+
+  flex-shrink: 0;
+
+  width: 36px;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background: var(--card-divider);
+}
+
+/* =====================================
+   DESKRIPSI PROGRAM
+   SAMA DENGAN FONT PROFIL PKBM
+===================================== */
 
 .program-kami-description {
-  margin: 0 0 22px;
-  color: #6B5268;
-  font-size: 12.5px;
-  line-height: 1.75;
+  margin: 0 0 14px;
+
+  color: var(--pkbm-text-muted, #6B5268);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
+
   text-align: center;
+
+  overflow-wrap: break-word;
 }
 
-/* KOTAK HARGA */
+/* =====================================
+   KOTAK HARGA
+===================================== */
 
 .program-kami-price-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+
+  gap: 6px;
+
   width: 100%;
-  min-height: 62px;
+  min-height: 58px;
+
   margin-top: auto;
-  padding: 10px 12px;
-  border: 1px solid var(--pkbm-gold-border);
-  border-radius: 11px;
-  background: var(--pkbm-gold-soft);
-  color: var(--pkbm-price-ink);
+
+  padding: 9px 10px;
+
+  border: 1px solid #F4D982;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #FFF8E3 0%,
+    #FFF1C8 100%
+  );
+
+  color: #4A0B45;
+
   text-decoration: none;
   cursor: pointer;
+
   transition:
     background 0.25s ease,
     border-color 0.25s ease;
 }
 
 .program-kami-price-box:hover {
-  background: var(--pkbm-gold-soft-hover);
-  border-color: var(--pkbm-gold);
+  background: #FFEDB3;
+
+  border-color: #FCD757;
 }
 
 .program-kami-price-box:focus-visible {
-  outline: 3px solid var(--pkbm-plum);
+  outline: 3px solid var(--card-accent);
   outline-offset: 3px;
 }
+
+/* =====================================
+   INFORMASI HARGA
+===================================== */
 
 .program-kami-price-info {
   min-width: 0;
@@ -152,83 +414,223 @@
 
 .program-kami-price-label {
   display: block;
+
   margin-bottom: 3px;
-  color: var(--pkbm-price-label);
-  font-size: 10px;
-  font-weight: 600;
+
+  color: #80653E;
+
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .program-kami-price-value {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  column-gap: 2px;
+
+  column-gap: 3px;
+  row-gap: 2px;
 }
 
 .program-kami-price-value strong {
-  color: var(--pkbm-price-value);
-  font-size: 15px;
+  color: var(--card-dark);
+
+  font-size: 16px;
   font-weight: 800;
+  line-height: 1.3;
+
+  white-space: nowrap;
 }
 
 .program-kami-price-value span {
-  color: var(--pkbm-price-unit);
+  color: #80653E;
+
   font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-/* PANAH HARGA */
+/* =====================================
+   TOMBOL PANAH
+===================================== */
 
 .program-kami-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+
+  width: 32px;
+  height: 32px;
+
   border-radius: 50%;
-  background: #92197B;
+
+  background: var(--card-accent);
   color: #FFFFFF;
-  font-size: 20px;
-  font-weight: 700;
+
   transition:
     background 0.25s ease,
     transform 0.25s ease;
 }
 
-.program-kami-price-box:hover .program-kami-arrow {
-  background: #75194F;
-  transform: translateX(3px);
+.program-kami-arrow svg {
+  display: block;
+
+  width: 18px;
+  height: 18px;
 }
 
-/* TABLET */
+.program-kami-price-box:hover .program-kami-arrow {
+  background: var(--card-dark);
 
-@media (max-width: 1024px) {
+  transform: translateX(2px);
+}
+
+/* =====================================
+   HAPUS PETIK KUNING
+===================================== */
+
+.program-kami .petik-kuning {
+  display: none;
+}
+
+/* =====================================
+   GELOMBANG BAWAH
+===================================== */
+
+.program-kami-wave {
+  position: absolute;
+
+  right: 0;
+  bottom: -1px;
+  left: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: var(--program-wave-h);
+
+  pointer-events: none;
+}
+
+.program-kami-wave path {
+  fill: var(--pkbm-lilac);
+}
+
+/* =====================================
+   LAPTOP
+===================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .program-kami {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
   .program-kami-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 
   .program-kami-card {
-    min-height: 250px;
+    padding: 10px 10px 32px;
+  }
+
+  .program-kami-card-header {
+    min-height: 90px;
+
+    padding: 9px 10px;
+  }
+
+  .program-kami-card-body {
+    padding: 12px 4px 0;
+  }
+
+  .program-kami-card h3 {
+    font-size: 15px;
+  }
+
+  .program-kami-price-box {
+    padding: 9px 8px;
+  }
+
+  .program-kami-price-value strong {
+    font-size: 15px;
+  }
+
+  .program-kami-arrow {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1024px) {
+
+  .program-kami {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .program-kami-container {
+    max-width: 800px;
+  }
+
+  .program-kami-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 26px 22px;
+  }
+
+  .program-kami-card {
+    min-height: 0;
+
+    padding: 12px 12px 34px;
+  }
+
+  .program-kami-card-header {
+    min-height: 100px;
+  }
+
+  .program-kami-logo {
+    height: 80px;
   }
 
   .program-kami-card h3 {
     font-size: 17px;
   }
 
-  .program-kami-description {
-    font-size: 13px;
+  .program-kami-price-value strong {
+    font-size: 17px;
   }
 }
 
-/* MOBILE */
+/* =====================================
+   MOBILE
+===================================== */
 
 @media (max-width: 600px) {
+
   .program-kami {
-    padding: 65px 18px 75px;
+    padding:
+      65px
+      24px
+      calc(var(--program-wave-h) + 40px);
+  }
+
+  .program-kami-container {
+    max-width: 420px;
   }
 
   .program-kami-heading {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
   }
 
   .program-kami-heading h2 {
@@ -236,24 +638,107 @@
   }
 
   .program-kami-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+
+    gap: 24px;
   }
 
   .program-kami-card {
     min-height: 0;
-    padding: 22px 20px 18px;
+
+    padding: 12px 12px 30px;
+  }
+
+  .program-kami-card-header {
+    min-height: 100px;
+
+    border-radius: 20px;
+  }
+
+  .program-kami-logo {
+    max-width: 200px;
+    height: 80px;
+  }
+
+  .program-kami-card-body {
+    padding: 14px 8px 0;
   }
 
   .program-kami-card h3 {
+    min-height: 0;
+
+    margin-bottom: 10px;
+
     font-size: 17px;
   }
 
   .program-kami-description {
+    margin-bottom: 14px;
+
     font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .program-kami-price-box {
+    min-height: 60px;
+
+    padding: 10px 12px;
   }
 
   .program-kami-price-value strong {
-    font-size: 17px;
+    font-size: 18px;
+  }
+
+  .program-kami-price-value span {
+    font-size: 11px;
+  }
+
+  .program-kami-arrow {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =====================================
+   VERY SMALL MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+
+  .program-kami-card-body {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .program-kami-price-box {
+    padding: 9px;
+  }
+
+  .program-kami-price-value strong {
+    font-size: 16px;
+  }
+
+  .program-kami-arrow {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .program-kami-card,
+  .program-kami-price-box,
+  .program-kami-arrow {
+    transition: none;
+  }
+
+  .program-kami-card:hover,
+  .program-kami-price-box:hover .program-kami-arrow {
+    transform: none;
   }
 }

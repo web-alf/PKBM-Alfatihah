@@ -1,0 +1,280 @@
+---
+import "../styles/program/FAQTamanBaca.css";
+
+const faqItems = [
+  {
+    question: "Apakah ijazah PKBM Alfatihah diakui secara resmi?",
+    answer: `
+      <p>
+        Tentu saja! Ijazah yang diperoleh dari program kesetaraan
+        PKBM Alfatihah diakui oleh pemerintah dan setara dengan
+        ijazah sekolah formal.
+      </p>
+    `,
+  },
+  {
+    question: "Bagaimana cara mendaftar ke PKBM Alfatihah?",
+    answer: `
+      <p>
+        Pendaftaran dapat dilakukan langsung di PKBM Alfatihah
+        atau melalui platform online.
+      </p>
+    `,
+  },
+  {
+    question: "Bagaimana alur pendaftarannya?",
+    answer: `
+      <ul>
+        <li>Mengisi Formulir Pendaftaran</li>
+        <li>Membayar Biaya Pendaftaran</li>
+        <li>Konfirmasi Pembayaran Pendaftaran</li>
+        <li>Melampirkan dokumen yang dibutuhkan</li>
+      </ul>
+    `,
+  },
+  {
+    question: "Apa saja dokumen yang perlu dipersiapkan untuk mendaftar?",
+    answer: `
+      <p>
+        Kamu perlu menyiapkan beberapa dokumen seperti Akta Lahir,
+        KTP orang tua, Kartu Keluarga, Ijazah, NISN, dokumen
+        pendidikan terakhir, serta surat keterangan lainnya.
+      </p>
+    `,
+  },
+  {
+    question: "Kapan waktu pendaftaran dibuka?",
+    answer: `
+      <p>
+        Pendaftaran dibuka setiap saat loh. Namun bila kamu
+        mendaftar saat KBM sudah berlangsung, maka resikonya
+        ada beberapa KBM yang tertinggal dan kamu dapat mengejar
+        ketertinggalan melalui rekaman pembelajaran yang tersedia.
+      </p>
+    `,
+  },
+  {
+    question: "Apakah saya bisa mendaftar jika putus sekolah bertahun-tahun?",
+    answer: `
+      <p>
+        Tentu saja! PKBM Alfatihah dirancang untuk kamu yang
+        putus sekolah melanjutkan pendidikan.
+      </p>
+    `,
+  },
+  {
+    question: "Apakah ada biaya untuk mengikuti program di PKBM Alfatihah?",
+    answer: `
+      <p>
+        Biaya bervariasi tergantung pada pilihan kelas yang kamu
+        pilih. Beberapa program kami juga menawarkan beasiswa loh!
+      </p>
+    `,
+  },
+  {
+    question: "Apa saja beasiswa yang ditawarkan?",
+    answer: `
+      <p>
+        Tenang saja! Kami menyediakan beasiswa diantaranya
+        beasiswa anak yatim piatu dan beasiswa kurang mampu
+        dengan syarat dan ketentuan yang berlaku.
+      </p>
+    `,
+  },
+  {
+    question: "Dimana lokasi belajar di PKBM Alfatihah?",
+    answer: `
+      <p>
+        Kamu bisa datang ke Jalan Ngablak Indah II No. 24 A,
+        Bangetayu Kulon, Genuk, Kota Semarang Jawa Tengah 50111.
+      </p>
+    `,
+  },
+  {
+    question: "Bagaimana sistem pembelajaran di PKBM Alfatihah?",
+    answer: `
+      <p>
+        Pembelajaran dilakukan secara fleksibel melalui tatap muka,
+        daring, atau modul belajar mandiri, sehingga kamu tetap
+        bisa belajar meski memiliki aktivitas lain.
+      </p>
+    `,
+  },
+  {
+    question: "Berapa kali pertemuan dalam seminggu?",
+    answer: `
+      <p>
+        Biasanya 3 kali perminggu, sesuai jadwal yang disepakati.
+      </p>
+    `,
+  },
+  {
+    question: "Apakah peserta PKBM Alfatihah wajib mengikuti ujian?",
+    answer: `
+      <p>
+        Betul sekali, peserta Pendidikan Kesetaraan harus
+        mengikuti Ujian Kesetaraan (UK) dengan datang langsung
+        ke PKBM Alfatihah di Semarang untuk mendapatkan ijazah resmi.
+      </p>
+    `,
+  },
+  {
+    question: "Bisakah saya bekerja sambil mengikuti program di PKBM Alfatihah?",
+    answer: `
+      <p>
+        Sangat bisa! Program di PKBM Alfatihah dirancang fleksibel
+        agar kamu tetap bisa bekerja atau melakukan aktivitas
+        lainnya sambil belajar.
+      </p>
+    `,
+  },
+  {
+    question: "Apakah PKBM Alfatihah menyediakan materi belajar?",
+    answer: `
+      <p>
+        Iya dong! PKBM Alfatihah menyediakan modul belajar,
+        buku, dan bahan ajar lainnya.
+      </p>
+    `,
+  },
+  {
+    question: "Apakah ada bimbingan dari tutor di PKBM Alfatihah?",
+    answer: `
+      <p>
+        Pastinya! Kamu akan dibimbing oleh tutor yang kompeten
+        di bidangnya.
+      </p>
+    `,
+  },
+  {
+    question: "Bagaimana jika saya kesulitan memahami materi?",
+    answer: `
+      <p>
+        Kamu juga bisa berkonsultasi langsung dengan tutor
+        atau mengikuti sesi bimbingan tambahan loh.
+      </p>
+    `,
+  },
+  {
+    question: "Bagaimana proses kelulusan di PKBM?",
+    answer: `
+      <p>
+        Kelulusan ditentukan berdasarkan kehadiran,
+        nilai tugas, dan hasil ujian akhir.
+      </p>
+    `,
+  },
+  {
+    question: "Apa yang bisa saya lakukan setelah lulus dari PKBM?",
+    answer: `
+      <p>
+        Kamu bisa melanjutkan pendidikan formal,
+        mengikuti pelatihan kerja, atau langsung bekerja.
+      </p>
+    `,
+  },
+  {
+    question: "Apakah lulusan PKBM bisa melanjutkan kuliah?",
+    answer: `
+      <p>
+        Sudah pasti! Lulusan Paket A, B dan C bisa melanjutkan
+        ke pendidikan jenjang berikutnya.
+      </p>
+    `,
+  },
+];
+
+// Membagi FAQ menjadi dua kolom.
+const middleIndex = Math.ceil(faqItems.length / 2);
+
+const faqColumns = [
+  faqItems.slice(0, middleIndex),
+  faqItems.slice(middleIndex),
+];
+---
+
+<section
+  class="faq-taman-baca"
+  aria-labelledby="faq-taman-baca-title"
+>
+  <div class="faq-taman-baca-container">
+
+    <!-- HEADING -->
+    <header class="faq-taman-baca-heading">
+
+      <span class="faq-taman-baca-badge">
+        Frequently Asked Questions
+      </span>
+
+      <h1 id="faq-taman-baca-title">
+        Pertanyaan Populer
+      </h1>
+
+      <div
+        class="faq-taman-baca-divider"
+        aria-hidden="true"
+      ></div>
+
+      <p>
+        Temukan jawaban atas berbagai pertanyaan seputar
+        pendaftaran, program pendidikan, sistem pembelajaran,
+        dan informasi lainnya di PKBM Alfatihah.
+      </p>
+
+    </header>
+
+    <!-- FAQ GRID -->
+    <div class="faq-taman-baca-grid">
+
+      {faqColumns.map((column) => (
+        <div class="faq-taman-baca-column">
+
+          {column.map((item) => (
+            <details class="faq-taman-baca-item">
+
+              <!-- PERTANYAAN -->
+              <summary class="faq-taman-baca-question">
+
+                <span class="faq-taman-baca-question-text">
+                  {item.question}
+                </span>
+
+                <!-- IKON PLUS MINUS -->
+                <span
+                  class="faq-taman-baca-icon"
+                  aria-hidden="true"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14" />
+
+                    <path
+                      class="faq-taman-baca-icon-vertical"
+                      d="M12 5v14"
+                    />
+                  </svg>
+                </span>
+
+              </summary>
+
+              <!-- JAWABAN -->
+              <div class="faq-taman-baca-answer">
+                <Fragment set:html={item.answer} />
+              </div>
+
+            </details>
+          ))}
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>

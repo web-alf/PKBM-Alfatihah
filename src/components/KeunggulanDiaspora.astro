@@ -45,64 +45,265 @@ const keunggulan = [
 
     <!-- TIGA KEUNGGULAN -->
     <div class="keunggulan-diaspora-grid">
+
       {keunggulan.map((item) => (
         <article class="keunggulan-diaspora-item">
 
-          <!-- IKON LINGKARAN -->
           <div class="keunggulan-diaspora-icon" aria-hidden="true">
 
+            <!-- IKON BAHASA -->
             {item.ikon === "bahasa" && (
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m5 8 6 6" />
-                <path d="m4 14 6-6 2-3H2" />
-                <path d="M2 5h12" />
-                <path d="M7 2v3" />
-                <path d="m13 21 5-11 5 11" />
-                <path d="M14.5 18h7" />
+              <svg viewBox="0 0 120 100" fill="none">
+                <defs>
+                  <linearGradient id="diaspora-lang-purple" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1C3F72" />
+                    <stop offset="50%" stop-color="#12376B" />
+                    <stop offset="100%" stop-color="#001C49" />
+                  </linearGradient>
+
+                  <linearGradient id="diaspora-lang-gold" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F5D177" />
+                    <stop offset="100%" stop-color="#D9A035" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse
+                  cx="61" cy="91" rx="43" ry="5"
+                  fill="#001C49" opacity=".09"
+                />
+
+                <g transform="rotate(-8 39 55)">
+                  <rect
+                    x="12" y="26" width="48" height="57"
+                    rx="10" fill="#001C49"
+                  />
+                  <rect
+                    x="12" y="21" width="48" height="57"
+                    rx="10" fill="url(#diaspora-lang-purple)"
+                  />
+                  <path
+                    d="M20 34v-4q0-3 4-3h19"
+                    stroke="white" stroke-width="3"
+                    opacity=".35" stroke-linecap="round"
+                  />
+                  <text
+                    x="36" y="59"
+                    text-anchor="middle"
+                    font-size="30"
+                    font-weight="700"
+                    font-family="Arial, sans-serif"
+                    fill="#FFFFFF"
+                  >A</text>
+                </g>
+
+                <rect
+                  x="45" y="9" width="45" height="51"
+                  rx="10" fill="#001C49"
+                />
+                <rect
+                  x="45" y="5" width="45" height="51"
+                  rx="10" fill="url(#diaspora-lang-purple)"
+                />
+
+                <text
+                  x="67" y="38"
+                  text-anchor="middle"
+                  font-size="25"
+                  font-weight="700"
+                  font-family="Arial, sans-serif"
+                  fill="#FFFFFF"
+                >A</text>
+
+                <g transform="rotate(5 87 64)">
+                  <rect
+                    x="64" y="39" width="45" height="49"
+                    rx="10" fill="#B5801F"
+                  />
+                  <rect
+                    x="64" y="35" width="45" height="49"
+                    rx="10" fill="url(#diaspora-lang-gold)"
+                  />
+
+                  <text
+                    x="86" y="67"
+                    text-anchor="middle"
+                    font-size="24"
+                    font-weight="700"
+                    font-family="Arial, sans-serif"
+                    fill="#FFFFFF"
+                  >أ</text>
+                </g>
               </svg>
             )}
 
+            <!-- IKON JADWAL -->
             {item.ikon === "waktu" && (
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 2" />
-                <path d="M12 3v2" />
-                <path d="M12 19v2" />
-                <path d="M3 12h2" />
-                <path d="M19 12h2" />
+              <svg viewBox="0 0 120 100" fill="none">
+                <defs>
+                  <linearGradient id="diaspora-calendar-purple" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1C3F72" />
+                    <stop offset="100%" stop-color="#001C49" />
+                  </linearGradient>
+
+                  <linearGradient id="diaspora-calendar-body" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="100%" stop-color="#FFF9F5" />
+                  </linearGradient>
+
+                  <linearGradient id="diaspora-clock-gold" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F5D177" />
+                    <stop offset="100%" stop-color="#D9A035" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse
+                  cx="59" cy="91" rx="45" ry="5"
+                  fill="#001C49" opacity=".09"
+                />
+
+                <rect
+                  x="10" y="18" width="76" height="66"
+                  rx="10" fill="#001C49"
+                />
+
+                <rect
+                  x="10" y="14" width="76" height="66"
+                  rx="10" fill="url(#diaspora-calendar-body)"
+                  stroke="#D9A035" stroke-width="1.5"
+                />
+
+                <path
+                  d="M10 24a10 10 0 0 1 10-10h56a10 10 0 0 1 10 10v13H10Z"
+                  fill="url(#diaspora-calendar-purple)"
+                />
+
+                <rect x="25" y="5" width="9" height="23" rx="4.5" fill="#12376B" />
+                <rect x="62" y="5" width="9" height="23" rx="4.5" fill="#12376B" />
+
+                <g fill="#B5801F">
+                  <rect x="20" y="44" width="12" height="11" rx="3" />
+                  <rect x="40" y="44" width="12" height="11" rx="3" />
+                  <rect x="60" y="44" width="12" height="11" rx="3" />
+                  <rect x="20" y="62" width="12" height="11" rx="3" />
+                  <rect x="40" y="62" width="12" height="11" rx="3" />
+                  <rect x="60" y="62" width="12" height="11" rx="3" />
+                </g>
+
+                <!-- JAM -->
+                <circle cx="87" cy="66" r="27" fill="#D29A31" />
+                <circle cx="87" cy="62" r="27" fill="url(#diaspora-clock-gold)" />
+                <circle cx="87" cy="62" r="20" fill="#FFF9E9" />
+
+                <path
+                  d="M87 49v14l-8 6"
+                  stroke="#D9A035"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <circle cx="87" cy="62" r="3" fill="#D9A035" />
+
+                <path
+                  d="M70 47a23 23 0 0 1 15-7"
+                  stroke="#FFFFFF"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  opacity=".6"
+                />
               </svg>
             )}
 
+            <!-- IKON AL-QURAN -->
             {item.ikon === "quran" && (
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 7c-3-2-6-2-9-1v13c3-1 6-1 9 1V7Z" />
-                <path d="M12 7c3-2 6-2 9-1v13c-3-1-6-1-9 1V7Z" />
-                <path d="M12 7v13" />
-                <path d="M6 10h3" />
-                <path d="M15 10h3" />
-                <path d="M6 13h3" />
-                <path d="M15 13h3" />
+              <svg viewBox="0 0 120 100" fill="none">
+                <defs>
+                  <linearGradient id="diaspora-quran-gold" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F5D177" />
+                    <stop offset="100%" stop-color="#D9A035" />
+                  </linearGradient>
+
+                  <linearGradient id="diaspora-quran-page" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="100%" stop-color="#FFF9F5" />
+                  </linearGradient>
+
+                  <linearGradient id="diaspora-quran-wood" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#D9A035" />
+                    <stop offset="100%" stop-color="#B5801F" />
+                  </linearGradient>
+                </defs>
+
+                <ellipse
+                  cx="60" cy="91" rx="44" ry="5"
+                  fill="#001C49" opacity=".09"
+                />
+
+                <!-- REHAL -->
+                <path
+                  d="M22 57 99 86 91 95 15 67Z"
+                  fill="#AB7C21"
+                />
+                <path
+                  d="M22 53 99 82 91 91 15 63Z"
+                  fill="url(#diaspora-quran-wood)"
+                />
+
+                <path
+                  d="M98 57 21 86 29 95 105 67Z"
+                  fill="#AB7C21"
+                />
+                <path
+                  d="M98 53 21 82 29 91 105 63Z"
+                  fill="url(#diaspora-quran-wood)"
+                />
+
+                <!-- SAMPUL -->
+                <path
+                  d="M8 17Q35 13 60 37Q85 13 112 17L108 66Q83 62 60 82Q37 62 12 66Z"
+                  fill="#AF7E21"
+                />
+
+                <path
+                  d="M8 12Q35 8 60 32Q85 8 112 12L108 61Q83 57 60 77Q37 57 12 61Z"
+                  fill="url(#diaspora-quran-gold)"
+                />
+
+                <!-- HALAMAN KIRI -->
+                <path
+                  d="M15 7Q39 6 60 30V69Q38 49 15 54Z"
+                  fill="url(#diaspora-quran-page)"
+                  stroke="#DAA136" stroke-width="1.5"
+                />
+
+                <!-- HALAMAN KANAN -->
+                <path
+                  d="M105 7Q81 6 60 30V69Q82 49 105 54Z"
+                  fill="url(#diaspora-quran-page)"
+                  stroke="#DAA136" stroke-width="1.5"
+                />
+
+                <g
+                  stroke="#D79F34"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M22 17Q38 17 52 30" />
+                  <path d="M22 25Q38 25 52 38" />
+                  <path d="M22 33Q38 33 52 46" />
+                  <path d="M22 41Q38 41 52 54" />
+
+                  <path d="M98 17Q82 17 68 30" />
+                  <path d="M98 25Q82 25 68 38" />
+                  <path d="M98 33Q82 33 68 46" />
+                  <path d="M98 41Q82 41 68 54" />
+                </g>
+
+                <path
+                  d="M60 30v39"
+                  stroke="#C8912B"
+                  stroke-width="2"
+                />
               </svg>
             )}
 
@@ -116,6 +317,7 @@ const keunggulan = [
 
         </article>
       ))}
+
     </div>
 
   </div>

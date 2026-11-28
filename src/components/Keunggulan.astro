@@ -2,150 +2,143 @@
 ---
 import "../styles/home/Keunggulan.css";
 
+// IKON SOFT 3D
+const shadow = '<ellipse cx="32" cy="58" rx="22" ry="3" fill="#351047" opacity=".12"/>';
+
+const icons: Record<string, string> = {
+  award:
+    '<path d="M20 38L13 58l11-6 5 8 5-20z" fill="#7A3FC0"/><path d="M44 38l7 20-11-6-5 8-5-20z" fill="#9B5FE0"/><circle cx="32" cy="26" r="21" fill="#E8A600"/><circle cx="32" cy="24.5" r="19" fill="#FFC400"/><circle cx="32" cy="24.5" r="13.5" fill="#FFDD55"/><path d="M32 16l3 6 6.6.9-4.8 4.6 1.200 6.6-6-3.200-6 3.200 1.200-6.6-4.8-4.6 6.6-.9z" fill="#FFF3C4" stroke="#FFF3C4" stroke-width="1.5" stroke-linejoin="round"/><path d="M18 18a16 16 0 0 1 9-8" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round" fill="none"/>',
+
+  guru:
+    shadow +
+    '<path d="M6 56c0-9 5-14 11-14s11 5 11 14z" fill="#B573E0"/><path d="M36 56c0-9 5-14 11-14s11 5 11 14z" fill="#B573E0"/><circle cx="17" cy="33" r="7" fill="#FFD3B6"/><circle cx="47" cy="33" r="7" fill="#FFD3B6"/><path d="M15 56c0-12 7-19 17-19s17 7 17 19z" fill="#7A3FC0"/><circle cx="32" cy="24" r="9" fill="#FFD3B6"/><path d="M23 22c1-8 17-9 18 0-5-3-13-3-18 0z" fill="#4B2070"/><path d="M28 40l4 6 4-6z" fill="#fff"/>',
+
+  laptop:
+    '<rect x="10" y="12" width="44" height="31" rx="5" fill="#7A3FC0"/><rect x="14" y="16" width="36" height="23" rx="3" fill="#5BB8FF"/><path d="M14 31l10-8 8 6 6-4 12 9v3a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3z" fill="#3E9BEA"/><circle cx="41" cy="22" r="3" fill="#FFE27A"/><path d="M5 46h54l-3 7a4 4 0 0 1-3.7 2.5H11.7A4 4 0 0 1 8 53z" fill="#B58AE8"/><rect x="26" y="46" width="12" height="3" rx="1.5" fill="#8E5CD0"/>',
+
+  daun:
+    shadow +
+    '<path d="M32 56V32" stroke="#2E9E57" stroke-width="4" stroke-linecap="round"/><path d="M32 36C16 38 8 28 9 14c14-1 24 6 23 22z" fill="#43C06E"/><path d="M32 30c0-14 9-20 24-19 1 14-8 24-24 19z" fill="#2FA85C"/><path d="M13 17c6 3 12 8 17 17" stroke="#A8F0C0" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M52 15c-6 2-12 7-16 14" stroke="#8EE2AA" stroke-width="2.5" stroke-linecap="round" fill="none"/>',
+
+  jam:
+    '<circle cx="12" cy="12" r="6" fill="#FF8FC7"/><circle cx="52" cy="12" r="6" fill="#FF8FC7"/><circle cx="32" cy="34" r="25" fill="#6B2FB0"/><circle cx="32" cy="32" r="24" fill="#8E4FD6"/><circle cx="32" cy="32" r="18" fill="#FFF1D6"/><path d="M32 20v13l9 5" stroke="#6B2FB0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="32" cy="32" r="2.5" fill="#FFC400"/>',
+
+  chat:
+    '<path d="M8 10h32a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H24l-9 8v-8H8a6 6 0 0 1-6-6V16a6 6 0 0 1 6-6z" fill="#8E4FD6"/><path d="M26 24h26a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6h-5v7l-8-7H26a6 6 0 0 1-6-6V30a6 6 0 0 1 6-6z" fill="#FF8FC7"/><g fill="#fff"><circle cx="12" cy="19" r="2.5"/><circle cx="22" cy="19" r="2.5"/><circle cx="32" cy="19" r="2.5"/><circle cx="31" cy="37" r="2.5"/><circle cx="39" cy="37" r="2.5"/><circle cx="47" cy="37" r="2.5"/></g>',
+
+  koin:
+    shadow +
+    '<path d="M10 44v6c0 4 10 7 22 7s22-3 22-7v-6z" fill="#E8A600"/><ellipse cx="32" cy="44" rx="22" ry="8" fill="#FFC400"/><path d="M10 32v6c0 4 10 7 22 7s22-3 22-7v-6z" fill="#E8A600"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="#FFD54A"/><path d="M10 20v6c0 4 10 7 22 7s22-3 22-7v-6z" fill="#E8A600"/><ellipse cx="32" cy="20" rx="22" ry="8" fill="#FFE27A"/><ellipse cx="32" cy="20" rx="12" ry="4" fill="#FFC400"/>',
+
+  bintang:
+    '<g transform="translate(2 1) scale(.86)"><path d="M32 8l7.5 16 17 2.300-12.300 12 3 17L32 46.5 16.8 55.300l3-17L7.5 26.300l17-2.300z" fill="#FFC400" stroke="#FFC400" stroke-width="5" stroke-linejoin="round"/><path d="M32 18l4 9 9.5 1.300-7 6.7" fill="none" stroke="#FFF3B0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M50 40l3 6 6.5 1-4.7 4.5 1.100 6.5-5.900-3.100-5.900 3.100 1.100-6.5-4.7-4.5 6.5-1z" fill="#8E4FD6" stroke="#8E4FD6" stroke-width="2" stroke-linejoin="round"/>',
+
+  buku:
+    shadow +
+    '<path d="M4 18c10-4 20-3 28 3v34c-8-6-18-7-28-3z" fill="#6B2FB0"/><path d="M60 18c-10-4-20-3-28 3v34c8-6 18-7 28-3z" fill="#7A3FC0"/><path d="M8 14c9-3 17-2 24 3v34c-7-5-15-6-24-3z" fill="#FFF1D6"/><path d="M56 14c-9-3-17-2-24 3v34c7-5 15-6 24-3z" fill="#FFFAEE"/><path d="M13 22c5-1.5 10-1 14 1.5M13 29c5-1.5 10-1 14 1.5M51 22c-5-1.5-10-1-14 1.5M51 29c-5-1.5-10-1-14 1.5" stroke="#B573E0" stroke-width="2.5" stroke-linecap="round" fill="none"/>',
+
+  ijazah:
+    shadow +
+    '<path d="M16 32v12c0 5 7 9 16 9s16-4 16-9V32z" fill="#6B2FB0"/><path d="M32 8L3 22l29 14 29-14z" fill="#8E4FD6" stroke="#8E4FD6" stroke-width="4" stroke-linejoin="round"/><path d="M32 12L10 22l22 10 22-10z" fill="#A66BE8"/><path d="M54 25v17" stroke="#FFC400" stroke-width="3.5" stroke-linecap="round"/><circle cx="54" cy="45" r="4.5" fill="#FFC400"/>',
+};
+
+// DATA KEUNGGULAN
 const keunggulan = [
   {
     icon: "award",
     title: "Terakreditasi A",
-    color: "gold",
   },
   {
-    icon: "heart",
+    icon: "guru",
     title: "Dibimbing oleh guru yang berpengalaman",
-    color: "gold",
   },
   {
-    icon: "monitor",
+    icon: "laptop",
     title: "Belajar bisa di mana saja",
-    color: "gold",
   },
   {
-    icon: "heart-handshake",
+    icon: "daun",
     title: "Menanamkan nilai-nilai Islami",
-    color: "gold",
   },
   {
-    icon: "clock",
+    icon: "jam",
     title: "Waktu belajar yang fleksibel",
-    color: "gold",
   },
   {
-    icon: "messages-square",
+    icon: "chat",
     title: "Layanan konseling secara berkala",
-    color: "gold",
   },
   {
-    icon: "hand-coins",
+    icon: "koin",
     title: "Investasi yang terjangkau",
-    color: "gold",
   },
   {
-    icon: "badge-check",
+    icon: "bintang",
     title: "Belajar sesuai bakat dan minat",
-    color: "gold",
   },
   {
-    icon: "book-open",
+    icon: "buku",
     title: "Penerapan Bahasa Arab dan Inggris sehari-hari",
-    color: "gold",
   },
   {
-    icon: "graduation-cap",
+    icon: "ijazah",
     title: "Memiliki ijazah yang legal",
-    color: "gold",
   },
 ];
 ---
 
-<section class="keunggulan-section" id="keunggulan">
+<section
+  class="keunggulan-section"
+  id="keunggulan"
+  aria-labelledby="keunggulan-title"
+>
   <div class="keunggulan-container">
+
+    <!-- JUDUL SECTION -->
     <div class="keunggulan-heading">
-      <h2>Kenapa memilih PKBM Alfatihah?</h2>
+
+      <h2 id="keunggulan-title">
+        Kenapa memilih PKBM Alfatihah?
+      </h2>
 
       <div class="keunggulan-line"></div>
+
     </div>
 
+    <!-- GRID KEUNGGULAN -->
     <div class="keunggulan-grid">
+
       {
         keunggulan.map((item) => (
-          <article class="keunggulan-card">
-            <div class:list={["keunggulan-icon", item.color]}>
-              {item.icon === "award" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="8" r="6" />
-                  <path d="m8.2 13.5-1 8 4.8-2.5 4.8 2.5-1-8" />
-                  <path d="m12 5.5.8 1.6 1.8.3-1.3 1.3.3 1.8L12 9.7l-1.6.8.3-1.8-1.3-1.3 1.8-.3z" />
-                </svg>
-              )}
+          <article
+            class:list={[
+              "keunggulan-card",
+              `keunggulan-card--${item.icon}`,
+            ]}
+          >
 
-              {item.icon === "heart" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
-                </svg>
-              )}
+            <!-- IKON DENGAN BACKGROUND PASTEL -->
+            <div class="keunggulan-icon-wrap">
 
-              {item.icon === "monitor" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                </svg>
-              )}
+              <svg
+                class="keunggulan-icon"
+                viewBox="0 0 64 64"
+                aria-hidden="true"
+                focusable="false"
+                set:html={icons[item.icon]}
+              />
 
-              {item.icon === "heart-handshake" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              )}
-
-              {item.icon === "clock" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                  <path d="M12 1v2M23 12h-2" />
-                </svg>
-              )}
-
-              {item.icon === "messages-square" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 3H5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h2l4 4v-4h3a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Z" />
-                  <path d="M18 7h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-2" />
-                </svg>
-              )}
-
-              {item.icon === "hand-coins" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="17" cy="6" r="3" />
-                  <path d="M3 13h5l3 2h4a2 2 0 0 1 0 4H9l-4-2H3" />
-                  <path d="m3 11-2 2v6l2 2M12 12l3-2h4a2 2 0 0 1 2 2c0 .6-.3 1.1-.7 1.5" />
-                </svg>
-              )}
-
-              {item.icon === "badge-check" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m12 2 3 2 3.6.4.4 3.6 2 3-2 3-.4 3.6-3.6.4-3 2-3-2-3.6-.4L5 14l-2-3 2-3 .4-3.6L9 4z" />
-                  <path d="m9 11 2 2 4-4" />
-                </svg>
-              )}
-
-              {item.icon === "book-open" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 6c-3-2-6-2-10-1v14c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1Z" />
-                  <path d="M12 6v14M5 9h4M15 9h4M15 12h4" />
-                </svg>
-              )}
-
-              {item.icon === "graduation-cap" && (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m2 9 10-5 10 5-10 5L2 9Z" />
-                  <path d="M6 11v6c3.5 3 8.5 3 12 0v-6M22 9v7" />
-                </svg>
-              )}
             </div>
 
+            <!-- JUDUL KEUNGGULAN -->
             <h3>{item.title}</h3>
+
           </article>
         ))
       }
+
     </div>
+
   </div>
+
 </section>

@@ -1,71 +1,120 @@
 
 /* =========================================
    KEUNGGULAN PKBM ALFATIHAH
+   CLEAN SOFT PASTEL DESIGN
 ========================================= */
 
 .keunggulan-section {
+  position: relative;
+
   width: 100%;
-  padding: 65px 24px 100px;
-  background: var(--pkbm-cream);
+
+  box-sizing: border-box;
+  overflow-x: clip;
+
+  padding:
+    45px
+    clamp(32px, 5.5vw, 100px)
+    40px;
+
+  background: var(--pkbm-blush);
+
+  font-family: "Poppins", sans-serif;
 }
 
+.keunggulan-section *,
+.keunggulan-section *::before,
+.keunggulan-section *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
 .keunggulan-container {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
-  max-width: 1240px;
+  max-width: 1160px;
+
   margin: 0 auto;
 }
 
-/* HEADING */
+/* =========================================
+   HEADING
+========================================= */
 
 .keunggulan-heading {
+  margin-bottom: 38px;
+
   text-align: center;
-  margin-bottom: 42px;
 }
 
 .keunggulan-heading h2 {
   margin: 0;
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.25;
-  font-weight: 800;
+
   color: var(--pkbm-magenta);
+
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .keunggulan-line {
-  width: 65px;
+  width: 55px;
   height: 4px;
-  margin: 22px auto 0;
-  border-radius: 10px;
-  background: var(--pkbm-gold);
+
+  margin: 20px auto 0;
+
+  border-radius: 999px;
+
+  background: #FFC400;
 }
 
-/* GRID */
+/* =========================================
+   GRID KEUNGGULAN
+========================================= */
 
 .keunggulan-grid {
   display: grid;
+
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  grid-auto-rows: 1fr;
+
+  gap: 22px;
 }
 
-/* CARD */
+/* =========================================
+   CARD KEUNGGULAN
+========================================= */
 
 .keunggulan-card {
-  min-width: 0;
-  min-height: 185px;
-  padding: 26px 15px 22px;
+  --icon-pastel: #F4E5F3;
+
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
+  justify-content: flex-start;
+
+  min-width: 0;
+  min-height: 180px;
+
+  padding: 22px 14px 24px;
+
+  border: 1px solid #EADCE7;
+  border-radius: 24px;
+
+  background: #FFFFFF;
+
+  box-shadow:
+    0 5px 10px rgba(74, 11, 69, 0.025),
+    0 10px 24px rgba(74, 11, 69, 0.065);
 
   text-align: center;
-
-  background: var(--pkbm-white);
-  border: 1px solid var(--pkbm-border);
-  border-radius: 18px;
-
-  box-shadow: 0 5px 18px rgba(var(--pkbm-plum-rgb), 0.045);
 
   transition:
     transform 0.25s ease,
@@ -73,65 +122,238 @@
     border-color 0.25s ease;
 }
 
+/* =========================================
+   HOVER CARD
+========================================= */
+
 .keunggulan-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(var(--pkbm-plum-rgb), 0.12);
-  border-color: var(--pkbm-gold);
+  transform: translateY(-4px);
+
+  border-color: #C58AB7;
+
+  box-shadow:
+    0 8px 16px rgba(74, 11, 69, 0.04),
+    0 16px 28px rgba(74, 11, 69, 0.10);
 }
 
-/* ICON */
+/* =========================================
+   WARNA PASTEL SETIAP IKON
+========================================= */
 
-.keunggulan-icon {
-  width: 48px;
-  height: 48px;
+/* KUNING LEMBUT */
 
+.keunggulan-card--award,
+.keunggulan-card--koin,
+.keunggulan-card--bintang {
+  --icon-pastel: #FFF3D4;
+}
+
+/* UNGU LEMBUT */
+
+.keunggulan-card--guru,
+.keunggulan-card--ijazah {
+  --icon-pastel: #F0E7FA;
+}
+
+/* BIRU LEMBUT */
+
+.keunggulan-card--laptop {
+  --icon-pastel: #E8F2FF;
+}
+
+/* HIJAU LEMBUT */
+
+.keunggulan-card--daun {
+  --icon-pastel: #E8F5E9;
+}
+
+/* PINK LEMBUT */
+
+.keunggulan-card--jam,
+.keunggulan-card--chat {
+  --icon-pastel: #FCE8F3;
+}
+
+/* PEACH LEMBUT */
+
+.keunggulan-card--buku {
+  --icon-pastel: #FFF0E5;
+}
+
+/* =========================================
+   BACKGROUND IKON
+========================================= */
+
+.keunggulan-icon-wrap {
   display: flex;
+
   align-items: center;
   justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 82px;
+  height: 82px;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background: var(--icon-pastel);
+
+  transition: transform 0.25s ease;
 }
 
-.keunggulan-icon svg {
-  width: 38px;
-  height: 38px;
+/* =========================================
+   IKON SVG ASLI
+========================================= */
+
+.keunggulan-icon {
+  display: block;
+
+  flex-shrink: 0;
+
+  width: 58px;
+  height: 58px;
+
+  margin: 0;
+
+  overflow: visible;
 }
 
-.keunggulan-icon.gold {
-  color: #A74E92;
+.keunggulan-card:hover .keunggulan-icon-wrap {
+  transform: scale(1.05);
 }
 
-/* TEXT */
+/* =========================================
+   TEKS KEUNGGULAN
+========================================= */
 
 .keunggulan-card h3 {
+  width: 100%;
+  max-width: 190px;
+
   margin: 0;
-  font-size: 15px;
+
+  color: #351047;
+
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.5;
-  color: var(--pkbm-magenta);
+  line-height: 1.55;
+
+  text-align: center;
+
   overflow-wrap: break-word;
 }
 
-/* TABLET */
+/* =========================================
+   LAPTOP
+========================================= */
 
-@media (max-width: 1024px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
+
   .keunggulan-section {
-    padding: 50px 24px 80px;
+    padding-left: 42px;
+    padding-right: 42px;
   }
 
   .keunggulan-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    gap: 18px;
   }
 
   .keunggulan-card {
-    min-height: 175px;
+    min-height: 180px;
+
+    padding: 20px 12px 22px;
+  }
+
+  .keunggulan-icon-wrap {
+    width: 76px;
+    height: 76px;
+
+    margin-bottom: 18px;
+  }
+
+  .keunggulan-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .keunggulan-card h3 {
+    font-size: 13px;
   }
 }
 
-/* MOBILE */
+/* =========================================
+   TABLET
+========================================= */
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
+
   .keunggulan-section {
-    padding: 40px 16px 70px;
+    padding-top: 45px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+  }
+
+  .keunggulan-container {
+    max-width: 800px;
+  }
+
+  .keunggulan-heading {
+    margin-bottom: 32px;
+  }
+
+  .keunggulan-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    gap: 20px;
+  }
+
+  .keunggulan-card {
+    grid-column: span 2;
+
+    min-height: 175px;
+
+    padding: 20px 14px 22px;
+  }
+
+  /* CARD TERAKHIR TETAP DI TENGAH */
+
+  .keunggulan-card:last-child {
+    grid-column: 3 / span 2;
+  }
+
+  .keunggulan-icon-wrap {
+    width: 78px;
+    height: 78px;
+
+    margin-bottom: 18px;
+  }
+
+  .keunggulan-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .keunggulan-card h3 {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .keunggulan-section {
+    padding: 40px 24px 30px;
+  }
+
+  .keunggulan-container {
+    max-width: 420px;
   }
 
   .keunggulan-heading {
@@ -144,41 +366,63 @@
 
   .keunggulan-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+
+    gap: 14px;
   }
 
-  .keunggulan-card {
-    min-height: 175px;
-    padding: 20px 12px;
-    gap: 14px;
-    border-radius: 15px;
+  .keunggulan-card,
+  .keunggulan-card:last-child {
+    grid-column: auto;
+
+    min-height: 165px;
+
+    padding: 18px 10px 20px;
+
+    border-radius: 20px;
+  }
+
+  .keunggulan-icon-wrap {
+    width: 68px;
+    height: 68px;
+
+    margin-bottom: 16px;
   }
 
   .keunggulan-icon {
-    width: 42px;
-    height: 42px;
-  }
-
-  .keunggulan-icon svg {
-    width: 34px;
-    height: 34px;
+    width: 48px;
+    height: 48px;
   }
 
   .keunggulan-card h3 {
-    font-size: 13px;
-    line-height: 1.45;
+    font-size: 12.5px;
+    line-height: 1.55;
   }
 }
 
-/* VERY SMALL MOBILE */
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
 
 @media (max-width: 360px) {
+
   .keunggulan-grid {
     gap: 10px;
   }
 
   .keunggulan-card {
-    padding: 16px 9px;
+    padding: 16px 8px 18px;
+  }
+
+  .keunggulan-icon-wrap {
+    width: 62px;
+    height: 62px;
+
+    margin-bottom: 14px;
+  }
+
+  .keunggulan-icon {
+    width: 44px;
+    height: 44px;
   }
 
   .keunggulan-card h3 {
@@ -186,14 +430,19 @@
   }
 }
 
-/* REDUCED MOTION */
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .keunggulan-card {
+
+  .keunggulan-card,
+  .keunggulan-icon-wrap {
     transition: none;
   }
 
-  .keunggulan-card:hover {
+  .keunggulan-card:hover,
+  .keunggulan-card:hover .keunggulan-icon-wrap {
     transform: none;
   }
 }

@@ -1,12 +1,20 @@
-
 /* =========================================
    SECTION JENJANG KESETARAAN
 ========================================= */
 
 .jenjang-kesetaraan {
+  --jenjang-purple: #92197B;
+  --jenjang-yellow: #FCD757;
+
+  position: relative;
+  isolation: isolate;
+
   width: 100%;
-  padding: 56px 24px 90px;
-  background: #FFF9F5;
+  padding: 40px clamp(32px, 5.5vw, 100px) 45px;
+
+  overflow: hidden;
+
+  background: var(--pkbm-cream, #FCF7F2);
   font-family: "Poppins", sans-serif;
 }
 
@@ -18,7 +26,7 @@
 
 .jenjang-kesetaraan-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -27,24 +35,27 @@
 ========================================= */
 
 .jenjang-kesetaraan-heading {
+  margin-bottom: 32px;
   text-align: center;
-  margin-bottom: 36px;
 }
 
 .jenjang-kesetaraan-heading h2 {
   margin: 0;
-  color: #82165F;
-  font-size: clamp(28px, 3vw, 40px);
+
+  color: var(--pkbm-magenta, #92197B);
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 800;
   line-height: 1.3;
 }
 
 .jenjang-kesetaraan-line {
-  width: 65px;
+  width: 55px;
   height: 4px;
-  margin: 17px auto 0;
-  background: #D9A035;
-  border-radius: 10px;
+
+  margin: 16px auto 0;
+
+  border-radius: 999px;
+  background: #FFC400;
 }
 
 /* =========================================
@@ -52,20 +63,62 @@
 ========================================= */
 
 .jenjang-kesetaraan-grid {
+  position: relative;
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+
+  align-items: stretch;
+  gap: 22px;
 }
 
-/* CARD PAKET */
+/* =========================================
+   DEKORASI PETIK KUNING
+========================================= */
+
+.jenjang-kesetaraan-grid::before {
+  content: "";
+
+  position: absolute;
+  top: -27px;
+  left: -28px;
+
+  width: 43px;
+  height: 45px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M7 35L19 35M14 15L25 26M32 5L36 20' fill='none' stroke='%23FCD757' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   CARD PAKET
+========================================= */
 
 .jenjang-kesetaraan-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 90px minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+
+  column-gap: 16px;
+
   min-width: 0;
-  padding: 30px;
-  border-radius: 16px;
+  padding: 24px;
+
+  border: 1px solid #F1E1EC;
+  border-radius: 22px;
+
   background: #FFFFFF;
-  border: 1px solid #EBD5E2;
-  box-shadow: 0 8px 25px rgba(75, 22, 60, 0.06);
+
+  box-shadow:
+    0 5px 8px rgba(117, 25, 79, 0.04),
+    0 10px 22px rgba(117, 25, 79, 0.08);
 
   transition:
     transform 0.25s ease,
@@ -75,30 +128,116 @@
 
 .jenjang-kesetaraan-card:hover {
   transform: translateY(-4px);
-  border-color: #92197B;
-  box-shadow: 0 14px 30px rgba(75, 22, 60, 0.12);
+  border-color: #D8A8CF;
+
+  box-shadow:
+    0 12px 28px rgba(117, 25, 79, 0.13);
 }
 
+/* =========================================
+   IKON PAKET
+========================================= */
+
+.jenjang-kesetaraan-card::before {
+  content: "";
+
+  display: block;
+
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  align-self: center;
+
+  width: 90px;
+  height: 82px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* PAKET A - TOPI WISUDA */
+
+.jenjang-kesetaraan-card:nth-child(1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M23 39L23 63Q50 83 77 63V39Z' fill='%2392197B'/%3E%3Cpath d='M23 55Q50 72 77 55V63Q50 83 23 63Z' fill='%23B13EB0'/%3E%3Cpath d='M5 31L50 10L95 31L50 53Z' fill='%23B94DC5'/%3E%3Cpath d='M5 31L50 53L95 31V37L50 59L5 37Z' fill='%237C248C'/%3E%3Cpath d='M50 31L84 45V68' fill='none' stroke='%23FCD757' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M80 65H88L90 78H78Z' fill='%23FCD757'/%3E%3C/svg%3E");
+}
+
+/* PAKET B - BUKU TERBUKA */
+
+.jenjang-kesetaraan-card:nth-child(2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Crect x='7' y='21' width='86' height='59' rx='5' fill='%23F4B82C'/%3E%3Cpath d='M12 18Q31 9 50 24Q69 9 88 18V72Q68 66 50 78Q31 66 12 72Z' fill='%23E79A48'/%3E%3Cpath d='M15 15Q32 7 48 23V71Q32 60 15 66Z' fill='%23FFF1D6'/%3E%3Cpath d='M52 23Q69 7 85 15V66Q69 60 52 71Z' fill='%23FFF9EA'/%3E%3Cpath d='M22 26Q33 22 42 31M22 35Q33 31 42 40M22 44Q33 40 42 49M22 53Q33 49 42 58M58 31Q68 22 78 26M58 40Q68 31 78 35M58 49Q68 40 78 44M58 58Q68 49 78 53' fill='none' stroke='%23E9BD91' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* PAKET C - TUMPUKAN BUKU */
+
+.jenjang-kesetaraan-card:nth-child(3)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M12 62L61 48L92 61V77L43 89L12 76Z' fill='%23E6A818'/%3E%3Cpath d='M15 65L43 77L89 65V74L43 85L15 74Z' fill='%23FFF8E6'/%3E%3Cpath d='M8 45L57 31L88 44V60L39 73L8 60Z' fill='%23F4C43F'/%3E%3Cpath d='M11 48L39 61L85 48V57L39 69L11 57Z' fill='%23FFFFFF'/%3E%3Cpath d='M15 27L64 13L95 26V42L46 55L15 42Z' fill='%2392197B'/%3E%3Cpath d='M18 30L46 43L92 30V39L46 51L18 39Z' fill='%23FFF6FF'/%3E%3Cpath d='M15 27L64 13L95 26L46 40Z' fill='%23B84AC5'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   JUDUL PAKET
+========================================= */
+
 .jenjang-kesetaraan-card h3 {
-  margin: 0 0 8px;
-  color: #82165F;
-  font-size: 26px;
+  grid-column: 2;
+  grid-row: 1;
+
+  align-self: end;
+
+  margin: 0 0 6px;
+
+  color: #92197B;
+  font-size: clamp(22px, 2vw, 28px);
   font-weight: 800;
   line-height: 1.3;
 }
 
+/* =========================================
+   LABEL SETARA SD, SMP, SMA
+========================================= */
+
 .jenjang-kesetaraan-level {
-  margin: 0 0 18px;
-  color: #B77B00;
-  font-size: 15px;
+  grid-column: 2;
+  grid-row: 2;
+
+  justify-self: start;
+  align-self: start;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 0;
+  padding: 5px 16px;
+
+  border-radius: 999px;
+
+  background: #FCD757;
+  color: #75194F;
+
+  font-size: 12px;
   font-weight: 700;
+  line-height: 1.4;
 }
 
+/* =========================================
+   DESKRIPSI PAKET
+========================================= */
+
 .jenjang-kesetaraan-description {
-  margin: 0;
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  margin: 16px 0 0;
+
   color: #42323C;
+
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
+  font-weight: 400;
   line-height: 1.8;
+
+  letter-spacing: normal;
+  overflow-wrap: break-word;
 }
 
 /* =========================================
@@ -106,54 +245,120 @@
 ========================================= */
 
 .jenjang-kurikulum {
-  margin-top: 28px;
-  padding: 34px;
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+
+  margin-top: 24px;
+
+  padding: 24px 28px 24px 190px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
   background: #92197B;
-  border-radius: 18px;
   color: #FFFFFF;
+
+  box-shadow:
+    0 8px 20px rgba(117, 25, 79, 0.08);
 }
 
+/* =========================================
+   GAMBAR AL-QUR'AN DAN REHAL
+========================================= */
+
+.jenjang-kurikulum::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 22px;
+
+  width: 145px;
+  height: 145px;
+
+  background-image:
+    url("../../assets/image/Open Book on Wooden Stand.webp");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   JUDUL KURIKULUM
+========================================= */
+
 .jenjang-kurikulum h3 {
-  margin: 0 0 12px;
-  color: #FFE0A3;
-  font-size: 23px;
+  margin: 0 0 5px;
+
+  color: #FCD757;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(19px, 2vw, 24px);
   font-weight: 700;
   line-height: 1.4;
 }
 
 .jenjang-kurikulum-description {
-  margin: 0 0 24px;
+  margin: 0 0 15px;
+
   color: #FFFFFF;
-  font-size: 15px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.8;
 }
 
 /* =========================================
-   CARD MATA PELAJARAN
+   GRID MATA PELAJARAN
 ========================================= */
 
 .jenjang-kurikulum-grid {
   display: grid;
+
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+
+  gap: 16px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .jenjang-kurikulum-item {
   display: flex;
+
   align-items: center;
   justify-content: center;
-  min-height: 58px;
-  padding: 14px 16px;
+
+  gap: 10px;
+
+  min-width: 0;
+  min-height: 46px;
+
+  padding: 10px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
 
   background: #A74E92;
-  border: 1px solid #FFE0A3;
-  border-radius: 12px;
-
   color: #FFFFFF;
-  font-size: 15px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  text-align: center;
   line-height: 1.5;
+  text-align: center;
 
   transition:
     background 0.25s ease,
@@ -166,12 +371,110 @@
 }
 
 /* =========================================
+   IKON MATA PELAJARAN
+========================================= */
+
+.jenjang-kurikulum-item::before {
+  content: "";
+
+  display: block;
+
+  flex: 0 0 22px;
+
+  width: 22px;
+  height: 22px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* TAHFIDZ QUR'AN */
+
+.jenjang-kurikulum-item:nth-child(1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6Q7 2 2 5V19Q7 16 12 20Q17 16 22 19V5Q17 2 12 6ZM12 6V20M5 8L9 9M5 12L9 13M15 9L19 8M15 13L19 12'/%3E%3C/svg%3E");
+}
+
+/* BAHASA ARAB */
+
+.jenjang-kurikulum-item:nth-child(2)::before {
+  content: "عربي";
+
+  width: auto;
+  height: auto;
+
+  flex-basis: auto;
+
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* BAHASA INGGRIS */
+
+.jenjang-kurikulum-item:nth-child(3)::before {
+  content: "Aa";
+
+  width: auto;
+  height: auto;
+
+  flex-basis: auto;
+
+  color: #FFFFFF;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .jenjang-kesetaraan {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .jenjang-kesetaraan-grid {
+    gap: 18px;
+  }
+
+  .jenjang-kesetaraan-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+
+    column-gap: 12px;
+    padding: 22px;
+  }
+
+  .jenjang-kesetaraan-card::before {
+    width: 72px;
+    height: 72px;
+  }
+
+  .jenjang-kurikulum {
+    padding-left: 165px;
+  }
+
+  .jenjang-kurikulum::before {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+/* =========================================
    TABLET
 ========================================= */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+
   .jenjang-kesetaraan {
-    padding: 48px 24px 75px;
+    padding: 35px 40px 40px;
+  }
+
+  .jenjang-kesetaraan-container {
+    max-width: 800px;
   }
 
   .jenjang-kesetaraan-grid {
@@ -179,15 +482,102 @@
   }
 
   .jenjang-kesetaraan-card {
-    padding: 24px;
+    grid-template-columns: 60px minmax(0, 1fr);
+
+    column-gap: 10px;
+
+    padding: 20px 16px;
+  }
+
+  .jenjang-kesetaraan-card::before {
+    width: 60px;
+    height: 65px;
+  }
+
+  .jenjang-kesetaraan-card h3 {
+    font-size: 22px;
+  }
+
+  .jenjang-kesetaraan-level {
+    padding: 5px 10px;
+    font-size: 11px;
   }
 
   .jenjang-kurikulum {
-    padding: 28px;
+    padding: 22px 20px 22px 145px;
+  }
+
+  .jenjang-kurikulum::before {
+    left: 15px;
+
+    width: 115px;
+    height: 115px;
   }
 
   .jenjang-kurikulum-grid {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .jenjang-kurikulum-item {
+    gap: 6px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   TABLET KECIL
+========================================= */
+
+@media (max-width: 768px) {
+
+  .jenjang-kesetaraan-container {
+    max-width: 600px;
+  }
+
+  .jenjang-kesetaraan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .jenjang-kesetaraan-card {
+    grid-template-columns: 85px minmax(0, 1fr);
+
+    padding: 22px;
+  }
+
+  .jenjang-kesetaraan-card::before {
+    width: 80px;
+    height: 80px;
+  }
+
+  .jenjang-kesetaraan-grid::before {
+    display: none;
+  }
+
+  .jenjang-kurikulum {
+    padding: 24px;
+    text-align: center;
+  }
+
+  .jenjang-kurikulum::before {
+    position: static;
+
+    width: 130px;
+    height: 120px;
+
+    margin: 0 auto 12px;
+
+    transform: none;
+  }
+
+  .jenjang-kurikulum-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .jenjang-kurikulum-item {
+    min-height: 46px;
+    font-size: 14px;
   }
 }
 
@@ -195,62 +585,18 @@
    MOBILE
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+
   .jenjang-kesetaraan {
-    padding: 42px 24px 65px;
+    padding: 28px 24px 35px;
+  }
+
+  .jenjang-kesetaraan-container {
+    max-width: 420px;
   }
 
   .jenjang-kesetaraan-heading {
-    margin-bottom: 28px;
-  }
-
-  .jenjang-kesetaraan-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .jenjang-kesetaraan-card {
-    padding: 24px;
-  }
-
-  .jenjang-kesetaraan-card h3 {
-    font-size: 24px;
-  }
-
-  .jenjang-kurikulum {
-    margin-top: 22px;
-    padding: 25px 20px;
-  }
-
-  .jenjang-kurikulum h3 {
-    font-size: 21px;
-  }
-
-  .jenjang-kurikulum-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .jenjang-kurikulum-item {
-    min-height: 52px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 640px) {
-  .jenjang-kesetaraan {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-}
-
-/* =========================================
-   MOBILE KECIL
-========================================= */
-
-@media (max-width: 480px) {
-  .jenjang-kesetaraan {
-    padding: 38px 16px 55px;
+    margin-bottom: 26px;
   }
 
   .jenjang-kesetaraan-heading h2 {
@@ -258,15 +604,25 @@
   }
 
   .jenjang-kesetaraan-card {
-    padding: 22px;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .jenjang-kesetaraan-card h3 {
+    font-size: 24px;
   }
 
   .jenjang-kesetaraan-description {
+    margin-top: 12px;
+
     font-size: 13px;
+    line-height: 1.8;
   }
 
   .jenjang-kurikulum {
-    padding: 22px 17px;
+    margin-top: 20px;
+    padding: 20px 18px;
+    border-radius: 18px;
   }
 
   .jenjang-kurikulum h3 {
@@ -274,13 +630,21 @@
   }
 
   .jenjang-kurikulum-description {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .jenjang-kurikulum-item {
+    font-size: 13px;
   }
 }
 
-/* AKSESIBILITAS */
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .jenjang-kesetaraan-card,
   .jenjang-kurikulum-item {
     transition: none;
@@ -290,37 +654,4 @@
   .jenjang-kurikulum-item:hover {
     transform: none;
   }
-}
-
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.jenjang-kesetaraan {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .jenjang-kesetaraan {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .jenjang-kesetaraan {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .jenjang-kesetaraan {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.jenjang-kesetaraan {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

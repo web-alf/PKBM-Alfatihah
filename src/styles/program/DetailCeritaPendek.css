@@ -1,0 +1,474 @@
+/* =========================================
+   DETAIL CERITA PENDEK
+========================================= */
+
+.detail-cerita {
+  --cerita-purple: #a74e92;
+  --cerita-magenta: #92197b;
+  --cerita-yellow: #fcd757;
+  --cerita-cream: #fff9f5;
+  --cerita-pink: #f8d5eb;
+  --cerita-text: #34405b;
+
+  position: relative;
+  width: 100%;
+  padding: 55px clamp(32px, 5.5vw, 100px) 85px;
+  background: var(--cerita-cream);
+  font-family: "Poppins", Arial, sans-serif;
+  overflow: hidden;
+}
+
+.detail-cerita-container {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   TOMBOL KEMBALI
+========================================= */
+
+.detail-cerita-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  color: var(--cerita-magenta);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.detail-cerita-back:hover {
+  color: var(--cerita-purple);
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.detail-cerita-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 28px;
+}
+
+/* =========================================
+   ARTIKEL UTAMA
+========================================= */
+
+.detail-cerita-article {
+  min-width: 0;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(117, 25, 79, 0.04);
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.detail-cerita-heading {
+  margin-bottom: 28px;
+}
+
+.detail-cerita-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  margin-bottom: 15px;
+  background: var(--cerita-pink);
+  color: var(--cerita-magenta);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.detail-cerita-heading h1 {
+  margin: 0;
+  color: var(--cerita-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.detail-cerita-divider {
+  width: 55px;
+  height: 4px;
+  margin: 16px 0;
+  background: var(--cerita-yellow);
+  border-radius: 50px;
+}
+
+/* =========================================
+   TANGGAL
+========================================= */
+
+.detail-cerita-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #80717c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.detail-cerita-date svg {
+  width: 16px;
+  height: 16px;
+  color: var(--cerita-purple);
+}
+
+/* =========================================
+   GAMBAR KOMIK - GRID 2 KOLOM
+========================================= */
+
+.detail-cerita-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+  width: 100%;
+}
+
+.detail-cerita-figure {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff5fa;
+}
+
+.detail-cerita-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   NAVIGASI BAWAH
+========================================= */
+
+.detail-cerita-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid #f0e2eb;
+}
+
+.detail-cerita-bottom a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  background: var(--cerita-magenta);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.detail-cerita-bottom a:hover {
+  background: var(--cerita-purple);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.detail-cerita-sidebar {
+  min-width: 0;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 22px;
+}
+
+.detail-cerita-sidebar-heading {
+  margin-bottom: 22px;
+}
+
+.detail-cerita-sidebar-heading > span {
+  color: var(--cerita-purple);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.detail-cerita-sidebar-heading h2 {
+  margin: 7px 0 0;
+  color: var(--cerita-magenta);
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* =========================================
+   CARD CERITA LAINNYA
+========================================= */
+
+.detail-cerita-related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-cerita-related-card {
+  display: block;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 16px;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.detail-cerita-related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(117, 25, 79, 0.08);
+}
+
+.detail-cerita-related-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 11px;
+  background: #fff5fa;
+}
+
+.detail-cerita-related-body {
+  padding: 12px 3px 5px;
+}
+
+.detail-cerita-related-category {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--cerita-pink);
+  color: var(--cerita-magenta);
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.detail-cerita-related-body h3 {
+  margin: 9px 0;
+  color: var(--cerita-magenta);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.detail-cerita-related-body time {
+  display: block;
+  color: #80717c;
+  font-size: 11px;
+}
+
+.detail-cerita-related-link {
+  display: block;
+  margin-top: 12px;
+  color: var(--cerita-magenta);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================
+   TOMBOL LIHAT SEMUA
+========================================= */
+
+.detail-cerita-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 12px 16px;
+  background: var(--cerita-magenta);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.detail-cerita-all:hover {
+  background: var(--cerita-purple);
+}
+
+.detail-cerita a:focus-visible {
+  outline: 3px solid var(--cerita-purple);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   RESPONSIVE LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .detail-cerita {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .detail-cerita-layout {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 22px;
+  }
+
+  .detail-cerita-article {
+    padding: 25px;
+  }
+
+  .detail-cerita-sidebar {
+    padding: 18px;
+  }
+
+  .detail-cerita-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .detail-cerita {
+    padding: 45px 40px 65px;
+  }
+
+  .detail-cerita-container {
+    max-width: 800px;
+  }
+
+  .detail-cerita-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .detail-cerita-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .detail-cerita-related-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .detail-cerita {
+    padding: 30px 24px 50px;
+  }
+
+  .detail-cerita-container {
+    max-width: 420px;
+  }
+
+  .detail-cerita-back {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .detail-cerita-layout {
+    gap: 22px;
+  }
+
+  .detail-cerita-article {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .detail-cerita-heading {
+    padding: 6px;
+    margin-bottom: 20px;
+  }
+
+  .detail-cerita-heading h1 {
+    font-size: 25px;
+  }
+
+  .detail-cerita-badge {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  .detail-cerita-date {
+    font-size: 11px;
+  }
+
+  /* Gambar satu kolom agar tulisan terbaca */
+
+  .detail-cerita-images {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .detail-cerita-figure {
+    border-radius: 10px;
+  }
+
+  .detail-cerita-sidebar {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .detail-cerita-related-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .detail-cerita-sidebar-heading h2 {
+    font-size: 21px;
+  }
+
+  .detail-cerita-bottom {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  .detail-cerita-bottom a {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-cerita-related-card,
+  .detail-cerita-back,
+  .detail-cerita-all,
+  .detail-cerita-bottom a {
+    transition: none;
+  }
+
+  .detail-cerita-related-card:hover {
+    transform: none;
+  }
+}

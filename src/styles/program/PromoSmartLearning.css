@@ -1,35 +1,40 @@
-
 /* ==========================================
    PROMO & DISKON SMART LEARNING
-   PREVIEW 1 - CLEAN & ELEGANT
-   Purple : #3C1E66
-   Gold   : #D9A035
-   Cream  : #FFF9F5
+   PLAYFUL EDUCATIONAL DESIGN
 ========================================== */
 
 .promo-smart {
-  --smart-purple: #3c1e66;
-  --smart-gold: #d9a035;
-  --smart-cream: #fff9f5;
-  --smart-white: #ffffff;
-  --smart-text: #382b46;
-  --smart-muted: #6c6074;
-  --smart-border: #e8dfdf;
+  --smart-purple: #3C1E66;
+  --smart-gold: #D9A035;
+  --smart-yellow: #FFD43B;
+  --smart-cream: #FFF9F5;
+  --smart-white: #FFFFFF;
+  --smart-text: #382C35;
+  --smart-muted: #6C6074;
 
+  position: relative;
   width: 100%;
+
   background: var(--smart-cream);
-  padding: 65px 20px 75px;
+
+  padding:
+    var(--pkbm-section-pad, 65px)
+    var(--pkbm-container-pad, 24px);
+
   font-family: "Poppins", sans-serif;
 }
 
 .promo-smart,
-.promo-smart * {
+.promo-smart *,
+.promo-smart *::before,
+.promo-smart *::after {
   box-sizing: border-box;
 }
 
 .promo-smart-container {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max, 1160px);
   margin: 0 auto;
 }
 
@@ -44,40 +49,95 @@
 
 .promo-smart-heading h2 {
   margin: 0;
+
   color: var(--smart-purple);
+  font-family: "Poppins", sans-serif;
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: -0.5px;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .promo-smart-divider {
   display: block;
-  width: 60px;
-  height: 3px;
+
+  width: 55px;
+  height: 4px;
+
   margin: 16px auto 0;
+
   background: var(--smart-gold);
   border-radius: 999px;
 }
 
 /* ==========================================
-   PROMO UTAMA - UNGU TUA
+   BANNER PROMO UTAMA
 ========================================== */
 
 .promo-smart-main {
+  position: relative;
+  isolation: isolate;
+
   width: 100%;
-  padding: 35px 24px;
+  min-height: 155px;
+
+  padding: 22px 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    #60358E 0%,
+    #4A2672 45%,
+    #3C1E66 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+
+  box-shadow:
+    0 5px 8px rgba(60, 30, 102, 0.06),
+    0 10px 20px rgba(60, 30, 102, 0.08);
+
+  text-align: center;
+}
+
+/* Efek cahaya halus pada banner */
+
+.promo-smart-main::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(201, 169, 235, 0.17),
+    transparent 65%
+  );
+
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ==========================================
+   KONTEN UTAMA PROMO
+========================================== */
+
+.promo-smart-main-content {
+  position: relative;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
 
-  background: var(--smart-purple);
-  border-radius: 18px;
-
-  text-align: center;
+  width: 100%;
+  min-width: 0;
+  gap: 5px;
 }
 
 /* LABEL DISKON */
@@ -85,74 +145,164 @@
 .promo-smart-main-label {
   display: inline-block;
 
-  color: #f5c66d;
-  font-size: 13px;
-  font-weight: 700;
+  color: var(--smart-yellow);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(12px, 1.3vw, 16px);
+  font-weight: 800;
   line-height: 1.5;
-  letter-spacing: 0.7px;
+
+  letter-spacing: 0.2px;
   text-transform: uppercase;
 }
 
-/* HARGA LAMA + HARGA BARU */
+/* ==========================================
+   HARGA LAMA DAN HARGA BARU
+========================================== */
 
 .promo-smart-prices {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+
+  gap: 8px 24px;
 }
 
 .promo-smart-old-price {
-  color: #d4c5e4;
-  font-size: 21px;
-  font-weight: 500;
+  color: #C8AEE8;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(20px, 2.5vw, 29px);
+  font-weight: 600;
   line-height: 1.4;
-  text-decoration: line-through;
-  text-decoration-thickness: 1.5px;
-}
 
-.promo-smart-new-price {
-  color: #ffffff;
-  font-size: clamp(36px, 5vw, 48px);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 
+.promo-smart-new-price {
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* DESKRIPSI PROMO */
+
 .promo-smart-main-description {
   margin: 0;
-  color: #f5edf8;
+
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 /* ==========================================
-   DUA CARD PROMO
+   ILUSTRASI MEGAFON
+========================================== */
+
+.promo-smart-megaphone {
+  position: absolute;
+  z-index: 1;
+
+  left: 4%;
+  top: 50%;
+
+  width: clamp(140px, 16vw, 195px);
+
+  transform: translateY(-50%) rotate(-5deg);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.promo-smart-megaphone svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 5px 5px rgba(46, 12, 57, 0.12)
+  );
+}
+
+/* ==========================================
+   ILUSTRASI CONFETTI
+========================================== */
+
+.promo-smart-confetti {
+  position: absolute;
+  z-index: 1;
+
+  right: 5%;
+  top: 50%;
+
+  width: clamp(100px, 12vw, 150px);
+
+  transform: translateY(-50%) rotate(8deg);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.promo-smart-confetti svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ==========================================
+   GRID DUA PROMO PENDAMPING
 ========================================== */
 
 .promo-smart-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
+/* ==========================================
+   CARD PROMO
+========================================== */
+
 .promo-smart-card {
+  position: relative;
   min-width: 0;
-  padding: 25px 26px;
+
+  padding: 20px 24px;
 
   display: flex;
   align-items: flex-start;
-  gap: 20px;
 
-  background: var(--smart-white);
-  border: 1px solid var(--smart-border);
-  border-radius: 16px;
+  gap: 18px;
 
-  box-shadow: 0 3px 12px rgba(60, 30, 102, 0.04);
+  background: linear-gradient(
+    145deg,
+    #FFFFFF 0%,
+    #FFFFFF 60%,
+    #FAF5FC 100%
+  );
+
+  border: 1px solid #FFFFFF;
+  border-radius: 24px;
+
+  box-shadow:
+    0 4px 5px rgba(60, 30, 102, 0.035),
+    0 8px 18px rgba(60, 30, 102, 0.075);
 
   transition:
     transform 0.25s ease,
@@ -160,52 +310,79 @@
 }
 
 .promo-smart-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(60, 30, 102, 0.08);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 6px 10px rgba(60, 30, 102, 0.05),
+    0 12px 24px rgba(60, 30, 102, 0.1);
 }
 
-/* ICON */
+/* ==========================================
+   ICON ILUSTRASI CARD
+========================================== */
 
 .promo-smart-icon {
-  width: 60px;
-  height: 60px;
+  width: 78px;
+  height: 78px;
+
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #fbf2ec;
+  background: radial-gradient(
+    circle at 35% 25%,
+    #F8F4FC 0%,
+    #F0E9F7 65%,
+    #E8DEF2 100%
+  );
+
   border-radius: 50%;
-  color: var(--smart-purple);
 }
 
 .promo-smart-icon svg {
-  width: 38px;
-  height: 38px;
+  display: block;
+
+  width: 58px;
+  height: 58px;
+
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 3px 3px rgba(60, 30, 102, 0.08)
+  );
 }
 
-/* KONTEN CARD */
+/* ==========================================
+   KONTEN CARD
+========================================== */
 
 .promo-smart-card-content {
-  flex: 1;
   min-width: 0;
+  flex: 1;
+  padding-top: 2px;
 }
 
 .promo-smart-card h3 {
-  margin: 0 0 10px;
+  margin: 0 0 7px;
+
   color: var(--smart-purple);
-  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 .promo-smart-card p {
   margin: 0;
+
   color: var(--smart-text);
-  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.8;
+  letter-spacing: normal;
 }
 
 /* ==========================================
@@ -215,13 +392,18 @@
 .promo-smart-notes {
   margin-top: 22px;
   padding: 0 12px;
+
   text-align: center;
 }
 
 .promo-smart-notes p {
-  margin: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+
   color: var(--smart-muted);
-  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -238,14 +420,16 @@
 .promo-smart-notes a {
   color: var(--smart-purple);
   font-weight: 700;
+
   text-decoration: underline;
   text-decoration-color: var(--smart-gold);
   text-underline-offset: 3px;
+
   transition: color 0.2s ease;
 }
 
 .promo-smart-notes a:hover {
-  color: #7551a3;
+  color: #60358E;
 }
 
 .promo-smart-notes a:focus-visible {
@@ -255,36 +439,90 @@
 }
 
 /* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 901px) and (max-width: 1200px) {
+
+  .promo-smart-main {
+    padding: 22px 155px;
+  }
+
+  .promo-smart-megaphone {
+    left: 2%;
+    width: 160px;
+  }
+
+  .promo-smart-confetti {
+    right: 3%;
+    width: 120px;
+  }
+
+  .promo-smart-card {
+    padding: 20px;
+    gap: 15px;
+  }
+
+}
+
+/* ==========================================
    TABLET
 ========================================== */
 
 @media (max-width: 900px) {
-  .promo-smart {
-    padding: 60px 20px 70px;
-  }
 
   .promo-smart-main {
-    padding: 32px 20px;
+    min-height: 155px;
+    padding: 22px 120px;
+    border-radius: 24px;
+  }
+
+  .promo-smart-megaphone {
+    left: 1%;
+    width: 130px;
+  }
+
+  .promo-smart-confetti {
+    right: 2%;
+    width: 100px;
+  }
+
+  .promo-smart-prices {
+    gap: 5px 16px;
+  }
+
+  .promo-smart-old-price {
+    font-size: 21px;
+  }
+
+  .promo-smart-new-price {
+    font-size: 36px;
+  }
+
+  .promo-smart-grid {
+    gap: 16px;
   }
 
   .promo-smart-card {
-    padding: 22px 20px;
-    gap: 15px;
+    padding: 18px;
+    gap: 13px;
+    border-radius: 22px;
   }
 
   .promo-smart-icon {
-    width: 52px;
-    height: 52px;
+    width: 64px;
+    height: 64px;
   }
 
   .promo-smart-icon svg {
-    width: 33px;
-    height: 33px;
+    width: 48px;
+    height: 48px;
   }
 
   .promo-smart-card h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
+
 }
 
 /* ==========================================
@@ -292,9 +530,6 @@
 ========================================== */
 
 @media (max-width: 640px) {
-  .promo-smart {
-    padding: 50px 16px 60px;
-  }
 
   .promo-smart-heading {
     margin-bottom: 28px;
@@ -305,24 +540,55 @@
   }
 
   .promo-smart-divider {
-    margin-top: 13px;
+    width: 50px;
+    margin-top: 14px;
   }
 
-  /* PROMO UTAMA */
+  /* Banner utama */
 
   .promo-smart-main {
-    padding: 30px 18px;
-    gap: 12px;
-    border-radius: 14px;
+    min-height: 0;
+
+    padding: 85px 18px 24px;
+
+    border-radius: 22px;
+  }
+
+  .promo-smart-main-content {
+    gap: 7px;
+  }
+
+  /* Megafon di atas konten */
+
+  .promo-smart-megaphone {
+    width: 100px;
+
+    top: -15px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(-8deg);
+  }
+
+  /* Confetti di sudut kanan */
+
+  .promo-smart-confetti {
+    top: 8px;
+    right: 5px;
+
+    width: 65px;
+
+    transform: rotate(8deg);
+    opacity: 0.9;
   }
 
   .promo-smart-main-label {
     font-size: 11px;
-    letter-spacing: 0.4px;
+    line-height: 1.6;
+    letter-spacing: 0;
   }
 
   .promo-smart-prices {
-    gap: 10px 15px;
+    gap: 5px 12px;
   }
 
   .promo-smart-old-price {
@@ -330,91 +596,111 @@
   }
 
   .promo-smart-new-price {
-    font-size: 36px;
+    font-size: 31px;
+    letter-spacing: -0.6px;
   }
 
   .promo-smart-main-description {
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 1.8;
   }
 
-  /* CARD */
+  /* Grid promo */
 
   .promo-smart-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 14px;
+    margin-top: 16px;
   }
 
   .promo-smart-card {
-    padding: 20px 17px;
+    padding: 18px 16px;
     gap: 14px;
-    border-radius: 14px;
+
+    border-radius: 20px;
   }
 
   .promo-smart-icon {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
   }
 
   .promo-smart-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .promo-smart-card-content {
+    padding-top: 0;
   }
 
   .promo-smart-card h3 {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     font-size: 17px;
   }
 
   .promo-smart-card p {
-    font-size: 12px;
-    line-height: 1.75;
+    font-size: 13px;
+    line-height: 1.8;
   }
 
-  /* KETERANGAN */
+  /* Keterangan promo */
 
   .promo-smart-notes {
     margin-top: 20px;
-    padding: 0 3px;
+    padding: 0;
   }
 
   .promo-smart-notes p {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.8;
   }
+
 }
 
 /* ==========================================
-   SMALL MOBILE
+   MOBILE KECIL
 ========================================== */
 
 @media (max-width: 380px) {
-  .promo-smart {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
 
   .promo-smart-main {
-    padding: 26px 12px;
+    padding: 80px 12px 22px;
+  }
+
+  .promo-smart-prices {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
   }
 
   .promo-smart-new-price {
     font-size: 32px;
   }
 
+  .promo-smart-old-price {
+    font-size: 16px;
+  }
+
   .promo-smart-card {
-    padding: 18px 14px;
+    padding: 16px 12px;
+    gap: 12px;
   }
 
   .promo-smart-icon {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
   }
 
   .promo-smart-icon svg {
-    width: 27px;
-    height: 27px;
+    width: 38px;
+    height: 38px;
   }
+
+  .promo-smart-card h3 {
+    font-size: 16px;
+  }
+
 }
 
 /* ==========================================
@@ -422,41 +708,54 @@
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .promo-smart-card,
   .promo-smart-notes a {
     transition: none;
   }
-}
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.promo-smart {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .promo-smart {
-    padding-left: 20px;
-    padding-right: 20px;
+  .promo-smart-card:hover {
+    transform: none;
   }
+
+}
+/* FINISHING PROMO & DISKON */
+
+.promo-smart-heading {
+  margin-bottom: 28px;
 }
 
-@media (max-width: 768px) {
-  .promo-smart {
-    padding-left: 18px;
-    padding-right: 18px;
+.promo-smart-divider {
+  background: #D9A035;
+  margin-top: 14px;
+}
+
+.promo-smart-notes {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.promo-smart-notes p {
+  max-width: 100%;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.promo-smart-notes a {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.promo-smart-notes a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .promo-smart-heading {
+    margin-bottom: 25px;
   }
-}
 
-@media (max-width: 480px) {
-  .promo-smart {
-    padding-left: 15px;
-    padding-right: 15px;
+  .promo-smart-notes p {
+    font-size: 13px;
   }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.promo-smart {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

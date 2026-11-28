@@ -15,7 +15,7 @@
 
   width: 100%;
   min-height: 75vh;
-  padding: 65px 20px 85px;
+  padding: 65px var(--pkbm-container-pad) 85px;
   background: var(--pink-soft);
   font-family: "Poppins", sans-serif;
   color: var(--text);
@@ -388,7 +388,7 @@
 
 @media (max-width: 768px) {
   .pendaftaran-section {
-    padding: 45px 18px 65px;
+    padding: 45px var(--pkbm-container-pad) 65px;
   }
 
   .pendaftaran-card {
@@ -400,7 +400,7 @@
 
 @media (max-width: 560px) {
   .pendaftaran-section {
-    padding: 30px 15px 50px;
+    padding: 30px var(--pkbm-container-pad) 50px;
   }
 
   .pendaftaran-card {

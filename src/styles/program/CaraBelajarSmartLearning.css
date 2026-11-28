@@ -1,27 +1,37 @@
-
 /* ==========================================
    CARA BELAJAR SMART LEARNING
-   PREVIEW 1 - SIMPLE & CLEAN
+   PLAYFUL EDUCATIONAL DESIGN
 ========================================== */
 
 .cara-smart {
-  --smart-purple: #3c1e66;
-  --smart-gold: #d9a035;
-  --smart-cream: #fff9f5;
+  --smart-purple: #3C1E66;
+  --smart-gold: #D9A035;
+  --smart-cream: #FFF9F5;
+  --smart-light-gold: #FFD17B;
+
+  position: relative;
+  width: 100%;
 
   background: var(--smart-cream);
-  padding: 75px 20px 85px;
+
+  padding:
+    var(--pkbm-section-pad)
+    var(--pkbm-container-pad);
+
   font-family: "Poppins", sans-serif;
 }
 
 .cara-smart,
-.cara-smart * {
+.cara-smart *,
+.cara-smart *::before,
+.cara-smart *::after {
   box-sizing: border-box;
 }
 
 .cara-smart-container {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--pkbm-container-max);
   margin: 0 auto;
 }
 
@@ -36,17 +46,21 @@
 
 .cara-smart-heading h2 {
   margin: 0;
+
   color: var(--smart-purple);
+  font-family: "Poppins", sans-serif;
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .cara-smart-divider {
   display: block;
-  width: 60px;
-  height: 3px;
-  margin: 18px auto 0;
+
+  width: 55px;
+  height: 4px;
+  margin: 16px auto 0;
+
   background: var(--smart-gold);
   border-radius: 999px;
 }
@@ -56,10 +70,42 @@
 ========================================== */
 
 .cara-smart-layout {
+  position: relative;
+
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(290px, 0.9fr);
-  gap: 22px;
+
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(290px, 0.9fr);
+
   align-items: stretch;
+  gap: 22px;
+}
+
+/* ==========================================
+   DEKORASI PETIK GOLD
+========================================== */
+
+.cara-smart-petik {
+  position: absolute;
+  z-index: 3;
+
+  width: 36px;
+  height: 36px;
+
+  pointer-events: none;
+}
+
+.cara-smart-petik-left {
+  top: -18px;
+  left: -22px;
+}
+
+.cara-smart-petik-right {
+  top: -18px;
+  right: -22px;
+
+  transform: scaleX(-1);
 }
 
 /* ==========================================
@@ -68,58 +114,114 @@
 
 .cara-smart-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: stretch;
+  gap: 18px;
 }
 
+/* ==========================================
+   CARD CARA BELAJAR
+========================================== */
+
 .cara-smart-card {
+  position: relative;
   min-width: 0;
-  background: #ffffff;
-  border: 1px solid #e9dfe8;
-  border-radius: 16px;
-  padding: 24px 20px;
 
   display: flex;
   align-items: flex-start;
-  gap: 17px;
+  gap: 16px;
 
-  box-shadow: 0 4px 12px rgba(60, 30, 102, 0.05);
+  padding: 20px 18px;
+
+  background: linear-gradient(
+    145deg,
+    #FFFFFF 0%,
+    #FFFFFF 60%,
+    #FAF5FC 100%
+  );
+
+  border: 1px solid #FFFFFF;
+  border-radius: 22px;
+
+  box-shadow:
+    0 4px 5px rgba(60, 30, 102, 0.035),
+    0 8px 18px rgba(60, 30, 102, 0.075);
 
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
+/* Seluruh card menggunakan warna seragam */
+
 .cara-smart-card:nth-child(even) {
-  background: #fdf5fb;
+  background: linear-gradient(
+    145deg,
+    #FFFFFF 0%,
+    #FFFFFF 60%,
+    #FAF5FC 100%
+  );
 }
 
 .cara-smart-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(60, 30, 102, 0.09);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 6px 10px rgba(60, 30, 102, 0.05),
+    0 12px 24px rgba(60, 30, 102, 0.11);
 }
 
 /* ==========================================
-   ICON CARD
+   ICON 3D DAN LINGKARAN PASTEL
 ========================================== */
 
 .cara-smart-card-icon {
-  width: 68px;
-  height: 68px;
+  position: relative;
+
+  width: 76px;
+  height: 76px;
+
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #f7edf5;
-  color: var(--smart-purple);
+  background: radial-gradient(
+    circle at 35% 25%,
+    #F8F4FC 0%,
+    #F0E9F7 65%,
+    #E8DEF2 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
+
+  box-shadow:
+    0 3px 8px rgba(60, 30, 102, 0.035);
 }
 
 .cara-smart-card-icon svg {
-  width: 42px;
-  height: 42px;
+  display: block;
+
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+  overflow: visible;
+
+  filter: drop-shadow(
+    0 3px 3px rgba(60, 30, 102, 0.10)
+  );
+
+  transition: transform 0.25s ease;
+}
+
+.cara-smart-card:hover .cara-smart-card-icon svg {
+  transform: scale(1.06);
 }
 
 /* ==========================================
@@ -130,37 +232,58 @@
   min-width: 0;
   flex: 1;
 
-  border-left: 1px solid #e5d6e5;
-  padding-left: 17px;
+  /* Tanpa garis pemisah */
+  border: none;
+  padding: 2px 0 0;
 }
 
 .cara-smart-card h3 {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
+
   color: var(--smart-purple);
-  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .cara-smart-card p {
   margin: 0;
-  color: #30283a;
-  font-size: 13px;
+
+  color: #382C35;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.8;
+  letter-spacing: normal;
+
+  overflow-wrap: break-word;
 }
+
+/* ==========================================
+   INFORMASI BIAYA TAMBAHAN
+========================================== */
 
 .cara-smart-card .cara-smart-extra {
-  margin-top: 14px;
+  margin-top: 9px;
+
   color: var(--smart-purple);
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1.6;
 }
 
+/* ==========================================
+   INFORMASI ALAMAT
+========================================== */
+
 .cara-smart-card .cara-smart-address {
-  margin-top: 12px;
+  margin-top: 10px;
+
+  color: #4B4052;
   font-size: 12px;
-  line-height: 1.65;
-  color: #4b4052;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 .cara-smart-address strong {
@@ -173,73 +296,128 @@
 ========================================== */
 
 .cara-smart-classes {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   min-width: 0;
-  background: var(--smart-purple);
-  color: #ffffff;
-  border-radius: 16px;
-  padding: 28px 27px;
 
   display: flex;
   flex-direction: column;
+
+  padding: 25px 24px;
+
+  background: linear-gradient(
+    135deg,
+    #3C1E66 0%,
+    #4A2672 55%,
+    #60358E 100%
+  );
+
+  color: #FFFFFF;
+  border-radius: 22px;
+
+  box-shadow:
+    0 5px 14px rgba(60, 30, 102, 0.12);
+}
+
+/* Efek cahaya lembut pada panel */
+
+.cara-smart-classes::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+    ellipse at top right,
+    rgba(255, 255, 255, 0.09),
+    transparent 65%
+  );
+
+  pointer-events: none;
 }
 
 .cara-smart-classes h3 {
   margin: 0;
-  color: #f5c66d;
-  font-size: 24px;
-  font-weight: 700;
+
+  color: var(--smart-light-gold);
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
+  font-weight: 800;
   line-height: 1.4;
 }
 
 .cara-smart-classes-line {
   display: block;
-  width: 65px;
+
+  width: 45px;
   height: 3px;
-  margin: 16px 0 18px;
+  margin: 10px 0 12px;
+
   background: var(--smart-gold);
   border-radius: 999px;
 }
 
+/* ==========================================
+   DAFTAR PILIHAN KELAS
+========================================== */
+
 .cara-smart-class-list {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+
   flex: 1;
-  justify-content: space-around;
 }
 
 .cara-smart-class-item {
   display: flex;
   align-items: center;
+
   gap: 14px;
-  padding: 18px 0;
+  padding: 15px 0;
 }
 
 .cara-smart-class-item + .cara-smart-class-item {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
+/* Icon murid berwarna gold */
+
 .cara-smart-class-icon {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
+
   flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: #f5c66d;
+  color: var(--smart-light-gold);
 }
 
 .cara-smart-class-icon svg {
-  width: 34px;
-  height: 34px;
+  display: block;
+
+  width: 36px;
+  height: 36px;
+
+  filter: drop-shadow(
+    0 2px 2px rgba(0, 0, 0, 0.12)
+  );
 }
 
 .cara-smart-class-item p {
   margin: 0;
-  color: #ffffff;
+
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 .cara-smart-class-item strong {
@@ -247,37 +425,107 @@
 }
 
 /* ==========================================
-   BAR DURASI
+   BAR DURASI GOLD
 ========================================== */
 
 .cara-smart-duration {
-  margin-top: 24px;
-  min-height: 70px;
-  padding: 16px 25px;
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 52px;
+
+  margin-top: 20px;
+  padding: 12px 24px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
 
-  background: var(--smart-gold);
-  border-radius: 14px;
+  gap: 12px;
+
+  background: linear-gradient(
+    100deg,
+    #FFD17B 0%,
+    #F5BE59 50%,
+    #D9A035 100%
+  );
+
+  border: 1px solid rgba(217, 160, 53, 0.25);
+  border-radius: 999px;
+
   color: var(--smart-purple);
+
+  box-shadow:
+    0 4px 10px rgba(217, 160, 53, 0.12);
 }
 
 .cara-smart-duration svg {
-  width: 28px;
-  height: 28px;
+  display: block;
+
+  width: 23px;
+  height: 23px;
+
   flex-shrink: 0;
 }
 
 .cara-smart-duration p {
   margin: 0;
+
   color: var(--smart-purple);
-  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.5;
+
   text-align: center;
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 1101px) and (max-width: 1250px) {
+
+  .cara-smart-layout {
+    grid-template-columns:
+      minmax(0, 2fr)
+      minmax(270px, 0.9fr);
+
+    gap: 18px;
+  }
+
+  .cara-smart-grid {
+    gap: 15px;
+  }
+
+  .cara-smart-card {
+    padding: 18px 15px;
+    gap: 12px;
+  }
+
+  .cara-smart-card-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .cara-smart-card-icon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .cara-smart-card h3 {
+    font-size: 17px;
+  }
+
+  .cara-smart-classes {
+    padding: 22px 20px;
+  }
+
+  .cara-smart-classes h3 {
+    font-size: 22px;
+  }
+
 }
 
 /* ==========================================
@@ -285,17 +533,31 @@
 ========================================== */
 
 @media (max-width: 1100px) {
+
   .cara-smart-layout {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cara-smart-grid {
+    gap: 18px;
+  }
+
+  .cara-smart-card {
+    padding: 22px 18px;
   }
 
   .cara-smart-classes {
-    padding: 25px;
+    padding: 24px;
   }
 
   .cara-smart-class-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    align-items: center;
     gap: 18px;
   }
 
@@ -306,6 +568,22 @@
   .cara-smart-class-item + .cara-smart-class-item {
     border-top: none;
   }
+
+  .cara-smart-petik {
+    width: 30px;
+    height: 30px;
+  }
+
+  .cara-smart-petik-left {
+    top: -15px;
+    left: -15px;
+  }
+
+  .cara-smart-petik-right {
+    top: -15px;
+    right: -15px;
+  }
+
 }
 
 /* ==========================================
@@ -313,9 +591,6 @@
 ========================================== */
 
 @media (max-width: 640px) {
-  .cara-smart {
-    padding: 50px 16px 60px;
-  }
 
   .cara-smart-heading {
     margin-bottom: 28px;
@@ -325,40 +600,61 @@
     font-size: 24px;
   }
 
+  .cara-smart-divider {
+    width: 50px;
+    margin-top: 14px;
+  }
+
+  .cara-smart-layout {
+    gap: 18px;
+  }
+
   .cara-smart-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
   .cara-smart-card {
-    padding: 20px 16px;
+    padding: 20px 18px;
     gap: 14px;
+    border-radius: 20px;
   }
 
   .cara-smart-card-icon {
-    width: 52px;
-    height: 52px;
+    width: 65px;
+    height: 65px;
   }
 
   .cara-smart-card-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 47px;
+    height: 47px;
   }
 
   .cara-smart-card-content {
-    padding-left: 13px;
+    padding: 2px 0 0;
   }
 
   .cara-smart-card h3 {
+    margin-bottom: 6px;
     font-size: 17px;
   }
 
   .cara-smart-card p {
     font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .cara-smart-card .cara-smart-extra {
+    font-size: 12px;
+  }
+
+  .cara-smart-card .cara-smart-address {
+    font-size: 12px;
   }
 
   .cara-smart-classes {
-    padding: 23px 20px;
+    padding: 22px 20px;
+    border-radius: 20px;
   }
 
   .cara-smart-classes h3 {
@@ -368,6 +664,7 @@
   .cara-smart-class-list {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 0;
   }
 
@@ -376,60 +673,93 @@
   }
 
   .cara-smart-class-item + .cara-smart-class-item {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .cara-smart-class-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cara-smart-class-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cara-smart-class-item p {
+    font-size: 13px;
   }
 
   .cara-smart-duration {
-    min-height: 60px;
-    padding: 14px 18px;
-    gap: 10px;
+    min-height: 52px;
+
+    margin-top: 18px;
+    padding: 12px 15px;
+
+    gap: 9px;
+    border-radius: 16px;
   }
 
   .cara-smart-duration svg {
-    width: 23px;
-    height: 23px;
+    width: 21px;
+    height: 21px;
   }
 
   .cara-smart-duration p {
-    font-size: 15px;
+    font-size: 14px;
   }
+
+  .cara-smart-petik {
+    display: none;
+  }
+
 }
+
+/* ==========================================
+   MOBILE KECIL
+========================================== */
+
+@media (max-width: 380px) {
+
+  .cara-smart-card {
+    padding: 18px 14px;
+    gap: 12px;
+  }
+
+  .cara-smart-card-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .cara-smart-card-icon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .cara-smart-card h3 {
+    font-size: 16px;
+  }
+
+  .cara-smart-duration p {
+    font-size: 13px;
+  }
+
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .cara-smart-card {
+
+  .cara-smart-card,
+  .cara-smart-card-icon svg {
     transition: none;
   }
-}
 
-/* ALIGN-LEBAR-PROGRAM: batas kiri-kanan mengikuti card Rincian Biaya Kesetaraan */
-.cara-smart {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 992px) {
-  .cara-smart {
-    padding-left: 20px;
-    padding-right: 20px;
+  .cara-smart-card:hover,
+  .cara-smart-card:hover .cara-smart-card-icon svg {
+    transform: none;
   }
-}
 
-@media (max-width: 768px) {
-  .cara-smart {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .cara-smart {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-/* JARAK-ANTARSECTION: jarak antarsection memakai variabel global --pkbm-section-pad (MainLayout) */
-.cara-smart {
-  padding-top: var(--pkbm-section-pad);
-  padding-bottom: var(--pkbm-section-pad);
 }

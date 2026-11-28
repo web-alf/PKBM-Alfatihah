@@ -1,0 +1,625 @@
+/* =========================================
+   DETAIL ARTIKEL
+========================================= */
+
+.detail-artikel {
+  --artikel-purple: #a74e92;
+  --artikel-magenta: #92197b;
+  --artikel-yellow: #fcd757;
+  --artikel-cream: #fff9f5;
+  --artikel-pink: #f8d5eb;
+  --artikel-text: #34405b;
+
+  position: relative;
+  width: 100%;
+  padding: 55px clamp(32px, 5.5vw, 100px) 85px;
+  background: var(--artikel-cream);
+  font-family: "Poppins", Arial, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.detail-artikel *,
+.detail-artikel *::before,
+.detail-artikel *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.detail-artikel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   TOMBOL KEMBALI
+========================================= */
+
+.detail-artikel-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  color: var(--artikel-magenta);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.detail-artikel-back svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.detail-artikel-back:hover {
+  color: var(--artikel-purple);
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.detail-artikel-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 28px;
+}
+
+/* =========================================
+   ARTIKEL UTAMA
+========================================= */
+
+.detail-artikel-main {
+  min-width: 0;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(117, 25, 79, 0.04);
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.detail-artikel-heading {
+  margin-bottom: 28px;
+}
+
+.detail-artikel-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  margin-bottom: 15px;
+  background: var(--artikel-pink);
+  color: var(--artikel-magenta);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.detail-artikel-heading h1 {
+  margin: 0;
+  color: var(--artikel-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.detail-artikel-divider {
+  width: 55px;
+  height: 4px;
+  margin: 16px 0;
+  background: var(--artikel-yellow);
+  border-radius: 50px;
+}
+
+/* =========================================
+   META ARTIKEL
+========================================= */
+
+.detail-artikel-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  color: #80717c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.detail-artikel-meta span,
+.detail-artikel-meta time {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.detail-artikel-meta svg {
+  width: 16px;
+  height: 16px;
+  color: var(--artikel-purple);
+  flex-shrink: 0;
+}
+
+/* =========================================
+   GAMBAR UTAMA
+========================================= */
+
+.detail-artikel-figure {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.detail-artikel-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   ISI ARTIKEL
+========================================= */
+
+.detail-artikel-content {
+  color: var(--artikel-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.detail-artikel-content p {
+  margin: 0 0 20px;
+}
+
+.detail-artikel-content h2 {
+  margin: 32px 0 15px;
+  color: var(--artikel-magenta);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.detail-artikel-content h3 {
+  margin: 25px 0 12px;
+  color: var(--artikel-magenta);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.detail-artikel-content strong {
+  font-weight: 700;
+}
+
+.detail-artikel-content em {
+  font-style: italic;
+}
+
+.detail-artikel-content ol,
+.detail-artikel-content ul {
+  margin: 0 0 22px;
+  padding-left: 24px;
+}
+
+.detail-artikel-content li {
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.detail-artikel-content ol {
+  list-style: decimal;
+}
+
+.detail-artikel-content ul {
+  list-style: disc;
+}
+
+.detail-artikel-content li::marker {
+  color: var(--artikel-magenta);
+  font-weight: 600;
+}
+
+.detail-artikel-content a {
+  color: var(--artikel-magenta);
+  text-decoration: underline;
+}
+
+/* =========================================
+   PENULIS DAN EDITOR
+========================================= */
+
+.detail-artikel-credit {
+  margin-top: 30px;
+  padding: 18px 20px;
+  background: #fff5fa;
+  border-left: 4px solid var(--artikel-purple);
+  border-radius: 0 12px 12px 0;
+  color: var(--artikel-text);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.detail-artikel-credit p {
+  margin: 0;
+}
+
+.detail-artikel-credit strong {
+  color: var(--artikel-magenta);
+  font-weight: 700;
+}
+
+/* =========================================
+   NAVIGASI BAWAH
+========================================= */
+
+.detail-artikel-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid #f0e2eb;
+}
+
+.detail-artikel-bottom a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 22px;
+  background: var(--artikel-magenta);
+  color: #ffffff;
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+
+  transition: background 0.2s ease;
+}
+
+.detail-artikel-bottom a svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.detail-artikel-bottom a:hover {
+  background: var(--artikel-purple);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.detail-artikel-sidebar {
+  min-width: 0;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 22px;
+}
+
+.detail-artikel-sidebar-heading {
+  margin-bottom: 22px;
+}
+
+.detail-artikel-sidebar-heading > span {
+  color: var(--artikel-purple);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.detail-artikel-sidebar-heading h2 {
+  margin: 7px 0 0;
+  color: var(--artikel-magenta);
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.detail-artikel-sidebar-divider {
+  width: 40px;
+  height: 3px;
+  margin-top: 12px;
+  background: var(--artikel-yellow);
+  border-radius: 50px;
+}
+
+/* =========================================
+   CARD ARTIKEL LAINNYA
+========================================= */
+
+.detail-artikel-related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-artikel-related-card {
+  display: block;
+  min-width: 0;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 16px;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.detail-artikel-related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(117, 25, 79, 0.08);
+}
+
+.detail-artikel-related-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 11px;
+  background: #fff5fa;
+}
+
+.detail-artikel-related-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.detail-artikel-related-body {
+  padding: 12px 3px 5px;
+}
+
+.detail-artikel-related-category {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--artikel-pink);
+  color: var(--artikel-magenta);
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.detail-artikel-related-body h3 {
+  margin: 9px 0;
+  color: var(--artikel-magenta);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.detail-artikel-related-body time {
+  display: block;
+  color: #80717c;
+  font-size: 11px;
+}
+
+.detail-artikel-related-link {
+  display: block;
+  margin-top: 12px;
+  color: var(--artikel-magenta);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================
+   TOMBOL LIHAT SEMUA
+========================================= */
+
+.detail-artikel-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 12px 16px;
+  background: var(--artikel-magenta);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.detail-artikel-all:hover {
+  background: var(--artikel-purple);
+}
+
+.detail-artikel a:focus-visible {
+  outline: 3px solid var(--artikel-purple);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   RESPONSIVE LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .detail-artikel {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .detail-artikel-layout {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 22px;
+  }
+
+  .detail-artikel-main {
+    padding: 25px;
+  }
+
+  .detail-artikel-sidebar {
+    padding: 18px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .detail-artikel {
+    padding: 45px 40px 65px;
+  }
+
+  .detail-artikel-container {
+    max-width: 800px;
+  }
+
+  .detail-artikel-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .detail-artikel-related-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .detail-artikel {
+    padding: 30px 24px 50px;
+  }
+
+  .detail-artikel-container {
+    max-width: 420px;
+  }
+
+  .detail-artikel-back {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .detail-artikel-layout {
+    gap: 22px;
+  }
+
+  .detail-artikel-main {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .detail-artikel-heading {
+    margin-bottom: 22px;
+  }
+
+  .detail-artikel-heading h1 {
+    font-size: 25px;
+  }
+
+  .detail-artikel-badge {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  .detail-artikel-meta {
+    font-size: 11px;
+    gap: 8px 14px;
+  }
+
+  .detail-artikel-meta svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .detail-artikel-figure {
+    margin-bottom: 22px;
+    border-radius: 12px;
+  }
+
+  .detail-artikel-content {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .detail-artikel-content p {
+    margin-bottom: 17px;
+  }
+
+  .detail-artikel-content h2 {
+    margin-top: 25px;
+    font-size: 19px;
+  }
+
+  .detail-artikel-content h3 {
+    font-size: 16px;
+  }
+
+  .detail-artikel-credit {
+    padding: 14px 16px;
+    font-size: 12px;
+  }
+
+  .detail-artikel-sidebar {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .detail-artikel-sidebar-heading h2 {
+    font-size: 21px;
+  }
+
+  .detail-artikel-related-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .detail-artikel-bottom {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  .detail-artikel-bottom a {
+    padding: 11px 16px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-artikel-back,
+  .detail-artikel-related-card,
+  .detail-artikel-all,
+  .detail-artikel-bottom a {
+    transition: none;
+  }
+
+  .detail-artikel-related-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,573 @@
+---
+import { Image } from "astro:assets";
+import "../styles/program/GaleriFoto.css";
+
+import instagramImage from "../assets/image/ig-pkbm.webp";
+import tiktokImage from "../assets/image/tiktok-pkbm.webp";
+
+import testi1 from "../assets/image/testi1.webp";
+import testi2 from "../assets/image/testi2.webp";
+import testi3 from "../assets/image/testi3.webp";
+import testi4 from "../assets/image/testi4.webp";
+import testi5 from "../assets/image/testi5.webp";
+
+const galleries = [
+  {
+    id: "sosial-media",
+    title: "Sosial Media PKBM Alfatihah",
+    description:
+      "Ikuti keseruan kegiatan dan informasi terbaru dari PKBM Alfatihah.",
+    theme: "pink",
+    images: [
+      {
+        image: instagramImage,
+        alt: "Instagram PKBM Alfatihah",
+        label: "Instagram",
+      },
+      {
+        image: tiktokImage,
+        alt: "TikTok PKBM Alfatihah",
+        label: "TikTok",
+      },
+    ],
+  },
+  {
+    id: "testimoni",
+    title: "Testimoni Santri",
+    description:
+      "Cerita dan pengalaman belajar bersama keluarga PKBM Alfatihah.",
+    theme: "yellow",
+    images: [
+      {
+        image: testi1,
+        alt: "Testimoni Santri 1",
+        label: "Testimoni 1",
+      },
+      {
+        image: testi2,
+        alt: "Testimoni Santri 2",
+        label: "Testimoni 2",
+      },
+      {
+        image: testi3,
+        alt: "Testimoni Santri 3",
+        label: "Testimoni 3",
+      },
+      {
+        image: testi4,
+        alt: "Testimoni Santri 4",
+        label: "Testimoni 4",
+      },
+      {
+        image: testi5,
+        alt: "Testimoni Santri 5",
+        label: "Testimoni 5",
+      },
+    ],
+  },
+];
+---
+
+<section
+  class="galeri-foto"
+  aria-labelledby="galeri-foto-title"
+>
+  <div class="galeri-foto-container">
+
+    <!-- HEADING -->
+    <header class="galeri-foto-heading">
+
+      <span class="galeri-foto-badge">
+        Galeri PKBM Alfatihah
+      </span>
+
+      <h1 id="galeri-foto-title">
+        Galeri Foto
+      </h1>
+
+      <div
+        class="galeri-foto-divider"
+        aria-hidden="true"
+      ></div>
+
+      <p>
+        Lebih dekat dengan keluarga PKBM Alfatihah melalui
+        berbagai cerita, kegiatan, dan pengalaman belajar.
+      </p>
+
+    </header>
+
+    <!-- GALLERY GRID -->
+    <div class="galeri-foto-grid">
+
+      {galleries.map((gallery) => (
+        <article
+          class:list={[
+            "galeri-foto-card",
+            `galeri-foto-card--${gallery.theme}`,
+          ]}
+          data-gallery-carousel
+          aria-label={gallery.title}
+          aria-roledescription="carousel"
+        >
+
+          <!-- CARD HEADING -->
+          <div class="galeri-foto-card-heading">
+
+            <h2>{gallery.title}</h2>
+
+            <p>{gallery.description}</p>
+
+          </div>
+
+          <!-- CAROUSEL -->
+          <div class="galeri-foto-carousel">
+
+            <!-- DEKORASI -->
+            <div
+              class="galeri-foto-circle"
+              aria-hidden="true"
+            ></div>
+
+            <svg
+              class="galeri-foto-sparkle sparkle-left"
+              viewBox="0 0 40 40"
+              aria-hidden="true"
+            >
+              <path
+                d="M20 0 Q22 18 40 20 Q22 22 20 40 Q18 22 0 20 Q18 18 20 0"
+                fill="currentColor"
+              />
+            </svg>
+
+            <svg
+              class="galeri-foto-sparkle sparkle-right"
+              viewBox="0 0 40 40"
+              aria-hidden="true"
+            >
+              <path
+                d="M20 0 Q22 18 40 20 Q22 22 20 40 Q18 22 0 20 Q18 18 20 0"
+                fill="currentColor"
+              />
+            </svg>
+
+            <!-- VIEWPORT -->
+            <div
+              class="galeri-foto-viewport"
+              data-gallery-viewport
+            >
+              <div
+                class="galeri-foto-track"
+                data-gallery-track
+              >
+
+                {gallery.images.map((item, index) => (
+                  <div
+                    class="galeri-foto-slide"
+                    data-gallery-slide
+                    aria-hidden={index !== 0 ? "true" : "false"}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      class="galeri-foto-image"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      draggable="false"
+                    />
+                  </div>
+                ))}
+
+              </div>
+            </div>
+
+            <!-- PANAH KIRI -->
+            <button
+              type="button"
+              class="galeri-foto-arrow galeri-foto-prev"
+              data-gallery-prev
+              aria-label="Gambar sebelumnya"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+
+            <!-- PANAH KANAN -->
+            <button
+              type="button"
+              class="galeri-foto-arrow galeri-foto-next"
+              data-gallery-next
+              aria-label="Gambar berikutnya"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+
+          </div>
+
+          <!-- LABEL -->
+          <div class="galeri-foto-caption">
+
+            <span
+              class="galeri-foto-label"
+              data-gallery-label
+            >
+              {gallery.images[0].label}
+            </span>
+
+          </div>
+
+          <!-- DOTS -->
+          <div class="galeri-foto-controls">
+
+            <div
+              class="galeri-foto-dots"
+              aria-label="Pilih gambar"
+            >
+
+              {gallery.images.map((item, index) => (
+                <button
+                  type="button"
+                  class:list={[
+                    "galeri-foto-dot",
+                    { "is-active": index === 0 },
+                  ]}
+                  data-gallery-dot
+                  data-index={index}
+                  data-label={item.label}
+                  aria-label={`Tampilkan ${item.label}`}
+                  aria-pressed={index === 0 ? "true" : "false"}
+                />
+              ))}
+
+            </div>
+
+            <!-- PAUSE AUTOPLAY -->
+            <button
+              type="button"
+              class="galeri-foto-pause"
+              data-gallery-pause
+              aria-label="Jeda pergantian otomatis"
+              aria-pressed="false"
+            >
+              <span data-gallery-pause-icon>Ⅱ</span>
+            </button>
+
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const carousels =
+    document.querySelectorAll<HTMLElement>(
+      "[data-gallery-carousel]"
+    );
+
+  carousels.forEach((carousel) => {
+    const track =
+      carousel.querySelector<HTMLElement>(
+        "[data-gallery-track]"
+      );
+
+    const viewport =
+      carousel.querySelector<HTMLElement>(
+        "[data-gallery-viewport]"
+      );
+
+    const slides = Array.from(
+      carousel.querySelectorAll<HTMLElement>(
+        "[data-gallery-slide]"
+      )
+    );
+
+    const dots = Array.from(
+      carousel.querySelectorAll<HTMLButtonElement>(
+        "[data-gallery-dot]"
+      )
+    );
+
+    const prevButton =
+      carousel.querySelector<HTMLButtonElement>(
+        "[data-gallery-prev]"
+      );
+
+    const nextButton =
+      carousel.querySelector<HTMLButtonElement>(
+        "[data-gallery-next]"
+      );
+
+    const pauseButton =
+      carousel.querySelector<HTMLButtonElement>(
+        "[data-gallery-pause]"
+      );
+
+    const pauseIcon =
+      carousel.querySelector<HTMLElement>(
+        "[data-gallery-pause-icon]"
+      );
+
+    const label =
+      carousel.querySelector<HTMLElement>(
+        "[data-gallery-label]"
+      );
+
+    if (!track || !viewport || slides.length < 2) return;
+
+    let currentIndex = 0;
+    let timer: number | undefined;
+    let startX = 0;
+    let startY = 0;
+    let isHovered = false;
+    let hasFocus = false;
+    let isVisible = false;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    let isPaused = reducedMotion.matches;
+
+    const interval = 4000;
+
+    function goToSlide(index: number) {
+      currentIndex =
+        (index + slides.length) % slides.length;
+
+      if (track) {
+        track.style.transform =
+          `translateX(-${currentIndex * 100}%)`;
+      }
+
+      slides.forEach((slide, i) => {
+        slide.setAttribute(
+          "aria-hidden",
+          String(i !== currentIndex)
+        );
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle(
+          "is-active",
+          i === currentIndex
+        );
+
+        dot.setAttribute(
+          "aria-pressed",
+          String(i === currentIndex)
+        );
+      });
+
+      if (label) {
+        label.textContent =
+          dots[currentIndex]?.dataset.label || "";
+      }
+    }
+
+    function stopAutoplay() {
+      if (timer !== undefined) {
+        window.clearInterval(timer);
+        timer = undefined;
+      }
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+
+      if (
+        isPaused ||
+        isHovered ||
+        hasFocus ||
+        !isVisible ||
+        document.hidden
+      ) {
+        return;
+      }
+
+      timer = window.setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, interval);
+    }
+
+    function updatePauseButton() {
+      pauseButton?.setAttribute(
+        "aria-pressed",
+        String(isPaused)
+      );
+
+      pauseButton?.setAttribute(
+        "aria-label",
+        isPaused
+          ? "Lanjutkan pergantian otomatis"
+          : "Jeda pergantian otomatis"
+      );
+
+      if (pauseIcon) {
+        pauseIcon.textContent =
+          isPaused ? "▶" : "Ⅱ";
+      }
+    }
+
+    // PANAH KIRI
+    prevButton?.addEventListener("click", () => {
+      goToSlide(currentIndex - 1);
+      startAutoplay();
+    });
+
+    // PANAH KANAN
+    nextButton?.addEventListener("click", () => {
+      goToSlide(currentIndex + 1);
+      startAutoplay();
+    });
+
+    // DOTS
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+        startAutoplay();
+      });
+    });
+
+    // PAUSE / PLAY
+    pauseButton?.addEventListener("click", () => {
+      isPaused = !isPaused;
+
+      updatePauseButton();
+      startAutoplay();
+    });
+
+    // BERHENTI SAAT MOUSE BERADA DI CARD
+    carousel.addEventListener("mouseenter", () => {
+      isHovered = true;
+      stopAutoplay();
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+      isHovered = false;
+      startAutoplay();
+    });
+
+    // BERHENTI SAAT KONTROL MENDAPAT FOKUS
+    carousel.addEventListener("focusin", () => {
+      hasFocus = true;
+      stopAutoplay();
+    });
+
+    carousel.addEventListener("focusout", (event) => {
+      if (
+        event.relatedTarget instanceof Node &&
+        carousel.contains(event.relatedTarget)
+      ) {
+        return;
+      }
+
+      hasFocus = false;
+      startAutoplay();
+    });
+
+    // SWIPE MOBILE
+    viewport.addEventListener(
+      "touchstart",
+      (event) => {
+        startX = event.changedTouches[0].clientX;
+        startY = event.changedTouches[0].clientY;
+
+        stopAutoplay();
+      },
+      { passive: true }
+    );
+
+    viewport.addEventListener(
+      "touchend",
+      (event) => {
+        const endX =
+          event.changedTouches[0].clientX;
+
+        const endY =
+          event.changedTouches[0].clientY;
+
+        const differenceX = startX - endX;
+        const differenceY = startY - endY;
+
+        if (
+          Math.abs(differenceX) > 45 &&
+          Math.abs(differenceX) > Math.abs(differenceY)
+        ) {
+          if (differenceX > 0) {
+            goToSlide(currentIndex + 1);
+          } else {
+            goToSlide(currentIndex - 1);
+          }
+        }
+
+        startAutoplay();
+      },
+      { passive: true }
+    );
+
+    viewport.addEventListener(
+      "touchcancel",
+      startAutoplay
+    );
+
+    // KEYBOARD NAVIGATION
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToSlide(currentIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToSlide(currentIndex + 1);
+      }
+    });
+
+    // HANYA AUTOPLAY SAAT TERLIHAT
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+        startAutoplay();
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(carousel);
+
+    document.addEventListener(
+      "visibilitychange",
+      startAutoplay
+    );
+
+    reducedMotion.addEventListener("change", (event) => {
+      isPaused = event.matches;
+      updatePauseButton();
+      startAutoplay();
+    });
+
+    goToSlide(0);
+    updatePauseButton();
+  });
+</script>

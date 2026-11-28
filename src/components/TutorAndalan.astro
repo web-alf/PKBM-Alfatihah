@@ -1,0 +1,632 @@
+
+---
+import "../styles/about/TutorAndalan.css";
+
+// DEKORASI DAUN
+import daunKiri from "../assets/image/Overlapping Green Leaves with Soft Shadow.png";
+import daunKanan from "../assets/image/Overlapping Green Leaf Bush.png";
+
+// FOTO TUTOR ASLI
+import tutor15 from "../assets/image/15.webp";
+import tutor16 from "../assets/image/16.webp";
+import tutor17 from "../assets/image/17.webp";
+import tutor18 from "../assets/image/18.webp";
+import tutor19 from "../assets/image/19.webp";
+import tutor20 from "../assets/image/20.webp";
+import tutor21 from "../assets/image/21.webp";
+import tutor22 from "../assets/image/22.webp";
+import tutor23 from "../assets/image/23.webp";
+import tutor24 from "../assets/image/24-tambahan-_11zon.webp";
+
+const tutors = [
+  {
+    src: tutor15,
+    alt: "Mutiara Melani Azizah - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor16,
+    alt: "Dita Herdilah - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor17,
+    alt: "Umi Zar'in, S.Sos. - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor18,
+    alt: "Nabila Susanti Nada, S.Psi. - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor19,
+    alt: "Dewi Saharani, S.Sos. - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor20,
+    alt: "Gerin Yusup - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor21,
+    alt: "Rofiidah Anshoriyah, S.Pd. - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor22,
+    alt: "Dini Fajriatu Syahidah, S.Ag. - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor23,
+    alt: "Indah Sabillah, S.Ag. - Tutor PKBM Alfatihah",
+  },
+  {
+    src: tutor24,
+    alt: "Gita Novianti, S.Pd. - Tutor PKBM Alfatihah",
+  },
+];
+
+// TIGA SET UNTUK INFINITE CAROUSEL
+const carouselTutors = [
+  ...tutors,
+  ...tutors,
+  ...tutors,
+];
+---
+
+<section
+  class="tutor-andalan"
+  aria-labelledby="tutor-andalan-title"
+>
+
+  <!-- =====================================
+       DEKORASI DAUN DI BELAKANG BACKGROUND
+  ====================================== -->
+
+  <div class="tutor-decoration" aria-hidden="true">
+
+    <img
+      src={daunKiri.src}
+      width={daunKiri.width}
+      height={daunKiri.height}
+      class="tutor-daun tutor-daun-left"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      draggable="false"
+    />
+
+    <img
+      src={daunKanan.src}
+      width={daunKanan.width}
+      height={daunKanan.height}
+      class="tutor-daun tutor-daun-right"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      draggable="false"
+    />
+
+  </div>
+
+  <!-- =====================================
+       BACKGROUND UNGU DAN GELOMBANG
+       BERADA DI DEPAN DAUN
+  ====================================== -->
+
+  <div class="tutor-background" aria-hidden="true">
+
+    <!-- GELOMBANG ATAS -->
+
+    <svg
+      class="tutor-wave tutor-wave-top"
+      viewBox="0 0 1440 100"
+      preserveAspectRatio="none"
+      focusable="false"
+    >
+      <path
+        d="
+          M0 65
+          C100 12 180 8 300 40
+          C420 72 500 14 620 18
+          C740 22 830 52 950 38
+          C1070 24 1160 32 1270 42
+          C1350 50 1400 42 1440 65
+          V100
+          H0
+          Z
+        "
+      />
+    </svg>
+
+    <!-- BACKGROUND TENGAH -->
+
+    <div class="tutor-background-body"></div>
+
+    <!-- GELOMBANG BAWAH -->
+
+    <svg
+      class="tutor-wave tutor-wave-bottom"
+      viewBox="0 0 1440 100"
+      preserveAspectRatio="none"
+      focusable="false"
+    >
+      <path
+        d="
+          M0 0
+          H1440
+          V55
+          C1320 90 1240 76 1130 48
+          C1010 18 930 30 820 62
+          C710 94 620 70 500 46
+          C380 22 300 88 180 58
+          C100 38 55 30 0 70
+          Z
+        "
+      />
+    </svg>
+
+  </div>
+
+  <!-- =====================================
+       KONTEN UTAMA
+  ====================================== -->
+
+  <div class="tutor-andalan-container">
+
+    <div class="tutor-heading">
+
+      <h2 id="tutor-andalan-title">
+        Tutor Andalan
+      </h2>
+
+      <div class="tutor-accent"></div>
+
+    </div>
+
+    <!-- =====================================
+         CAROUSEL
+    ====================================== -->
+
+    <div
+      class="tutor-carousel"
+      data-carousel
+      data-count={tutors.length}
+      aria-roledescription="carousel"
+      aria-label="Tutor Andalan PKBM Alfatihah"
+    >
+
+      <div class="tutor-carousel-main">
+
+        <div class="tutor-frame">
+
+          <div
+            class="tutor-track"
+            data-track
+            tabindex="0"
+            aria-label="Daftar tutor andalan"
+          >
+
+            {carouselTutors.map((tutor, index) => (
+
+              <div
+                class="tutor-slide"
+                role="group"
+                aria-label={`Tutor ${(index % tutors.length) + 1} dari ${tutors.length}`}
+                aria-hidden={
+                  index < tutors.length ||
+                  index >= tutors.length * 2
+                    ? "true"
+                    : undefined
+                }
+              >
+
+                <img
+                  src={tutor.src.src}
+                  width={tutor.src.width}
+                  height={tutor.src.height}
+                  alt={tutor.alt}
+                  loading={
+                    index >= tutors.length &&
+                    index < tutors.length + 5
+                      ? "eager"
+                      : "lazy"
+                  }
+                  decoding="async"
+                  draggable="false"
+                />
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+        <!-- PANAH KIRI -->
+
+        <button
+          type="button"
+          class="tutor-nav is-prev"
+          data-prev
+          aria-label="Tutor sebelumnya"
+        >
+
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 4L6 10L12 16" />
+          </svg>
+
+        </button>
+
+        <!-- PANAH KANAN -->
+
+        <button
+          type="button"
+          class="tutor-nav is-next"
+          data-next
+          aria-label="Tutor berikutnya"
+        >
+
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M8 4L14 10L8 16" />
+          </svg>
+
+        </button>
+
+      </div>
+
+      <!-- =====================================
+           PAGINATION 10 TITIK
+      ====================================== -->
+
+      <div
+        class="tutor-dots"
+        aria-label="Navigasi tutor"
+      >
+
+        {tutors.map((_, index) => (
+
+          <button
+            type="button"
+            class:list={[
+              "tutor-dot",
+              { "is-active": index === 0 },
+            ]}
+            data-dot={index}
+            aria-label={`Tampilkan tutor ${index + 1}`}
+            aria-current={index === 0 ? "true" : "false"}
+          />
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+  function initTutorCarousel() {
+
+    document
+      .querySelectorAll<HTMLElement>(
+        ".tutor-carousel[data-carousel]"
+      )
+      .forEach((root) => {
+
+        if (root.dataset.initialized === "true") {
+          return;
+        }
+
+        const track =
+          root.querySelector<HTMLElement>("[data-track]");
+
+        const slides = Array.from(
+          root.querySelectorAll<HTMLElement>(".tutor-slide")
+        );
+
+        const dots = Array.from(
+          root.querySelectorAll<HTMLButtonElement>("[data-dot]")
+        );
+
+        const prev =
+          root.querySelector<HTMLButtonElement>("[data-prev]");
+
+        const next =
+          root.querySelector<HTMLButtonElement>("[data-next]");
+
+        const count = Number(root.dataset.count);
+
+        if (!track || !count || slides.length < 2) {
+          return;
+        }
+
+        root.dataset.initialized = "true";
+
+        let activeIndex = 0;
+        let physicalIndex = count;
+
+        let scrollTimer: number | undefined;
+        let isMoving = false;
+
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
+
+        // JARAK ANTAR FOTO TERMASUK GAP
+
+        const getStep = () => {
+
+          return (
+            slides[1].getBoundingClientRect().left -
+            slides[0].getBoundingClientRect().left
+          );
+
+        };
+
+        // INDEX ASLI 0 SAMPAI 9
+
+        const normalize = (index: number) => {
+
+          return ((index % count) + count) % count;
+
+        };
+
+        // UPDATE DOT AKTIF
+
+        const updateDots = (index: number) => {
+
+          activeIndex = normalize(index);
+
+          dots.forEach((dot, i) => {
+
+            const active = i === activeIndex;
+
+            dot.classList.toggle("is-active", active);
+
+            dot.setAttribute(
+              "aria-current",
+              String(active)
+            );
+
+          });
+
+        };
+
+        // PINDAH TANPA ANIMASI
+
+        const jumpTo = (index: number) => {
+
+          const oldBehavior = track.style.scrollBehavior;
+          const oldSnap = track.style.scrollSnapType;
+
+          track.style.scrollBehavior = "auto";
+          track.style.scrollSnapType = "none";
+
+          track.scrollLeft = index * getStep();
+
+          track.style.scrollBehavior = oldBehavior;
+          track.style.scrollSnapType = oldSnap;
+
+          physicalIndex = index;
+
+        };
+
+        // SELESAI SCROLL
+
+        const finishScroll = () => {
+
+          const step = getStep();
+
+          if (!step) return;
+
+          physicalIndex = Math.round(
+            track.scrollLeft / step
+          );
+
+          const logicalIndex = normalize(physicalIndex);
+
+          // RESET KE SET TENGAH
+
+          if (
+            physicalIndex < count ||
+            physicalIndex >= count * 2
+          ) {
+
+            jumpTo(count + logicalIndex);
+
+          }
+
+          isMoving = false;
+
+          updateDots(logicalIndex);
+
+        };
+
+        // GESER KE FOTO TERTENTU
+
+        const moveTo = (index: number) => {
+
+          isMoving = true;
+
+          updateDots(index);
+
+          track.scrollTo({
+            left: index * getStep(),
+            behavior: reducedMotion.matches
+              ? "instant"
+              : "smooth",
+          });
+
+          window.clearTimeout(scrollTimer);
+
+          scrollTimer = window.setTimeout(
+            finishScroll,
+            reducedMotion.matches ? 30 : 500
+          );
+
+        };
+
+        // PANAH GESER SATU FOTO
+
+        const moveOne = (direction: number) => {
+
+          if (isMoving) return;
+
+          moveTo(physicalIndex + direction);
+
+        };
+
+        // KLIK TITIK LANGSUNG KE FOTO TERKAIT
+
+        const goToTutor = (index: number) => {
+
+          if (isMoving) {
+
+            jumpTo(count + activeIndex);
+
+            isMoving = false;
+
+          }
+
+          const candidates = [
+            index,
+            index + count,
+            index + count * 2,
+          ];
+
+          const maxScroll =
+            track.scrollWidth - track.clientWidth;
+
+          const validCandidates = candidates.filter(
+            (candidate) =>
+              candidate * getStep() <= maxScroll + 2
+          );
+
+          const nearest = validCandidates.reduce(
+            (best, candidate) =>
+              Math.abs(candidate - physicalIndex) <
+              Math.abs(best - physicalIndex)
+                ? candidate
+                : best,
+            count + index
+          );
+
+          moveTo(nearest);
+
+        };
+
+        // EVENT PANAH
+
+        prev?.addEventListener("click", () => {
+          moveOne(-1);
+        });
+
+        next?.addEventListener("click", () => {
+          moveOne(1);
+        });
+
+        // EVENT PAGINATION
+
+        dots.forEach((dot, index) => {
+
+          dot.addEventListener("click", () => {
+            goToTutor(index);
+          });
+
+        });
+
+        // SWIPE MANUAL
+
+        track.addEventListener(
+          "scroll",
+          () => {
+
+            if (!isMoving && getStep()) {
+
+              updateDots(
+                Math.round(track.scrollLeft / getStep())
+              );
+
+            }
+
+            window.clearTimeout(scrollTimer);
+
+            scrollTimer = window.setTimeout(
+              finishScroll,
+              150
+            );
+
+          },
+          { passive: true }
+        );
+
+        // KEYBOARD
+
+        track.addEventListener("keydown", (event) => {
+
+          if (event.key === "ArrowLeft") {
+
+            event.preventDefault();
+
+            moveOne(-1);
+
+          }
+
+          if (event.key === "ArrowRight") {
+
+            event.preventDefault();
+
+            moveOne(1);
+
+          }
+
+        });
+
+        // RESPONSIVE
+
+        const resizeObserver = new ResizeObserver(() => {
+
+          window.clearTimeout(scrollTimer);
+
+          jumpTo(count + activeIndex);
+
+          isMoving = false;
+
+        });
+
+        resizeObserver.observe(track);
+
+        // POSISI AWAL
+
+        jumpTo(count);
+
+        updateDots(0);
+
+      });
+
+  }
+
+  initTutorCarousel();
+
+  document.addEventListener(
+    "astro:page-load",
+    initTutorCarousel
+  );
+
+</script>

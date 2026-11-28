@@ -55,6 +55,7 @@ const {
             if (tag === "SCRIPT" || tag === "STYLE" || tag === "TEMPLATE") {
               return false;
             }
+            if (el.getAttribute("aria-hidden") === "true") return false;
             var cs = getComputedStyle(el);
             return (
               cs.position !== "absolute" &&
@@ -81,38 +82,46 @@ const {
           );
 
           Array.prototype.forEach.call(sections, function (section) {
-            var box = section.firstElementChild;
-            if (!box) return;
-
             var isHero = section.matches(
               '[class*="hero"], .program-kesetaraan'
             );
 
-            usableChildren(box).forEach(function (child, index) {
-              if (isHero) {
-                add(child, Math.min(index, 5) * 100);
+            // Lewati elemen dekorasi (gelombang, awan, background) agar tetap statis
+            usableChildren(section).forEach(function (box) {
+              if (box.namespaceURI !== "http://www.w3.org/1999/xhtml") return;
+              var kids = usableChildren(box).filter(function (k) {
+                return k.namespaceURI === "http://www.w3.org/1999/xhtml";
+              });
+              if (!kids.length) {
+                add(box, 0);
                 return;
               }
+              kids.forEach(function (child, index) {
+                if (isHero) {
+                  add(child, Math.min(index, 5) * 80);
+                  return;
+                }
 
-              var display = getComputedStyle(child).display;
-              var sub =
-                (display === "grid" || display === "flex") &&
-                child.tagName !== "P"
-                  ? usableChildren(child)
-                  : [];
-              var splittable =
-                sub.length >= 2 &&
-                sub.every(function (cell) {
-                  return getComputedStyle(cell).display !== "inline";
-                });
+                var display = getComputedStyle(child).display;
+                var sub =
+                  (display === "grid" || display === "flex") &&
+                  child.tagName !== "P"
+                    ? usableChildren(child)
+                    : [];
+                var splittable =
+                  sub.length >= 2 &&
+                  sub.every(function (cell) {
+                    return getComputedStyle(cell).display !== "inline";
+                  });
 
-              if (splittable) {
-                sub.forEach(function (cell, i) {
-                  add(cell, (i % 4) * 80);
-                });
-              } else {
-                add(child, 0);
-              }
+                if (splittable) {
+                  sub.forEach(function (cell, i) {
+                    add(cell, (i % 4) * 80);
+                  });
+                } else {
+                  add(child, 0);
+                }
+              });
             });
           });
 
@@ -158,6 +167,8 @@ const {
     --pkbm-gold-light: #ffe0a3;
     --pkbm-white: #ffffff;
     --pkbm-cream: #faf5f0;
+    --pkbm-lilac: #f2e1f4;
+    --pkbm-blush: #fff5fa;
     --pkbm-ink: #292333;
     --pkbm-text-muted: #51434c;
     --pkbm-border: #e8dccb;
@@ -173,6 +184,12 @@ const {
     --pkbm-gold-rgb: 217, 160, 53;
     --pkbm-white-rgb: 255, 255, 255;
     --pkbm-section-pad: 48px;
+
+    /* Standar container global — acuan: section "Program apa saja
+       yang ada di PKBM Alfatihah?" (ProgramKami). Dipakai di seluruh
+       halaman agar batas kiri/kanan konten konsisten. */
+    --pkbm-container-max: 1160px;
+    --pkbm-container-pad: clamp(32px, 5.5vw, 100px);
   }
 
   @media (max-width: 1023px) {
@@ -187,12 +204,48 @@ const {
     }
   }
 
+  /* Laptop */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    :global(:root) {
+      --pkbm-container-pad: 42px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    :global(:root) {
+      --pkbm-container-max: 800px;
+      --pkbm-container-pad: 40px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    :global(:root) {
+      --pkbm-container-max: 420px;
+      --pkbm-container-pad: 24px;
+    }
+  }
+
   :global(*) {
+    box-sizing: border-box;
+  }
+
+  /* Kelas container global yang bisa dipakai ulang di seluruh halaman.
+     Hanya membatasi lebar konten; background/gelombang section tetap
+     full-width karena tidak dibatasi oleh kelas ini. */
+  :global(.pkbm-container) {
+    width: 100%;
+    max-width: var(--pkbm-container-max);
+    margin: 0 auto;
+    padding-left: var(--pkbm-container-pad);
+    padding-right: var(--pkbm-container-pad);
     box-sizing: border-box;
   }
 
   :global(html) {
     min-height: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
   }
@@ -200,6 +253,7 @@ const {
   :global(body) {
     margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
     font-family: Arial, Helvetica, sans-serif;
     background: var(--pkbm-cream);
     color: var(--pkbm-ink);
@@ -211,3 +265,4 @@ const {
     }
   }
 </style>
+

@@ -1,6 +1,6 @@
-
 ---
 import "../styles/program/MetodeKurikulumHomeschooling.css";
+import gambarPBL from "../assets/image/Glowing Light Bulb and Books.webp";
 
 const manfaatPBL = [
   "Berpikir Kritis",
@@ -30,37 +30,59 @@ const kurikulum = [
           Metode Project Based Learning (PBL)
         </h2>
 
-        <div class="hk-heading-line" aria-hidden="true"></div>
-
-        <p>
-          Pembelajaran berbasis proyek melatih Ananda untuk:
-        </p>
+        <div
+          class="hk-heading-line"
+          aria-hidden="true"
+        ></div>
       </div>
 
-      <!-- SATU CARD PUTIH UNTUK SEMUA MANFAAT -->
-      <div class="hk-pbl-card">
-        <ul class="hk-pbl-list">
-          {manfaatPBL.map((manfaat) => (
-            <li class="hk-pbl-item">
+      <!-- GAMBAR DAN KONTEN PBL -->
+      <div class="hk-pbl-layout">
 
-              <span class="hk-check" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12.5 10 17l9-10" />
-                </svg>
-              </span>
+        <!-- ILUSTRASI -->
+        <div class="hk-pbl-illustration">
+          <img
+            src={gambarPBL.src}
+            width={gambarPBL.width}
+            height={gambarPBL.height}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
 
-              <span>{manfaat}</span>
+        <!-- KONTEN -->
+        <div class="hk-pbl-content">
 
-            </li>
-          ))}
-        </ul>
+          <p class="hk-pbl-description">
+            Pembelajaran berbasis proyek melatih Ananda untuk:
+          </p>
+
+          <ul class="hk-pbl-list">
+            {manfaatPBL.map((manfaat) => (
+              <li class="hk-pbl-item">
+
+                <span class="hk-check" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12.5 10 17l9-10" />
+                  </svg>
+                </span>
+
+                <span>{manfaat}</span>
+
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
       </div>
 
     </div>

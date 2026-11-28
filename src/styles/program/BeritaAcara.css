@@ -1,0 +1,426 @@
+/* =========================================
+   BERITA ACARA
+========================================= */
+
+.berita-acara {
+  --berita-purple: #a74e92;
+  --berita-magenta: #92197b;
+  --berita-yellow: #fcd757;
+  --berita-cream: #fff9f5;
+  --berita-pink: #f8d5eb;
+  --berita-text: #34405b;
+
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 75px clamp(32px, 5.5vw, 100px) 85px;
+  background: var(--berita-cream);
+  font-family: "Poppins", Arial, sans-serif;
+  overflow: hidden;
+}
+
+.berita-acara *,
+.berita-acara *::before,
+.berita-acara *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   DEKORASI BACKGROUND
+========================================= */
+
+.berita-acara::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  left: -160px;
+  width: 420px;
+  height: 350px;
+  background: var(--berita-pink);
+  border-radius: 40% 60% 65% 35%;
+  transform: rotate(-25deg);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.berita-acara::after {
+  content: "";
+  position: absolute;
+  right: -180px;
+  bottom: -220px;
+  width: 440px;
+  height: 380px;
+  background: var(--berita-pink);
+  border-radius: 65% 35% 40% 60%;
+  transform: rotate(-25deg);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.berita-acara-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.berita-acara-heading {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.berita-acara-heading h1 {
+  margin: 0;
+  color: var(--berita-magenta);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.berita-acara-divider {
+  width: 55px;
+  height: 4px;
+  margin: 16px auto 20px;
+  background: var(--berita-yellow);
+  border-radius: 50px;
+}
+
+.berita-acara-heading p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--berita-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================================
+   GRID BERITA
+========================================= */
+
+.berita-acara-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 26px;
+}
+
+/* =========================================
+   CARD BERITA
+========================================= */
+
+.berita-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  padding: 13px;
+  background: #ffffff;
+  border: 1px solid #f0e2eb;
+  border-radius: 22px;
+  box-shadow: 0 5px 20px rgba(117, 25, 79, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.berita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(117, 25, 79, 0.1);
+}
+
+/* =========================================
+   GAMBAR BERITA
+========================================= */
+
+.berita-card-media {
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.berita-card-image-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #fff5fa;
+}
+
+.berita-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.3s ease;
+}
+
+.berita-card:hover .berita-card-image {
+  transform: scale(1.04);
+}
+
+/* =========================================
+   BADGE KATEGORI
+========================================= */
+
+.berita-card-category {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: calc(100% - 20px);
+  padding: 7px 12px;
+  background: var(--berita-magenta);
+  color: #ffffff;
+  border-radius: 50px;
+
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+/* =========================================
+   KONTEN CARD
+========================================= */
+
+.berita-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 3px 7px 9px;
+}
+
+/* =========================================
+   JUDUL BERITA
+========================================= */
+
+.berita-card-title {
+  margin: 0 0 15px;
+  color: var(--berita-magenta);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.berita-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.berita-card-title a:hover {
+  color: var(--berita-purple);
+}
+
+/* =========================================
+   TANGGAL
+========================================= */
+
+.berita-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: auto;
+  margin-bottom: 20px;
+
+  color: #80717c;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.berita-card-date svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--berita-purple);
+}
+
+/* =========================================
+   FOOTER CARD
+========================================= */
+
+.berita-card-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+  border-top: 1px solid #f0e2eb;
+}
+
+/* =========================================
+   TOMBOL BACA SELENGKAPNYA
+========================================= */
+
+.berita-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 11px 20px;
+  background: var(--berita-magenta);
+  color: #ffffff;
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.berita-card-button svg {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.berita-card-button:hover {
+  background: var(--berita-purple);
+  transform: translateY(-2px);
+}
+
+.berita-card a:focus-visible {
+  outline: 3px solid var(--berita-purple);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   RESPONSIVE LAPTOP
+========================================= */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .berita-acara {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .berita-acara-grid {
+    gap: 22px;
+  }
+
+  .berita-card-title {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .berita-acara {
+    padding: 60px 40px 70px;
+  }
+
+  .berita-acara-container {
+    max-width: 800px;
+  }
+
+  .berita-acara-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .berita-acara {
+    padding: 45px 24px 55px;
+  }
+
+  .berita-acara-container {
+    max-width: 420px;
+  }
+
+  .berita-acara-heading {
+    margin-bottom: 30px;
+  }
+
+  .berita-acara-heading h1 {
+    font-size: 28px;
+  }
+
+  .berita-acara-heading p {
+    font-size: 13px;
+  }
+
+  .berita-acara-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .berita-card {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .berita-card-title {
+    font-size: 17px;
+  }
+
+  .berita-card-category {
+    font-size: 10px;
+  }
+
+  .berita-card-date {
+    font-size: 11px;
+  }
+
+  .berita-card-button {
+    font-size: 11px;
+  }
+
+  .berita-acara::before,
+  .berita-acara::after {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .berita-card,
+  .berita-card-image,
+  .berita-card-button {
+    transition: none;
+  }
+
+  .berita-card:hover,
+  .berita-card:hover .berita-card-image,
+  .berita-card-button:hover {
+    transform: none;
+  }
+}

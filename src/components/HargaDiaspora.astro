@@ -1,4 +1,3 @@
-
 ---
 import "../styles/program/HargaDiaspora.css";
 
@@ -31,43 +30,220 @@ const daftarHarga = [
 >
   <div class="harga-diaspora-container">
 
+    <!-- JUDUL SECTION -->
     <header class="harga-diaspora-heading">
       <h2 id="harga-diaspora-title">
         Harga per Pertemuan
       </h2>
 
-      <span class="harga-diaspora-divider" aria-hidden="true"></span>
+      <span
+        class="harga-diaspora-divider"
+        aria-hidden="true"
+      ></span>
 
       <p>
         Per peserta, durasi 60 menit. Berlaku sama untuk Tahsin dan Tahfidz.
       </p>
     </header>
 
-    <div class="harga-diaspora-grid">
-      {daftarHarga.map((item) => (
-        <article class="harga-diaspora-card">
-          <h3>{item.kelas}</h3>
+    <div class="harga-diaspora-layout">
 
-          <p class="harga-diaspora-peserta">
-            {item.peserta}
-          </p>
+      <!-- TIGA CARD HARGA -->
+      <div class="harga-diaspora-grid">
 
-          <span class="harga-diaspora-line" aria-hidden="true"></span>
+        {daftarHarga.map((item, index) => (
+          <article class="harga-diaspora-card">
 
-          <div class="harga-diaspora-price">
-            <strong>{item.harga}</strong>
+            <!-- BENTUK KESELURUHAN CARD -->
+            <svg
+              class="harga-diaspora-card-shape"
+              viewBox="0 0 320 280"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M1 65
+                   C1 42 17 35 40 32
+                   C95 28 115 1 160 1
+                   C205 1 225 28 280 32
+                   C303 35 319 42 319 65
+                   V251
+                   Q319 279 291 279
+                   H29
+                   Q1 279 1 251
+                   Z"
+                fill="#FFFFFF"
+                stroke="#E9C77E"
+                stroke-width="1"
+                vector-effect="non-scaling-stroke"
+              />
+            </svg>
 
-            {item.keterangan && (
-              <span>{item.keterangan}</span>
-            )}
-          </div>
-        </article>
-      ))}
+            <!-- HEADER NAVY -->
+            <div class="harga-diaspora-card-header">
+
+              <!-- BENTUK GELOMBANG NAVY -->
+              <svg
+                class="harga-diaspora-header-shape"
+                viewBox="0 0 320 180"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1 65
+                     C1 42 17 35 40 32
+                     C95 28 115 1 160 1
+                     C205 1 225 28 280 32
+                     C303 35 319 42 319 65
+                     V142
+                     Q160 216 1 142
+                     Z"
+                  fill="#001C49"
+                />
+              </svg>
+
+              <!-- IKON ORANG -->
+              <div
+                class="harga-diaspora-class-icon"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 80 65" fill="none">
+
+                  {index === 0 ? (
+                    <>
+                      <circle
+                        cx="40"
+                        cy="17"
+                        r="12"
+                        fill="#F5D177"
+                      />
+
+                      <path
+                        d="M20 57V43C20 30 29 27 40 27C51 27 60 30 60 43V57Z"
+                        fill="#D9A035"
+                      />
+
+                      <path
+                        d="M25 53V43C25 33 32 30 40 30C48 30 55 33 55 43V53Z"
+                        fill="#F5D177"
+                      />
+
+                      <ellipse
+                        cx="36"
+                        cy="11"
+                        rx="5"
+                        ry="3"
+                        fill="#F5D177"
+                        opacity=".7"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      {index === 2 && (
+                        <>
+                          <circle
+                            cx="26"
+                            cy="10"
+                            r="8"
+                            fill="#D9A035"
+                          />
+
+                          <circle
+                            cx="54"
+                            cy="10"
+                            r="8"
+                            fill="#D9A035"
+                          />
+
+                          <path
+                            d="M13 34V26Q13 17 26 17Q39 17 39 26V34Z"
+                            fill="#D9A035"
+                          />
+
+                          <path
+                            d="M41 34V26Q41 17 54 17Q67 17 67 26V34Z"
+                            fill="#D9A035"
+                          />
+                        </>
+                      )}
+
+                      <!-- ORANG KIRI -->
+                      <circle
+                        cx="17"
+                        cy="23"
+                        r="9"
+                        fill="#D9A035"
+                      />
+
+                      <path
+                        d="M3 53V43Q3 32 17 32Q31 32 31 43V53Z"
+                        fill="#B5801F"
+                      />
+
+                      <!-- ORANG KANAN -->
+                      <circle
+                        cx="63"
+                        cy="23"
+                        r="9"
+                        fill="#D9A035"
+                      />
+
+                      <path
+                        d="M49 53V43Q49 32 63 32Q77 32 77 43V53Z"
+                        fill="#B5801F"
+                      />
+
+                      <!-- ORANG TENGAH -->
+                      <circle
+                        cx="40"
+                        cy="16"
+                        r="12"
+                        fill="#F5D177"
+                      />
+
+                      <path
+                        d="M21 60V43Q21 29 40 29Q59 29 59 43V60Z"
+                        fill="#F5D177"
+                        stroke="#D9A035"
+                        stroke-width="1.5"
+                      />
+                    </>
+                  )}
+
+                </svg>
+              </div>
+
+              <h3>{item.kelas}</h3>
+
+              <p class="harga-diaspora-peserta">
+                {item.peserta}
+              </p>
+
+            </div>
+
+            <!-- NOMINAL HARGA -->
+            <div class="harga-diaspora-price">
+
+              <strong>{item.harga}</strong>
+
+              {item.keterangan && (
+                <span>{item.keterangan}</span>
+              )}
+
+            </div>
+
+          </article>
+        ))}
+
+      </div>
+
     </div>
 
+    <!-- CATATAN PEMBAYARAN -->
     <p class="harga-diaspora-note">
       Pembayaran dalam mata uang asing (mis. USD, EUR, SAR) dapat disediakan mengikuti kurs saat transaksi.
     </p>
 
   </div>
+
 </section>

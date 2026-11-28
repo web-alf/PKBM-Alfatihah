@@ -1,12 +1,8 @@
 ---
 import "../styles/home/ProgramRingkas.css";
 
-const programs = [
-  "Kejar Paket A, B & C",
-  "Alfatihah Homeschooling",
-  "Alfatihah Smart Learning",
-  "Diaspora Qur’an Center",
-];
+import bukuImage from "../assets/image/Colorful Books and Pen Cup.png";
+import tasImage from "../assets/image/Purple Moon Backpack with Leaf Accents.png";
 ---
 
 <section
@@ -14,48 +10,223 @@ const programs = [
   id="program-pendidikan"
   aria-labelledby="program-ringkas-title"
 >
+  <!-- GELOMBANG ATAS -->
+  <svg
+    class="program-ringkas-wave-top"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0 60
+         C180 5 300 10 480 45
+         C680 88 820 100 1020 48
+         C1200 4 1320 24 1440 55
+         V100H0Z"
+      fill="#A74E92"
+    />
+  </svg>
+
+  <!-- AWAN KIRI -->
+  <svg
+    class="cta-cloud cta-cloud-left"
+    viewBox="0 0 120 52"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <defs>
+      <linearGradient
+        id="cta-cloud-grad"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="1"
+      >
+        <stop offset="0" stop-color="#EFD6F6" />
+        <stop offset="1" stop-color="#D3ACEB" />
+      </linearGradient>
+    </defs>
+
+    <path
+      d="M10 49
+         C-2 49 -1 36 10 34
+         C12 24 26 20 33 27
+         C36 10 56 4 69 13
+         C75 17 78 22 79 26
+         C87 20 100 23 102 33
+         C113 33 119 46 108 49Z"
+      fill="url(#cta-cloud-grad)"
+    />
+  </svg>
+
+  <!-- AWAN KANAN -->
+  <svg
+    class="cta-cloud cta-cloud-right"
+    viewBox="0 0 120 52"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M10 49
+         C-2 49 -1 36 10 34
+         C12 24 26 20 33 27
+         C36 10 56 4 69 13
+         C75 17 78 22 79 26
+         C87 20 100 23 102 33
+         C113 33 119 46 108 49Z"
+      fill="url(#cta-cloud-grad)"
+    />
+  </svg>
+
+  <!-- GAMBAR BUKU SEBELAH KIRI -->
+  <div
+    class="cta-deco cta-deco-left"
+    aria-hidden="true"
+  >
+    <img
+      src={bukuImage.src}
+      width={bukuImage.width}
+      height={bukuImage.height}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      draggable="false"
+    />
+  </div>
+
+  <!-- GAMBAR TAS SEBELAH KANAN -->
+  <div
+    class="cta-deco cta-deco-right"
+    aria-hidden="true"
+  >
+    <img
+      src={tasImage.src}
+      width={tasImage.width}
+      height={tasImage.height}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      draggable="false"
+    />
+  </div>
+
+  <!-- KONTEN UTAMA -->
   <div class="program-ringkas-container">
-    <p class="program-ringkas-label">PROGRAM PENDIDIKAN</p>
 
-    <h2 id="program-ringkas-title">
-      Temukan Jalan Belajarmu Bersama Kami
-    </h2>
-
-    <div class="program-ringkas-line" aria-hidden="true"></div>
-
-    <p class="program-ringkas-desc">
-      Empat pilihan program yang dirancang untuk mendukung setiap
-      perjalanan pendidikan.
+    <p class="program-ringkas-label">
+      PROGRAM PKBM ALFATIHAH
     </p>
 
-    <ul class="program-ringkas-list">
-      {programs.map((name) => (
-        <li>
-          <svg
-            class="program-ringkas-check"
-            viewBox="0 0 28 28"
-            width="28"
-            height="28"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle cx="14" cy="14" r="14" fill="#D9A035"></circle>
-            <path
-              d="m8.5 14.5 3.6 3.6 7.4-7.6"
-              stroke="#85005B"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
-          <span>{name}</span>
-        </li>
-      ))}
-    </ul>
+    <h2 id="program-ringkas-title">
 
-    <a href="/program-kesetaraan" class="program-ringkas-btn">
-      Jelajahi Semua Program
-      <span aria-hidden="true">→</span>
+      <span class="program-ringkas-sr">
+        Temukan Jalan Belajarmu Bersama Kami
+      </span>
+
+      <!-- JUDUL PUTIH MELENGKUNG -->
+      <svg
+        class="cta-title-arc"
+        viewBox="0 0 640 68"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          id="cta-title-path"
+          d="M8 57 Q320 23 632 57"
+          fill="none"
+        />
+
+        <text>
+          <textPath
+            href="#cta-title-path"
+            startOffset="50%"
+            text-anchor="middle"
+          >Temukan Jalan Belajarmu</textPath>
+        </text>
+      </svg>
+
+      <!-- TAGLINE KUNING -->
+      <svg
+        class="cta-badge"
+        viewBox="0 0 440 80"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          d="M32 16
+             Q220 -2 408 16
+             C449 19 449 66 408 69
+             Q220 53 32 69
+             C-9 66 -9 19 32 16Z"
+          fill="#FFC400"
+        />
+
+        <path
+          id="cta-badge-path"
+          d="M18 55 Q220 39 422 55"
+          fill="none"
+        />
+
+        <text>
+          <textPath
+            href="#cta-badge-path"
+            startOffset="50%"
+            text-anchor="middle"
+          >Bersama Kami</textPath>
+        </text>
+      </svg>
+
+    </h2>
+
+    <!-- DESKRIPSI -->
+    <p class="program-ringkas-desc">
+      Pilih program yang sesuai dengan kebutuhanmu
+      <br class="cta-desktop-break" />
+      dan raih pendidikan yang lebih baik, kapan saja dan di mana saja.
+    </p>
+
+    <!-- TOMBOL DAFTAR SEKARANG -->
+    <a
+      href="/pendaftaran"
+      class="program-ringkas-btn"
+    >
+      Daftar Sekarang
+
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M9 5L16 12L9 19"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </a>
+
   </div>
+
+  <!-- GELOMBANG BAWAH -->
+  <svg
+    class="program-ringkas-wave"
+    viewBox="0 0 1440 100"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0 60
+         C180 5 300 10 480 45
+         C680 88 820 100 1020 48
+         C1200 4 1320 24 1440 55
+         V100H0Z"
+    />
+  </svg>
+
 </section>
